@@ -48,5 +48,19 @@ npm start
 
 ## Deploying
 
+Creating server:
+
 ```sh
+heroku create -n impeachment-tweet-analysis-web
+
+# or connecting to existing server:
+# heroku git:remote -a impeachment-tweet-analysis-web
 ```
+
+Deploying:
+
+```sh
+git push heroku deploy:master
+```
+
+Deploying will run scripts/build
