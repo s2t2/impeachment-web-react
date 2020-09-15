@@ -70,4 +70,4 @@ Deploying:
 git push heroku deploy:master
 ```
 
-Deploying will run scripts/build
+Deploying will run scripts/build.
