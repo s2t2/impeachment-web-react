@@ -57,6 +57,13 @@ heroku create -n impeachment-tweet-analysis-web
 # heroku git:remote -a impeachment-tweet-analysis-web
 ```
 
+Customizing buildpacks:
+
+```sh
+heroku buildpacks:remove heroku/nodejs
+heroku buildpacks:add mars/create-react-app
+```
+
 Deploying:
 
 ```sh
