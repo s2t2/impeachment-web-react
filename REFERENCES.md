@@ -1,5 +1,11 @@
 # References
 
+## Create React App
+
+```sh
+npx create-react-app impeachment-web-prototype-react
+```
+
 ## Heroku
 
   + https://devcenter.heroku.com/articles/buildpacks
@@ -14,3 +20,12 @@
   + https://mdbootstrap.com/education/react/
   + https://mdbootstrap.com/docs/react/getting-started/quick-start/
   + https://create-react-app.dev/docs/deployment/#heroku
+
+## DataTable
+
+  + https://github.com/react-bootstrap-table/react-bootstrap-table2
+  + https://github.com/react-bootstrap-table/react-bootstrap-table2/tree/master/packages/react-bootstrap-table2-example/examples
+
+```sh
+npm install react-bootstrap-table-next --save
+```
