@@ -32,6 +32,7 @@ Initializing an app for the first time (if you were starting from scratch):
 
 ```sh
 npx create-react-app impeachment-web-prototype-react
+# npm install --save mdbreact
 ```
 
 Installing package dependencies:
