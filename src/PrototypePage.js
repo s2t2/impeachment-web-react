@@ -1,8 +1,11 @@
 import React from 'react';
+//import Button from 'react-bootstrap/Button';
 
 import Nav from './PrototypeNav';
 import Table from './PrototypeTable';
 import Footer from './PrototypeFooter';
+
+import './PrototypePage.css';
 
 function PrototypePage() {
   return (
@@ -26,6 +29,7 @@ function PrototypePage() {
               </span>
               <span class="col-md-4">
                   <div id="opinion-meter"></div>
+
               </span>
           </header>
 
