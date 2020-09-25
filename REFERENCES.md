@@ -99,3 +99,5 @@ npm install react-router-bootstrap react-router-dom --save
 ```sh
 npm install react-plotly.js plotly.js --save
 ```
+
+  + https://plotly.com/javascript/horizontal-bar-charts/
