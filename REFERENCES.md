@@ -44,6 +44,12 @@ Implementations w/ react.js:
 
   + https://create-react-app.dev/docs/adding-a-stylesheet/
 
+Initializing the app:
+
+```sh
+npx create-react-app impeachment-web-prototype-react
+```
+
 ## React Bootstrap
 
   + https://react-bootstrap.github.io/getting-started/introduction

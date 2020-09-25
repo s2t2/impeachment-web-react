@@ -28,12 +28,6 @@ nvm install 12.18.3 # installs a specific version, and automatically starts usin
 
 ## Setup
 
-Initializing an app for the first time (only if you were starting from scratch):
-
-```sh
-# npx create-react-app impeachment-web-prototype-react
-```
-
 Installing package dependencies:
 
 ```sh
