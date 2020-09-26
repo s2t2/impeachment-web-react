@@ -4,27 +4,37 @@ import Container from 'react-bootstrap/Container';
 
 class Dashboard extends React.Component {
   constructor(props) {
-    //console.log("[DASHBOARD CONSTRUCTOR]")
-    console.log("PROPS:", props)
-
     super(props)
-    this.state = { counter: 0 };
+    //console.log("[DASHBOARD CONSTRUCTOR]")
+    //console.log("PROPS:", props)
+
+    //this.state = { counter: 0 };
     //this.handleClick = this.handleClick.bind(this);
   }
 
   render() {
-    var layout = {title: 'My Chart'} // width: 320, height: 240,
-    var data = [{
+    var layout0 = {width: 400, height: 300, title: 'Users Most Retweeted (Community 0)'}
+    var layout1 = {width: 400, height: 300, title: 'Users Most Retweeted (Community 1)'} // TODO: red
+
+    var data0 = [{
       type: 'bar',
-      x: [20, 14, 23],
-      y: ['giraffes', 'orangutans', 'monkeys'],
+      x: [10, 20, 30],
+      y: ['User A', 'User B', 'User C'],
+      orientation: 'h'
+    }];
+
+    var data1 = [{
+      type: 'bar',
+      x: [5, 10, 50],
+      y: ['User X', 'User Y', 'User Z'],
       orientation: 'h'
     }];
 
     return (
        <Container className="Dashboard">
-        <Plot className="Community-0" data={data} layout={layout}/>
-        <Plot className="Community-1" data={data} layout={layout}/>
+        <h3>Demo Dashboard</h3>
+        <Plot className="Community-0-Chart" data={data0} layout={layout0}/>
+        <Plot className="Community-1-Chart" data={data1} layout={layout1}/>
       </Container>
     );
   }
@@ -47,7 +57,25 @@ class Dashboard extends React.Component {
     console.log("[DASHBOARD DID UPDATE]")
   }
 
+  //fetchData(){
+  //
+  //  var serverURL = "localhost:8899" // TODO: set via env var
+  //  var requestURL = `${serverUrl}/api/v0/`
+  //
+  //  fetch(requestURL)
+  //    .then(function(response) {
+  //      console.log("RAW RESPONSE", "STATUS", response.status, response.statusText, response.ok, "HEADERS", response.headers, response.url)
+  //      return response.json()
+  //    })
+  //    .then(function(json){
+  //      console.log("PARSED RESPONSE BODY", json)
+  //      //this.setState({chartData: json.results}) // displaySpinner:false,
+  //      this.setState({responseData: [{"user": "1"}, {"user": "2"}, {"user": "3"}]}) // displaySpinner:false,
+  //    }.bind(this))
+  //    .catch(function(err){
+  //      console.error("FETCH ERR", err) // alert... There was an issue fetching schedule results from the server. Please try again, or contact the developer if the issue persists."
+  //    })
+  //}
 }
-
 
 export default Dashboard;

@@ -50,6 +50,10 @@ Initializing the app:
 npx create-react-app impeachment-web-prototype-react
 ```
 
+## React
+
+  + https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
 ## React Bootstrap
 
   + https://react-bootstrap.github.io/getting-started/introduction
