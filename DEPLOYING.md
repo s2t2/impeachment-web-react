@@ -24,6 +24,7 @@ Configuring env vars:
 ```sh
 heroku config:set REACT_APP_API_URL="https://your-api.herokuapp.com"
 ```
+> NOTE: with the react buildpack, need to re-deploy [AFTER](https://github.com/mars/create-react-app-buildpack/issues/178) setting env vars in order for them to be recognized
 
 ## Deploying
 

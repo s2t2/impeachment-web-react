@@ -41,6 +41,8 @@ Create a new file called ".env" in the root directory, and place inside the foll
 REACT_APP_API_URL="https://your-api.herokuapp.com"
 ```
 
+> NOTE: env vars prefixed with "REACT_APP_" are [NOT SECURE](https://create-react-app.dev/docs/adding-custom-environment-variables/), so if you need to set a secret value, don't use that prefix
+
 ## Usage
 
 ```sh
