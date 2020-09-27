@@ -7,51 +7,32 @@ import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import { LinkContainer } from 'react-router-bootstrap';
 
+import Dashboard from '../Dashboards/UsersMostRetweeted/Dashboard.js';
+
 import './App.css';
 
-const Home = () => <span>Home</span>;
+const Home = () => <h2>Home</h2>;
 
-const About = () => <span>About</span>;
+const About = () => <h2>About</h2>;
 
-const Users = () => <span>Users</span>;
-
+// NOTE: inside the Switch, the "/" route needs to be listed last
 const App = () => (
   <MemoryRouter>
     <Container className="p-3">
 
-      <Jumbotron>
-        <h1 className="header">Welcome To React-Bootstrap</h1>
+        <h1 className="header">Impeachment Tweet Analysis</h1>
 
-        <h2>
-          Current Page is{' '}
-          <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/users">
-              <Users />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </h2>
+        <ButtonToolbar className="custom-btn-toolbar">
+          <LinkContainer to="/"><Button>Home</Button></LinkContainer>
+          <LinkContainer to="/about"><Button>About</Button></LinkContainer>
+          <LinkContainer to="/users_most_retweeted"><Button>Users Most Retweeted</Button></LinkContainer>
+        </ButtonToolbar>
 
-        <h2>
-          Navigate to{' '}
-          <ButtonToolbar className="custom-btn-toolbar">
-            <LinkContainer to="/">
-              <Button>Home</Button>
-            </LinkContainer>
-            <LinkContainer to="/about">
-              <Button>About</Button>
-            </LinkContainer>
-            <LinkContainer to="/users">
-              <Button>Users</Button>
-            </LinkContainer>
-          </ButtonToolbar>
-        </h2>
-      </Jumbotron>
+        <Switch>
+          <Route path="/about"><About /></Route>
+          <Route path="/users_most_retweeted"><Dashboard /></Route>
+          <Route path="/"><Home /></Route>
+        </Switch>
 
     </Container>
 
