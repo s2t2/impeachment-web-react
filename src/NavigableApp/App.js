@@ -1,6 +1,7 @@
 import React from 'react';
 import { MemoryRouter, Switch, Route } from 'react-router-dom';
 
+import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
@@ -20,6 +21,11 @@ const About = () => <h2>About</h2>;
 // NOTE: inside the Switch, the "/" route needs to be listed last
 const App = () => (
   <MemoryRouter>
+    <Alert key="warning" variant="warning">
+      FYI: This website is currently in development and does not necessarily reflect final research results.
+      If you're interested in getting a notification when it's ready, email <a href="mailto:prof.mj.rossetti@gmail.com">prof.mj.rossetti@gmail.com</a>.
+    </Alert>
+
     <Container className="p-3">
 
         <h1 className="header">Impeachment Tweet Analysis</h1>
