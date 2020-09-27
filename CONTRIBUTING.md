@@ -46,29 +46,3 @@ REACT_APP_API_URL="https://your-api.herokuapp.com"
 ```sh
 npm start
 ```
-
-## Deploying
-
-Creating server:
-
-```sh
-heroku create -n impeachment-tweet-analysis-web
-
-# or connecting to existing server:
-# heroku git:remote -a impeachment-tweet-analysis-web
-```
-
-Customizing buildpacks:
-
-```sh
-heroku buildpacks:remove heroku/nodejs
-heroku buildpacks:add mars/create-react-app
-```
-
-Deploying:
-
-```sh
-git push heroku deploy:master
-```
-
-Deploying will run scripts/build.
