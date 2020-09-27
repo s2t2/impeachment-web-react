@@ -18,16 +18,25 @@ class Dashboard extends React.Component {
         var metric = this.state.metric
 
         var community0 = orderBy(users.filter(function(u){return u["community_id"] === 0}), metric, "asc")
-        var x0 = community0.map(function(u){ return u[metric]})
-        var y0 = community0.map(function(u){ return u["retweeted_user_screen_name"]})
-        var data0 = [{type: 'bar', x: x0, y: y0, orientation: 'h'}];
-        var layout0 = {title: 'Users Most Retweeted by Community 0'} // width: 400, height: 300,
-
         var community1 = orderBy(users.filter(function(u){return u["community_id"] === 1}), metric, "asc")
+
+        var x0 = community0.map(function(u){ return u[metric]})
         var x1 = community1.map(function(u){ return u[metric]})
+
+        var y0 = community0.map(function(u){ return u["retweeted_user_screen_name"]})
         var y1 = community1.map(function(u){ return u["retweeted_user_screen_name"]})
-        var data1 = [{type: 'bar', x: x1, y: y1, orientation: 'h'}]; // todo: red bar colors
-        var layout1 = {title: 'Users Most Retweeted by Community 1'} // width: 400, height: 300, TODO: red
+
+        var colors = {"blue": "steelblue", "red": '#D62021'};
+
+        var data0 = [{type: 'bar', x: x0, y: y0, orientation: 'h', marker: {color: colors["blue"]}}];
+        var data1 = [{type: 'bar', x: x1, y: y1, orientation: 'h', marker: {color: colors["red"]}}];
+
+        var layout0 = {title: 'Users Most Retweeted by Community 0',
+          //width: 400, height: 300,
+        }
+        var layout1 = {title: 'Users Most Retweeted by Community 1',
+          //width: 400, height: 300,
+        }
 
         spinIntoCharts = <span className="chart-row">
           <Plot className="Community-0-Chart" data={data0} layout={layout0}/>
@@ -70,7 +79,7 @@ class Dashboard extends React.Component {
     console.log("REQUEST URL:", requestUrl)
     fetch(requestUrl)
       .then(function(response) {
-        console.log("RAW RESPONSE", "STATUS", response.status, response.statusText, response.ok, "HEADERS", response.headers, response.url)
+        //console.log("RAW RESPONSE", "STATUS", response.status, response.statusText, response.ok, "HEADERS", response.headers, response.url)
         return response.json()
       })
       .then(function(json){
@@ -85,3 +94,4 @@ class Dashboard extends React.Component {
 }
 
 export default Dashboard;
+//module.exports = {"Dashboard": Dashboard}

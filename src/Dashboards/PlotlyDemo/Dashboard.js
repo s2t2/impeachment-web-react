@@ -3,14 +3,10 @@ import Plot from 'react-plotly.js';
 import Container from 'react-bootstrap/Container';
 
 class Dashboard extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
 
     var layout0 = {width: 400, height: 300, title: 'Users Most Retweeted by Community 0'}
-    var layout1 = {width: 400, height: 300, title: 'Users Most Retweeted by Community 1'} // TODO: red
+    var layout1 = {width: 400, height: 300, title: 'Users Most Retweeted by Community 1'}
 
     var data0 = [{
       type: 'bar',
@@ -36,3 +32,4 @@ class Dashboard extends React.Component {
 }
 
 export default Dashboard;
+//module.exports = {"Dashboard": Dashboard}

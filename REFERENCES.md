@@ -132,9 +132,10 @@ It works to show you the variable values. To interact with them, must set a `deb
 
 ## Lodash
 
+  + https://lodash.com/docs/4.17.15#sortBy
+  + https://lodash.com/docs/4.17.15#orderBy
+
+
 ```sh
 npm install lodash --save
 ```
-
-  + https://lodash.com/docs/4.17.15#sortBy
-  + https://lodash.com/docs/4.17.15#orderBy
