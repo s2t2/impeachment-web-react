@@ -130,6 +130,10 @@ It works to show you the variable values. To interact with them, must set a `deb
 
   + https://github.com/prof-rossetti/intro-to-web-dev/blob/master/notes/javascript/notes.md
 
+## Node.js
+
+  + https://stackoverflow.com/questions/39282253/how-can-i-alias-a-default-import-in-javascript
+
 ## Lodash
 
   + https://lodash.com/docs/4.17.15#sortBy
