@@ -28,12 +28,6 @@ nvm install 12.18.3 # installs a specific version, and automatically starts usin
 
 ## Setup
 
-Initializing an app for the first time (if you were starting from scratch):
-
-```sh
-npx create-react-app impeachment-web-prototype-react
-```
-
 Installing package dependencies:
 
 ```sh
@@ -41,34 +35,16 @@ cd impeachment-web-prototype-react/
 npm install
 ```
 
+Create a new file called ".env" in the root directory, and place inside the following contents:
+
+```sh
+REACT_APP_API_URL="https://your-api.herokuapp.com"
+```
+
+> NOTE: env vars prefixed with "REACT_APP_" are [NOT SECURE](https://create-react-app.dev/docs/adding-custom-environment-variables/), so if you need to set a secret value, don't use that prefix
+
 ## Usage
 
 ```sh
 npm start
 ```
-
-## Deploying
-
-Creating server:
-
-```sh
-heroku create -n impeachment-tweet-analysis-web
-
-# or connecting to existing server:
-# heroku git:remote -a impeachment-tweet-analysis-web
-```
-
-Customizing buildpacks:
-
-```sh
-heroku buildpacks:remove heroku/nodejs
-heroku buildpacks:add mars/create-react-app
-```
-
-Deploying:
-
-```sh
-git push heroku deploy:master
-```
-
-Deploying will run scripts/build.
