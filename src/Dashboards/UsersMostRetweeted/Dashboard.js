@@ -3,6 +3,11 @@ import Plot from 'react-plotly.js';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import { orderBy } from 'lodash';
+//import dotenv from 'dotenv'
+
+//dotenv.config()
+
+var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -74,7 +79,6 @@ class Dashboard extends React.Component {
   }
 
   fetchData(){
-    var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
     var requestUrl = `${API_URL}/api/v0/users_most_retweeted?limit=10&metric=${this.state.metric}`
     console.log("REQUEST URL:", requestUrl)
     fetch(requestUrl)

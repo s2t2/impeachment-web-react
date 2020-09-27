@@ -19,6 +19,12 @@ heroku buildpacks:remove heroku/nodejs
 heroku buildpacks:add mars/create-react-app
 ```
 
+Configuring env vars:
+
+```sh
+heroku config:set REACT_APP_API_URL="https://your-api.herokuapp.com"
+```
+
 ## Deploying
 
 Deploying:
@@ -28,4 +34,4 @@ git push heroku master
 #git push heroku mybranch:master
 ```
 
-Deploying will run scripts/build.
+Deploying will run "scripts/build" from "package.json".

@@ -39,6 +39,8 @@ Implementations w/ react.js:
   + https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack
   + https://blog.heroku.com/deploying-react-with-zero-configuration
   + https://github.com/mars/create-react-app-buildpack/blob/master/README.md#user-content-procfile
+  + https://github.com/mars/create-react-app-buildpack#user-content-environment-variables
+
 
 ## Create React App
 
@@ -49,6 +51,7 @@ Initializing the app:
 ```sh
 npx create-react-app impeachment-web-prototype-react
 ```
+
 
 ## React
 
