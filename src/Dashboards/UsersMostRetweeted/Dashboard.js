@@ -94,4 +94,3 @@ class Dashboard extends React.Component {
 }
 
 export default Dashboard;
-//module.exports = {"Dashboard": Dashboard}

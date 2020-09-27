@@ -18,12 +18,13 @@ class Dashboard extends React.Component {
       type: 'bar',
       x: [5, 10, 50],
       y: ['User X', 'User Y', 'User Z'],
-      orientation: 'h'
+      orientation: 'h',
+      marker: {color: '#D62021'} // red
     }];
 
     return (
        <Container className="Dashboard">
-        <h3>Demo Chart</h3>
+        <h3>Plotly Demo</h3>
         <Plot className="Community-0-Chart" data={data0} layout={layout0}/>
         <Plot className="Community-1-Chart" data={data1} layout={layout1}/>
       </Container>
@@ -32,5 +33,3 @@ class Dashboard extends React.Component {
 }
 
 export default Dashboard;
-//module.exports = {"Dashboard": Dashboard}
-//module.exports = {Dashboard}
