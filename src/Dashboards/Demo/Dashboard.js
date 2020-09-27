@@ -34,15 +34,26 @@ class Dashboard extends React.Component {
         var layout0 = {width: 400, height: 300, title: 'Users Most Retweeted by Community 0'}
         var layout1 = {width: 400, height: 300, title: 'Users Most Retweeted by Community 1'} // TODO: red
 
-        var response0 = this.state.parsedResponse.filter(function(u){ return u["community_id"] === 0})
-        var response1 = this.state.parsedResponse.filter(function(u){ return u["community_id"] === 1})
+        //var response0 = this.state.parsedResponse.filter(function(u){ return u["community_id"] === 0})
+        //var response1 = this.state.parsedResponse.filter(function(u){ return u["community_id"] === 1})
 
+        debugger;
+
+        //var data = [{
+        //  type: 'bar',
+        //  x: [],
+        //  y: [],
+        //  orientation: 'h'
+        //}]
+        //var data0, data1 = data, data
+        //
         var data0 = [{
           type: 'bar',
           x: [10, 20, 30],
           y: ['User A', 'User B', 'User C'],
           orientation: 'h'
         }];
+
         var data1 = [{
           type: 'bar',
           x: [5, 10, 50],
@@ -95,8 +106,8 @@ class Dashboard extends React.Component {
         return response.json()
       })
       .then(function(json){
-        console.log("PARSED RESPONSE BODY", json)
-        this.setState({parsedResponse: json, displaySpinner: false})
+        console.log("FETCHED", json.length, "ITEMS")
+        this.setState({parsedResponse: json})
       }.bind(this))
       .catch(function(err){
         console.error("FETCH ERR", err)

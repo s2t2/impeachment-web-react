@@ -30,7 +30,7 @@ Ideal needle is ameyms version.
 
 Implementations w/ react.js:
 
-  +
+  + ...
 
 
 ## Heroku
@@ -53,6 +53,7 @@ npx create-react-app impeachment-web-prototype-react
 ## React
 
   + https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+  + https://reactjs.org/docs/conditional-rendering.html
 
 ## React Bootstrap
 
@@ -109,3 +110,18 @@ npm install react-plotly.js plotly.js --save
 ## Dotenv
 
    + https://github.com/motdotla/dotenv
+
+## Chrome Debugger for VS Code
+
+
+If you're using VS code, also install this extension (`msjsdiag.debugger-for-chrome`) to enable interactive breakpoints.
+
+  + https://elijahmanor.com/blog/cra-debug-vscode
+  + https://code.visualstudio.com/docs/editor/debugging
+  + https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome
+  + https://medium.com/better-programming/take-your-create-react-app-debugging-workflow-to-the-next-level-9c40cd1904bd
+  + https://github.com/facebook/create-react-app/blob/e2585329bc8411bb0bb8fad68fcea77c73b7248a/docusaurus/docs/setting-up-your-editor.md#debugging-in-the-editor
+
+Then setup ".vscode/launch.json" for the first time in this repo, following that last link.
+
+It works to show you the variable values. To interact with them, must set a `debugger;` and then run the app and "View" the "Debug Console".
