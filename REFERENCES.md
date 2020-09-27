@@ -129,3 +129,12 @@ It works to show you the variable values. To interact with them, must set a `deb
 ## JavaScript Language
 
   + https://github.com/prof-rossetti/intro-to-web-dev/blob/master/notes/javascript/notes.md
+
+## Lodash
+
+```sh
+npm install lodash --save
+```
+
+  + https://lodash.com/docs/4.17.15#sortBy
+  + https://lodash.com/docs/4.17.15#orderBy
