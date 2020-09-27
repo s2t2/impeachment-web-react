@@ -125,3 +125,7 @@ If you're using VS code, also install this extension (`msjsdiag.debugger-for-chr
 Then setup ".vscode/launch.json" for the first time in this repo, following that last link.
 
 It works to show you the variable values. To interact with them, must set a `debugger;` and then run the app and "View" the "Debug Console".
+
+## JavaScript Language
+
+  + https://github.com/prof-rossetti/intro-to-web-dev/blob/master/notes/javascript/notes.md

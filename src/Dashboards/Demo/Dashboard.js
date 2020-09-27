@@ -6,7 +6,7 @@ import Spinner from 'react-bootstrap/Spinner';
 class Dashboard extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { parsedResponse: null };
+    this.state = { metric: "retweet_count", parsedResponse: null }; // metric should be "retweet_count" or "retweeter_count" (see API docs). keep track of what it is so we can chart appropriately. use can update via a dropdown if desired
     this.fetchData = this.fetchData.bind(this);
   }
 
@@ -30,36 +30,20 @@ class Dashboard extends React.Component {
 
     var spinIntoCharts;
     if (this.state.parsedResponse) {
+        var layout0 = {title: 'Users Most Retweeted by Community 0'} // width: 400, height: 300,
+        var layout1 = {title: 'Users Most Retweeted by Community 1'} // width: 400, height: 300, TODO: red
 
-        var layout0 = {width: 400, height: 300, title: 'Users Most Retweeted by Community 0'}
-        var layout1 = {width: 400, height: 300, title: 'Users Most Retweeted by Community 1'} // TODO: red
+        var users = this.state.parsedResponse;
+        var metric = this.state.metric
 
-        //var response0 = this.state.parsedResponse.filter(function(u){ return u["community_id"] === 0})
-        //var response1 = this.state.parsedResponse.filter(function(u){ return u["community_id"] === 1})
+        var x0 = users.filter(function(u){return u["community_id"] === 0}).map(function(u){ return u[metric]})
+        var y0 = users.filter(function(u){return u["community_id"] === 0}).map(function(u){ return u["retweeted_user_screen_name"]})
 
-        debugger;
+        var x1 = users.filter(function(u){return u["community_id"] === 1}).map(function(u){ return u[metric]})
+        var y1 = users.filter(function(u){return u["community_id"] === 1}).map(function(u){ return u["retweeted_user_screen_name"]})
 
-        //var data = [{
-        //  type: 'bar',
-        //  x: [],
-        //  y: [],
-        //  orientation: 'h'
-        //}]
-        //var data0, data1 = data, data
-        //
-        var data0 = [{
-          type: 'bar',
-          x: [10, 20, 30],
-          y: ['User A', 'User B', 'User C'],
-          orientation: 'h'
-        }];
-
-        var data1 = [{
-          type: 'bar',
-          x: [5, 10, 50],
-          y: ['User X', 'User Y', 'User Z'],
-          orientation: 'h'
-        }];
+        var data0 = [{type: 'bar', x: x0, y: y0, orientation: 'h'}];
+        var data1 = [{type: 'bar', x: x1, y: y1, orientation: 'h'}]; // todo: red bar colors
 
         spinIntoCharts = <span className="chart-row">
           <Plot className="Community-0-Chart" data={data0} layout={layout0}/>
@@ -71,7 +55,7 @@ class Dashboard extends React.Component {
 
     return (
        <Container className="Dashboard">
-        <h3>Demo Dashboard</h3>
+        <h3>Users Most Retweeted</h3>
         {spinIntoCharts}
       </Container>
     );
@@ -98,7 +82,7 @@ class Dashboard extends React.Component {
 
   fetchData(){
     var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
-    var requestUrl = `${API_URL}/api/v0/users_most_retweeted?limit=10`
+    var requestUrl = `${API_URL}/api/v0/users_most_retweeted?limit=10&metric=${this.state.metric}`
     console.log("REQUEST URL:", requestUrl)
     fetch(requestUrl)
       .then(function(response) {
@@ -113,6 +97,7 @@ class Dashboard extends React.Component {
         console.error("FETCH ERR", err)
       })
   }
+
 }
 
 export default Dashboard;
