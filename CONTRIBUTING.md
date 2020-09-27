@@ -35,6 +35,11 @@ cd impeachment-web-prototype-react/
 npm install
 ```
 
+Create a new file called ".env" in the root directory, and place inside the following contents:
+
+```sh
+REACT_APP_API_URL="https://your-api.herokuapp.com"
+```
 
 ## Usage
 

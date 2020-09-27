@@ -2,7 +2,7 @@ import React from 'react';
 import Plot from 'react-plotly.js';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
-import { sortby } from 'lodash';
+import { orderBy } from 'lodash';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -17,13 +17,13 @@ class Dashboard extends React.Component {
         var users = this.state.parsedResponse;
         var metric = this.state.metric
 
-        var community0 = orderBy(users.filter(function(u){return u["community_id"] === 0}), metric, "desc")
+        var community0 = orderBy(users.filter(function(u){return u["community_id"] === 0}), metric, "asc")
         var x0 = community0.map(function(u){ return u[metric]})
         var y0 = community0.map(function(u){ return u["retweeted_user_screen_name"]})
         var data0 = [{type: 'bar', x: x0, y: y0, orientation: 'h'}];
         var layout0 = {title: 'Users Most Retweeted by Community 0'} // width: 400, height: 300,
 
-        var community1 = orderBy(users.filter(function(u){return u["community_id"] === 1}), metric, "desc")
+        var community1 = orderBy(users.filter(function(u){return u["community_id"] === 1}), metric, "asc")
         var x1 = community1.map(function(u){ return u[metric]})
         var y1 = community1.map(function(u){ return u["retweeted_user_screen_name"]})
         var data1 = [{type: 'bar', x: x1, y: y1, orientation: 'h'}]; // todo: red bar colors
