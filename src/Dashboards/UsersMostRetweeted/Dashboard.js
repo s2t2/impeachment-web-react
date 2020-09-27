@@ -43,9 +43,11 @@ class Dashboard extends React.Component {
           //width: 400, height: 300,
         }
 
+        var plotConfig = {displayModeBar: false}
+
         spinIntoCharts = <span className="chart-row">
-          <Plot className="Community-0-Chart" data={data0} layout={layout0}/>
-          <Plot className="Community-1-Chart" data={data1} layout={layout1}/>
+          <Plot className="Community-0-Chart" data={data0} layout={layout0} config={plotConfig}/>
+          <Plot className="Community-1-Chart" data={data1} layout={layout1} config={plotConfig}/>
         </span>
     } else {
         spinIntoCharts = <Spinner animation="grow" />

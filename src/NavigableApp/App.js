@@ -23,7 +23,6 @@ const App = () => (
   <MemoryRouter>
     <Alert key="warning" variant="warning">
       FYI: This website is currently in development and does not necessarily reflect final research results.
-      If you're interested in getting a notification when the site is ready, email <a href="mailto:prof.mj.rossetti@gmail.com">prof.mj.rossetti@gmail.com</a>.
     </Alert>
 
     <Container className="p-3">

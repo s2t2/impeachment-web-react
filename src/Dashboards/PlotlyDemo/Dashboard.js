@@ -22,11 +22,12 @@ class Dashboard extends React.Component {
       marker: {color: '#D62021'} // red
     }];
 
+    var plotConfig = {displayModeBar: false}
     return (
        <Container className="Dashboard">
         <h3>Plotly Demo</h3>
-        <Plot className="Community-0-Chart" data={data0} layout={layout0}/>
-        <Plot className="Community-1-Chart" data={data1} layout={layout1}/>
+        <Plot className="Community-0-Chart" data={data0} layout={layout0} config={plotConfig}/>
+        <Plot className="Community-1-Chart" data={data1} layout={layout1} config={plotConfig}/>
       </Container>
     );
   }
