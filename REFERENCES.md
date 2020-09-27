@@ -105,3 +105,7 @@ npm install react-plotly.js plotly.js --save
 ```
 
   + https://plotly.com/javascript/horizontal-bar-charts/
+
+## Dotenv
+
+   + https://github.com/motdotla/dotenv
