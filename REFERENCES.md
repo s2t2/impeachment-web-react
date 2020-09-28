@@ -55,6 +55,7 @@ npx create-react-app impeachment-web-prototype-react
 
 ## React
 
+  + https://reactjs.org/docs/react-component.html
   + https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
   + https://reactjs.org/docs/conditional-rendering.html
 
