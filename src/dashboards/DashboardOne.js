@@ -5,10 +5,9 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Card from 'react-bootstrap/Card'
 import Sidebar from '../Sidebar';
+import WelcomeAlert from "../alerts/WelcomeAlert"
 
 import HorizontalBarChart from '../charts/HorizontalBarChart';
-
-import ToggleBtn from '../buttons/ToggleBtn';
 
 
 
@@ -24,6 +23,7 @@ function DasbhoardOne() {
         <Col sm={10}>
 
           <Container fluid className="mt-70">
+            <WelcomeAlert />
             <h3 className="herotitle">Dashboard One</h3>
             <Row>
               <Col>

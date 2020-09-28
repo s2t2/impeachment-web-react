@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Card from 'react-bootstrap/Card'
 import Sidebar from '../Sidebar';
+import WelcomeAlert from "../alerts/WelcomeAlert"
 
 import CustomActiveShapePieChart from '../charts/CustomActiveShapePieChart';
 
@@ -30,6 +31,7 @@ function DasbhoardThree() {
         <Col sm={10}>
 
           <Container fluid className="mt-70">
+            <WelcomeAlert />
             <h3 className="herotitle">Dashboard Two</h3>
             <Row>
               <Col>
