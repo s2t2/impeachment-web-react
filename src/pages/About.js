@@ -25,7 +25,7 @@ function About() {
 
                   <Card.Body>
                     <Card.Text>
-                      Line Chart
+                     About us content!!
                     </Card.Text>
                   </Card.Body>
                 </Card>
