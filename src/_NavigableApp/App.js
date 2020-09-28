@@ -9,8 +9,8 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 //import {Dashboard as PlotlyDemo} from '../Dashboards/PlotlyDemo/Dashboard.js';
 //import {Dashboard as UsersMostRetweeted} from '../Dashboards/UsersMostRetweeted/Dashboard.js';
-import PlotlyDemo from '../Dashboards/PlotlyDemo/Dashboard.js'; // implicit alias
-import UsersMostRetweeted from '../Dashboards/UsersMostRetweeted/Dashboard.js'; // implicit alias
+import PlotlyDemo from '../Dashboards-old/PlotlyDemo/Dashboard.js'; // implicit alias
+import UsersMostRetweeted from '../Dashboards-old/UsersMostRetweeted/Dashboard.js'; // implicit alias
 
 import './App.css';
 
