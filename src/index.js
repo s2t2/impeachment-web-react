@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './NavigableApp/App.js';
+import App from './App.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 

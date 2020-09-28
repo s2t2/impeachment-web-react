@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif !important;
+  
+}
+
+/* container fluid no padding */
+.no-padding{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.mt-70 {
+  margin-top: 70px;
+}
+
+
+.container-fluid {
+  overflow-x: hidden;
+}
+
+
+.App {
+  text-align: center;
+}
+
+
+.herotitle {
+  background-color: #B22234;
+  font-size: 2rem;
+  color: white;
+  padding: 10px;
+}
+
+
+/* sidebar */
+
+.sidebar {
+  position: fixed;
+  top: 3rem;
+  width: 17%;
+  z-index: 1000;
+  height: calc(100vh - 3rem);
+  border-right: 1px solid #ececec;
+  background-color: #002868;
+}
+
+.sidebarWrapper {
+  margin-top: 6vh;
+   margin-left: 1vw;
+  display: grid;
+}
+   
+
+.sidebarWrapper a {
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  color: white;
+  text-decoration: none !important;
+ 
+}
+
+.sidebarWrapper a.active {
+  text-decoration: none;
+  background: #B22234;
+  transition: 1s all ease;
+}
+
+
+.sidebarWrapper a:hover {
+  text-align: left;
+  color: #ded5d5;
+}
+
+.sidebarWrapper {
+  margin-top: 6vh;
+}
+
+
+/* dashboard card css */
+
+.card {
+  margin-bottom: 20px;
+}
+
+
+
+/* Responisve CSS */
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+
+
+
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+
+
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+
+
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+
+
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+   .sidebar {
+     position: relative;
+     width: 100%;
+     z-index: 1000;
+     height: auto;
+     top: 0;
+     background-color: #002868;
+   }
+
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+.sidebar {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+  height: auto;
+  top: 0;
+  background-color: #002868;
+}
+
+
+.mt-70 {
+  margin-top: 20px;
+}
+
+.sidebarWrapper {
+  margin-top: 60px;
+}
+
+
+
+}
+
+
