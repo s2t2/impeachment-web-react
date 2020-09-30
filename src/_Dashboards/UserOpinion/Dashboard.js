@@ -52,7 +52,15 @@ export default class Dashboard extends PureComponent {
 
   componentDidMount(){
     console.log("DASHBOARD DID MOUNT")
-    //this.fetchData()
+    this.fetchData()
   }
 
+  fetchData(){
+
+
+
+
+
+
+  }
 }
