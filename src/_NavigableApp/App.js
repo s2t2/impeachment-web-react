@@ -9,19 +9,15 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { LinkContainer } from 'react-router-bootstrap';
 
-import PlotlyDemo from '../_Dashboards/PlotlyDemo/Dashboard.js'; // implicit alias
-import RechartsDemo from '../_Dashboards/RechartsDemo/Dashboard.js'; // implicit alias
-import UsersMostRetweeted from '../_Dashboards/UsersMostRetweeted/Dashboard.js'; // implicit alias
-import StatusesMostRetweeted from '../_Dashboards/StatusesMostRetweeted/Dashboard.js'; // implicit alias
-//import UserOpinion from '../_Dashboards/UserOpinion/Dashboard.js'; // implicit alias
-
-//import './App.css';
+import PlotlyDemo from '../_Dashboards/PlotlyDemo/Dashboard.js';
+import RechartsDemo from '../_Dashboards/RechartsDemo/Dashboard.js';
+import UsersMostRetweeted from '../_Dashboards/UsersMostRetweeted/Dashboard.js';
+import StatusesMostRetweeted from '../_Dashboards/StatusesMostRetweeted/Dashboard.js';
+//import UserOpinion from '../_Dashboards/UserOpinion/Dashboard.js';
 
 // TODO
 const Home = () => <h2>Home</h2>;
 const About = () => <h2>About</h2>;
-//const TopProfileTags = () => <h2>Top Profile Tags</h2>;
-//const TopStatusTags = () => <h2>Top Status Tags</h2>;
 
 const App = () => (
   <span>
@@ -30,7 +26,6 @@ const App = () => (
     </Alert>
 
     <Container className="p-3">
-
         <h1 className="header">Impeachment Tweet Analysis</h1>
 
         <Tab.Container id="left-tabs-example" defaultActiveKey="home">
@@ -39,6 +34,8 @@ const App = () => (
               <Nav variant="pills" className="flex-column">
                 <Nav.Item><Nav.Link eventKey="home">Home</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="about">About</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link eventKey="plotly_demo">Plotly Demo</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link eventKey="recharts_demo">Recharts Demo</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="top_users">Users Most Retweeted</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="top_statuses">Statuses Most Retweeted</Nav.Link></Nav.Item>
               </Nav>
@@ -47,13 +44,14 @@ const App = () => (
               <Tab.Content>
                 <Tab.Pane eventKey="home"><Home/></Tab.Pane>
                 <Tab.Pane eventKey="about"><About/></Tab.Pane>
+                <Tab.Pane eventKey="plotly_demo"><PlotlyDemo/></Tab.Pane>
+                <Tab.Pane eventKey="recharts_demo"><RechartsDemo/></Tab.Pane>
                 <Tab.Pane eventKey="top_users"><UsersMostRetweeted/></Tab.Pane>
                 <Tab.Pane eventKey="top_statuses"><StatusesMostRetweeted/></Tab.Pane>
               </Tab.Content>
             </Col>
           </Row>
         </Tab.Container>
-
     </Container>
 
   </span>

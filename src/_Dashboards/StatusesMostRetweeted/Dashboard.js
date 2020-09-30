@@ -27,8 +27,8 @@ class Dashboard extends React.Component {
         var statuses = this.state.parsedResponse;
         var metric = this.state.metric
 
-        var community0 = orderBy(statuses.filter(function(u){return u["community_id"] === 0}), metric, "asc")
-        var community1 = orderBy(statuses.filter(function(u){return u["community_id"] === 1}), metric, "asc")
+        var community0 = orderBy(statuses.filter(function(u){return u["community_id"] === 0}), metric, "desc")
+        var community1 = orderBy(statuses.filter(function(u){return u["community_id"] === 1}), metric, "desc")
 
         spinIntoTables = <span>
           <h3>Statuses Most Retweeted by Left-leaning Bots</h3>
