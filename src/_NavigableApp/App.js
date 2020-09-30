@@ -1,5 +1,6 @@
 import React from 'react';
-import { MemoryRouter, Switch, Route } from 'react-router-dom';
+//import { MemoryRouter, Switch, Route } from 'react-router-dom';
+//import { LinkContainer } from 'react-router-bootstrap';
 
 import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
@@ -7,7 +8,6 @@ import Nav from 'react-bootstrap/Nav'
 import Tab from 'react-bootstrap/Tab'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { LinkContainer } from 'react-router-bootstrap';
 
 import PlotlyDemo from '../_Dashboards/PlotlyDemo/Dashboard.js';
 import RechartsDemo from '../_Dashboards/RechartsDemo/Dashboard.js';

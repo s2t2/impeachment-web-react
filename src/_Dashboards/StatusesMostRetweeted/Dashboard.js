@@ -1,20 +1,13 @@
 import React from 'react';
-//import Plot from 'react-plotly.js';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import { orderBy } from 'lodash';
-import { Table } from 'react-bootstrap';
-//import dotenv from 'dotenv'
 
 import StatusesTable from './StatusesTable.js';
 
-//dotenv.config()
-
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
-//const COLORS = {"blue": "steelblue", "red": '#D62021'};
-
-class Dashboard extends React.Component {
+export default class Dashboard extends React.Component {
   constructor(props) {
     super(props)
     this.state = { metric: "retweet_count", parsedResponse: null }; // metric should be "retweet_count" or "retweeter_count" (see API docs)
@@ -33,6 +26,7 @@ class Dashboard extends React.Component {
         spinIntoTables = <span>
           <h3>Statuses Most Retweeted by Left-leaning Bots</h3>
           <StatusesTable statuses={community0}/>
+
           <h3>Statuses Most Retweeted by Right-leaning Bots</h3>
           <StatusesTable statuses={community1}/>
         </span>
@@ -69,6 +63,4 @@ class Dashboard extends React.Component {
       })
   }
 
-}
-
-export default Dashboard;
+};
