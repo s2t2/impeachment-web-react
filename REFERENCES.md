@@ -61,21 +61,25 @@ npx create-react-app impeachment-web-prototype-react
 
 ## React Bootstrap
 
+```sh
+npm install react-bootstrap bootstrap --save
+```
+
   + https://react-bootstrap.github.io/getting-started/introduction
   + https://react-bootstrap.github.io/layout/grid/
   + https://react-bootstrap.github.io/components/
   + https://github.com/react-bootstrap/code-sandbox-examples/blob/master/README.md
   + https://codesandbox.io/s/github/react-bootstrap/code-sandbox-examples/tree/master/basic
   + https://codesandbox.io/s/github/react-bootstrap/code-sandbox-examples/tree/master/basic-react-router
+  + https://react-bootstrap.github.io/components/tabs/
+  + https://react-bootstrap.github.io/components/table/
 
-```sh
-npm install react-bootstrap bootstrap --save
-```
-
-Flexbox:
+## Flexbox
 
   + https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background
   + https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+
+
 
 ## React Router Bootstrap
 
@@ -84,6 +88,8 @@ Flexbox:
 ```sh
 npm install react-router-bootstrap react-router-dom --save
 ```
+
+  + https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/NavLink.md
 
 ## React Router
 

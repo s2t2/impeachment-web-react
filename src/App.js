@@ -6,6 +6,8 @@ import Mainmenu from "./layouts/Mainmenu"
 import DashboardOne from "./dashboards/DashboardOne"
 import DashboardTwo from "./dashboards/DashboardTwo"
 import DashboardThree from "./dashboards/DashboardThree"
+import AltHome from './_NavigableApp/App.js';
+
 import WelcomeAlert from "./alerts/WelcomeAlert"
 import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
@@ -27,11 +29,12 @@ function App() {
 
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/alt-home" component={AltHome} />
           <Route path="/about" component={About} />
           <Route path="/dashboard-one" component={DashboardOne} />
           <Route path="/dashboard-two" component={DashboardTwo} />
           <Route path="/dashboard-three" component={DashboardThree} />
-      
+
         </Switch>
 
 
@@ -44,7 +47,7 @@ function App() {
 
 const Home = () => (
   <Container fluid className="no-padding">
-    
+
 
 
     <Row>
@@ -54,7 +57,7 @@ const Home = () => (
 
       </Col>
       <Col sm={10}>
-        
+
 
         <Container fluid className="mt-70">
           <WelcomeAlert />
