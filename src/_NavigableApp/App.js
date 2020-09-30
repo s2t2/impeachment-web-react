@@ -20,8 +20,8 @@ import UsersMostRetweeted from '../_Dashboards/UsersMostRetweeted/Dashboard.js';
 const Home = () => <h2>Home</h2>;
 const About = () => <h2>About</h2>;
 const StatusesMostRetweeted = () => <h2>Statuses Most Retweeted</h2>;
-const TopProfileTags = () => <h2>Top Profile Tags</h2>;
-const TopStatusTags = () => <h2>Top Status Tags</h2>;
+//const TopProfileTags = () => <h2>Top Profile Tags</h2>;
+//const TopStatusTags = () => <h2>Top Status Tags</h2>;
 
 const App = () => (
   <span>
@@ -39,16 +39,16 @@ const App = () => (
               <Nav variant="pills" className="flex-column">
                 <Nav.Item><Nav.Link eventKey="home">Home</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="about">About</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link eventKey="top_users">Users Most Retweeted</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link eventKey="top_statuses">Top Statuses</Nav.Link></Nav.Item>
               </Nav>
             </Col>
             <Col sm={9}>
               <Tab.Content>
-                <Tab.Pane eventKey="home">
-                  <Home/>
-                </Tab.Pane>
-                <Tab.Pane eventKey="about">
-                  <About/>
-                </Tab.Pane>
+                <Tab.Pane eventKey="home"><Home/></Tab.Pane>
+                <Tab.Pane eventKey="about"><About/></Tab.Pane>
+                <Tab.Pane eventKey="top_users"><UsersMostRetweeted/></Tab.Pane>
+                <Tab.Pane eventKey="top_statuses"><StatusesMostRetweeted/></Tab.Pane>
               </Tab.Content>
             </Col>
           </Row>

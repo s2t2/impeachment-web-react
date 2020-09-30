@@ -36,11 +36,11 @@ class Dashboard extends React.Component {
         var data0 = [{type: 'bar', x: x0, y: y0, orientation: 'h', marker: {color: colors["blue"]}}];
         var data1 = [{type: 'bar', x: x1, y: y1, orientation: 'h', marker: {color: colors["red"]}}];
 
-        var layout0 = {title: 'Users Most Retweeted by Community 0',
-          //width: 400, height: 300,
+        var layout0 = {title: 'Users Most Retweeted by Left-leaning Bots',
+          height: 450, // width: 600,
         }
-        var layout1 = {title: 'Users Most Retweeted by Community 1',
-          //width: 400, height: 300,
+        var layout1 = {title: 'Users Most Retweeted by Right-leaning Bots',
+          height: 450 //, width: 600,
         }
 
         var plotConfig = {displayModeBar: false}
@@ -55,7 +55,6 @@ class Dashboard extends React.Component {
 
     return (
        <Container className="Dashboard">
-        <h3>Users Most Retweeted</h3>
         {spinIntoCharts}
       </Container>
     );
