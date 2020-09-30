@@ -12,6 +12,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import PlotlyDemo from '../_Dashboards/PlotlyDemo/Dashboard.js'; // implicit alias
 import RechartsDemo from '../_Dashboards/RechartsDemo/Dashboard.js'; // implicit alias
 import UsersMostRetweeted from '../_Dashboards/UsersMostRetweeted/Dashboard.js'; // implicit alias
+import StatusesMostRetweeted from '../_Dashboards/StatusesMostRetweeted/Dashboard.js'; // implicit alias
 //import UserOpinion from '../_Dashboards/UserOpinion/Dashboard.js'; // implicit alias
 
 //import './App.css';
@@ -19,7 +20,6 @@ import UsersMostRetweeted from '../_Dashboards/UsersMostRetweeted/Dashboard.js';
 // TODO
 const Home = () => <h2>Home</h2>;
 const About = () => <h2>About</h2>;
-const StatusesMostRetweeted = () => <h2>Statuses Most Retweeted</h2>;
 //const TopProfileTags = () => <h2>Top Profile Tags</h2>;
 //const TopStatusTags = () => <h2>Top Status Tags</h2>;
 
@@ -40,7 +40,7 @@ const App = () => (
                 <Nav.Item><Nav.Link eventKey="home">Home</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="about">About</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="top_users">Users Most Retweeted</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link eventKey="top_statuses">Top Statuses</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link eventKey="top_statuses">Statuses Most Retweeted</Nav.Link></Nav.Item>
               </Nav>
             </Col>
             <Col sm={9}>
