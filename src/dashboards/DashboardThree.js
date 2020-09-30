@@ -2,9 +2,8 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Nav from 'react-bootstrap/Nav';
 import Card from 'react-bootstrap/Card'
-import Sidebar from '../Sidebar';
+import Sidebar from '../layouts/Sidebar';
 import WelcomeAlert from "../alerts/WelcomeAlert"
 
 import CustomActiveShapePieChart from '../charts/CustomActiveShapePieChart';
@@ -14,6 +13,10 @@ import TwoSimplePieChart from '../charts/TwoSimplePieChart';
 import SimpleRadarChart from '../charts/SimpleRadarChart';
 
 import SimpleRadialBarChart from '../charts/SimpleRadialBarChart';
+
+import BarChartCustomContentTooltip from '../charts/BarChartCustomContentTooltip';
+
+import GaugeChart from '../charts/GaugeChart';
 
 
 
@@ -74,6 +77,30 @@ function DasbhoardThree() {
                  
                   <Card.Body>
                     <SimpleRadialBarChart />
+                    <Card.Text>
+                      Simple Radial Bar Chart
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Card>
+
+                  <Card.Body>
+                    <BarChartCustomContentTooltip />
+                    <Card.Text>
+                      Simple Radar Chart
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col>
+                <Card>
+
+                  <Card.Body>
+                    <GaugeChart />
                     <Card.Text>
                       Simple Radial Bar Chart
                     </Card.Text>
