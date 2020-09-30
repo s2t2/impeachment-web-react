@@ -20,11 +20,11 @@ export default class Dashboard extends React.Component {
     if (this.state.parsedResponse) {
         var tags = this.state.parsedResponse;
 
-        var community0 = orderBy(tags.filter(function(t){return t["community_id"] === 0}), "pct", "asc")
-        var community1 = orderBy(tags.filter(function(t){return t["community_id"] === 1}), "pct", "asc")
+        var community0 = orderBy(tags.filter(function(t){return t["community_id"] === 0}), "count", "asc")
+        var community1 = orderBy(tags.filter(function(t){return t["community_id"] === 1}), "count", "asc")
 
-        var x0 = community0.map(function(u){ return u["pct"]})
-        var x1 = community1.map(function(u){ return u["pct"]})
+        var x0 = community0.map(function(u){ return u["count"]})
+        var x1 = community1.map(function(u){ return u["count"]})
 
         var y0 = community0.map(function(u){ return u["token"]})
         var y1 = community1.map(function(u){ return u["token"]})
@@ -32,10 +32,10 @@ export default class Dashboard extends React.Component {
         var data0 = [{type: 'bar', x: x0, y: y0, orientation: 'h', marker: {color: COLORS["blue"]}}];
         var data1 = [{type: 'bar', x: x1, y: y1, orientation: 'h', marker: {color: COLORS["red"]}}];
 
-        var layout0 = {title: 'Top Hashtags in Left-leaning Bot Profiles',
+        var layout0 = {title: 'Top Hashtags in Left-leaning Bot Tweets',
           height: 600, // width: 600,
         }
-        var layout1 = {title: 'Top Hashtags in Right-leaning Bot Profiles',
+        var layout1 = {title: 'Top Hashtags in Right-leaning Bot Tweets',
           height: 600 //, width: 600,
         }
 
@@ -62,7 +62,7 @@ export default class Dashboard extends React.Component {
   }
 
   fetchData(){
-    var requestUrl = `${API_URL}/api/v0/top_profile_tags?limit=20`
+    var requestUrl = `${API_URL}/api/v0/top_status_tags?limit=20`
     console.log("REQUEST URL:", requestUrl)
     fetch(requestUrl)
       .then(function(response) {
