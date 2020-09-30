@@ -21,9 +21,13 @@ body {
 }
 
 
-.App {
-  text-align: center;
+.app-center{
+text-align: center;
 }
+
+/* .App {
+  text-align: center;
+} */
 
 
 .herotitle {

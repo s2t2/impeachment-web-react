@@ -61,7 +61,7 @@ class DasbhoardTwo extends React.Component {
 
       spinIntoCharts =
         <Container fluid>
-          <h3 className='m-5'>Users Most Retweeted by Community </h3>
+          <h3 className='m-5 app-center'>Users Most Retweeted by Community </h3>
           <Row>
             <Col>
               <Card>
@@ -81,8 +81,11 @@ class DasbhoardTwo extends React.Component {
 
               </BarChart>
                 <Card.Body>
-                  <Card.Text>
-                    Users Most Retweeted by Community 0
+                <Card.Text className="app-center">
+                  <p className="app-center"> Users Most Retweeted by Community 0</p>
+                  
+                  
+                   
                     </Card.Text>
                 </Card.Body>
               </Card>
@@ -105,7 +108,7 @@ class DasbhoardTwo extends React.Component {
               </BarChart>
               <Card.Body>
                 <Card.Text>
-                  Users Most Retweeted by Community 1
+                  <p className="app-center"> Users Most Retweeted by Community 1</p>
                     </Card.Text>
               </Card.Body>
             </Card>
@@ -118,7 +121,7 @@ class DasbhoardTwo extends React.Component {
 
 
     } else {
-      spinIntoCharts = <Container fluid className="mt-70">
+      spinIntoCharts = <Container fluid className="mt-70 app-center">
         <Spinner className="my-auto" animation="grow" />
       </Container>
 
@@ -136,7 +139,7 @@ class DasbhoardTwo extends React.Component {
 
             <Container fluid className="mt-70">
               <WelcomeAlert />
-              <h3 className="herotitle">Dashboard Two</h3>
+              <h3 className="herotitle app-center">Dashboard Two</h3>
 
 
               {spinIntoCharts}

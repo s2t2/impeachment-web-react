@@ -20,14 +20,15 @@ function About() {
 
           <Container fluid className="mt-70">
             <WelcomeAlert />
-            <h3 className="herotitle">About</h3>
+            <h3 className="herotitle app-center">About</h3>
             <Row>
               <Col>
                 <Card>
 
                   <Card.Body>
                     <Card.Text>
-                      Line Chart
+                  
+                      <p className="app-center">About</p>
                     </Card.Text>
                   </Card.Body>
                 </Card>

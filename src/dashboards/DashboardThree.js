@@ -35,7 +35,7 @@ function DasbhoardThree() {
 
           <Container fluid className="mt-70">
             <WelcomeAlert />
-            <h3 className="herotitle">Dashboard Two</h3>
+            <h3 className="herotitle app-center">Dashboard Two</h3>
             <Row>
               <Col>
                 <Card>
@@ -43,7 +43,8 @@ function DasbhoardThree() {
                   <Card.Body>
                     <CustomActiveShapePieChart />
                     <Card.Text>
-                      Custom Active Shape Pie Chart
+                      <p className="app-center">Custom Active Shape Pie Chart</p>
+                      
                     </Card.Text>
                   </Card.Body>
                 </Card>
@@ -54,7 +55,8 @@ function DasbhoardThree() {
                   <Card.Body>
                     <TwoSimplePieChart />
                     <Card.Text>
-                      Two Simple Pie Chart
+                      <p className="app-center">Two Simple Pie Chart</p>
+                      
                     </Card.Text>
                   </Card.Body>
                 </Card>
@@ -67,7 +69,8 @@ function DasbhoardThree() {
                   <Card.Body>
                     <SimpleRadarChart />
                     <Card.Text>
-                      Simple Radar Chart
+                      <p className="app-center">Simple Radar Chart</p>
+                      
                     </Card.Text>
                   </Card.Body>
                 </Card>
@@ -78,7 +81,8 @@ function DasbhoardThree() {
                   <Card.Body>
                     <SimpleRadialBarChart />
                     <Card.Text>
-                      Simple Radial Bar Chart
+                      <p className="app-center">Simple Radial Bar Chart</p>
+                      
                     </Card.Text>
                   </Card.Body>
                 </Card>
@@ -91,7 +95,8 @@ function DasbhoardThree() {
                   <Card.Body>
                     <BarChartCustomContentTooltip />
                     <Card.Text>
-                      Simple Radar Chart
+                      <p className="app-center">Simple Radar Chart</p>
+                      
                     </Card.Text>
                   </Card.Body>
                 </Card>
@@ -102,7 +107,8 @@ function DasbhoardThree() {
                   <Card.Body>
                     <GaugeChart />
                     <Card.Text>
-                      Simple Radial Bar Chart
+                      <p className="app-center"> Simple Radial Bar Chart</p>
+                     
                     </Card.Text>
                   </Card.Body>
                 </Card>
