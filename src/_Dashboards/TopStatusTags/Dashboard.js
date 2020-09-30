@@ -34,9 +34,15 @@ export default class Dashboard extends React.Component {
 
         var layout0 = {title: 'Top Hashtags in Left-leaning Bot Tweets',
           height: 600, // width: 600,
+          yaxis: {
+            automargin: true
+          }
         }
         var layout1 = {title: 'Top Hashtags in Right-leaning Bot Tweets',
-          height: 600 //, width: 600,
+          height: 600, //, width: 600,
+          yaxis: {
+            automargin: true
+          }
         }
 
         var plotConfig = {displayModeBar: false}

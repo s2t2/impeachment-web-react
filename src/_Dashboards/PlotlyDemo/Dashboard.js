@@ -5,8 +5,16 @@ import Container from 'react-bootstrap/Container';
 class Dashboard extends PureComponent {
   render() {
 
-    var layout0 = {width: 400, height: 300, title: 'Users Most Retweeted by Community 0'}
-    var layout1 = {width: 400, height: 300, title: 'Users Most Retweeted by Community 1'}
+    var layout0 = {width: 400, height: 300, title: 'Users Most Retweeted by Community 0',
+      yaxis: {
+        automargin: true
+      }
+    }
+    var layout1 = {width: 400, height: 300, title: 'Users Most Retweeted by Community 1',
+      yaxis: {
+        automargin: true
+      }
+    }
 
     var data0 = [{
       type: 'bar',

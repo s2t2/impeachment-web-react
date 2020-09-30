@@ -38,9 +38,15 @@ class Dashboard extends React.Component {
 
         var layout0 = {title: 'Users Most Retweeted by Left-leaning Bots',
           height: 450, // width: 600,
+          yaxis: {
+            automargin: true
+          }
         }
         var layout1 = {title: 'Users Most Retweeted by Right-leaning Bots',
-          height: 450 //, width: 600,
+          height: 450, //, width: 600,
+          yaxis: {
+            automargin: true
+          }
         }
 
         var plotConfig = {displayModeBar: false}
