@@ -13,6 +13,8 @@ import PlotlyDemo from '../_Dashboards/PlotlyDemo/Dashboard.js';
 import RechartsDemo from '../_Dashboards/RechartsDemo/Dashboard.js';
 import UsersMostRetweeted from '../_Dashboards/UsersMostRetweeted/Dashboard.js';
 import StatusesMostRetweeted from '../_Dashboards/StatusesMostRetweeted/Dashboard.js';
+import TopProfileTags from '../_Dashboards/TopProfileTags/Dashboard.js';
+//import TopStatusTags from '../_Dashboards/TopStatusTags/Dashboard.js';
 //import UserOpinion from '../_Dashboards/UserOpinion/Dashboard.js';
 
 // TODO
@@ -36,6 +38,7 @@ const App = () => (
                 <Nav.Item><Nav.Link eventKey="about">About</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="plotly_demo">Plotly Demo</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="recharts_demo">Recharts Demo</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link eventKey="top_profile_tags">Profile Hashtags</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="top_users">Users Most Retweeted</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="top_statuses">Statuses Most Retweeted</Nav.Link></Nav.Item>
               </Nav>
@@ -46,6 +49,7 @@ const App = () => (
                 <Tab.Pane eventKey="about"><About/></Tab.Pane>
                 <Tab.Pane eventKey="plotly_demo"><PlotlyDemo/></Tab.Pane>
                 <Tab.Pane eventKey="recharts_demo"><RechartsDemo/></Tab.Pane>
+                <Tab.Pane eventKey="top_profile_tags"><TopProfileTags/></Tab.Pane>
                 <Tab.Pane eventKey="top_users"><UsersMostRetweeted/></Tab.Pane>
                 <Tab.Pane eventKey="top_statuses"><StatusesMostRetweeted/></Tab.Pane>
               </Tab.Content>

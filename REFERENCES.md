@@ -72,6 +72,7 @@ npm install react-bootstrap bootstrap --save
   + https://codesandbox.io/s/github/react-bootstrap/code-sandbox-examples/tree/master/basic
   + https://codesandbox.io/s/github/react-bootstrap/code-sandbox-examples/tree/master/basic-react-router
   + https://react-bootstrap.github.io/components/tabs/
+  + https://react-bootstrap.github.io/components/table/
 
 ## Flexbox
 
