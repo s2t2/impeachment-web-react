@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import { orderBy } from 'lodash';
@@ -7,7 +7,7 @@ import StatusesTable from './StatusesTable.js';
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
-export default class Dashboard extends React.Component {
+export default class Dashboard extends PureComponent {
   constructor(props) {
     super(props)
     this.state = { metric: "retweet_count", parsedResponse: null }; // metric should be "retweet_count" or "retweeter_count" (see API docs)
