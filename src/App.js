@@ -2,22 +2,17 @@ import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import About from "./pages/About"
-import Mainmenu from "./Mainmenu"
+import Mainmenu from "./layouts/Mainmenu"
 import DashboardOne from "./dashboards/DashboardOne"
 import DashboardTwo from "./dashboards/DashboardTwo"
 import DashboardThree from "./dashboards/DashboardThree"
-import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
-
+import WelcomeAlert from "./alerts/WelcomeAlert"
+import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import {
-  LinkContainer
-} from 'react-router-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Nav from 'react-bootstrap/Nav';
 import Card from 'react-bootstrap/Card'
-import Navbar from 'react-bootstrap/Navbar'
-import Sidebar from './Sidebar';
+import Sidebar from './layouts/Sidebar';
 
 
 
@@ -26,8 +21,9 @@ function App() {
   return (
     < Router >
       <div className="App">
-        
+
         <Mainmenu />
+
 
         <Switch>
           <Route path="/" exact component={Home} />
@@ -35,10 +31,11 @@ function App() {
           <Route path="/dashboard-one" component={DashboardOne} />
           <Route path="/dashboard-two" component={DashboardTwo} />
           <Route path="/dashboard-three" component={DashboardThree} />
+      
         </Switch>
 
-       
-        
+
+
       </div>
     </Router>
   );
@@ -47,6 +44,9 @@ function App() {
 
 const Home = () => (
   <Container fluid className="no-padding">
+    
+
+
     <Row>
       <Col sm={2}>
 
@@ -54,8 +54,11 @@ const Home = () => (
 
       </Col>
       <Col sm={10}>
+        
 
         <Container fluid className="mt-70">
+          <WelcomeAlert />
+
           <h3 className="herotitle">Home</h3>
           <Row>
             <Col>

@@ -4,7 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Card from 'react-bootstrap/Card'
-import Sidebar from '../Sidebar';
+import Sidebar from '../layouts/Sidebar';
+import WelcomeAlert from "../alerts/WelcomeAlert"
 
 function About() {
   return (
@@ -18,6 +19,7 @@ function About() {
         <Col sm={10}>
 
           <Container fluid className="mt-70">
+            <WelcomeAlert />
             <h3 className="herotitle">About</h3>
             <Row>
               <Col>

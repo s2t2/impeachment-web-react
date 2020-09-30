@@ -27,7 +27,7 @@ body {
 
 
 .herotitle {
-  background-color: #B22234;
+  background-color: #2e4960;
   font-size: 2rem;
   color: white;
   padding: 10px;
@@ -43,7 +43,7 @@ body {
   z-index: 1000;
   height: calc(100vh - 3rem);
   border-right: 1px solid #ececec;
-  background-color: #002868;
+  background-color: #34495e;
 }
 
 .sidebarWrapper {
@@ -84,6 +84,12 @@ body {
 
 .card {
   margin-bottom: 20px;
+}
+
+/* alert */
+
+.fade.alert.show {
+  background: #FFC107;
 }
 
 
