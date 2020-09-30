@@ -9,8 +9,9 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 //import {Dashboard as PlotlyDemo} from '../Dashboards/PlotlyDemo/Dashboard.js';
 //import {Dashboard as UsersMostRetweeted} from '../Dashboards/UsersMostRetweeted/Dashboard.js';
-import PlotlyDemo from '../Dashboards-old/PlotlyDemo/Dashboard.js'; // implicit alias
-import UsersMostRetweeted from '../Dashboards-old/UsersMostRetweeted/Dashboard.js'; // implicit alias
+import PlotlyDemo from '../_Dashboards/PlotlyDemo/Dashboard.js'; // implicit alias
+import UsersMostRetweeted from '../_Dashboards/UsersMostRetweeted/Dashboard.js'; // implicit alias
+import RechartsDemo from '../_Dashboards/RechartsDemo/Dashboard.js'; // implicit alias
 
 import './App.css';
 
@@ -34,13 +35,15 @@ const App = () => (
           <LinkContainer to="/about"><Button>About</Button></LinkContainer>
           <LinkContainer to="/plotly_demo"><Button>Plotly Chart Demo</Button></LinkContainer>
           <LinkContainer to="/users_most_retweeted"><Button>Users Most Retweeted</Button></LinkContainer>
+          <LinkContainer to="/recharts_demo"><Button>Recharts Chart Demo</Button></LinkContainer>
         </ButtonToolbar>
 
         <Switch>
+          <Route path="/" exact><Home /></Route>
           <Route path="/about"><About /></Route>
           <Route path="/plotly_demo"><PlotlyDemo /></Route>
           <Route path="/users_most_retweeted"><UsersMostRetweeted /></Route>
-          <Route path="/"><Home /></Route>
+          <Route path="/recharts_demo"><RechartsDemo /></Route>
         </Switch>
 
     </Container>
