@@ -52,6 +52,7 @@ Initializing the app:
 npx create-react-app impeachment-web-prototype-react
 ```
 
+  + https://create-react-app.dev/docs/adding-images-fonts-and-files/
 
 ## React
 
