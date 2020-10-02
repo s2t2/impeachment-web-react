@@ -6,6 +6,10 @@ import Mainmenu from "./layouts/Mainmenu"
 import DashboardOne from "./dashboards/DashboardOne"
 import DashboardTwo from "./dashboards/DashboardTwo"
 import DashboardThree from "./dashboards/DashboardThree"
+import DashboardFour from "./dashboards/DashboardFour"
+import DashboardFive from "./dashboards/DashboardFive"
+import DashboardSix from "./dashboards/DashboardSix"
+import DashboardSeven from "./dashboards/DashboardSeven"
 import AltHome from './_NavigableApp/App.js';
 
 import WelcomeAlert from "./alerts/WelcomeAlert"
@@ -34,6 +38,10 @@ function App() {
           <Route path="/dashboard-one" component={DashboardOne} />
           <Route path="/dashboard-two" component={DashboardTwo} />
           <Route path="/dashboard-three" component={DashboardThree} />
+          <Route path="/dashboard-four" component={DashboardFour} />
+          <Route path="/dashboard-five" component={DashboardFive} />
+          <Route path="/dashboard-six" component={DashboardSix} />
+          <Route path="/dashboard-seven" component={DashboardSeven} />
 
         </Switch>
 
@@ -62,13 +70,13 @@ const Home = () => (
         <Container fluid className="mt-70">
           <WelcomeAlert />
 
-          <h3 className="herotitle">Home</h3>
+          <h3 className="herotitle app-center">Home</h3>
           <Row>
             <Col>
               <Card>
 
                 <Card.Body>
-                  <Card.Text>
+                  <Card.Text className="app-center">
                     Line Chart
                     </Card.Text>
                 </Card.Body>

@@ -5,8 +5,13 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
 import Sidebar from '../layouts/Sidebar';
 import WelcomeAlert from "../alerts/WelcomeAlert"
+import GaugeChart from '../charts/GaugeChart';
 
-function About() {
+
+
+
+
+function DasbhoardFive() {
   return (
     <Container fluid className="no-padding">
       <Row>
@@ -19,22 +24,25 @@ function About() {
 
           <Container fluid className="mt-70">
             <WelcomeAlert />
-            <h3 className="herotitle app-center">About</h3>
+
+            
+            
             <Row>
+              
               <Col>
                 <Card>
+                  <GaugeChart />
 
                   <Card.Body>
-                    <Card.Text>
-                  
-                      <p className="app-center">About</p>
+
+                    <Card.Text className="app-center">
+                      Gauge Chart
+
                     </Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
-              
             </Row>
-            
           </Container>
 
         </Col>
@@ -44,4 +52,4 @@ function About() {
   );
 }
 
-export default About;
+export default DasbhoardFive;
