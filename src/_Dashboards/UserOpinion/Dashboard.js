@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
+//import moment from 'moment'
 //import { orderBy } from 'lodash';
 
 import StatusesTable from './StatusesTable.js';
@@ -18,6 +19,17 @@ export default class Dashboard extends PureComponent {
     var spinIntoStuff
     if (this.state.parsedResponse) {
         var statuses = this.state.parsedResponse
+
+
+
+
+
+
+        //debugger;
+
+        // moment(statuses[0]["created_at"]).format("YYYY-MM-DD")
+
+
 
         spinIntoStuff = <span>
           <h3>@{this.state.screen_name}</h3>
