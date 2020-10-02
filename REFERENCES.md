@@ -143,6 +143,12 @@ It works to show you the variable values. To interact with them, must set a `deb
 
   + https://github.com/prof-rossetti/intro-to-web-dev/blob/master/notes/javascript/notes.md
 
+### JavaScript Dates
+
+  + https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
+  + https://github.com/date-fns/date-fns
+  + https://date-fns.org/v2.16.1/docs/format
+
 ## Node.js
 
   + https://stackoverflow.com/questions/39282253/how-can-i-alias-a-default-import-in-javascript

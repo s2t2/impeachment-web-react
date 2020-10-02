@@ -20,19 +20,8 @@ export default class Dashboard extends PureComponent {
     if (this.state.parsedResponse) {
         var statuses = this.state.parsedResponse
 
-
-
-
-
-
-        //debugger;
-
-        // moment(statuses[0]["created_at"]).format("YYYY-MM-DD")
-
-
-
         spinIntoStuff = <span>
-          <h3>@{this.state.screen_name}</h3>
+          <h3>{`@${this.state.screen_name.toUpperCase()}`}</h3>
           <StatusesTable statuses={statuses}/>
         </span>
     } else {

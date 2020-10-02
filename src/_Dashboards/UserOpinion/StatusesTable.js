@@ -3,6 +3,8 @@
 import React from 'react';
 import { ReactComponent as UpArrow } from './arrow-upright.svg';
 
+import { format } from 'date-fns'
+
 export default function StatusesTable(props) {
   //{
   //   "created_at":"Wed, 22 Jan 2020 01:08:33 GMT",
@@ -15,9 +17,15 @@ export default function StatusesTable(props) {
   var tableRows = props.statuses.map(function(s){
 
     var statusUrl = `https://twitter.com/politico/status/${s["status_id"]}`
+
+    //debugger;
+    //var date = Date.parse(s["created_at"])
+    //var date = new strftime('%Y-%m-%d', s["created_at"])
+    var date = format(Date.parse(s["created_at"]), 'yyyy-MM-dd')
+
     return (
       <tr>
-        <td>{s["created_at"]}</td>
+        <td style={{"whiteSpace": "nowrap"}}>{date}</td>
         <td>
           {s["status_text"]}
 
