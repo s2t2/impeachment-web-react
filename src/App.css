@@ -47,7 +47,7 @@ text-align: center;
   z-index: 1000;
   height: calc(100vh - 3rem);
   border-right: 1px solid #ececec;
-  background-color: #34495e;
+  background-color: #343a40 !important;
 }
 
 .sidebarWrapper {
@@ -69,7 +69,7 @@ text-align: center;
 
 .sidebarWrapper a.active {
   text-decoration: none;
-  background: #B22234;
+  background: #76777d94;
   transition: 1s all ease;
 }
 
