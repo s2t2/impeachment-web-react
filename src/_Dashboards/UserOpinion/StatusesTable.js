@@ -1,9 +1,9 @@
 
 
-import React from 'react';
-import { ReactComponent as UpArrow } from './arrow-upright.svg';
-
+import React from 'react'
 import { format, compareAsc } from 'date-fns'
+
+import { ReactComponent as UpArrow } from './arrow-upright.svg'
 
 export default function StatusesTable(props) {
 
@@ -28,7 +28,7 @@ export default function StatusesTable(props) {
         <td><code>Coming Soon...</code></td>
       </tr>
     )
-  });
+  })
 
   return (
     <div class="table-responsive">

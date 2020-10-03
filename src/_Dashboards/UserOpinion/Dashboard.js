@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
-//import moment from 'moment'
-//import { orderBy } from 'lodash';
 
+import Dial from './Dial.js';
 import StatusesTable from './StatusesTable.js';
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
@@ -22,6 +21,9 @@ export default class Dashboard extends PureComponent {
 
         spinIntoStuff = <span>
           <h3>{`@${this.state.screen_name.toUpperCase()}`}</h3>
+
+          <Dial score={0.86}/>
+
           <StatusesTable statuses={statuses}/>
         </span>
     } else {
