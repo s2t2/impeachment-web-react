@@ -19,11 +19,10 @@ export default class Dashboard extends PureComponent {
   render() {
     var spinIntoStuff
     if (this.state.parsedResponse) {
+        var profileUrl = `https://twitter.com/${this.state.screen_name}`
         var statuses = this.state.parsedResponse
         var score = meanBy(statuses, (s) => s["opinion_score"])
         console.log("STATUSES:", statuses.length, "SCORE:", score)
-
-        var profileUrl = `https://twitter.com/${this.state.screen_name}`
 
         spinIntoStuff = <span>
           <h3>
@@ -32,7 +31,6 @@ export default class Dashboard extends PureComponent {
               <UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/>
             </a>
           </h3>
-
           <p class="lead">Mean Opinion Score: <code>{score.toFixed(4)}</code></p>
 
           <GaugeChart id="neccessary" style={{width: "400px", height:"180px", margin: "10px auto"}}
@@ -46,7 +44,6 @@ export default class Dashboard extends PureComponent {
 
           <StatusesTable statuses={statuses}/>
         </span>
-
     } else {
         spinIntoStuff = <Spinner animation="grow" />
     }
