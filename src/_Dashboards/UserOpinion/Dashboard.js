@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Spinner from 'react-bootstrap/Spinner'
 import { meanBy } from 'lodash'
 
-//import Dial from './Dial.js';
+import { ReactComponent as UpArrow } from './arrow-upright.svg'
 import GaugeChart from 'react-gauge-chart'
 import StatusesTable from './StatusesTable.js'
 
@@ -12,7 +12,7 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 export default class Dashboard extends PureComponent {
   constructor(props) {
     super(props)
-    this.state = {screen_name: "politico", parsedResponse: null}
+    this.state = {screen_name: "politico", parsedResponse: null} // TODO: get screen name from input box or URL params ?screen_name=BERNIESANDERS
     this.fetchData = this.fetchData.bind(this)
   }
 
@@ -23,15 +23,25 @@ export default class Dashboard extends PureComponent {
         var score = meanBy(statuses, (s) => s["opinion_score"])
         console.log("STATUSES:", statuses.length, "SCORE:", score)
 
-        spinIntoStuff = <span>
-          <h3>{`@${this.state.screen_name.toUpperCase()}`}</h3>
+        var profileUrl = `https://twitter.com/${this.state.screen_name}`
 
-          <GaugeChart id="neccessary" style={{width: "400px", margin: "10px auto"}}
+        spinIntoStuff = <span>
+          <h3>
+            {`@${this.state.screen_name.toUpperCase()}`}
+            <a href={profileUrl}>
+              <UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/>
+            </a>
+          </h3>
+
+          <p class="lead">Mean Opinion Score: <code>{score.toFixed(4)}</code></p>
+
+          <GaugeChart id="neccessary" style={{width: "400px", height:"180px", margin: "10px auto"}}
             arcsLength={[0.3, 0.4, 0.3]}
             colors={["steelblue", "#ccc", "#D62021"]}
-            percent={0.86}
+            percent={score}
             arcPadding={0.03}
             cornerRadius={0}
+            hideText={true}
           />
 
           <StatusesTable statuses={statuses}/>
