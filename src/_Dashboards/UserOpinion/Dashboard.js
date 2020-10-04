@@ -12,7 +12,7 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 export default class Dashboard extends PureComponent {
   constructor(props) {
     super(props)
-    this.state = {screen_name: "politico", parsedResponse: null} // TODO: get screen name from input box or URL params ?screen_name=BERNIESANDERS
+    this.state = {screen_name: "politico", parsedResponse: null} // TODO: get screen name from input box or URL params (maybe use window.location.href and split it, or find some kind of react router property)
     this.fetchData = this.fetchData.bind(this)
   }
 
@@ -31,9 +31,9 @@ export default class Dashboard extends PureComponent {
               <UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/>
             </a>
           </h3>
-          <p class="lead">Mean Opinion Score: <code>{score.toFixed(4)}</code></p>
+          <p class="lead">Mean Opinion Score: <code>{score.toFixed(2)}</code></p>
 
-          <GaugeChart id="neccessary" style={{width: "400px", height:"180px", margin: "10px auto"}}
+          <GaugeChart id="necessary" style={{width: "400px", height:"180px", margin: "10px auto"}}
             arcsLength={[0.3, 0.4, 0.3]}
             colors={["steelblue", "#ccc", "#D62021"]}
             percent={score}
