@@ -12,7 +12,8 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    Legend
+    Legend,
+    ResponsiveContainer,
 } from 'recharts';
 
 import Spinner from 'react-bootstrap/Spinner';
@@ -74,39 +75,44 @@ class DasbhoardTwo extends React.Component {
                 <h3 className='m-5 app-center'>Statuses Most Retweeted
                 </h3>
                 <Row>
-                    <Col>
+                    <Col sm={12} md={12} lg={12}>
                         <Card>
-                            <BarChart
-                                width={1200}
-                                height={500}
-                                data={community0}
-                                layout="vertical"
-                                margin={{
-                                top: 5,
-                                left: 10,
-                                bottom: 5
-                            }}>
-                                <XAxis type="number" dataKey="retweet_count"/>
-                                <YAxis
-                                    type="category"
-                                    dataKey="status_text"
-                                    width={525}
-                                    tick={{
-                                    fontSize: 14
-                                }}/>
-                                <CartesianGrid strokeDasharray="1 1"/>
-                                <Tooltip
-                                    labelFormatter={() => undefined}
-                                    formatter={(okay) => [
-                                    new Intl
-                                        .NumberFormat('en')
-                                        .format(okay),
-                                    undefined
-                                ]}/>
-                                <Legend/>
-                                <Bar dataKey="retweet_count" fill="#3C3B6E" label={< Label />}/>
+                            <div style={{ width: '100%', height: 500 }}>
+                                <ResponsiveContainer>
+                                    <BarChart
+                                       
+                                        data={community0}
+                                        layout="vertical"
+                                        margin={{
+                                            top: 5,
+                                            left: 10,
+                                            bottom: 5
+                                        }}>
+                                        <XAxis type="number" dataKey="retweet_count" />
+                                        <YAxis
+                                            type="category"
+                                            dataKey="status_text"
+                                            width={525}
+                                            tick={{
+                                                fontSize: 14
+                                            }} />
+                                        <CartesianGrid strokeDasharray="1 1" />
+                                        <Tooltip
+                                            labelFormatter={() => undefined}
+                                            formatter={(okay) => [
+                                                new Intl
+                                                    .NumberFormat('en')
+                                                    .format(okay),
+                                                undefined
+                                            ]} />
+                                        <Legend />
+                                        <Bar dataKey="retweet_count" fill="#002868" label={< Label />} />
 
-                            </BarChart>
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+
+                            
                             <Card.Body>
                                 <Card.Text className="app-center">
 
@@ -116,38 +122,42 @@ class DasbhoardTwo extends React.Component {
                         </Card>
 
                         <Card>
-                            <BarChart
-                                width={1200}
-                                height={500}
-                                data={community1}
-                                layout="vertical"
-                                margin={{
-                                top: 5,
-                                right: 10,
-                                left: 10,
-                                bottom: 5
-                            }}>
-                                <XAxis type="number" dataKey="retweet_count"/>
-                                <YAxis
-                                    type="category"
-                                    dataKey="status_text"
-                                    width={525}
-                                    tick={{
-                                    fontSize: 14
-                                }}/>
-                                <CartesianGrid strokeDasharray="1 1"/>
-                                <Tooltip
-                                    labelFormatter={() => undefined}
-                                    formatter={(okay) => [
-                                    new Intl
-                                        .NumberFormat('en')
-                                        .format(okay),
-                                    undefined
-                                ]}/>
-                                <Legend/>
-                                <Bar dataKey="retweet_count" fill="#B22234" label={< Label />}/>
+                            <div style={{ width: '100%', height: 500 }}>
+                                <ResponsiveContainer>
+                                    <BarChart
+                                    
+                                        data={community1}
+                                        layout="vertical"
+                                        margin={{
+                                            top: 5,
+                                            left: 10,
+                                            bottom: 5
+                                        }}>
+                                        <XAxis type="number" dataKey="retweet_count" />
+                                        <YAxis
+                                            type="category"
+                                            dataKey="status_text"
+                                            width={525}
+                                            tick={{
+                                                fontSize: 14
+                                            }} />
+                                        <CartesianGrid strokeDasharray="1 1" />
+                                        <Tooltip
+                                            labelFormatter={() => undefined}
+                                            formatter={(okay) => [
+                                                new Intl
+                                                    .NumberFormat('en')
+                                                    .format(okay),
+                                                undefined
+                                            ]} />
+                                        <Legend />
+                                        <Bar dataKey="retweet_count" fill="#bf0a30" label={< Label />} />
 
-                            </BarChart>
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+
+                         
                             <Card.Body>
                                 <Card.Text className="app-center">
 
@@ -171,12 +181,12 @@ class DasbhoardTwo extends React.Component {
         return (
             <Container fluid className="no-padding">
                 <Row>
-                    <Col sm={2}>
+                    <Col md={2}>
 
                         <Sidebar/>
 
                     </Col>
-                    <Col sm={10}>
+                    <Col md={10}>
 
                         <Container fluid className="mt-70">
                             <WelcomeAlert/> {spinIntoCharts}

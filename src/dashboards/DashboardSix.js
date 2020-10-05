@@ -15,32 +15,32 @@ import { orderBy } from 'lodash';
 var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
 const optionsOne = {
-  colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"],
+  colors: ["#26456e", "#1c5998", "#1c73b1", "#3a87b7", "#67add4", "#7bc8e2"],
   enableTooltip: true,
   deterministic: false,
   fontFamily: "Source Sans Pro",
   fontSizes: [10, 60],
   fontStyle: "normal",
   fontWeight: "normal",
-  padding: 1,
-  rotations: 3,
-  rotationAngles: [0, 40],
+  padding: 2,
+  rotations: 2,
+  rotationAngles: [0, 20],
   scale: "sqrt",
   spiral: "archimedean",
   transitionDuration: 1000
 };
 
 const optionsTwo = {
-  colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"],
+  colors: ["#9c0824", "#b10c1d", "#c21417", "#cf1719", "#d8392c", "#e35745"],
   enableTooltip: true,
   deterministic: false,
   fontFamily: "Source Sans Pro",
   fontSizes: [10, 60],
   fontStyle: "normal",
   fontWeight: "normal",
-  padding: 1,
-  rotations: 3,
-  rotationAngles: [0, 40],
+  padding: 2,
+  rotations: 2,
+  rotationAngles: [0, 20],
   scale: "sqrt",
   spiral: "archimedean",
   transitionDuration: 1000
@@ -83,26 +83,30 @@ class DasbhoardSix extends React.Component {
         <h3 className='m-5 app-center'>Top Hashtags in Bot Tweets
                 </h3>
         <Row>
-          <Col>
+          <Col md={6}>
             <Card>
 
               <Card.Body>
-                <div style={{ height: 400, width: 600 }}>
+                <div style={{ width: "100%", height: "100%" }}>
                   <ReactWordcloud options={optionsOne} words={wordsCommunity0} />
                 </div>
+                  
+              
                 <Card.Text className="app-center">
                   Top Hashtags in Left-leaning Bot Tweets
                                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
-          <Col>
+          <Col md={6}>
             <Card>
 
               <Card.Body>
-                <div style={{ height: 400, width: 600 }}>
-                  <ReactWordcloud options={optionsTwo} words={wordsCommunity1} />
+                
+                <div style={{ width: "100%", height: "100%" }}>
+                  <ReactWordcloud options={optionsTwo} words={wordsCommunity0} />
                 </div>
+                
                 <Card.Text className="app-center">
 
                   Top Hashtags in Right-leaning Bot Tweets
@@ -122,12 +126,12 @@ class DasbhoardSix extends React.Component {
     return (
       <Container fluid className="no-padding">
         <Row>
-          <Col sm={2}>
+          <Col md={2}>
 
             <Sidebar />
 
           </Col>
-          <Col sm={10}>
+          <Col md={10}>
 
             <Container fluid className="mt-70">
               <WelcomeAlert /> {spinIntoCharts}
@@ -147,7 +151,7 @@ class DasbhoardSix extends React.Component {
   }
 
   fetchData() {
-    var requestUrl = `${API_URL}/api/v0/top_status_tags?limit=100`
+    var requestUrl = `${API_URL}/api/v0/top_status_tags?limit=20`
     console.log("REQUEST URL:", requestUrl)
     fetch(requestUrl).then(function (response) {
       // console.log("RAW RESPONSE", "STATUS", response.status, response.statusText,

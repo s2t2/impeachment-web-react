@@ -26,12 +26,12 @@ function DasbhoardSeven() {
   return (
     <Container fluid className="no-padding">
       <Row>
-        <Col sm={2}>
+        <Col md={2}>
 
           <Sidebar />
 
         </Col>
-        <Col sm={10}>
+        <Col md={10}>
 
           <Container fluid className="mt-70">
             <WelcomeAlert />
@@ -104,6 +104,33 @@ function DasbhoardSeven() {
               <Col>
                 <Card>
                   <GaugeChart />
+
+                  <Card.Body>
+
+                    <Card.Text className="app-center">
+                      Simple Radial Bar Chart
+
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Card>
+
+                  <Card.Body>
+                    
+                    <Card.Text className="app-center">
+                      Simple Radar Chart
+
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col>
+                <Card>
+                  
 
                   <Card.Body>
 
