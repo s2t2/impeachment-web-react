@@ -1,53 +1,58 @@
-import React, { PureComponent } from 'react';
-//import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
+import React, { PureComponent } from 'react'
+import Container from 'react-bootstrap/Container'
+import Spinner from 'react-bootstrap/Spinner'
+import { meanBy } from 'lodash'
 
-import Table from './Table';
+import { ReactComponent as UpArrow } from './arrow-upright.svg'
+import GaugeChart from 'react-gauge-chart'
+import StatusesTable from './StatusesTable.js'
 
-import './Dashboard.css';
-//import UpArrow from './arrow-upright.svg';
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
 export default class Dashboard extends PureComponent {
-
   constructor(props) {
     super(props)
-    this.state = {screen_name: "politico", parsedResponse: null};
-    //this.fetchData = this.fetchData.bind(this);
+    this.state = {screen_name: "politico", parsedResponse: null} // TODO: get screen name from input box or URL params (maybe use window.location.href and split it, or find some kind of react router property)
+    this.fetchData = this.fetchData.bind(this)
   }
 
   render() {
-    //var spinIntoCharts;
+    var spinIntoStuff
+    if (this.state.parsedResponse) {
+        var profileUrl = `https://twitter.com/${this.state.screen_name}`
+        var statuses = this.state.parsedResponse
+        var score = meanBy(statuses, (s) => s["opinion_score"])
+        console.log("STATUSES:", statuses.length, "SCORE:", score)
+
+        spinIntoStuff = <span>
+          <h3>
+            {`@${this.state.screen_name.toUpperCase()}`}
+            <a href={profileUrl}>
+              <UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/>
+            </a>
+          </h3>
+          <p class="lead">Mean Opinion Score: <code>{score.toFixed(2)}</code></p>
+
+          <GaugeChart id="necessary" style={{width: "400px", height:"180px", margin: "10px auto"}}
+            arcsLength={[0.3, 0.4, 0.3]}
+            colors={["steelblue", "#ccc", "#D62021"]}
+            percent={score}
+            arcPadding={0.03}
+            cornerRadius={0}
+            hideText={true}
+          />
+
+          <StatusesTable statuses={statuses}/>
+        </span>
+    } else {
+        spinIntoStuff = <Spinner animation="grow" />
+    }
 
     return (
-      <Container className="Dashboard" style={{"marginTop": "2em"}}>
-        <div id="content">
-
-          <header class="row">
-            <span class="col-md-8">
-              <h1 style={{"display": "inline-block"}}>@POLITICO</h1>
-
-              <a style={{"display": "inline-block"}} href="https://twitter.com/politico">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up-right-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                  <path fill-rule="evenodd" d="M5.172 10.828a.5.5 0 0 0 .707 0l4.096-4.096V9.5a.5.5 0 1 0 1 0V5.525a.5.5 0 0 0-.5-.5H6.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z"/>
-                </svg>
-              </a>
-            </span>
-            <span class="col-md-4">
-                <div id="opinion-meter"></div>
-
-            </span>
-          </header>
-
-          <p class="lead">Mean Opinion Score: <code>XX.YY%</code></p>
-
-          <div class="chart-gauge"></div>
-
-          <Table/>
-
-        </div>
+       <Container className="Dashboard">
+        {spinIntoStuff}
       </Container>
-    );
+    )
   }
 
   componentDidMount(){
@@ -56,11 +61,20 @@ export default class Dashboard extends PureComponent {
   }
 
   fetchData(){
-
-
-
-
-
-
+    var requestUrl = `${API_URL}/api/v0/user_tweets/${this.state.screen_name}`
+    console.log("REQUEST URL:", requestUrl)
+    fetch(requestUrl)
+      .then(function(response) {
+        //console.log("RAW RESPONSE", "STATUS", response.status, response.statusText, response.ok, "HEADERS", response.headers, response.url)
+        return response.json()
+      })
+      .then(function(json){
+        console.log("FETCHED", json.length, "ITEMS")
+        this.setState({parsedResponse: json})
+      }.bind(this))
+      .catch(function(err){
+        console.error("FETCH ERR", err)
+      })
   }
+
 }

@@ -52,6 +52,7 @@ Initializing the app:
 npx create-react-app impeachment-web-prototype-react
 ```
 
+  + https://create-react-app.dev/docs/adding-images-fonts-and-files/
 
 ## React
 
@@ -142,6 +143,12 @@ It works to show you the variable values. To interact with them, must set a `deb
 
   + https://github.com/prof-rossetti/intro-to-web-dev/blob/master/notes/javascript/notes.md
 
+### JavaScript Dates
+
+  + https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
+  + https://github.com/date-fns/date-fns
+  + https://date-fns.org/v2.16.1/docs/format
+
 ## Node.js
 
   + https://stackoverflow.com/questions/39282253/how-can-i-alias-a-default-import-in-javascript
@@ -154,4 +161,17 @@ It works to show you the variable values. To interact with them, must set a `deb
 
 ```sh
 npm install lodash --save
+```
+
+## Gauge Dials
+
+  + http://bl.ocks.org/ameyms/9184728
+  + https://github.com/PolymerEl/d3-gauge-chart/blob/master/d3-gauge-chart.html
+  + https://codepen.io/jaketrent/pen/eloGk
+  + https://bl.ocks.org/Niekes/8cd08393cfd8a070a93c2b9f63a5acc1
+  + https://github.com/Martin36/react-gauge-chart
+
+
+```sh
+npm install react-gauge-chart
 ```

@@ -12,6 +12,7 @@ import Col from 'react-bootstrap/Col'
 //import Nav from './PrototypeNav';
 //import Footer from './PrototypeFooter';
 
+import AboutPage from '../_Dashboards/About/Page.js';
 import PlotlyDemo from '../_Dashboards/PlotlyDemo/Dashboard.js';
 import RechartsDemo from '../_Dashboards/RechartsDemo/Dashboard.js';
 import UsersMostRetweeted from '../_Dashboards/UsersMostRetweeted/Dashboard.js';
@@ -22,7 +23,6 @@ import UserOpinion from '../_Dashboards/UserOpinion/Dashboard.js';
 
 // TODO
 const Home = () => <h2>Home</h2>
-const About = () => <h2>About</h2>
 
 const App = () => (
   <span>
@@ -51,7 +51,7 @@ const App = () => (
             <Col sm={9}>
               <Tab.Content>
                 <Tab.Pane eventKey="home"><Home/></Tab.Pane>
-                <Tab.Pane eventKey="about"><About/></Tab.Pane>
+                <Tab.Pane eventKey="about"><AboutPage/></Tab.Pane>
                 <Tab.Pane eventKey="plotly_demo"><PlotlyDemo/></Tab.Pane>
                 <Tab.Pane eventKey="recharts_demo"><RechartsDemo/></Tab.Pane>
                 <Tab.Pane eventKey="top_profile_tags"><TopProfileTags/></Tab.Pane>
