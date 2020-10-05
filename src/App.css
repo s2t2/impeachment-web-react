@@ -40,6 +40,11 @@ text-align: center;
 
 /* sidebar */
 
+
+.sidebarWrapperRoot{
+  background-color: red;
+}
+
 .sidebar {
   position: fixed;
   top: 3rem;
@@ -47,7 +52,7 @@ text-align: center;
   z-index: 1000;
   height: calc(100vh - 3rem);
   border-right: 1px solid #ececec;
-  background-color: #343a40 !important;
+  background-color: #343a40;
 }
 
 .sidebarWrapper {
@@ -63,6 +68,7 @@ text-align: center;
   padding-bottom: 10px;
   padding-left: 10px;
   color: white;
+  font-size: 1rem;
   text-decoration: none !important;
  
 }
@@ -79,9 +85,27 @@ text-align: center;
   color: #ded5d5;
 }
 
-.sidebarWrapper {
-  margin-top: 6vh;
+
+.mobile-dasbhoard-menu-title{
+   margin: 10px 0px;
 }
+
+.mobile-dasbhoard-menu a{
+  display: block;
+  color: rgba(0, 0, 0, .5);
+  margin: 10px 0px;
+  text-decoration: none !important;
+}
+
+.mobile-dasbhoard-menu a:hover{
+   color: rgba(0, 0, 0, .8);
+}
+
+.mobile-dasbhoard-menu a.active {
+  font-weight: 500;
+  color: #1a1a1a !important;
+}
+
 
 
 /* dashboard card css */
@@ -97,98 +121,40 @@ text-align: center;
 }
 
 
-
-/* Responisve CSS */
-
 /* 
-  ##Device = Desktops
-  ##Screen = 1281px to higher resolution desktops
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
 */
 
-@media (min-width: 1281px) {
+@media (min-width: 768px) and (max-width: 768px) {
 
 
+  .mt-70 {
+    margin-top: 70px !important;
+  }
 
 }
 
-/* 
-  ##Device = Laptops, Desktops
-  ##Screen = B/w 1025px to 1280px
-*/
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-
-
-
-}
-
-/* 
-  ##Device = Tablets, Ipads (portrait)
-  ##Screen = B/w 768px to 1024px
-*/
-
-@media (min-width: 768px) and (max-width: 1024px) {
-
-
-
-}
-
-/* 
-  ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 768px to 1024px
-*/
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
-
-
-}
-
-/* 
-  ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px
-*/
-
-@media (min-width: 481px) and (max-width: 767px) {
-
-   .sidebar {
-     position: relative;
-     width: 100%;
-     z-index: 1000;
-     height: auto;
-     top: 0;
-     background-color: #002868;
-   }
-
-}
 
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
 */
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 768px) {
 
-.sidebar {
-  position: relative;
-  width: 100%;
-  z-index: 1000;
-  height: auto;
-  top: 0;
-  background-color: #002868;
-}
+  .navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.00rem !important;
+    line-height: inherit;
+    white-space: nowrap;
+  }
 
-
-.mt-70 {
-  margin-top: 20px;
-}
-
-.sidebarWrapper {
-  margin-top: 60px;
-}
-
-
+  .mt-70 {
+    margin-top: 20px;
+  }
 
 }
-
-

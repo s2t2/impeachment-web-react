@@ -10,12 +10,12 @@ function About() {
   return (
     <Container fluid className="no-padding">
       <Row>
-        <Col sm={2}>
+        <Col md={2}>
 
           <Sidebar />
 
         </Col>
-        <Col sm={10}>
+        <Col md={10}>
 
           <Container fluid className="mt-70">
             <WelcomeAlert />

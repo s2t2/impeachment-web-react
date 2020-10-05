@@ -12,7 +12,8 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    Legend
+    Legend,
+    ResponsiveContainer,
 } from 'recharts';
 
 import Spinner from 'react-bootstrap/Spinner';
@@ -39,7 +40,7 @@ class DasbhoardOne extends React.Component {
         if (this.state.parsedResponse) {
             console.log("Raw data");
             var rawdata = this.state.parsedResponse;
-            console.log(typeof(rawdata));
+            
 
             var users = this.state.parsedResponse;
 
@@ -60,27 +61,32 @@ class DasbhoardOne extends React.Component {
                 <h3 className='m-5 app-center'>Users Most Retweeted by Community
                 </h3>
                 <Row>
-                    <Col>
+                    <Col sm={12} md={12} lg={6}>
                         <Card>
-                            <BarChart
-                                width={650}
-                                height={500}
-                                data={community0}
-                                layout="vertical"
-                                margin={{
-                                top: 5,
-                                right: 30,
-                                left: 100,
-                                bottom: 5
-                            }}>
-                                <XAxis type="number" dataKey="retweet_count"/>
-                                <YAxis type="category" dataKey="retweeted_user_screen_name"/>
-                                <CartesianGrid strokeDasharray="1 1"/>
-                                <Tooltip/>
-                                <Legend/>
-                                <Bar dataKey="retweet_count" fill="#3C3B6E"/>
+                            <div style={{ width: '100%', height: 500 }}>
+                                <ResponsiveContainer>
+                                    <BarChart
+                                        data={community0}
+                                        layout="vertical"
+                                        margin={{
+                                            top: 5,
+                                            right: 30,
+                                            left: 100,
+                                            bottom: 5
+                                        }}
+                                    >
+                                        <XAxis type="number" dataKey="retweet_count" />
+                                        <YAxis type="category" dataKey="retweeted_user_screen_name" />
+                                        <CartesianGrid strokeDasharray="1 1" />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Bar dataKey="retweet_count" fill="#002868" />
 
-                            </BarChart>
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+                            
+                            
                             <Card.Body>
                                 <Card.Text className="app-center">
 
@@ -89,27 +95,30 @@ class DasbhoardOne extends React.Component {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col>
+                    <Col sm={12} md={12} lg={6}>
                         <Card>
-                            <BarChart
-                                width={650}
-                                height={500}
-                                data={community1}
-                                layout="vertical"
-                                margin={{
-                                top: 5,
-                                right: 30,
-                                left: 100,
-                                bottom: 5
-                            }}>
-                                <XAxis type="number" dataKey="retweet_count"/>
-                                <YAxis type="category" dataKey="retweeted_user_screen_name"/>
-                                <CartesianGrid strokeDasharray="1 1"/>
-                                <Tooltip/>
-                                <Legend/>
-                                <Bar dataKey="retweet_count" fill="#B22234"/>
+                            <div style={{ width: '100%', height: 500 }}>
+                                <ResponsiveContainer>
+                                    <BarChart
+                                        data={community1}
+                                        layout="vertical"
+                                        margin={{
+                                            top: 5,
+                                            right: 30,
+                                            left: 100,
+                                            bottom: 5
+                                        }}
+                                    >
+                                        <XAxis type="number" dataKey="retweet_count" />
+                                        <YAxis type="category" dataKey="retweeted_user_screen_name" />
+                                        <CartesianGrid strokeDasharray="1 1" />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Bar dataKey="retweet_count" fill="#bf0a30" />
 
-                            </BarChart>
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
 
                             <Card.Body>
                                 <Card.Text className="app-center">
@@ -133,12 +142,12 @@ class DasbhoardOne extends React.Component {
         return (
             <Container fluid className="no-padding">
                 <Row>
-                    <Col sm={2}>
+                    <Col md={2}>
 
                         <Sidebar/>
 
                     </Col>
-                    <Col sm={10}>
+                    <Col md={10}>
 
                         <Container fluid className="mt-70">
                             <WelcomeAlert/> {spinIntoCharts}

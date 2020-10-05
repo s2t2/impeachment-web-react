@@ -12,7 +12,8 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    Legend
+    Legend,
+    ResponsiveContainer,
 } from 'recharts';
 
 import Spinner from 'react-bootstrap/Spinner';
@@ -52,27 +53,33 @@ class DasbhoardThree extends React.Component {
                 <h3 className='m-5 app-center'>Top Hashtags in Bot Bot Profiles
                 </h3>
                 <Row>
-                    <Col>
+                    <Col sm={12} md={12} lg={6}>
                         <Card>
-                            <BarChart
-                                width={650}
-                                height={700}
-                                data={community0}
-                                layout="vertical"
-                                margin={{
-                                top: 5,
-                                right: 30,
-                                left: 100,
-                                bottom: 5
-                            }}>
-                                <XAxis type="number" dataKey="pct"/>
-                                <YAxis type="category" dataKey="token"/>
-                                <CartesianGrid strokeDasharray="1 1"/>
-                                <Tooltip/>
-                                <Legend/>
-                                <Bar dataKey="pct" fill="#3C3B6E"/>
+                            
+                            <div style={{ width: '100%', height: 800 }}>
+                                <ResponsiveContainer>
+                                    <BarChart
+                                    
+                                        data={community0}
+                                        layout="vertical"
+                                        margin={{
+                                            top: 5,
+                                            right: 30,
+                                            left: 100,
+                                            bottom: 5
+                                        }}>
+                                        <XAxis type="number" dataKey="pct" />
+                                        <YAxis type="category" dataKey="token" />
+                                        <CartesianGrid strokeDasharray="1 1" />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Bar dataKey="pct" fill="#002868" />
 
-                            </BarChart>
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+                            
+                            
                             <Card.Body>
                                 <Card.Text className="app-center">
                                     
@@ -81,27 +88,33 @@ class DasbhoardThree extends React.Component {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col>
+                    <Col sm={12} md={12} lg={6}>
                         <Card>
-                            <BarChart
-                                width={650}
-                                height={700}
-                                data={community1}
-                                layout="vertical"
-                                margin={{
-                                top: 5,
-                                right: 30,
-                                left: 100,
-                                bottom: 5
-                            }}>
-                                <XAxis type="number" dataKey="pct"/>
-                                <YAxis type="category" dataKey="token"/>
-                                <CartesianGrid strokeDasharray="1 1"/>
-                                <Tooltip/>
-                                <Legend/>
-                                <Bar dataKey="pct" fill="#B22234"/>
+                            
+                            <div style={{ width: '100%', height: 800 }}>
+                                <ResponsiveContainer>
+                                    <BarChart
+                                    
+                                        data={community1}
+                                        layout="vertical"
+                                        margin={{
+                                            top: 5,
+                                            right: 30,
+                                            left: 100,
+                                            bottom: 5
+                                        }}>
+                                        <XAxis type="number" dataKey="pct" />
+                                        <YAxis type="category" dataKey="token" />
+                                        <CartesianGrid strokeDasharray="1 1" />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Bar dataKey="pct" fill="#bf0a30" />
 
-                            </BarChart>
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+
+                            
 
                             <Card.Body>
                                 <Card.Text className="app-center">
@@ -123,12 +136,12 @@ class DasbhoardThree extends React.Component {
         return (
             <Container fluid className="no-padding">
                 <Row>
-                    <Col sm={2}>
+                    <Col md={2}>
 
                         <Sidebar/>
 
                     </Col>
-                    <Col sm={10}>
+                    <Col md={10}>
 
                         <Container fluid className="mt-70">
                             <WelcomeAlert/>
