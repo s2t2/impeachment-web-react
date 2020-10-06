@@ -22,3 +22,19 @@ select
 from impeachment_production.tweets
 
 ```
+
+### Bot Classification
+
+```sql
+select count(distinct bu.bot_id) as bot_count
+from impeachment_production.bots_above_80 bu
+```
+
+```sql
+select
+  -- bu.bot_id
+  count(distinct status_id) as status_count
+  ,count(distinct case when t.retweet_status_id is not null then status_id end) rt_count
+from impeachment_production.bots_above_80 bu
+JOIN impeachment_production.tweets t ON cast(t.user_id as int64) = bu.bot_id
+```

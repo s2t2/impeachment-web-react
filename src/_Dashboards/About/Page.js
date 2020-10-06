@@ -96,6 +96,8 @@ export default function AboutPage(props) {
                     After assigning daily bot scores to all users, we identified which users had at least one daily probability greater than 80%,
                     and labeled these users as bots.
                     In total, this method yielded 24,150 bots, which is 0.67% of the total users and 0.87% of the total retweeters in our dataset.
+                    Despite only representing under 1% of all users, these bots were
+                    responsible for 20.9 million tweets (31% of the total tweets) and 20.1 million retweets (36% of the total tweets).
                 </p>
             </section>
 
