@@ -101,9 +101,9 @@ export default function AboutPage(props) {
                     So for each day in our collection period, we examined that day's retweets to identify
                     which users retweeted with sufficient frequency to differentiate them from normal users,
                     and our model assigned each user a daily bot probability score from 0 (not bot) to 1 (bot).
-                    An example daily distribution of bot scores is below. Most scores are around 0.5, and only a few are closer to 1.
+                    An example daily distribution of bot scores is below. Most scores are around 0.5.
                 </p>
-                <img src={exampleDailyBotProbabilities}/>
+                <img src={exampleDailyBotProbabilities} class="img-fluid"/>
                 <p>
                     After assigning daily bot scores to all users, we identified which users had at least one daily probability greater than 80%,
                     and labeled these users as bots.
@@ -129,7 +129,7 @@ export default function AboutPage(props) {
                     Overall, 681 bots had similarity scores appropriate for assignment in one of these two communities.
                     The first community ("Community 0") includes 571 bots, while the second community ("Community 1") includes 110 bots.
                 </p>
-                <img src={botCommunityAssignments}/>
+                <img src={botCommunityAssignments} class="img-fluid"/>
 
             </section>
 
@@ -141,7 +141,7 @@ export default function AboutPage(props) {
                    We also observe that left-leaning bots retweet a greater variety of users, while right-leaning bots mostly retweet Trump.
                 </p>
                 <UsersMostRetweeted/>
-                <StatusesMostRetweeted/>
+                <StatusesMostRetweeted metric="retweeter_count"/>
 
                 <p>
                     We then analyzed the language patterns exhibited by each bot community, to determine which terms and hashtags each community used most frequently.

@@ -3,6 +3,13 @@
 import React from 'react';
 
 export default function StatusesTable(props) {
+  //console.log("METRIC", props.metric)
+  //var columnName;
+  //if(props.metric === 'retweet_count'){
+  //  columnName = "Retweet Count"
+  //} else if (props.metric === 'retweeter_count'){
+  //  columnName = "Bot Count"
+  //}
 
   var rank = 0
   //console.log("PROPS", this.props)
@@ -12,7 +19,7 @@ export default function StatusesTable(props) {
       <tr>
         <td>{rank}</td>
         <td>{s["status_text"]}</td>
-        <td><code>{s["retweet_count"]}</code></td>
+        <td><code>{s["retweeter_count"]}</code></td>
       </tr>
     )
   });
@@ -24,7 +31,7 @@ export default function StatusesTable(props) {
           <tr>
             <th scope="col">Rank</th>
             <th scope="col">Status Text</th>
-            <th scope="col">Retweet Count</th>
+            <th scope="col">Retweeter Count</th>
           </tr>
         </thead>
         <tbody>

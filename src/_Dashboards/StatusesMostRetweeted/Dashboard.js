@@ -10,7 +10,7 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 export default class Dashboard extends PureComponent {
   constructor(props) {
     super(props)
-    this.state = { metric: "retweet_count", parsedResponse: null }; // metric should be "retweet_count" or "retweeter_count" (see API docs)
+    this.state = { metric: "retweeter_count", parsedResponse: null }; // metric should be "retweet_count" or "retweeter_count" (see API docs)
     this.fetchData = this.fetchData.bind(this);
   }
 
@@ -25,10 +25,10 @@ export default class Dashboard extends PureComponent {
 
         spinIntoTables = <span>
           <p class="lead">Statuses Most Retweeted by Left-leaning Bots</p>
-          <StatusesTable statuses={community0}/>
+          <StatusesTable statuses={community0} metric={metric}/>
 
           <p class="lead">Statuses Most Retweeted by Right-leaning Bots</p>
-          <StatusesTable statuses={community1}/>
+          <StatusesTable statuses={community1} metric={metric}/>
         </span>
     } else {
         spinIntoTables = <Spinner animation="grow" />
