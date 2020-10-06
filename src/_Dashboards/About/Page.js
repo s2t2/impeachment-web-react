@@ -131,10 +131,10 @@ export default function AboutPage(props) {
             <section id="bot-communities">
                 <h4>III. Bot Communities</h4>
                 <p>
-                    After identifying the bots, we re-examined their retweet behavior to discern who they were retweeting, and how many times. Then we compared this information between each bot and each other bot, producing a <a href="https://deepai.org/machine-learning-glossary-and-terms/jaccard-index">Jaccard score</a> (similarity score) for each bot pair.
+                    After identifying the bots, we re-examined their retweet behavior to discern who they were retweeting, and how often. Then for each pair of bots, we compared this data to produce a <a href="https://deepai.org/machine-learning-glossary-and-terms/jaccard-index">Jaccard coefficient</a> (similarity score) between each bot pair.
                 </p>
                 <p>
-                    Based on how similar each bot was to each other bot, we grouped the bots into a given number of like communities, using a <a href="https://en.wikipedia.org/wiki/Spectral_clustering">Spectral Clustering</a> method (which is similar to K-Means Clustering). To represent the partisan composition of US politics, we chose to move forward with two bot communities.
+                    Based on how similar each bot's retweet behavior was to each other bot, we grouped the bots into a given number of like communities, using a <a href="https://en.wikipedia.org/wiki/Spectral_clustering">Spectral Clustering</a> method (similar to K-Means Clustering). We chose to separate the bots into two communities, to model the partisan nature of US politics.
                 </p>
                 <p>
                     Overall, 681 bots had similarity scores appropriate for assignment in one of these two communities. The first community ("Community 0") includes 571 bots, while the second community ("Community 1") includes 110 bots.
