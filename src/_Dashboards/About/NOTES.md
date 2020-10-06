@@ -38,3 +38,11 @@ select
 from impeachment_production.bots_above_80 bu
 JOIN impeachment_production.tweets t ON cast(t.user_id as int64) = bu.bot_id
 ```
+
+### Bot Communities
+
+```sql
+SELECT community_id, count(distinct user_id) as bot_count
+FROM impeachment_production.2_bot_communities
+GROUP BY 1
+```

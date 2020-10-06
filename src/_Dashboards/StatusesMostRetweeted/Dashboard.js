@@ -24,10 +24,10 @@ export default class Dashboard extends PureComponent {
         var community1 = orderBy(statuses.filter(function(u){return u["community_id"] === 1}), metric, "desc")
 
         spinIntoTables = <span>
-          <h3>Statuses Most Retweeted by Left-leaning Bots</h3>
+          <p class="lead">Statuses Most Retweeted by Left-leaning Bots</p>
           <StatusesTable statuses={community0}/>
 
-          <h3>Statuses Most Retweeted by Right-leaning Bots</h3>
+          <p class="lead">Statuses Most Retweeted by Right-leaning Bots</p>
           <StatusesTable statuses={community1}/>
         </span>
     } else {
