@@ -8,6 +8,7 @@ import StatusesMostRetweeted from "../../_Dashboards/StatusesMostRetweeted/Dashb
 import UsersMostRetweeted from "../../_Dashboards/UsersMostRetweeted/Dashboard"
 import TopProfileTags from "../../_Dashboards/TopProfileTags/Dashboard"
 import TopStatusTags from "../../_Dashboards/TopStatusTags/Dashboard"
+//import CommunityTagsTable from './CommunityTagsTable.js'
 
 //import StatusesMostRetweeted from "../../dashboards/DashboardTwo" // Error: Invariant failed: You should not use <NavLink> outside a <Router>
 //import UsersMostRetweeted from "../../dashboards/DashboardOne" // Error: Invariant failed: You should not use <NavLink> outside a <Router>
@@ -96,7 +97,7 @@ export default function AboutPage(props) {
                 <p>
                     So for each day in our collection period, we examined that day's retweets to identify which users retweeted with sufficient frequency to differentiate them from normal users, and our model assigned each user a daily bot probability score from 0 (not bot) to 1 (bot). An example daily distribution of bot scores is below. Most scores are around 0.5.
                 </p>
-                <img src={exampleDailyBotProbabilities} class="img-fluid"/>
+                <img src={exampleDailyBotProbabilities} alt="a histogram depicting bot probabilities" class="img-fluid"/>
                 <p>
                     After assigning daily bot scores to all users, we identified which users had at least one daily probability greater than 80%, and labeled these users as bots. In total, this method yielded 24,150 bots, which represents 0.67% of the total users and 0.87% of the total retweeters in our dataset.
                 </p>
@@ -139,7 +140,7 @@ export default function AboutPage(props) {
                 <p>
                     Overall, 681 bots had similarity scores appropriate for assignment in one of these two communities. The first community ("Community 0") includes 571 bots, while the second community ("Community 1") includes 110 bots.
                 </p>
-                <img src={botCommunityAssignments} class="img-fluid"/>
+                <img src={botCommunityAssignments} alt="a chart depicting the number of bots in each community" class="img-fluid"/>
 
             </section>
 
@@ -152,20 +153,35 @@ export default function AboutPage(props) {
                 <StatusesMostRetweeted metric="retweeter_count"/>
 
                 <p>
-                    We then analyzed the language patterns exhibited by each bot community, to determine which terms and hashtags each community used most frequently.
+                    We then analyzed the language patterns exhibited by each bot community, to determine which terms and hashtags appeared most frequently in tweets by members of that community.
                 </p>
                 <TopStatusTags/>
                 <p>
                     It is interesting to observe the right-leaning community using hashtags related to the <a href="https://www.cbsnews.com/news/what-is-the-qanon-conspiracy-theory/">"Q-Anon" conspiracy theory</a> (e.g. <i>#QAnon</i>, <i>#WWG1WGA</i>, <i>#GreatAwakening</i>, etc.).
                 </p>
 
+                <p>
+                    We also analyzed which terms and hashtags appeared most frequently in their user profiles.
+                </p>
+                <TopProfileTags/>
+                { /*
+                <p>
+                    Based on the hashtags which appeared most frequently in user profiles for each bot community, we chose a mutually exclusive list of hashtags to represent each community for the next step in our analysis.
+                </p>
+                <CommunityTagsTable/>
+                */}
             </section>
 
             <section>
                 <h4>V. Sentiment Analysis</h4>
-                <p></p>
-                <TopProfileTags/>
 
+                <p>We then trained a classifier model to determine for any given tweet, which bot community the tweet language more closely resembles.</p>
+
+                <h5>Model Training</h5>
+                <p>Coming Soon...</p>
+
+                <h5>Model Testing and Evaluation</h5>
+                <p>Coming Soon...</p>
             </section>
 
         </Container>

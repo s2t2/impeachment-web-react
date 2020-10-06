@@ -62,3 +62,10 @@ SELECT community_id, count(distinct user_id) as bot_count
 FROM impeachment_production.2_bot_communities
 GROUP BY 1
 ```
+
+### Sentiment Analysis
+
+```sql
+SELECT community_id, hashtag, description
+FROM impeachment_production.2_community_tags
+```
