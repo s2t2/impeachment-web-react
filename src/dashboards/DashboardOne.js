@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
 import Sidebar from '../layouts/Sidebar';
 import WelcomeAlert from "../alerts/WelcomeAlert"
+
 import {
     BarChart,
     Bar,
@@ -13,10 +14,11 @@ import {
     CartesianGrid,
     Tooltip,
     Legend,
-    ResponsiveContainer,
+    ResponsiveContainer
 } from 'recharts';
 
 import Spinner from 'react-bootstrap/Spinner';
+import CustomLoader from "../layouts/CustomLoader"
 import {orderBy} from 'lodash';
 
 //dotenv.config()
@@ -40,7 +42,6 @@ class DasbhoardOne extends React.Component {
         if (this.state.parsedResponse) {
             console.log("Raw data");
             var rawdata = this.state.parsedResponse;
-            
 
             var users = this.state.parsedResponse;
 
@@ -55,87 +56,101 @@ class DasbhoardOne extends React.Component {
             }), metric, "desc")
             console.table("community1", community1);
 
-        
-
             spinIntoCharts = <Container fluid>
                 <h3 className='m-5 app-center'>Users Most Retweeted by Community
                 </h3>
                 <Row>
                     <Col sm={12} md={12} lg={6}>
-                        <Card>
-                            <div style={{ width: '100%', height: 500 }}>
-                                <ResponsiveContainer>
-                                    <BarChart
-                                        data={community0}
-                                        layout="vertical"
-                                        margin={{
+                        <div className="chartWrapper">
+
+                            <Card>
+
+                                <Card.Body>
+                                    <Card.Text className="app-center">
+
+                                        Users Most Retweeted by Left-leaning Bots
+                                    </Card.Text>
+                                </Card.Body>
+
+                                <div
+                                    style={{
+                                    width: '100%',
+                                    height: 500
+                                }}>
+                                    <ResponsiveContainer>
+                                        <BarChart
+                                            data={community0}
+                                            layout="vertical"
+                                            margin={{
                                             top: 5,
                                             right: 30,
                                             left: 100,
                                             bottom: 5
-                                        }}
-                                    >
-                                        <XAxis type="number" dataKey="retweet_count" />
-                                        <YAxis type="category" dataKey="retweeted_user_screen_name" />
-                                        <CartesianGrid strokeDasharray="1 1" />
-                                        <Tooltip />
-                                        <Legend />
-                                        <Bar dataKey="retweet_count" fill="#002868" />
+                                        }}>
+                                            <XAxis type="number" dataKey="retweet_count"/>
+                                            <YAxis type="category" dataKey="retweeted_user_screen_name"/>
+                                            <CartesianGrid strokeDasharray="1 1"/>
+                                            <Tooltip/>
+                                            <Legend/>
+                                            <Bar dataKey="retweet_count" fill="#002868"/>
 
-                                    </BarChart>
-                                </ResponsiveContainer>
-                            </div>
-                            
+                                        </BarChart>
+                                    </ResponsiveContainer>
+                                </div>
+
+                            </Card>
+                        </div>
+                    </Col>
+                    <Col sm={12} md={12} lg={6}>
+                        
+                        <Card>
                             
                             <Card.Body>
                                 <Card.Text className="app-center">
 
-                                    Users Most Retweeted by Left-leaning Bots
+                                    Users Most Retweeted by Right-leaning Bots
+
                                 </Card.Text>
                             </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col sm={12} md={12} lg={6}>
-                        <Card>
-                            <div style={{ width: '100%', height: 500 }}>
+                            
+                            <div
+                                style={{
+                                width: '100%',
+                                height: 500
+                            }}>
                                 <ResponsiveContainer>
                                     <BarChart
                                         data={community1}
                                         layout="vertical"
                                         margin={{
-                                            top: 5,
-                                            right: 30,
-                                            left: 100,
-                                            bottom: 5
-                                        }}
-                                    >
-                                        <XAxis type="number" dataKey="retweet_count" />
-                                        <YAxis type="category" dataKey="retweeted_user_screen_name" />
-                                        <CartesianGrid strokeDasharray="1 1" />
-                                        <Tooltip />
-                                        <Legend />
-                                        <Bar dataKey="retweet_count" fill="#bf0a30" />
+                                        top: 5,
+                                        right: 30,
+                                        left: 100,
+                                        bottom: 5
+                                    }}>
+                                        <XAxis type="number" dataKey="retweet_count"/>
+                                        <YAxis type="category" dataKey="retweeted_user_screen_name"/>
+                                        <CartesianGrid strokeDasharray="1 1"/>
+                                        <Tooltip/>
+                                        <Legend/>
+                                        <Bar dataKey="retweet_count" fill="#bf0a30"/>
 
                                     </BarChart>
                                 </ResponsiveContainer>
                             </div>
 
-                            <Card.Body>
-                                <Card.Text className="app-center">
-                                   
-                                        Users Most Retweeted by Right-leaning Bots
-                                    
-                                </Card.Text>
-                            </Card.Body>
+                            
                         </Card>
                     </Col>
                 </Row>
             </Container>
 
         } else {
-            spinIntoCharts = <Container fluid className="mt-70 app-center">
-                <Spinner className="my-auto" animation="grow"/>
-            </Container>
+            spinIntoCharts = <div class="d-flex align-items-center min-vh-90">
+                <div class="container text-center">
+                    <CustomLoader/>
+                </div>
+            </div>
 
         };
 

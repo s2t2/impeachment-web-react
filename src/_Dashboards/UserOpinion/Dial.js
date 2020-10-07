@@ -9,7 +9,7 @@ export default function Dial(props) {
     <div>
         <p>Opinion Meter {props.score}</p>
 
-        <GaugeChart id="required" style={{height: "300px", width: "400px", margin: "10px auto"}}
+        <GaugeChart id="required" style={{height: "500px", width: "600px", margin: "10px auto"}}
             arcsLength={[0.3, 0.4, 0.3]}
             colors={["steelblue", "#ccc", "#D62021"]}
             percent={props.score}

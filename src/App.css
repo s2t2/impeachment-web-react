@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Source Sans Pro', sans-serif !important;
+  background-color: #edf3f5eb !important;
   
 }
 
@@ -15,6 +16,10 @@ body {
   margin-top: 70px;
 }
 
+.min-vh-90{
+  min-height: 80vh;
+}
+
 
 .container-fluid {
   overflow-x: hidden;
@@ -25,9 +30,20 @@ body {
 text-align: center;
 }
 
-/* .App {
-  text-align: center;
-} */
+
+
+/* card css */
+
+.card{
+  border: none !important;
+}
+
+p.app-center.card-text {
+  background: #ffffff;
+  font-size: 18px;
+  padding: 15px;
+  color: #202529;
+}
 
 
 .herotitle {
@@ -118,6 +134,10 @@ text-align: center;
 
 .fade.alert.show {
   background: #FFC107;
+}
+
+.alert {
+  margin-bottom: 0px !important;
 }
 
 

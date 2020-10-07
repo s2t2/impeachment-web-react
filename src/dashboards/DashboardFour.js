@@ -17,7 +17,7 @@ import {
 } from 'recharts';
 
 
-import Spinner from 'react-bootstrap/Spinner';
+import CustomLoader from "../layouts/CustomLoader"
 import { orderBy } from 'lodash';
 
 //dotenv.config()
@@ -51,6 +51,11 @@ class DasbhoardThree extends React.Component {
         <Row>
           <Col sm={12} md={12} lg={6}>
             <Card>
+              <Card.Body>
+                <Card.Text className="app-center" >
+                  Top Hashtags in Left-leaning Bot Tweets
+                </Card.Text>
+              </Card.Body>
               <div style={{ width: '100%', height: 800 }}>
                 <ResponsiveContainer>
                   <BarChart
@@ -61,11 +66,11 @@ class DasbhoardThree extends React.Component {
                     margin={{
                       top: 5,
                       right: 30,
-                      left: 100,
+                      left: 150,
                       bottom: 5
                     }}>
                     <XAxis type="number" dataKey="count" />
-                    <YAxis type="category" dataKey="token" />
+                    <YAxis tick={{ fontSize: 14 }} type="category" dataKey="token" />
                     <CartesianGrid strokeDasharray="1 1" />
                     <Tooltip />
                     <Legend />
@@ -76,15 +81,18 @@ class DasbhoardThree extends React.Component {
               </div>
 
               
-              <Card.Body>
-                <Card.Text className="app-center" >
-                    Top Hashtags in Left-leaning Bot Tweets
-                </Card.Text>
-              </Card.Body>
+              
             </Card>
           </Col>
           <Col sm={12} md={12} lg={6}>
             <Card>
+              <Card.Body>
+                <Card.Text className="app-center">
+                 
+                    Top Hashtags in Right-leaning Bot Tweets
+                                    
+                </Card.Text>
+              </Card.Body>
               <div style={{ width: '100%', height: 800 }}>
                 <ResponsiveContainer>
                   <BarChart
@@ -95,11 +103,11 @@ class DasbhoardThree extends React.Component {
                     margin={{
                       top: 5,
                       right: 30,
-                      left: 100,
+                      left: 150,
                       bottom: 5
                     }}>
                     <XAxis type="number" dataKey="count" />
-                    <YAxis type="category" dataKey="token" />
+                    <YAxis tick={{ fontSize: 14 }} type="category" dataKey="token" />
                     <CartesianGrid strokeDasharray="1 1" />
                     <Tooltip />
                     <Legend />
@@ -108,24 +116,17 @@ class DasbhoardThree extends React.Component {
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-
-             
-
-              <Card.Body>
-                <Card.Text className="app-center">
-                 
-                    Top Hashtags in Right-leaning Bot Tweets
-                                    
-                </Card.Text>
-              </Card.Body>
+              
             </Card>
           </Col>
         </Row>
       </Container>
     } else {
-      spinIntoCharts = <Container fluid className="mt-70 app-center">
-        <Spinner className="my-auto" animation="grow" />
-      </Container>
+      spinIntoCharts = <div class="d-flex align-items-center min-vh-90">
+        <div class="container text-center">
+          <CustomLoader />
+        </div>
+      </div>
     };
 
     return (
