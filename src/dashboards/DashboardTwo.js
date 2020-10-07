@@ -13,10 +13,10 @@ import {
     CartesianGrid,
     Tooltip,
     Legend,
-    ResponsiveContainer,
+    ResponsiveContainer
 } from 'recharts';
 
-import Spinner from 'react-bootstrap/Spinner';
+import CustomLoader from "../layouts/CustomLoader"
 import {orderBy} from 'lodash';
 
 //dotenv.config()
@@ -77,93 +77,97 @@ class DasbhoardTwo extends React.Component {
                 <Row>
                     <Col sm={12} md={12} lg={12}>
                         <Card>
-                            <div style={{ width: '100%', height: 500 }}>
-                                <ResponsiveContainer>
-                                    <BarChart
-                                       
-                                        data={community0}
-                                        layout="vertical"
-                                        margin={{
-                                            top: 5,
-                                            left: 10,
-                                            bottom: 5
-                                        }}>
-                                        <XAxis type="number" dataKey="retweet_count" />
-                                        <YAxis
-                                            type="category"
-                                            dataKey="status_text"
-                                            width={525}
-                                            tick={{
-                                                fontSize: 14
-                                            }} />
-                                        <CartesianGrid strokeDasharray="1 1" />
-                                        <Tooltip
-                                            labelFormatter={() => undefined}
-                                            formatter={(okay) => [
-                                                new Intl
-                                                    .NumberFormat('en')
-                                                    .format(okay),
-                                                undefined
-                                            ]} />
-                                        <Legend />
-                                        <Bar dataKey="retweet_count" fill="#002868" label={< Label />} />
-
-                                    </BarChart>
-                                </ResponsiveContainer>
-                            </div>
-
-                            
                             <Card.Body>
                                 <Card.Text className="app-center">
 
                                     Statuses Most Retweeted by Left-leaning Bots
                                 </Card.Text>
                             </Card.Body>
-                        </Card>
-
-                        <Card>
-                            <div style={{ width: '100%', height: 500 }}>
+                            <div
+                                style={{
+                                width: '100%',
+                                height: 500
+                            }}>
                                 <ResponsiveContainer>
                                     <BarChart
-                                    
-                                        data={community1}
+                                        data={community0}
                                         layout="vertical"
                                         margin={{
-                                            top: 5,
-                                            left: 10,
-                                            bottom: 5
-                                        }}>
-                                        <XAxis type="number" dataKey="retweet_count" />
+                                        top: 5,
+                                        left: 10,
+                                        bottom: 5
+                                    }}>
+                                        <XAxis type="number" dataKey="retweet_count"/>
                                         <YAxis
                                             type="category"
                                             dataKey="status_text"
                                             width={525}
                                             tick={{
-                                                fontSize: 14
-                                            }} />
-                                        <CartesianGrid strokeDasharray="1 1" />
+                                            fontSize: 14
+                                        }}/>
+                                        <CartesianGrid strokeDasharray="1 1"/>
                                         <Tooltip
                                             labelFormatter={() => undefined}
                                             formatter={(okay) => [
-                                                new Intl
-                                                    .NumberFormat('en')
-                                                    .format(okay),
-                                                undefined
-                                            ]} />
-                                        <Legend />
-                                        <Bar dataKey="retweet_count" fill="#bf0a30" label={< Label />} />
+                                            new Intl
+                                                .NumberFormat('en')
+                                                .format(okay),
+                                            undefined
+                                        ]}/>
+                                        <Legend/>
+                                        <Bar dataKey="retweet_count" fill="#002868" label={< Label />}/>
 
                                     </BarChart>
                                 </ResponsiveContainer>
                             </div>
 
-                         
+                        </Card>
+
+                        <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
 
                                     Statuses Most Retweeted by Right-leaning Bots
                                 </Card.Text>
                             </Card.Body>
+                            <div
+                                style={{
+                                width: '100%',
+                                height: 500
+                            }}>
+                                <ResponsiveContainer>
+                                    <BarChart
+                                        data={community1}
+                                        layout="vertical"
+                                        margin={{
+                                        top: 5,
+                                        left: 10,
+                                        bottom: 5
+                                    }}>
+                                        <XAxis type="number" dataKey="retweet_count"/>
+                                        <YAxis
+                                            type="category"
+                                            dataKey="status_text"
+                                            width={525}
+                                            tick={{
+                                            fontSize: 14
+                                        }}/>
+                                        <CartesianGrid strokeDasharray="1 1"/>
+                                        <Tooltip
+                                            labelFormatter={() => undefined}
+                                            formatter={(okay) => [
+                                            new Intl
+                                                .NumberFormat('en')
+                                                .format(okay),
+                                            undefined
+                                        ]}/>
+                                        <Legend/>
+                                        <Bar dataKey="retweet_count" fill="#bf0a30" label={< Label />}/>
+
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+
                         </Card>
 
                     </Col>
@@ -172,9 +176,11 @@ class DasbhoardTwo extends React.Component {
             </Container>
 
         } else {
-            spinIntoCharts = <Container fluid className="mt-70 app-center">
-                <Spinner className="my-auto" animation="grow"/>
-            </Container>
+            spinIntoCharts = spinIntoCharts = <div class="d-flex align-items-center min-vh-90">
+                <div class="container text-center">
+                    <CustomLoader/>
+                </div>
+            </div>
 
         };
 

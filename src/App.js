@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Mainmenu from "./layouts/Mainmenu"
+import CustomLoader from "./layouts/CustomLoader"
 import DashboardOne from "./dashboards/DashboardOne"
 import DashboardTwo from "./dashboards/DashboardTwo"
 import DashboardThree from "./dashboards/DashboardThree"
@@ -13,6 +14,7 @@ import DashboardSix from "./dashboards/DashboardSix"
 import DashboardSeven from "./dashboards/DashboardSeven"
 import AltHome from './_NavigableApp/App.js';
 import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
+
 
 
 
