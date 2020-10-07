@@ -22,3 +22,50 @@ select
 from impeachment_production.tweets
 
 ```
+
+### Bot Classification
+
+```sql
+select count(distinct bu.bot_id) as bot_count
+from impeachment_production.bots_above_80 bu
+```
+
+```sql
+select
+  -- bu.bot_id
+  count(distinct status_id) as status_count
+  ,count(distinct case when t.retweet_status_id is not null then status_id end) rt_count
+from impeachment_production.bots_above_80 bu
+JOIN impeachment_production.tweets t ON cast(t.user_id as int64) = bu.bot_id
+```
+
+Top 10 most active bots:
+
+```sql
+SELECT
+  --bu.bot_id
+  bu.bot_screen_name
+  --, count(distinct t.status_id) as status_count
+  ,count(distinct case when t.retweet_status_id is not null then t.status_id END) rt_count
+FROM impeachment_production.bots_above_80 bu
+JOIN impeachment_production.tweets t on cast(t.user_id as int64) = bu.bot_id
+GROUP BY 1 --, 2
+ORDER BY rt_count DESC
+LIMIT 10
+```
+
+
+### Bot Communities
+
+```sql
+SELECT community_id, count(distinct user_id) as bot_count
+FROM impeachment_production.2_bot_communities
+GROUP BY 1
+```
+
+### Sentiment Analysis
+
+```sql
+SELECT community_id, hashtag, description
+FROM impeachment_production.2_community_tags
+```
