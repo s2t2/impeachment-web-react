@@ -156,26 +156,33 @@ export default function AboutPage(props) {
                     We then analyzed the language patterns exhibited by each bot community, to determine which terms and hashtags appeared most frequently in tweets by members of that community.
                 </p>
                 <TopStatusTags/>
+                { /*
                 <p>
                     It is interesting to observe the right-leaning community using hashtags related to the <a href="https://www.cbsnews.com/news/what-is-the-qanon-conspiracy-theory/">"Q-Anon" conspiracy theory</a> (e.g. <i>#QAnon</i>, <i>#WWG1WGA</i>, <i>#GreatAwakening</i>, etc.).
                 </p>
+                */}
 
                 <p>
-                    We also analyzed which terms and hashtags appeared most frequently in their user profiles.
+                    We also analyzed which terms and hashtags appeared most frequently in bot profiles.
                 </p>
                 <TopProfileTags/>
-                { /*
-                <p>
-                    Based on the hashtags which appeared most frequently in user profiles for each bot community, we chose a mutually exclusive list of hashtags to represent each community for the next step in our analysis.
-                </p>
-                <CommunityTagsTable/>
-                */}
+
             </section>
 
             <section>
                 <h4>V. Sentiment Analysis</h4>
 
                 <p>We then trained a classifier model to determine for any given tweet, which bot community the tweet language more closely resembles.</p>
+
+                <h5>Data Labeling</h5>
+                { /*
+                <p>
+                    Based on the hashtags which appeared most frequently in user profiles for each bot community, we chose a mutually exclusive list of hashtags to represent each community.
+                </p>
+                <CommunityTagsTable/>
+                */}
+
+                <p>Coming Soon...</p>
 
                 <h5>Model Training</h5>
                 <p>Coming Soon...</p>
