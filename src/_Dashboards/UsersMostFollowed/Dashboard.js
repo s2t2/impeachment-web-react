@@ -23,14 +23,14 @@ export default class Dashboard extends PureComponent {
 
             spinIntoStuff = <span>
                 <BarChart users={users}/>
-                <List users={users}/>
+                {/*<List users={users}/>*/}
             </span>
         } else {
             spinIntoStuff = <Spinner animation="grow" />
         }
 
         return (
-            <Container className="Dashboard">
+            <Container fluid className="Dashboard">
                 <h3>Mean Opinion Scores for Users Tweeting about Trump Impeachment</h3>
                 {spinIntoStuff}
             </Container>

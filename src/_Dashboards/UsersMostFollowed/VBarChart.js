@@ -101,8 +101,7 @@ export default class MyBarChart extends PureComponent {
 
         return (
             <span>
-
-                <Form style={{"paddingTop":"3em"}}>
+                <Form >
                     <Form.Group as={Row}>
                         <Col xs="3">
                             <Form.Label>Minimum Tweet Count</Form.Label>
@@ -119,9 +118,9 @@ export default class MyBarChart extends PureComponent {
                         <Col xs="1" style={{"paddingTop":"1.9em"}}>
                             <Form.Control type="number" min={3} max={200} value={tweetMin} onChange={this.handleTweetMinChange}/>
                         </Col>
-                    </Form.Group>
 
-                    <Form.Group as={Row}>
+                        <Col xs="1">
+                        </Col>
                         <Col xs="3">
                             <Form.Label>Mean Opinion Score</Form.Label>
 
@@ -144,11 +143,11 @@ export default class MyBarChart extends PureComponent {
                     </Form.Group>
                 </Form>
 
-                <VictoryChart >
+                <VictoryChart padding={{ left: 175, top: 15, right: 50, bottom: 130 }} >
                     <VictoryBar horizontal data={users} x="handle" y="follower_count"
                         animate={true}
                         //barWidth={12}
-                        barRatio={0.95}
+                        barRatio={0.87}
                         //alignment="middle"
 
                         labels={({ datum }) => datum["scorePct"]}
@@ -158,11 +157,8 @@ export default class MyBarChart extends PureComponent {
                                 fill: ({ datum }) => colorScale(datum["avg_score_lr"])
                             }
                         }}
-
-
                     />
                 </VictoryChart>
-
             </span>
         )
     }
