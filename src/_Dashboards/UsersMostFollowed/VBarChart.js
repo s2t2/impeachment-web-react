@@ -110,14 +110,14 @@ export default class MyBarChart extends PureComponent {
                             <RangeSlider min={3} max={200}
                                 value={tweetMin}
                                 onChange={this.handleTweetMinChange}
-                                tooltip={"auto"}
-                                tooltipPlacement={"bottom"}
+                                tooltip="auto"
+                                tooltipPlacement="bottom"
                                 //tooltipLabel=
                                 //variant="dark"
                             />
                         </Col>
                         <Col xs="1" style={{"paddingTop":"1.9em"}}>
-                            <Form.Control value={tweetMin} onChange={this.handleTweetMinChange}/>
+                            <Form.Control type="number" min={3} max={200} value={tweetMin} onChange={this.handleTweetMinChange}/>
                         </Col>
                     </Form.Group>
 
@@ -131,27 +131,22 @@ export default class MyBarChart extends PureComponent {
                                 marks={{0: "Pro-Impeachment (D)", 100: "Anti-Impeachment (R)"}}
                                 onChange={this.handleOpinionRangeChange}
                                 allowCross={false}
-                                tooltip={"auto"}
+                                tooltip="auto"
                                 tipFormatter={value => `${value}%` }
                                 tipProps={{placement: "top", visible: true}}
                             />
                         </Col>
 
                         <Col xs="1" style={{"paddingTop":"1em"}}>
-                            <Form.Control value={opinionRange[0]} onChange={this.handleOpinionMinChange}/>
-                            <Form.Control value={opinionRange[1]} onChange={this.handleOpinionMaxChange}/>
+                            <Form.Control type="number" min={0} max={99} value={opinionRange[0]} onChange={this.handleOpinionMinChange}/>
+                            <Form.Control type="number" min={1} max={100} value={opinionRange[1]} onChange={this.handleOpinionMaxChange}/>
                         </Col>
                     </Form.Group>
                 </Form>
 
                 <VictoryChart >
-                    <VictoryBar
-                        horizontal
-                        data={users}
-                        x="handle"
-                        y="follower_count"
+                    <VictoryBar horizontal data={users} x="handle" y="follower_count"
                         animate={true}
-
                         //barWidth={12}
                         barRatio={0.95}
                         //alignment="middle"
