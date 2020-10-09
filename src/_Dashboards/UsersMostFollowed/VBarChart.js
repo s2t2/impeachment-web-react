@@ -81,7 +81,7 @@ export default class MyBarChart extends PureComponent {
         var opinionRange = this.state.opinionRange
 
         var users = this.props.users.filter(function(user){
-            return user["status_count"] >= tweetMin
+            return (user["status_count"] >= tweetMin) && (user["avg_score_lr"] >= opinionRange[0]) && (user["avg_score_lr"] <= opinionRange[1])
         }).map(function(user){
             user["handle"] = `@${user['screen_name']}`
             user["scorePct"] = (user["avg_score_lr"] * 100.0).toFixed(1) + "%"
@@ -116,15 +116,6 @@ export default class MyBarChart extends PureComponent {
                             />
                         </Col>
                     </Form.Group>
-
-
-
-
-
-
-
-
-
 
 
 
