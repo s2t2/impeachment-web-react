@@ -65,22 +65,25 @@ export default class MyBarChart extends PureComponent {
                 <Form style={{"paddingTop":"3em"}}>
                     <Form.Group as={Row}>
                         <Col xs="3">
+                            <Form.Label>Minimum Tweet Count</Form.Label>
                             <RangeSlider
                                 min={3}
-                                max={1000}
+                                max={200}
                                 value={tweetMin}
                                 onChange={changeEvent => this.handleSlide(changeEvent.target.value)}
                                 tooltip={"auto"}
-                                tooltipPlacement={"top"}
+                                tooltipPlacement={"bottom"}
                                 //tooltipLabel=
                                 //variant="dark"
                             />
                         </Col>
-                        <Col xs="1">
+                        <Col xs="1" style={{"paddingTop":"1.9em"}}>
                             <Form.Control
                                 value={tweetMin}
-                                onChange={changeEvent => this.handleSlide(changeEvent.target.value)}/>
+                                onChange={changeEvent => this.handleSlide(changeEvent.target.value)}
+                            />
                         </Col>
+
                     </Form.Group>
                 </Form>
 
