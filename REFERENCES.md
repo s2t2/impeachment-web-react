@@ -175,3 +175,18 @@ npm install lodash --save
 ```sh
 npm install react-gauge-chart
 ```
+
+## Color Scales
+
+
+  + https://github.com/d3/d3-scale#linear-scales
+  + https://github.com/d3/d3-scale#sequential-scales
+  + https://github.com/d3/d3-scale#diverging-scales
+  + https://github.com/d3/d3-scale-chromatic
+  + https://observablehq.com/@d3/color-schemes?collection=@d3/d3-scale-chromatic
+  + https://bl.ocks.org/john-guerra/17fe498351a3e70929e2e36d081e1067
+  + https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=7
+
+```sh
+npm install d3 --save
+```

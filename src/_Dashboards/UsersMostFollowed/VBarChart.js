@@ -2,10 +2,22 @@ import React, { PureComponent } from 'react'
 //import Container from 'react-bootstrap/Container'
 //import Spinner from 'react-bootstrap/Spinner'
 import { VictoryTheme, VictoryChart, VictoryBar, VictoryLabel } from 'victory';
-
-import {scaleSequential, interpolateRdBu} from 'd3'
+import {scaleSequential, interpolateRdBu, scaleLinear, scaleDiverging, scaleThreshold} from 'd3'
 
 var colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
+
+//var colorScale = scaleDiverging()
+//    .domain([1, 0.5, 0]) // reverse so 0:blue and 1:red
+//    .range(['#b2182b','#f7f7f7','#2166ac'])
+
+//var colorScale = scaleDiverging(interpolateRdBu)
+//    .domain([1, 0.5, 0]) // reverse so 0:blue and 1:red
+
+//var colorScale = scaleLinear()
+//    .domain([1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0]) // reverse so 0:blue and 1:red
+//    .range(['#b2182b','#d6604d','#f4a582','#fddbc7','#f7f7f7','#d1e5f0','#92c5de','#4393c3','#2166ac'])
+//    //.range(['#67001f','#b2182b','#d6604d','#f4a582','#fddbc7','#f7f7f7','#d1e5f0','#92c5de','#4393c3','#2166ac','#053061'])
+
 
 export default class MyBarChart extends PureComponent {
     //constructor(props) {
