@@ -110,14 +110,14 @@ export default class MyBarChart extends PureComponent {
                                 //variant="dark"
                             />
                         </Col>
-                        <Col xs="1" style={{"paddingTop":"1.9em"}}>
+                        <Col xs="2" style={{"paddingTop":"1.9em"}}>
                             <Form.Control type="number" min={3} max={200} value={tweetMin} onChange={this.handleTweetMinChange}/>
                         </Col>
 
                         <Col xs="1">
                         </Col>
 
-                        <Col xs="3">
+                        <Col xs="4">
                             <Form.Label>Mean Opinion Score</Form.Label>
 
                             <Range min={0} max={100} step={1}
@@ -132,7 +132,7 @@ export default class MyBarChart extends PureComponent {
                             />
                         </Col>
 
-                        <Col xs="1" style={{"paddingTop":"1em"}}>
+                        <Col xs="2" style={{"paddingTop":"1em"}}>
                             <Form.Control type="number" min={0} max={99} value={opinionRange[0]} onChange={this.handleOpinionMinChange}/>
                             <Form.Control type="number" min={1} max={100} value={opinionRange[1]} onChange={this.handleOpinionMaxChange}/>
                         </Col>
