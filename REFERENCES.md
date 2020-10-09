@@ -211,17 +211,15 @@ npm install d3 --save
 
 ## Sliders
 
-Material UI
-
-
-```sh
-npm install @material-ui/core --save
-npm install material-ui-slider --save
-```
-
-
 Bootstrap Slider
 
 ```sh
 npm install react-bootstrap-range-slider
 ```
+
+  + https://jaywilz.github.io/react-bootstrap-range-slider/
+
+RC Slider:
+
+  + https://github.com/react-component/slider
+  + http://react-component.github.io/slider/?path=/story/rc-slider--range

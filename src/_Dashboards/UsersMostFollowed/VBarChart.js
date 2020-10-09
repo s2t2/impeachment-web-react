@@ -45,8 +45,7 @@ var colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0
 export default class MyBarChart extends PureComponent {
     constructor(props) {
       super(props)
-      this.state = {tweetMin: 3, opinionRange: [0,1], parsedResponse: null} // TODO: get screen name from input box or URL params (maybe use window.location.href and split it, or find some kind of react router property)
-      //this.fetchData = this.fetchData.bind(this)
+      this.state = {tweetMin: 3, opinionRange: [0, 100]} // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
       this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
       this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
       //this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
@@ -77,19 +76,26 @@ export default class MyBarChart extends PureComponent {
     //}
 
     render() {
+        var barCount = this.props.barCount || 10
         var tweetMin = this.state.tweetMin
         var opinionRange = this.state.opinionRange
 
-        var users = this.props.users.filter(function(user){
-            return (user["status_count"] >= tweetMin) && (user["avg_score_lr"] >= opinionRange[0]) && (user["avg_score_lr"] <= opinionRange[1])
-        }).map(function(user){
-            user["handle"] = `@${user['screen_name']}`
-            user["scorePct"] = (user["avg_score_lr"] * 100.0).toFixed(1) + "%"
-            return user
-        })
-        .sort(function(a, b){
-            return a["follower_count"] - b["follower_count"]
-        }).slice(-10) // negative number takes last 10 (which is actually the top ten)
+        var users = this.props.users
+            .filter(function(user){
+                return (
+                    user["status_count"] >= tweetMin &&
+                    user["avg_score_lr"] * 100.0 >= opinionRange[0] &&
+                    user["avg_score_lr"] * 100.0 <= opinionRange[1]
+            )
+            }).map(function(user){
+                user["handle"] = `@${user['screen_name']}`
+                user["scorePct"] = (user["avg_score_lr"] * 100.0).toFixed(1) + "%"
+                return user
+            })
+            .sort(function(a, b){
+                return a["follower_count"] - b["follower_count"] // chart wants this order
+            }) // sort before slice
+            .slice(-barCount) // negative number takes last ten (which is actually the top ten)
 
         return (
             <span>
@@ -98,9 +104,8 @@ export default class MyBarChart extends PureComponent {
                     <Form.Group as={Row}>
                         <Col xs="3">
                             <Form.Label>Minimum Tweet Count</Form.Label>
-                            <RangeSlider
-                                min={3}
-                                max={200}
+
+                            <RangeSlider min={3} max={200}
                                 value={tweetMin}
                                 onChange={this.handleTweetMinChange}
                                 tooltip={"auto"}
@@ -110,34 +115,21 @@ export default class MyBarChart extends PureComponent {
                             />
                         </Col>
                         <Col xs="1" style={{"paddingTop":"1.9em"}}>
-                            <Form.Control
-                                value={tweetMin}
-                                onChange={this.handleTweetMinChange}
-                            />
+                            <Form.Control value={tweetMin} onChange={this.handleTweetMinChange}/>
                         </Col>
                     </Form.Group>
 
-
-
-
-
                     <Form.Group as={Row}>
                         <Col xs="3">
-                            <Form.Label>Mean Opinion Score Range</Form.Label>
-                            <Range
-                                min={0}
-                                max={1}
-                                step={0.01}
-                                defaultValue={[0, 1]}
+                            <Form.Label>Mean Opinion Score</Form.Label>
+
+                            <Range min={0} max={100} step={1} defaultValue={[0, 100]}
+                                marks={{0: "Pro-Impeachment (D)", 100: "Anti-Impeachment (R)"}} // todo:
                                 onChange={this.handleOpinionRangeChange}
                                 allowCross={false}
-                                marks={{0: "Pro-Impeachment", 1: "Anti-Impeachment"}}
                                 tooltip={"auto"}
-                                tipFormatter={value => `${(value * 100.0).toFixed(0)}%` }
-                                tipProps={{
-                                    placement: "top",
-                                    visible: true
-                                }}
+                                tipFormatter={value => `${value}%` }
+                                tipProps={{placement: "top", visible: true}}
                             />
                         </Col>
                         {/*
@@ -154,27 +146,6 @@ export default class MyBarChart extends PureComponent {
                         */}
 
                     </Form.Group>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </Form>
 
                 <VictoryChart >
