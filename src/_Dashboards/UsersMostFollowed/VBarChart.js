@@ -4,10 +4,9 @@ import React, { PureComponent } from 'react'
 import { VictoryTheme, VictoryChart, VictoryBar, VictoryLabel } from 'victory';
 import {scaleSequential, interpolateRdBu, scaleLinear, scaleDiverging, scaleThreshold} from 'd3'
 
+import RangeSlider from 'react-bootstrap-range-slider';
 
 
-
-import { Slider } from 'material-ui-slider';
 
 
 var colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
@@ -48,29 +47,21 @@ export default class MyBarChart extends PureComponent {
             //  var userHandle = "@" + user["screen_name"]
             //  var followerCount = user["follower_count"]
             user["handle"] = `@${user['screen_name']}`
+            user["scorePct"] = (user["avg_score_lr"] * 100.0).toFixed(1) + "%"
             return user
         })
 
-
-
-
-
-
-        //var slider = <Slider value={this.state.tweetMin} orientation="horizontal" onChange={this.handleSlide}/>
-
-        var slider = <Slider min={3} max={10} defaultValue={3}></Slider>
-
-
-
-
-
-
-
-
-
         return (
             <span>
-                {slider}
+                <RangeSlider
+                    min={3}
+                    max={1000}
+                    value={this.state.tweetMin}
+                    onChange={changeEvent => this.handleSlide(changeEvent.target.value)}
+                    tooltip={"auto"}
+                    tooltipPlacement={"top"}
+                    //tooltipLabel=
+                />
 
                 <VictoryChart >
                     <VictoryBar
@@ -84,7 +75,7 @@ export default class MyBarChart extends PureComponent {
                         barRatio={0.95}
                         //alignment="middle"
 
-                        labels={({ datum }) => datum["avg_score_lr"]}
+                        labels={({ datum }) => datum["scorePct"]}
                         //labelComponent={<VictoryLabel dx={-30}/>}
                         style={{
                             data: {

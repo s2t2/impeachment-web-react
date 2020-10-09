@@ -210,3 +210,10 @@ Material UI
 npm install @material-ui/core --save
 npm install material-ui-slider --save
 ```
+
+
+Bootstrap Slider
+
+```sh
+npm install react-bootstrap-range-slider
+```
