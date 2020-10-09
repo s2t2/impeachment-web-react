@@ -31,7 +31,7 @@ export default class Dashboard extends PureComponent {
 
         return (
             <Container className="Dashboard">
-                <h3>Mean Opinions by Users Tweeting about Trump Impeachment</h3>
+                <h3>Mean Opinion Scores for Users Tweeting about Trump Impeachment</h3>
                 {spinIntoStuff}
             </Container>
         )

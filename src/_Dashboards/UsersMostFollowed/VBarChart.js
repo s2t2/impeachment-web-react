@@ -48,8 +48,8 @@ export default class MyBarChart extends PureComponent {
       this.state = {tweetMin: 3, opinionRange: [0, 100]} // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
       this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
       this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
-      //this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
-      //this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
+      this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
+      this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
     }
 
     handleTweetMinChange(changeEvent){
@@ -61,24 +61,26 @@ export default class MyBarChart extends PureComponent {
         this.setState({opinionRange: newRange})
     }
 
-    //handleOpinionMinChange(changeEvent){
-    //    console.log("CHANGE OPINION MIN", changeEvent.target.value)
-    //    var opinionMin = parseFloat(changeEvent.target.value) // convert string to decimal, but they end up as NaN. TODO: (maybe take user inputs as integers)
-    //    var opinionMax = this.state.opinionRange[1]
-    //    this.setState({opinionRange: [changeEvent.target.value, opinionMax]})
-    //}
+    handleOpinionMinChange(changeEvent){
+        console.log("CHANGE OPINION MIN", changeEvent.target.value)
+        //var opinionMin = parseFloat(changeEvent.target.value) // convert string to decimal, but they end up as NaN. TODO: (maybe take user inputs as integers)
+        var opinionMin = changeEvent.target.value
+        var opinionMax = this.state.opinionRange[1]
+        this.setState({opinionRange: [changeEvent.target.value, opinionMax]})
+    }
 
-    //handleOpinionMaxChange(changeEvent){
-    //    console.log("CHANGE OPINION MAX", "FROM", this.state.opinionRange, "TO", changeEvent.target.value)
-    //    var opinionMin = this.state.opinionRange[0]
-    //    var opinionMax = parseFloat(changeEvent.target.value) // convert string to decimal, but they end up as NaN. TODO: (maybe take user inputs as integers)
-    //    this.setState({opinionRange: [opinionMin, opinionMax]})
-    //}
+    handleOpinionMaxChange(changeEvent){
+        console.log("CHANGE OPINION MAX", "FROM", this.state.opinionRange, "TO", changeEvent.target.value)
+        var opinionMin = this.state.opinionRange[0]
+        //var opinionMax = parseFloat(changeEvent.target.value) // convert string to decimal, but they end up as NaN. TODO: (maybe take user inputs as integers)
+        var opinionMax = changeEvent.target.value
+        this.setState({opinionRange: [opinionMin, opinionMax]})
+    }
 
     render() {
-        var barCount = this.props.barCount || 10
         var tweetMin = this.state.tweetMin
         var opinionRange = this.state.opinionRange
+        var barCount = this.props.barCount || 10
 
         var users = this.props.users
             .filter(function(user){
@@ -86,8 +88,8 @@ export default class MyBarChart extends PureComponent {
                     user["status_count"] >= tweetMin &&
                     user["avg_score_lr"] * 100.0 >= opinionRange[0] &&
                     user["avg_score_lr"] * 100.0 <= opinionRange[1]
-            )
-            }).map(function(user){
+            )})
+            .map(function(user){
                 user["handle"] = `@${user['screen_name']}`
                 user["scorePct"] = (user["avg_score_lr"] * 100.0).toFixed(1) + "%"
                 return user
@@ -95,7 +97,7 @@ export default class MyBarChart extends PureComponent {
             .sort(function(a, b){
                 return a["follower_count"] - b["follower_count"] // chart wants this order
             }) // sort before slice
-            .slice(-barCount) // negative number takes last ten (which is actually the top ten)
+            .slice(-barCount) // negative number takes last X users (which is actually the top X users)
 
         return (
             <span>
@@ -123,8 +125,10 @@ export default class MyBarChart extends PureComponent {
                         <Col xs="3">
                             <Form.Label>Mean Opinion Score</Form.Label>
 
-                            <Range min={0} max={100} step={1} defaultValue={[0, 100]}
-                                marks={{0: "Pro-Impeachment (D)", 100: "Anti-Impeachment (R)"}} // todo:
+                            <Range min={0} max={100} step={1}
+                                defaultValue={[0, 100]}
+                                value={opinionRange}
+                                marks={{0: "Pro-Impeachment (D)", 100: "Anti-Impeachment (R)"}}
                                 onChange={this.handleOpinionRangeChange}
                                 allowCross={false}
                                 tooltip={"auto"}
@@ -132,19 +136,11 @@ export default class MyBarChart extends PureComponent {
                                 tipProps={{placement: "top", visible: true}}
                             />
                         </Col>
-                        {/*
-                        <Col xs="1" style={{"paddingTop":"1.9em"}}>
-                            <Form.Control
-                                value={opinionRange[0]}
-                                onChange={this.handleOpinionMinChange}
-                            />
-                            <Form.Control
-                                value={opinionRange[1]}
-                                onChange={this.handleOpinionMaxChange}
-                            />
-                        </Col>
-                        */}
 
+                        <Col xs="1" style={{"paddingTop":"1em"}}>
+                            <Form.Control value={opinionRange[0]} onChange={this.handleOpinionMinChange}/>
+                            <Form.Control value={opinionRange[1]} onChange={this.handleOpinionMaxChange}/>
+                        </Col>
                     </Form.Group>
                 </Form>
 
