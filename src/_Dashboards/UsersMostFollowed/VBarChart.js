@@ -57,22 +57,25 @@ export default class MyBarChart extends PureComponent {
         this.setState({tweetMin: changeEvent.target.value})
     }
 
-    handleOpinionRangeChange(changeEvent){
-        console.log("CHANGE OPINION RANGE", changeEvent.target.value)
-        this.setState({opinionRange: changeEvent.target.value})
+
+    handleOpinionRangeChange(newRange){
+        console.log("CHANGE OPINION RANGE", newRange)
+        this.setState({opinionRange: newRange})
     }
 
-    handleOpinionMinChange(changeEvent){
-        console.log("CHANGE OPINION MIN", changeEvent.target.value)
+    handleOpinionMinChange(val){
+        console.log("CHANGE OPINION MIN", val)
         //var opinionMax = this.state.opinionRange[1]
         //this.setState({opinionRange: [changeEvent.target.value, opinionMax]})
     }
 
-    handleOpinionMaxChange(changeEvent){
-        console.log("CHANGE OPINION MAX", changeEvent.target.value)
+    handleOpinionMaxChange(val){
+        console.log("CHANGE OPINION MAX", val)
         //var opinionMin = this.state.opinionRange[0]
         //this.setState({opinionRange: [opinionMin, changeEvent.target.value]})
     }
+
+
 
     render() {
         var tweetMin = this.state.tweetMin
@@ -130,30 +133,17 @@ export default class MyBarChart extends PureComponent {
 
                     <Form.Group as={Row}>
                         <Col xs="3">
-                            <Form.Label>Mean Opinion Score</Form.Label>
-                            {/*
+                            <Form.Label>Mean Opinion Score Range</Form.Label>
                             <Range
-                                min={0}
-                                max={1}
-                                value={opinionRange}
-                                defaultValue={[0,1]}
-                                allowCross={false}
-                                onChange={this.handleOpinionRangeChange}
-                                tooltip={"auto"}
-                                tooltipPlacement={"bottom"}
-                            />
-                            */}
-
-                            <Range
-                                marks={{
-                                    0: `Pro-Impeachment`,
-                                    1: `Anti-Impeachment`
-                                }}
                                 min={0}
                                 max={1}
                                 step={0.01}
                                 defaultValue={[0, 1]}
-                                tipFormatter={value => `${value * 100}%`}
+                                onChange={this.handleOpinionRangeChange}
+                                allowCross={false}
+                                marks={{0: "Pro-Impeachment", 1: "Anti-Impeachment"}}
+                                tooltip={"auto"}
+                                tipFormatter={value => `${(value * 100.0).toFixed(0)}%` }
                                 tipProps={{
                                     placement: "top",
                                     visible: true
