@@ -1,12 +1,11 @@
 import React, { PureComponent } from 'react'
 //import Container from 'react-bootstrap/Container'
 //import Spinner from 'react-bootstrap/Spinner'
-import { VictoryTheme, VictoryChart, VictoryBar, VictoryLabel } from 'victory';
-import {scaleSequential, interpolateRdBu, scaleLinear, scaleDiverging, scaleThreshold} from 'd3'
-
 import RangeSlider from 'react-bootstrap-range-slider';
+import { VictoryTheme, VictoryChart, VictoryBar, VictoryLabel } from 'victory';
 
-
+import {scaleSequential, interpolateRdBu, scaleLinear, scaleDiverging, scaleThreshold} from 'd3'
+import { orderBy } from 'lodash';
 
 
 var colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
@@ -48,9 +47,14 @@ export default class MyBarChart extends PureComponent {
             user["handle"] = `@${user['screen_name']}`
             user["scorePct"] = (user["avg_score_lr"] * 100.0).toFixed(1) + "%"
             return user
-        }).sort(function(a, b){
-            return a["follower_count"] - b["follower_count"]
-        }) //.slice(0, 10)
+        })
+        //.sort(function(a, b){
+        //    return a["follower_count"] - b["follower_count"]
+        //}) //.slice(0, 10)
+
+        users = orderBy(users, "follower_count", "desc") // sort for slice
+        users = users.slice(0,10)
+        users = orderBy(users, "follower_count", "asc") // re-sort for chart
 
         return (
             <span>
