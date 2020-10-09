@@ -3,8 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
-import Sidebar from '../layouts/Sidebar';
-import WelcomeAlert from "../alerts/WelcomeAlert"
 import {
     BarChart,
     Bar,
@@ -15,16 +13,16 @@ import {
     Legend,
     ResponsiveContainer,
 } from 'recharts';
+import { orderBy } from 'lodash';
 
-import CustomLoader from "../layouts/CustomLoader"
-import {orderBy} from 'lodash';
+import CustomLoader from "./CustomLoader"
 
 //dotenv.config()
 
 var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
 
-class DasbhoardThree extends React.Component {
+class DashboardThreeAbout extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -141,16 +139,11 @@ class DasbhoardThree extends React.Component {
         return (
             <Container fluid className="no-padding">
                 <Row>
-                    <Col md={2}>
-
-                        <Sidebar/>
-
-                    </Col>
-                    <Col md={10}>
+                   
+                    <Col md={12}>
 
                         <Container fluid className="mt-70">
-                           
-                            <WelcomeAlert /> 
+                        
 
                             {spinIntoCharts}
 
@@ -187,4 +180,4 @@ class DasbhoardThree extends React.Component {
 
 };
 
-export default DasbhoardThree;
+export default DashboardThreeAbout;
