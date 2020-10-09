@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react'
-//import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 //import Spinner from 'react-bootstrap/Spinner'
 import RangeSlider from 'react-bootstrap-range-slider';
 import { VictoryTheme, VictoryChart, VictoryBar, VictoryLabel } from 'victory';
@@ -58,15 +61,28 @@ export default class MyBarChart extends PureComponent {
 
         return (
             <span>
-                <RangeSlider
-                    min={3}
-                    max={1000}
-                    value={this.state.tweetMin}
-                    onChange={changeEvent => this.handleSlide(changeEvent.target.value)}
-                    tooltip={"auto"}
-                    tooltipPlacement={"top"}
-                    //tooltipLabel=
-                />
+
+                <Form style={{"paddingTop":"3em"}}>
+                    <Form.Group as={Row}>
+                        <Col xs="3">
+                            <RangeSlider
+                                min={3}
+                                max={1000}
+                                value={tweetMin}
+                                onChange={changeEvent => this.handleSlide(changeEvent.target.value)}
+                                tooltip={"auto"}
+                                tooltipPlacement={"top"}
+                                //tooltipLabel=
+                                //variant="dark"
+                            />
+                        </Col>
+                        <Col xs="1">
+                            <Form.Control
+                                value={tweetMin}
+                                onChange={changeEvent => this.handleSlide(changeEvent.target.value)}/>
+                        </Col>
+                    </Form.Group>
+                </Form>
 
                 <VictoryChart >
                     <VictoryBar
@@ -91,6 +107,7 @@ export default class MyBarChart extends PureComponent {
 
                     />
                 </VictoryChart>
+
             </span>
         )
     }

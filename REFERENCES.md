@@ -75,6 +75,13 @@ npm install react-bootstrap bootstrap --save
   + https://react-bootstrap.github.io/components/tabs/
   + https://react-bootstrap.github.io/components/table/
 
+Form controls:
+
+  + https://reactjs.org/docs/forms.html
+  + https://react-bootstrap.netlify.app/components/forms/
+  + https://stackoverflow.com/questions/60917459/react-bootstrap-how-to-get-value-of-form-control
+
+
 ## Flexbox
 
   + https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background
@@ -144,6 +151,7 @@ It works to show you the variable values. To interact with them, must set a `deb
   + https://github.com/prof-rossetti/intro-to-web-dev/blob/master/notes/javascript/notes.md
   + https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
   + https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+  + https://stackoverflow.com/questions/42308976/how-to-slice-string-from-the-end-in-javascript/42309034
 
 ### JavaScript Dates
 

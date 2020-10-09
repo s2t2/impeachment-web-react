@@ -14,7 +14,7 @@ export default class List extends PureComponent {
       var userHandle = "@" + user["screen_name"]
       var followerCount = user["follower_count"]
 
-      return <li> {userHandle} |  {followerCount} | ({scorePct}) </li>
+      return <li key={userHandle}> {userHandle} |  {followerCount} | ({scorePct}) </li>
     })
 
     return (
