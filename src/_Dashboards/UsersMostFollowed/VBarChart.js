@@ -176,5 +176,4 @@ export default class MyBarChart extends PureComponent {
     componentDidUpdate(prevProps) {
         console.log("BAR CHART DID UPDATE")
     }
-
 }
