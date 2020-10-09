@@ -142,6 +142,8 @@ It works to show you the variable values. To interact with them, must set a `deb
 ## JavaScript Language
 
   + https://github.com/prof-rossetti/intro-to-web-dev/blob/master/notes/javascript/notes.md
+  + https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  + https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 
 ### JavaScript Dates
 
@@ -176,6 +178,14 @@ npm install lodash --save
 npm install react-gauge-chart
 ```
 
+## Victory Charts
+
+
+  + https://github.com/FormidableLabs/victory
+  + https://formidable.com/open-source/victory/gallery/
+  + https://formidable.com/open-source/victory/docs/victory-bar
+  + https://codesandbox.io/s/laughing-resonance-772ee?file=/src/index.js:297-303
+
 ## Color Scales
 
 
@@ -189,4 +199,14 @@ npm install react-gauge-chart
 
 ```sh
 npm install d3 --save
+```
+
+## Sliders
+
+Material UI
+
+
+```sh
+npm install @material-ui/core --save
+npm install material-ui-slider --save
 ```
