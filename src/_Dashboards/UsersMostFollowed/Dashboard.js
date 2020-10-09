@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Spinner from 'react-bootstrap/Spinner'
 
 import cachedData from './data.js'
-import BarChart from './BarChart.js'
+import BarChart from './VBarChart.js'
 import List from './List.js'
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"

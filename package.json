@@ -19,7 +19,8 @@
     "react-scripts": "3.4.3",
     "react-spinners": "^0.9.0",
     "react-wordcloud": "^1.2.7",
-    "recharts": "^1.8.5"
+    "recharts": "^1.8.5",
+    "victory": "^35.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
