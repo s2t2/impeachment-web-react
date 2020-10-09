@@ -1,49 +1,30 @@
 import React, { PureComponent } from 'react'
 import Form from 'react-bootstrap/Form'
-import Container from 'react-bootstrap/Container'
+//import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-//import Spinner from 'react-bootstrap/Spinner'
-import { VictoryTheme, VictoryChart, VictoryBar, VictoryLabel } from 'victory';
-import {scaleSequential, interpolateRdBu, scaleLinear, scaleDiverging, scaleThreshold} from 'd3'
-//import { orderBy } from 'lodash';
+import {VictoryChart, VictoryBar} from 'victory' // VictoryTheme, VictoryLabel
+//import { orderBy } from 'lodash'
+import {scaleSequential, interpolateRdBu} from 'd3'
+import './VBarChart.css'
 
-import RangeSlider from 'react-bootstrap-range-slider';
+import RangeSlider from 'react-bootstrap-range-slider'
+//import { Range } from 'rc-slider'
+import Slider from 'rc-slider'
 
-//import Slider, { Range } from 'rc-slider';
-//import Slider from 'rc-slider';
-//const createSliderWithTooltip = Slider.createSliderWithTooltip
-//const Range = createSliderWithTooltip(Slider.Range) // the tooltip doesn't move
-
-//import { Range } from 'rc-slider';
-
-import Slider from 'rc-slider';
-const { createSliderWithTooltip } = Slider;
+const { createSliderWithTooltip } = Slider
 const Range = createSliderWithTooltip(Slider.Range);
 
-
-var colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
-
-//var colorScale = scaleDiverging()
-//    .domain([1, 0.5, 0]) // reverse so 0:blue and 1:red
-//    .range(['#b2182b','#f7f7f7','#2166ac'])
-
-//var colorScale = scaleDiverging(interpolateRdBu)
-//    .domain([1, 0.5, 0]) // reverse so 0:blue and 1:red
-
-//var colorScale = scaleLinear()
-//    .domain([1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0]) // reverse so 0:blue and 1:red
-//    .range(['#b2182b','#d6604d','#f4a582','#fddbc7','#f7f7f7','#d1e5f0','#92c5de','#4393c3','#2166ac'])
-//    //.range(['#67001f','#b2182b','#d6604d','#f4a582','#fddbc7','#f7f7f7','#d1e5f0','#92c5de','#4393c3','#2166ac','#053061'])
+const colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
 
 export default class MyBarChart extends PureComponent {
     constructor(props) {
       super(props)
-      this.state = {tweetMin: 3, opinionRange: [0, 100]} // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
+      this.state = {tweetMin: 5, opinionRange: [0, 100]} // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
       this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
       this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
-      this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
-      this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
+      //this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
+      //this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
     }
 
     handleTweetMinChange(changeEvent){
@@ -55,21 +36,21 @@ export default class MyBarChart extends PureComponent {
         this.setState({opinionRange: newRange})
     }
 
-    handleOpinionMinChange(changeEvent){
-        console.log("CHANGE OPINION MIN", changeEvent.target.value)
-        //var opinionMin = parseFloat(changeEvent.target.value) // convert string to decimal, but they end up as NaN. TODO: (maybe take user inputs as integers)
-        var opinionMin = changeEvent.target.value
-        var opinionMax = this.state.opinionRange[1]
-        this.setState({opinionRange: [changeEvent.target.value, opinionMax]})
-    }
+    //handleOpinionMinChange(changeEvent){
+    //    console.log("CHANGE OPINION MIN", changeEvent.target.value)
+    //    //var opinionMin = parseFloat(changeEvent.target.value) // convert string to decimal, but they end up as NaN. TODO: (maybe take user inputs as integers)
+    //    var opinionMin = changeEvent.target.value
+    //    var opinionMax = this.state.opinionRange[1]
+    //    this.setState({opinionRange: [changeEvent.target.value, opinionMax]})
+    //}
 
-    handleOpinionMaxChange(changeEvent){
-        console.log("CHANGE OPINION MAX", "FROM", this.state.opinionRange, "TO", changeEvent.target.value)
-        var opinionMin = this.state.opinionRange[0]
-        //var opinionMax = parseFloat(changeEvent.target.value) // convert string to decimal, but they end up as NaN. TODO: (maybe take user inputs as integers)
-        var opinionMax = changeEvent.target.value
-        this.setState({opinionRange: [opinionMin, opinionMax]})
-    }
+    //handleOpinionMaxChange(changeEvent){
+    //    console.log("CHANGE OPINION MAX", "FROM", this.state.opinionRange, "TO", changeEvent.target.value)
+    //    var opinionMin = this.state.opinionRange[0]
+    //    //var opinionMax = parseFloat(changeEvent.target.value) // convert string to decimal, but they end up as NaN. TODO: (maybe take user inputs as integers)
+    //    var opinionMax = changeEvent.target.value
+    //    this.setState({opinionRange: [opinionMin, opinionMax]})
+    //}
 
     render() {
         var tweetMin = this.state.tweetMin
@@ -109,10 +90,10 @@ export default class MyBarChart extends PureComponent {
                                 //tooltipLabel=
                                 //variant="dark"
                             />
-                        </Col>
+                        </Col> {/*}
                         <Col xs="2" style={{"paddingTop":"1.9em"}}>
                             <Form.Control type="number" min={3} max={200} value={tweetMin} onChange={this.handleTweetMinChange}/>
-                        </Col>
+                        </Col> */}
 
                         <Col xs="1">
                         </Col>
@@ -123,7 +104,18 @@ export default class MyBarChart extends PureComponent {
                             <Range min={0} max={100} step={1}
                                 defaultValue={[0, 100]}
                                 value={opinionRange}
-                                marks={{0: "Pro-Impeachment (D)", 100: "Anti-Impeachment (R)"}}
+                                marks={{
+                                    0: "Pro-Impeachment (0%)",
+                                    10: "",
+                                    20: "",
+                                    30: "",
+                                    40: "",
+                                    50: "Neutral (50%)",
+                                    60: "",
+                                    70: "",
+                                    80: "",
+                                    90: "",
+                                    100: "Pro-Trump (100%)"}}
                                 onChange={this.handleOpinionRangeChange}
                                 allowCross={false}
                                 tooltip="auto"
@@ -132,10 +124,11 @@ export default class MyBarChart extends PureComponent {
                             />
                         </Col>
 
+                        {/*}
                         <Col xs="2" style={{"paddingTop":"1em"}}>
                             <Form.Control type="number" min={0} max={99} value={opinionRange[0]} onChange={this.handleOpinionMinChange}/>
                             <Form.Control type="number" min={1} max={100} value={opinionRange[1]} onChange={this.handleOpinionMaxChange}/>
-                        </Col>
+                        </Col>  */}
                     </Form.Group>
                 </Form>
 
