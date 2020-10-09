@@ -4,11 +4,28 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 //import Spinner from 'react-bootstrap/Spinner'
-import RangeSlider from 'react-bootstrap-range-slider';
 import { VictoryTheme, VictoryChart, VictoryBar, VictoryLabel } from 'victory';
-
 import {scaleSequential, interpolateRdBu, scaleLinear, scaleDiverging, scaleThreshold} from 'd3'
 import { orderBy } from 'lodash';
+
+
+
+
+import RangeSlider from 'react-bootstrap-range-slider';
+
+//import Slider, { Range } from 'rc-slider';
+//import Slider from 'rc-slider';
+//const createSliderWithTooltip = Slider.createSliderWithTooltip
+//const Range = createSliderWithTooltip(Slider.Range) // the tooltip doesn't move
+
+//import { Range } from 'rc-slider';
+
+import Slider from 'rc-slider';
+const { createSliderWithTooltip } = Slider;
+const Range = createSliderWithTooltip(Slider.Range);
+
+
+
 
 
 var colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
@@ -25,24 +42,41 @@ var colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0
 //    .range(['#b2182b','#d6604d','#f4a582','#fddbc7','#f7f7f7','#d1e5f0','#92c5de','#4393c3','#2166ac'])
 //    //.range(['#67001f','#b2182b','#d6604d','#f4a582','#fddbc7','#f7f7f7','#d1e5f0','#92c5de','#4393c3','#2166ac','#053061'])
 
-
-
-
-
 export default class MyBarChart extends PureComponent {
     constructor(props) {
       super(props)
-      this.state = {tweetMin: 3, parsedResponse: null} // TODO: get screen name from input box or URL params (maybe use window.location.href and split it, or find some kind of react router property)
+      this.state = {tweetMin: 3, opinionRange: [0,1], parsedResponse: null} // TODO: get screen name from input box or URL params (maybe use window.location.href and split it, or find some kind of react router property)
       //this.fetchData = this.fetchData.bind(this)
-      this.handleSlide = this.handleSlide.bind(this)
+      this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
+      this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
+      this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
+      this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
     }
 
-    handleSlide(val){
-        this.setState({tweetMin: val})
+    handleTweetMinChange(changeEvent){
+        this.setState({tweetMin: changeEvent.target.value})
+    }
+
+    handleOpinionRangeChange(changeEvent){
+        console.log("CHANGE OPINION RANGE", changeEvent.target.value)
+        this.setState({opinionRange: changeEvent.target.value})
+    }
+
+    handleOpinionMinChange(changeEvent){
+        console.log("CHANGE OPINION MIN", changeEvent.target.value)
+        //var opinionMax = this.state.opinionRange[1]
+        //this.setState({opinionRange: [changeEvent.target.value, opinionMax]})
+    }
+
+    handleOpinionMaxChange(changeEvent){
+        console.log("CHANGE OPINION MAX", changeEvent.target.value)
+        //var opinionMin = this.state.opinionRange[0]
+        //this.setState({opinionRange: [opinionMin, changeEvent.target.value]})
     }
 
     render() {
         var tweetMin = this.state.tweetMin
+        var opinionRange = this.state.opinionRange
 
         var users = this.props.users.filter(function(user){
             return user["status_count"] >= tweetMin
@@ -55,10 +89,6 @@ export default class MyBarChart extends PureComponent {
             return a["follower_count"] - b["follower_count"]
         }).slice(-10) // negative number takes last 10 (which is actually the top ten)
 
-        //users = orderBy(users, "follower_count", "desc") // sort for slice
-        //users = users.slice(0,10)
-        //users = orderBy(users, "follower_count", "asc") // re-sort for chart
-
         return (
             <span>
 
@@ -70,7 +100,7 @@ export default class MyBarChart extends PureComponent {
                                 min={3}
                                 max={200}
                                 value={tweetMin}
-                                onChange={changeEvent => this.handleSlide(changeEvent.target.value)}
+                                onChange={this.handleTweetMinChange}
                                 tooltip={"auto"}
                                 tooltipPlacement={"bottom"}
                                 //tooltipLabel=
@@ -80,11 +110,94 @@ export default class MyBarChart extends PureComponent {
                         <Col xs="1" style={{"paddingTop":"1.9em"}}>
                             <Form.Control
                                 value={tweetMin}
-                                onChange={changeEvent => this.handleSlide(changeEvent.target.value)}
+                                onChange={this.handleTweetMinChange}
                             />
+                        </Col>
+                    </Form.Group>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <Form.Group as={Row}>
+                        <Col xs="3">
+                            <Form.Label>Mean Opinion Score</Form.Label>
+                            {/*
+                            <Range
+                                min={0}
+                                max={1}
+                                value={opinionRange}
+                                defaultValue={[0,1]}
+                                allowCross={false}
+                                onChange={this.handleOpinionRangeChange}
+                                tooltip={"auto"}
+                                tooltipPlacement={"bottom"}
+                            />
+                            */}
+
+                            <Range
+                                marks={{
+                                    0: `Pro-Impeachment`,
+                                    1: `Anti-Impeachment`
+                                }}
+                                min={0}
+                                max={1}
+                                step={0.01}
+                                defaultValue={[0, 1]}
+                                tipFormatter={value => `${value * 100}%`}
+                                tipProps={{
+                                    placement: "top",
+                                    visible: true
+                                }}
+                            />
+                        </Col>
+                        <Col xs="1" style={{"paddingTop":"1.9em"}}>
+
+
+                            {/*<Form.Control
+                                value={opinionRange[0]}
+                                //onChange={this.handleOpinionMinChange}
+                            />
+                            <Form.Control
+                                value={opinionRange[1]}
+                                //onChange={this.handleOpinionMaxChange}
+                            />
+
+                            */}
+
                         </Col>
 
                     </Form.Group>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </Form>
 
                 <VictoryChart >
