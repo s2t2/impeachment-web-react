@@ -49,33 +49,32 @@ export default class MyBarChart extends PureComponent {
       //this.fetchData = this.fetchData.bind(this)
       this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
       this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
-      this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
-      this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
+      //this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
+      //this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
     }
 
     handleTweetMinChange(changeEvent){
         this.setState({tweetMin: changeEvent.target.value})
     }
 
-
     handleOpinionRangeChange(newRange){
         console.log("CHANGE OPINION RANGE", newRange)
         this.setState({opinionRange: newRange})
     }
 
-    handleOpinionMinChange(val){
-        console.log("CHANGE OPINION MIN", val)
-        //var opinionMax = this.state.opinionRange[1]
-        //this.setState({opinionRange: [changeEvent.target.value, opinionMax]})
-    }
+    //handleOpinionMinChange(changeEvent){
+    //    console.log("CHANGE OPINION MIN", changeEvent.target.value)
+    //    var opinionMin = parseFloat(changeEvent.target.value) // convert string to decimal, but they end up as NaN. TODO: (maybe take user inputs as integers)
+    //    var opinionMax = this.state.opinionRange[1]
+    //    this.setState({opinionRange: [changeEvent.target.value, opinionMax]})
+    //}
 
-    handleOpinionMaxChange(val){
-        console.log("CHANGE OPINION MAX", val)
-        //var opinionMin = this.state.opinionRange[0]
-        //this.setState({opinionRange: [opinionMin, changeEvent.target.value]})
-    }
-
-
+    //handleOpinionMaxChange(changeEvent){
+    //    console.log("CHANGE OPINION MAX", "FROM", this.state.opinionRange, "TO", changeEvent.target.value)
+    //    var opinionMin = this.state.opinionRange[0]
+    //    var opinionMax = parseFloat(changeEvent.target.value) // convert string to decimal, but they end up as NaN. TODO: (maybe take user inputs as integers)
+    //    this.setState({opinionRange: [opinionMin, opinionMax]})
+    //}
 
     render() {
         var tweetMin = this.state.tweetMin
@@ -150,21 +149,18 @@ export default class MyBarChart extends PureComponent {
                                 }}
                             />
                         </Col>
+                        {/*
                         <Col xs="1" style={{"paddingTop":"1.9em"}}>
-
-
-                            {/*<Form.Control
+                            <Form.Control
                                 value={opinionRange[0]}
-                                //onChange={this.handleOpinionMinChange}
+                                onChange={this.handleOpinionMinChange}
                             />
                             <Form.Control
                                 value={opinionRange[1]}
-                                //onChange={this.handleOpinionMaxChange}
+                                onChange={this.handleOpinionMaxChange}
                             />
-
-                            */}
-
                         </Col>
+                        */}
 
                     </Form.Group>
 
