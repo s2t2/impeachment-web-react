@@ -20,6 +20,7 @@ import StatusesMostRetweeted from '../_Dashboards/StatusesMostRetweeted/Dashboar
 import TopProfileTags from '../_Dashboards/TopProfileTags/Dashboard.js';
 import TopStatusTags from '../_Dashboards/TopStatusTags/Dashboard.js';
 import UserOpinion from '../_Dashboards/UserOpinion/Dashboard.js';
+import UserOpinionsMostFollowed from '../_Dashboards/UsersMostFollowed/Dashboard.js';
 
 // TODO
 const Home = () => <h2>Home</h2>
@@ -45,6 +46,7 @@ const App = () => (
                 <Nav.Item><Nav.Link eventKey="top_status_tags">Bot Tweet Hashtags</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="top_statuses">Bot Retweets</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="top_users">Bot Retweeted Users</Nav.Link></Nav.Item>
+                <Nav.Item><Nav.Link eventKey="user_opinions_most_followed">Mean User Opinions</Nav.Link></Nav.Item>
                 <Nav.Item><Nav.Link eventKey="user_opinion">User Opinions</Nav.Link></Nav.Item>
               </Nav>
             </Col>
@@ -58,6 +60,7 @@ const App = () => (
                 <Tab.Pane eventKey="top_status_tags"><TopStatusTags/></Tab.Pane>
                 <Tab.Pane eventKey="top_statuses"><StatusesMostRetweeted/></Tab.Pane>
                 <Tab.Pane eventKey="top_users"><UsersMostRetweeted/></Tab.Pane>
+                <Tab.Pane eventKey="user_opinions_most_followed"><UserOpinionsMostFollowed/></Tab.Pane>
                 <Tab.Pane eventKey="user_opinion"><UserOpinion/></Tab.Pane>
               </Tab.Content>
             </Col>

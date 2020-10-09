@@ -75,6 +75,13 @@ npm install react-bootstrap bootstrap --save
   + https://react-bootstrap.github.io/components/tabs/
   + https://react-bootstrap.github.io/components/table/
 
+Form controls:
+
+  + https://reactjs.org/docs/forms.html
+  + https://react-bootstrap.netlify.app/components/forms/
+  + https://stackoverflow.com/questions/60917459/react-bootstrap-how-to-get-value-of-form-control
+
+
 ## Flexbox
 
   + https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background
@@ -142,6 +149,9 @@ It works to show you the variable values. To interact with them, must set a `deb
 ## JavaScript Language
 
   + https://github.com/prof-rossetti/intro-to-web-dev/blob/master/notes/javascript/notes.md
+  + https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  + https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+  + https://stackoverflow.com/questions/42308976/how-to-slice-string-from-the-end-in-javascript/42309034
 
 ### JavaScript Dates
 
@@ -175,3 +185,43 @@ npm install lodash --save
 ```sh
 npm install react-gauge-chart
 ```
+
+## Victory Charts
+
+FTW
+
+  + https://github.com/FormidableLabs/victory
+  + https://formidable.com/open-source/victory/gallery/
+  + https://formidable.com/open-source/victory/docs/victory-bar
+  + https://codesandbox.io/s/laughing-resonance-772ee?file=/src/index.js:297-303
+  + https://formidable.com/open-source/victory/docs/faq#containers-and-behaviors
+
+## Color Scales
+
+
+  + https://github.com/d3/d3-scale#linear-scales
+  + https://github.com/d3/d3-scale#sequential-scales
+  + https://github.com/d3/d3-scale#diverging-scales
+  + https://github.com/d3/d3-scale-chromatic
+  + https://observablehq.com/@d3/color-schemes?collection=@d3/d3-scale-chromatic
+  + https://bl.ocks.org/john-guerra/17fe498351a3e70929e2e36d081e1067
+  + https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=7
+
+```sh
+npm install d3 --save
+```
+
+## Sliders
+
+Bootstrap Slider
+
+```sh
+npm install react-bootstrap-range-slider
+```
+
+  + https://jaywilz.github.io/react-bootstrap-range-slider/
+
+RC Slider:
+
+  + https://github.com/react-component/slider
+  + http://react-component.github.io/slider/?path=/story/rc-slider--range
