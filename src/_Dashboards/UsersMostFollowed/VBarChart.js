@@ -48,13 +48,13 @@ export default class MyBarChart extends PureComponent {
             user["scorePct"] = (user["avg_score_lr"] * 100.0).toFixed(1) + "%"
             return user
         })
-        //.sort(function(a, b){
-        //    return a["follower_count"] - b["follower_count"]
-        //}) //.slice(0, 10)
+        .sort(function(a, b){
+            return a["follower_count"] - b["follower_count"]
+        }).slice(-10) // negative number takes last 10 (which is actually the top ten)
 
-        users = orderBy(users, "follower_count", "desc") // sort for slice
-        users = users.slice(0,10)
-        users = orderBy(users, "follower_count", "asc") // re-sort for chart
+        //users = orderBy(users, "follower_count", "desc") // sort for slice
+        //users = users.slice(0,10)
+        //users = orderBy(users, "follower_count", "asc") // re-sort for chart
 
         return (
             <span>
