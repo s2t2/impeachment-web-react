@@ -3,8 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
-import Sidebar from '../layouts/Sidebar';
-import WelcomeAlert from "../alerts/WelcomeAlert"
+
 import {
   BarChart,
   Bar,
@@ -17,7 +16,7 @@ import {
 } from 'recharts';
 
 
-import CustomLoader from "../layouts/CustomLoader"
+import CustomLoader from "./CustomLoader"
 import { orderBy } from 'lodash';
 
 //dotenv.config()
@@ -28,7 +27,7 @@ var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
 
 
-class DasbhoardFour extends React.Component {
+class DasbhoardFourAbout extends React.Component {
   constructor(props) {
     super(props)
     this.state = { parsedResponse: null }
@@ -132,15 +131,11 @@ class DasbhoardFour extends React.Component {
     return (
       <Container fluid className="no-padding">
         <Row>
-          <Col md={2}>
-
-            <Sidebar />
-
-          </Col>
-          <Col md={10}>
+          
+          <Col md={12}>
 
             <Container fluid className="mt-70">
-              <WelcomeAlert />
+             
 
 
               {spinIntoCharts}
@@ -178,4 +173,4 @@ class DasbhoardFour extends React.Component {
 
 };
 
-export default DasbhoardFour;
+export default DasbhoardFourAbout;

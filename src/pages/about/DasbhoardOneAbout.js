@@ -3,8 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
-import Sidebar from '../layouts/Sidebar';
-import WelcomeAlert from "../alerts/WelcomeAlert"
 
 import {
     BarChart,
@@ -17,15 +15,14 @@ import {
     ResponsiveContainer
 } from 'recharts';
 
-import Spinner from 'react-bootstrap/Spinner';
-import CustomLoader from "../layouts/CustomLoader"
+import CustomLoader from "./CustomLoader"
 import {orderBy} from 'lodash';
 
 //dotenv.config()
 
 var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
-class DasbhoardOne extends React.Component {
+class DasbhoardOneAbout extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -57,7 +54,7 @@ class DasbhoardOne extends React.Component {
             console.table("community1", community1);
 
             spinIntoCharts = <Container fluid>
-                <h3 className='m-5 app-center'>Users Most Retweeted by Community
+                <h3 className='app-center'>Users Most Retweeted by Community
                 </h3>
                 <Row>
                     <Col sm={12} md={12} lg={6}>
@@ -157,15 +154,11 @@ class DasbhoardOne extends React.Component {
         return (
             <Container fluid className="no-padding">
                 <Row>
-                    <Col md={2}>
-
-                        <Sidebar/>
-
-                    </Col>
-                    <Col md={10}>
+                    
+                    <Col md={12}>
 
                         <Container fluid className="mt-70">
-                            <WelcomeAlert />
+                        
                             
                             {spinIntoCharts}
 
@@ -216,4 +209,4 @@ class DasbhoardOne extends React.Component {
 
 }
 
-export default DasbhoardOne;
+export default DasbhoardOneAbout;
