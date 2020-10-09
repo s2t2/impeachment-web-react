@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form'
 //import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import {VictoryChart, VictoryBar} from 'victory' // VictoryTheme, VictoryLabel
+import {VictoryChart, VictoryBar, VictoryAxis} from 'victory' // VictoryTheme, VictoryLabel
 //import { orderBy } from 'lodash'
 import {scaleSequential, interpolateRdBu} from 'd3'
 import './VBarChart.css'
@@ -11,11 +11,16 @@ import './VBarChart.css'
 import RangeSlider from 'react-bootstrap-range-slider'
 //import { Range } from 'rc-slider'
 import Slider from 'rc-slider'
-
 const { createSliderWithTooltip } = Slider
 const Range = createSliderWithTooltip(Slider.Range);
 
 const colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
+
+function formatBigNumber(num) {
+    return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
+} // h/t: https://stackoverflow.com/a/9461657
+
+
 
 export default class MyBarChart extends PureComponent {
     constructor(props) {
@@ -79,13 +84,13 @@ export default class MyBarChart extends PureComponent {
             <span>
                 <Form >
                     <Form.Group as={Row}>
-                        <Col xs="3">
+                        <Col xs="2">
                             <Form.Label>Minimum Tweet Count</Form.Label>
 
                             <RangeSlider min={3} max={200}
                                 value={tweetMin}
                                 onChange={this.handleTweetMinChange}
-                                tooltip="auto" // "on" //"auto"
+                                tooltip="on" // "on" //"auto"
                                 tooltipPlacement="bottom"
                                 //tooltipLabel=
                                 //variant="dark"
@@ -120,7 +125,10 @@ export default class MyBarChart extends PureComponent {
                                 allowCross={false}
                                 tooltip="auto"
                                 tipFormatter={value => `${value}%` }
-                                tipProps={{placement: "top", visible: true}}
+                                tipProps={{
+                                    visible: true,
+                                    placement: "top" // "top" "bottom"
+                                }}
                             />
                         </Col>
 
@@ -146,6 +154,15 @@ export default class MyBarChart extends PureComponent {
                                 fill: ({ datum }) => colorScale(datum["avg_score_lr"])
                             }
                         }}
+                    />
+                    <VictoryAxis
+                        //label="Screen Name"
+                        //tickFormat={["a", "b", "c", "d", "e"]}
+                    />
+                    <VictoryAxis dependentAxis
+                        //tickFormat={(tick) => `${tick}%`}
+                        tickFormat={formatBigNumber}
+                        label="Follower Count"
                     />
                 </VictoryChart>
             </span>
