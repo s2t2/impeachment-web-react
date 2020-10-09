@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react'
-import Container from 'react-bootstrap/Container'
-import Spinner from 'react-bootstrap/Spinner'
 
 
-export default class BarChart extends PureComponent {
+export default class List extends PureComponent {
   //constructor(props) {
   //  super(props)
   //  //this.state = {limit: 500, parsedResponse: null} // TODO: get screen name from input box or URL params (maybe use window.location.href and split it, or find some kind of react router property)
@@ -27,11 +25,11 @@ export default class BarChart extends PureComponent {
   }
 
   componentDidMount(){
-    console.log("BAR CHART DID MOUNT")
+    console.log("LIST DID MOUNT")
   }
 
   componentDidUpdate(prevProps) {
-    console.log("BAR CHART DID UPDATE")
+    console.log("LIST DID UPDATE")
   }
 
 }

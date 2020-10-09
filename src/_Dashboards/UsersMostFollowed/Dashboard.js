@@ -4,6 +4,7 @@ import Spinner from 'react-bootstrap/Spinner'
 
 import cachedData from './data.js'
 import BarChart from './BarChart.js'
+import List from './List.js'
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
@@ -19,7 +20,10 @@ export default class Dashboard extends PureComponent {
     if (this.state.parsedResponse) {
         var users = this.state.parsedResponse
         console.log("USERS MOST FOLLOWED:", users.length)
-        spinIntoStuff = <BarChart users={users}/>
+        spinIntoStuff = <span>
+            <BarChart users={users}/>
+            <List users={users}/>
+        </span>
     } else {
         spinIntoStuff = <Spinner animation="grow" />
     }
