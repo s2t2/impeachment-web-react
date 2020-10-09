@@ -6,10 +6,7 @@ import Col from 'react-bootstrap/Col'
 //import Spinner from 'react-bootstrap/Spinner'
 import { VictoryTheme, VictoryChart, VictoryBar, VictoryLabel } from 'victory';
 import {scaleSequential, interpolateRdBu, scaleLinear, scaleDiverging, scaleThreshold} from 'd3'
-import { orderBy } from 'lodash';
-
-
-
+//import { orderBy } from 'lodash';
 
 import RangeSlider from 'react-bootstrap-range-slider';
 
@@ -23,9 +20,6 @@ import RangeSlider from 'react-bootstrap-range-slider';
 import Slider from 'rc-slider';
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
-
-
-
 
 
 var colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
@@ -80,8 +74,9 @@ export default class MyBarChart extends PureComponent {
     render() {
         var tweetMin = this.state.tweetMin
         var opinionRange = this.state.opinionRange
-        var barCount = this.props.barCount || 10
+        var barCount = this.props.barCount || 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
 
+        // FILTER AND SORT USERS
         var users = this.props.users
             .filter(function(user){
                 return (
@@ -109,7 +104,7 @@ export default class MyBarChart extends PureComponent {
                             <RangeSlider min={3} max={200}
                                 value={tweetMin}
                                 onChange={this.handleTweetMinChange}
-                                tooltip="auto"
+                                tooltip="auto" // "on" //"auto"
                                 tooltipPlacement="bottom"
                                 //tooltipLabel=
                                 //variant="dark"
@@ -121,6 +116,7 @@ export default class MyBarChart extends PureComponent {
 
                         <Col xs="1">
                         </Col>
+
                         <Col xs="3">
                             <Form.Label>Mean Opinion Score</Form.Label>
 
