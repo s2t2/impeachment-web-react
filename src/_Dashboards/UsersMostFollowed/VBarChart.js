@@ -3,9 +3,9 @@ import React, { PureComponent } from 'react'
 //import Spinner from 'react-bootstrap/Spinner'
 import { VictoryTheme, VictoryChart, VictoryBar, VictoryLabel } from 'victory';
 
-function fillColor(datum) {
-   return datum["fill"]
-}
+import {scaleSequential, interpolateRdBu} from 'd3'
+
+var colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
 
 export default class MyBarChart extends PureComponent {
     //constructor(props) {
@@ -22,12 +22,11 @@ export default class MyBarChart extends PureComponent {
         //  return <li> {userHandle} |  {followerCount} | ({scorePct}) </li>
         //})
 
+
         var users = this.props.users.slice(0, 10).sort(function(a, b){
             return a["follower_count"] - b["follower_count"]
-        }).map(function(u){
-            var user = u
-            user["fill"] = "#D0021B" // TODO: use d3 color scale :-D
-
+        }).map(function(user){
+            user["handle"] = `@${user['screen_name']}`
             return user
         })
 
@@ -36,7 +35,7 @@ export default class MyBarChart extends PureComponent {
                 <VictoryBar
                     horizontal
                     data={users}
-                    x="screen_name"
+                    x="handle"
                     y="follower_count"
                     animate={true}
 
@@ -48,7 +47,7 @@ export default class MyBarChart extends PureComponent {
                     //labelComponent={<VictoryLabel dx={-30}/>}
                     style={{
                         data: {
-                            fill: ({ datum }) => fillColor(datum) // help I don't know how this syntax works. do we have to bind.this or something somewhere?
+                            fill: ({ datum }) => colorScale(datum["avg_score_lr"]) // help I don't know how this syntax works. do we have to bind.this or something somewhere?
                         }
                     }}
 
