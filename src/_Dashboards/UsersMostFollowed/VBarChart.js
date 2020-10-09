@@ -40,16 +40,17 @@ export default class MyBarChart extends PureComponent {
     }
 
     render() {
-        var users = this.props.users.slice(0, 10).sort(function(a, b){
-            return a["follower_count"] - b["follower_count"]
+        var tweetMin = this.state.tweetMin
+
+        var users = this.props.users.filter(function(user){
+            return user["status_count"] >= tweetMin
         }).map(function(user){
-            //  var scorePct = (user["avg_score_lr"] * 100.0).toFixed(1) + "%"
-            //  var userHandle = "@" + user["screen_name"]
-            //  var followerCount = user["follower_count"]
             user["handle"] = `@${user['screen_name']}`
             user["scorePct"] = (user["avg_score_lr"] * 100.0).toFixed(1) + "%"
             return user
-        })
+        }).sort(function(a, b){
+            return a["follower_count"] - b["follower_count"]
+        }) //.slice(0, 10)
 
         return (
             <span>
