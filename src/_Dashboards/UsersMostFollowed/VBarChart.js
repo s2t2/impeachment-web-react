@@ -167,6 +167,17 @@ export default class MyBarChart extends PureComponent {
                         //tickFormat={(tick) => `${tick}%`}
                         tickFormat={formatBigNumber}
                         label="Follower Count"
+
+                        style={{
+                            //axis: {stroke: "#756f6a"},
+                            axisLabel: {fontSize: 10, padding:25},
+                            //grid: {stroke: ({ tick }) => tick > 0.5 ? "red" : "grey"},
+                            ticks: {stroke: "grey", size: 4},
+                            tickLabels: {fontSize: 10, padding:5}
+                        }}
+
+
+
                     />
                 </VictoryChart>
             </span>
