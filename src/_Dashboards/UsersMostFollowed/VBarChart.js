@@ -123,6 +123,7 @@ export default class MyBarChart extends PureComponent {
                                     100: "Pro-Trump (100%)"}}
                                 onChange={this.handleOpinionRangeChange}
                                 allowCross={false}
+                                //pushable={10}
                                 tooltip="auto"
                                 tipFormatter={value => `${value}%` }
                                 tipProps={{
@@ -140,7 +141,10 @@ export default class MyBarChart extends PureComponent {
                     </Form.Group>
                 </Form>
 
-                <VictoryChart padding={{ left: 175, top: 15, right: 50, bottom: 130 }} >
+                <VictoryChart
+                    padding={{ left: 175, top: 15, right: 50, bottom: 130 }} // spacing for axis labels (screen names)
+                    domainPadding={{ x: [10,0] }} // spacing between bottom bar and bottom axis
+                >
                     <VictoryBar horizontal data={users} x="handle" y="follower_count"
                         animate={true}
                         //barWidth={12}
@@ -176,4 +180,5 @@ export default class MyBarChart extends PureComponent {
     componentDidUpdate(prevProps) {
         console.log("BAR CHART DID UPDATE")
     }
+
 }
