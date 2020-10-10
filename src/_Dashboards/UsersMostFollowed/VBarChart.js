@@ -155,9 +155,28 @@ export default class MyBarChart extends PureComponent {
                         //labelComponent={<VictoryLabel dx={-30}/>}
                         style={{
                             data: {
-                                fill: ({ datum }) => colorScale(datum["avg_score_lr"])
+                                fill: ({ datum }) => colorScale(datum["avg_score_lr"]),
+                                //stroke: ({ index }) => +index % 2 === 0  ? "#000000" : "#c43a31",
+                                //fillOpacity: 0.7,
+                                //strokeWidth: 3
+                            },
+                            labels: {
+                                fontSize: 10,
+                                padding:2
+                                //fill: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31"
                             }
                         }}
+
+
+
+
+
+
+
+
+
+
+
                     />
                     <VictoryAxis
                         //label="Screen Name"
