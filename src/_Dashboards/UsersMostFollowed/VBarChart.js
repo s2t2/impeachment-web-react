@@ -84,7 +84,7 @@ export default class MyBarChart extends PureComponent {
             <span>
                 <Form >
                     <Form.Group as={Row}>
-                        <Col xs="2">
+                        <Col xs="5">
                             <Form.Label>Minimum Tweet Count</Form.Label>
 
                             <RangeSlider min={3} max={200}
@@ -103,24 +103,24 @@ export default class MyBarChart extends PureComponent {
                         <Col xs="1">
                         </Col>
 
-                        <Col xs="4">
+                        <Col xs="5">
                             <Form.Label>Mean Opinion Score</Form.Label>
 
                             <Range min={0} max={100} step={1}
                                 defaultValue={[0, 100]}
                                 value={opinionRange}
                                 marks={{
-                                    0: "Pro-Impeachment (0%)",
+                                    0: "Pro-Impeachment",
                                     10: "",
                                     20: "",
                                     30: "",
                                     40: "",
-                                    50: "Neutral (50%)",
+                                    50: "Neutral",
                                     60: "",
                                     70: "",
                                     80: "",
                                     90: "",
-                                    100: "Pro-Trump (100%)"}}
+                                    100: "Pro-Trump"}}
                                 onChange={this.handleOpinionRangeChange}
                                 allowCross={false}
                                 //pushable={10}
