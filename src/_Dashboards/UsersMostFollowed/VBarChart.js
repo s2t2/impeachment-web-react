@@ -26,13 +26,15 @@ export default class MyBarChart extends Component {
       this.state = {
         tweetMin: 5,
         opinionRange: [0, 100],
-        userCategories:["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY", "OTHER"]
+        userCategories: ["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY", "OTHER"],
+        opinionModel: "lr"
     } // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
       this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
       this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
       //this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
       //this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
       this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
+      this.handleModelSelect = this.handleModelSelect.bind(this)
     }
 
     handleTweetMinChange(changeEvent){
@@ -76,10 +78,18 @@ export default class MyBarChart extends Component {
         this.setState({userCategories: userCategories}) // this is updating state but why not triggering a re-render?
     }
 
+    handleModelSelect(changeEvent){
+        var model = changeEvent.target.value
+        console.log("SELECT MODEL:", model)
+        this.setState({"opinionModel": model})
+    }
+
     render() {
         var tweetMin = this.state.tweetMin
         var opinionRange = this.state.opinionRange
         var userCategories = this.state.userCategories
+        var opinionModel = this.state.opinionModel
+        var opinionMetric = `avg_score_${opinionModel}`
         var barCount = this.props.barCount || 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
 
         // FILTER AND SORT USERS
@@ -87,13 +97,13 @@ export default class MyBarChart extends Component {
             .filter(function(user){
                 return (
                     user["status_count"] >= tweetMin &&
-                    user["avg_score_lr"] * 100.0 >= opinionRange[0] &&
-                    user["avg_score_lr"] * 100.0 <= opinionRange[1] &&
+                    user[opinionMetric] * 100.0 >= opinionRange[0] &&
+                    user[opinionMetric] * 100.0 <= opinionRange[1] &&
                     userCategories.includes(user["category"])
             )})
             .map(function(user){
                 user["handle"] = `@${user['screen_name']}`
-                user["scorePct"] = (user["avg_score_lr"] * 100.0).toFixed(1) + "%"
+                user["scorePct"] = (user[opinionMetric] * 100.0).toFixed(1) + "%"
                 return user
             })
             .sort(function(a, b){
@@ -185,7 +195,24 @@ export default class MyBarChart extends Component {
                                     onChange={this.handleCategoryCheck}
                                 />
                             </div>
+                        </Col>
 
+                        <Col xs="1">
+                        </Col>
+
+                        <Col xs="5">
+                            <Form.Label>Opinion Model</Form.Label>
+
+                            <div key="inline-radios" className="mb-3">
+                                <Form.Check inline label="Logistic Regression" value="lr" type="radio" id="radio-lr"
+                                    checked={opinionModel === "lr"}
+                                    onChange={this.handleModelSelect}
+                                />
+                                <Form.Check inline label="Naive Bayes" value="nb" type="radio" id="radio-nb"
+                                    checked={opinionModel === "nb"}
+                                    onChange={this.handleModelSelect}
+                                />
+                            </div>
 
                         </Col>
                     </Form.Group>
@@ -219,7 +246,7 @@ export default class MyBarChart extends Component {
                         //labelComponent={<VictoryLabel dx={-30}/>}
                         style={{
                             data: {
-                                fill: ({ datum }) => colorScale(datum["avg_score_lr"]),
+                                fill: ({ datum }) => colorScale(datum[opinionMetric]),
                                 //stroke: ({ index }) => +index % 2 === 0  ? "#000000" : "#c43a31",
                                 //fillOpacity: 0.7,
                                 //strokeWidth: 3
