@@ -20,8 +20,6 @@ function formatBigNumber(num) {
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
 } // h/t: https://stackoverflow.com/a/9461657
 
-
-
 export default class MyBarChart extends Component {
     constructor(props) {
       super(props)

@@ -7,6 +7,7 @@ import BarChart from './VBarChart.js'
 //import List from './List.js'
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
+const CACHE_MODE = process.env.REACT_APP_CACHE_MODE || true
 
 export default class Dashboard extends PureComponent {
     constructor(props) {
@@ -39,27 +40,28 @@ export default class Dashboard extends PureComponent {
 
     componentDidMount(){
         console.log("DASHBOARD DID MOUNT")
-        // if process.env.cacheMode
-        this.setState({parsedResponse: cachedData})
-        // else:
-        //this.fetchData()
+        if (CACHE_MODE) {
+            this.setState({parsedResponse: cachedData})
+        } else {
+            this.fetchData()
+        }
     }
 
     fetchData(){
-        var requestUrl = `${API_URL}/api/v1/users_most_followed/${this.state.limit}`
+        var requestUrl = `${API_URL}/api/v1/users_most_followed?limit=${this.state.limit}`
         console.log("REQUEST URL:", requestUrl)
         fetch(requestUrl)
-          .then(function(response) {
-            //console.log("RAW RESPONSE", "STATUS", response.status, response.statusText, response.ok, "HEADERS", response.headers, response.url)
-            return response.json()
-          })
-          .then(function(json){
-            console.log("FETCHED", json.length, "ITEMS")
-            this.setState({parsedResponse: json})
-          }.bind(this))
-          .catch(function(err){
-            console.error("FETCH ERR", err)
-          })
+            .then(function(response) {
+                //console.log("RAW RESPONSE", "STATUS", response.status, response.statusText, response.ok, "HEADERS", response.headers, response.url)
+                return response.json()
+            })
+            .then(function(json){
+                console.log("FETCHED", json.length, "ITEMS")
+                this.setState({parsedResponse: json})
+            }.bind(this))
+            .catch(function(err){
+                console.error("FETCH ERR", err)
+            })
     }
 
 }
