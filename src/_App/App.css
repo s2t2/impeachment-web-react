@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif !important;
+  background-color: #edf3f5eb !important;
+
+}
+
+/* container fluid no padding */
+.no-padding{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.mt-70 {
+  margin-top: 70px;
+}
+
+.min-vh-90{
+  min-height: 80vh;
+}
+
+
+.container-fluid {
+  overflow-x: hidden;
+}
+
+
+.app-center{
+text-align: center;
+}
+
+
+
+
+
+
+/* card css */
+
+.card{
+  border: none !important;
+}
+
+p.app-center.card-text {
+  background: #ffffff;
+  font-size: 18px;
+  padding: 15px;
+  color: #202529;
+}
+
+
+.herotitle {
+  background-color: #2e4960;
+  font-size: 2rem;
+  color: white;
+  padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* sidebar */
+
+
+.sidebarWrapperRoot{
+  background-color: red;
+}
+
+.sidebar {
+  position: fixed;
+  top: 3rem;
+  width: 17%;
+  z-index: 1000;
+  height: calc(100vh - 3rem);
+  border-right: 1px solid #ececec;
+  background-color: #343a40;
+}
+
+.sidebarWrapper {
+  margin-top: 6vh;
+   margin-left: 1vw;
+  display: grid;
+}
+
+
+.sidebarWrapper a {
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  color: white;
+  font-size: 1rem;
+  text-decoration: none !important;
+
+}
+
+.sidebarWrapper a.active {
+  text-decoration: none;
+  background: #76777d94;
+  transition: 1s all ease;
+}
+
+
+.sidebarWrapper a:hover {
+  text-align: left;
+  color: #ded5d5;
+}
+
+
+.mobile-dasbhoard-menu-title{
+   margin: 10px 0px;
+}
+
+.mobile-dasbhoard-menu a{
+  display: block;
+  color: rgba(0, 0, 0, .5);
+  margin: 10px 0px;
+  text-decoration: none !important;
+}
+
+.mobile-dasbhoard-menu a:hover{
+   color: rgba(0, 0, 0, .8);
+}
+
+.mobile-dasbhoard-menu a.active {
+  font-weight: 500;
+  color: #1a1a1a !important;
+}
+
+
+
+
+
+
+
+
+
+/* dashboard card css */
+
+.card {
+  margin-bottom: 20px;
+}
+
+/* alert */
+
+.fade.alert.show {
+  background: #FFC107;
+}
+
+.alert {
+  margin-bottom: 0px !important;
+}
+
+
+/* Sticky Menu */
+
+.sticky-menu{
+position: fixed;
+top:300px;
+
+}
+.full-screen{
+  background: white;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 768px) and (max-width: 768px) {
+
+
+  .mt-70 {
+    margin-top: 70px !important;
+  }
+
+}
+
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+  .navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.00rem !important;
+    line-height: inherit;
+    white-space: nowrap;
+  }
+
+  .mt-70 {
+    margin-top: 20px;
+  }
+
+}

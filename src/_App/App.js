@@ -3,10 +3,11 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom'
 import ReactGA from 'react-ga'
 
-//import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
 
 import TopNav from "./TopNav.js"
-import LeftNav from "./LeftNav.js"
+//import LeftNav from "./LeftNav.js"
 
 import Home from "./Home.js"
 import About from "./About.js"
@@ -19,7 +20,7 @@ export default function App() {
       <div className="App">
 
         <TopNav />
-        <LeftNav />
+
 
         <Switch>
           <Route path="/" exact component={Home} />
