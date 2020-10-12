@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Component } from 'react'
 import Form from 'react-bootstrap/Form'
 //import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -22,7 +22,7 @@ function formatBigNumber(num) {
 
 
 
-export default class MyBarChart extends PureComponent {
+export default class MyBarChart extends Component {
     constructor(props) {
       super(props)
       this.state = {tweetMin: 5, opinionRange: [0, 100],
