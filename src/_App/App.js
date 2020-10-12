@@ -5,7 +5,7 @@ import ReactGA from 'react-ga'
 
 //import './App.css'
 
-import TopNav from "./LeftNav.js"
+import TopNav from "./TopNav.js"
 import LeftNav from "./LeftNav.js"
 
 import Home from "./Home.js"
