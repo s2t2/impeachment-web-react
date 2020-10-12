@@ -1,9 +1,8 @@
-import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import React from 'react'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 
-
-function Mainmenu() {
+function MainMenu() {
     return (
         <div className="d-none d-lg-block d-md-block d-xl-block">
             <Navbar fixed="top" bg="light">
@@ -19,8 +18,8 @@ function Mainmenu() {
                 </Navbar.Collapse>
             </Navbar>
         </div>
-        
+
     );
 }
 
-export default Mainmenu;
+export default MainMenu;
