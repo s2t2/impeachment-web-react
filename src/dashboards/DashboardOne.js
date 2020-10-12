@@ -21,6 +21,8 @@ import Spinner from 'react-bootstrap/Spinner';
 import CustomLoader from "../layouts/CustomLoader"
 import {orderBy} from 'lodash';
 
+import ReactGA from 'react-ga'
+
 //dotenv.config()
 
 var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
@@ -102,9 +104,9 @@ class DasbhoardOne extends React.Component {
                         </div>
                     </Col>
                     <Col sm={12} md={12} lg={6}>
-                        
+
                         <Card>
-                            
+
                             <Card.Body>
                                 <Card.Text className="app-center">
 
@@ -112,7 +114,7 @@ class DasbhoardOne extends React.Component {
 
                                 </Card.Text>
                             </Card.Body>
-                            
+
                             <div
                                 style={{
                                 width: '100%',
@@ -139,7 +141,7 @@ class DasbhoardOne extends React.Component {
                                 </ResponsiveContainer>
                             </div>
 
-                            
+
                         </Card>
                     </Col>
                 </Row>
@@ -166,7 +168,7 @@ class DasbhoardOne extends React.Component {
 
                         <Container fluid className="mt-70">
                             <WelcomeAlert />
-                            
+
                             {spinIntoCharts}
 
                         </Container>
@@ -186,6 +188,13 @@ class DasbhoardOne extends React.Component {
         // request.
         console.log("DASHBOARD DID MOUNT")
         this.fetchData()
+
+        ReactGA.pageview(window.location.pathname + window.location.search)
+        ReactGA.event({
+            category: 'Testing',
+            action: 'Visit Dashboard 1',
+            value: 99
+        })
     }
 
     componentDidUpdate(prevProps) {
