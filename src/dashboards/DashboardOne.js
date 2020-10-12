@@ -191,9 +191,9 @@ class DasbhoardOne extends React.Component {
 
         ReactGA.pageview(window.location.pathname + window.location.search)
         ReactGA.event({
-            category: 'Social',
-            action: 'Rated an App',
-            value: 3
+            category: 'Testing',
+            action: 'Visit Dashboard 1',
+            value: 99
         })
     }
 

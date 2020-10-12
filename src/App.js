@@ -19,7 +19,7 @@ import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
 
 import ReactGA from 'react-ga'
 
-ReactGA.initialize("UA-180331938-2", {debug: true})
+ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
 function App() {
 

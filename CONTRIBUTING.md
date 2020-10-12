@@ -39,6 +39,9 @@ Create a new file called ".env" in the root directory, and place inside the foll
 
 ```sh
 REACT_APP_API_URL="https://your-api.herokuapp.com"
+
+# only set in production:
+#REACT_APP_GA_TRACKER_ID="UA-XXXXXX-1"
 ```
 
 > NOTE: env vars prefixed with "REACT_APP_" are [NOT SECURE](https://create-react-app.dev/docs/adding-custom-environment-variables/), so if you need to set a secret value, don't use that prefix
