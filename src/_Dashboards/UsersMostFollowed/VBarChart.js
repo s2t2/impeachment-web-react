@@ -1,4 +1,4 @@
-import React, { PureComponent, Component } from 'react'
+import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form'
 //import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -25,8 +25,10 @@ function formatBigNumber(num) {
 export default class MyBarChart extends Component {
     constructor(props) {
       super(props)
-      this.state = {tweetMin: 5, opinionRange: [0, 100],
-        userCategories:["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY"]
+      this.state = {
+        tweetMin: 5,
+        opinionRange: [0, 100],
+        userCategories:["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY", "OTHER"]
     } // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
       this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
       this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
@@ -62,15 +64,16 @@ export default class MyBarChart extends Component {
 
     handleCategoryCheck(changeEvent){
         var category = changeEvent.target.value
-        console.log("CHECK USER CATEGORY:", category)
+        console.log("CHECK CATEGORY:", category)
 
         var userCategories = this.state.userCategories
-        var categoryIndex = userCategories.indexOf(category)
+        var categoryIndex = userCategories.indexOf(category) // will be -1 if item not in array
         if (categoryIndex >= 0 ) {
-            userCategories.splice(categoryIndex, 1) // remove item from array
+            userCategories.splice(categoryIndex, 1) // remove 1 item from array at the given position
         } else {
             userCategories.push(category)
         }
+
         console.log("CATEGORIES:", userCategories)
         this.setState({userCategories: userCategories}) // this is updating state but why not triggering a re-render?
     }
@@ -87,7 +90,8 @@ export default class MyBarChart extends Component {
                 return (
                     user["status_count"] >= tweetMin &&
                     user["avg_score_lr"] * 100.0 >= opinionRange[0] &&
-                    user["avg_score_lr"] * 100.0 <= opinionRange[1]
+                    user["avg_score_lr"] * 100.0 <= opinionRange[1] &&
+                    userCategories.includes(user["category"])
             )})
             .map(function(user){
                 user["handle"] = `@${user['screen_name']}`
