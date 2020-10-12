@@ -4,5 +4,16 @@
     },
     "emmet.variables": {
         "lang": "en"
+    },
+
+    
+    "workbench.editorAssociations": [
+    
+    {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[javascript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }
     }
+    ]
 }

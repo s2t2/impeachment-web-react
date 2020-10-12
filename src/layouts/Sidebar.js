@@ -27,6 +27,8 @@ function Sidebar() {
 
                         <NavLink to="/dashboard-seven" activeClassName="active">Dashboard Seven</NavLink>
 
+                        <NavLink to="/dashboard-eight" activeClassName="active">Dashboard Eight</NavLink>
+
                     </div>
 
                 </Nav>

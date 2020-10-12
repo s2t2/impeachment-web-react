@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 import { orderBy } from 'lodash';
+import CustomLoader from "./CustomLoader"
 
 import TopRetweetedStatusTable from './TopRetweetedStatusTable';
 
@@ -31,11 +32,15 @@ export default class Dashboard extends PureComponent {
         <TopRetweetedStatusTable statuses={community1} metric={metric} />
       </span>
     } else {
-      spinIntoTables = <Spinner animation="grow" />
+      spinIntoTables = <div class="d-flex align-items-center min-vh-90">
+        <div class="container text-center">
+          <CustomLoader />
+        </div>
+      </div>
     };
 
     return (
-      <Container className="Dashboard">
+      <Container fluid>
         {spinIntoTables}
       </Container>
     );

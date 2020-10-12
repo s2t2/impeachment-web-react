@@ -141,6 +141,20 @@ p.app-center.card-text {
 }
 
 
+/* Sticky Menu */
+
+.sticky-menu{
+position: fixed;
+top:300px;
+
+}
+.full-screen{
+  background: white;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
