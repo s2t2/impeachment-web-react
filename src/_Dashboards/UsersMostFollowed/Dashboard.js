@@ -5,14 +5,20 @@ import Spinner from 'react-bootstrap/Spinner'
 import cachedData from './data.js'
 import BarChart from './VBarChart.js'
 //import List from './List.js'
+import ReactGA from 'react-ga';
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
+
+ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID)
 
 export default class Dashboard extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {limit: 500, parsedResponse: null} // TODO: get screen name from input box or URL params (maybe use window.location.href and split it, or find some kind of react router property)
         this.fetchData = this.fetchData.bind(this)
+
+        ReactGA.pageview(window.location.pathname + "constructor")
+        ReactGA.event({"action": "constructor", "value": 99, "label": "HELLO"})
     }
 
     render() {
@@ -40,6 +46,9 @@ export default class Dashboard extends PureComponent {
     componentDidMount(){
         console.log("DASHBOARD DID MOUNT")
         this.fetchData()
+
+        ReactGA.pageview(window.location.pathname + "didmount")
+        ReactGA.event({"action": "didmount", "value": 99, "label": "HELLO"})
     }
 
     fetchData(){
