@@ -26,18 +26,20 @@ import ReactGA from "react-ga"
 
 const GA_TRACKER_ID = process.env.REACT_APP_GA_TRACKER_ID
 
-ReactGA.initialize(GA_TRACKER_ID)
-console.log("GA INIT:", GA_TRACKER_ID)
+ReactGA.initialize(GA_TRACKER_ID, {
+  debug: true,
+  titleCase: false,
+  gaOptions: {
+    userId: 123
+  }
+})
 
 export default class App extends PureComponent {
 
   componentDidMount(){
     console.log("APP DID MOUNT")
-
     ReactGA.pageview(window.location.pathname + window.location.search)
-    console.log("GA:", window.location.pathname + window.location.search)
-
-    ReactGA.event({category: "Developer", action: "Testing, 123"})
+    ReactGA.event({category: "User", action: "Testing, 123"})
   }
 
   render(){
