@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 //import { MemoryRouter, Switch, Route } from 'react-router-dom';
 //import { LinkContainer } from 'react-router-bootstrap';
 
@@ -22,53 +22,69 @@ import TopStatusTags from '../_Dashboards/TopStatusTags/Dashboard.js';
 import UserOpinion from '../_Dashboards/UserOpinion/Dashboard.js';
 import UserOpinionsMostFollowed from '../_Dashboards/UsersMostFollowed/Dashboard.js';
 
-// TODO
-const Home = () => <h2>Home</h2>
+import ReactGA from "react-ga"
 
-const App = () => (
-  <span>
-    <Alert key="warning" variant="warning">
-      FYI: This website is in development and may not reflect final research results.
-    </Alert>
+const GA_TRACKER_ID = process.env.REACT_APP_GA_TRACKER_ID
 
-    <Container className="p-3">
-        <h1 className="header">Impeachment Tweet Analysis</h1>
+ReactGA.initialize(GA_TRACKER_ID)
+console.log("GA INIT:", GA_TRACKER_ID)
 
-        <Tab.Container id="left-tabs-example" defaultActiveKey="home">
-          <Row>
-            <Col sm={3}>
-              <Nav variant="pills" className="flex-column">
-                <Nav.Item><Nav.Link eventKey="home">Home</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link eventKey="about">About</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link eventKey="plotly_demo">Plotly Demo</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link eventKey="recharts_demo">Recharts Demo</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link eventKey="top_profile_tags">Bot Profile Hashtags</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link eventKey="top_status_tags">Bot Tweet Hashtags</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link eventKey="top_statuses">Bot Retweets</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link eventKey="top_users">Bot Retweeted Users</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link eventKey="user_opinions_most_followed">Mean User Opinions</Nav.Link></Nav.Item>
-                <Nav.Item><Nav.Link eventKey="user_opinion">User Opinions</Nav.Link></Nav.Item>
-              </Nav>
-            </Col>
-            <Col sm={9}>
-              <Tab.Content>
-                <Tab.Pane eventKey="home"><Home/></Tab.Pane>
-                <Tab.Pane eventKey="about"><AboutPage/></Tab.Pane>
-                <Tab.Pane eventKey="plotly_demo"><PlotlyDemo/></Tab.Pane>
-                <Tab.Pane eventKey="recharts_demo"><RechartsDemo/></Tab.Pane>
-                <Tab.Pane eventKey="top_profile_tags"><TopProfileTags/></Tab.Pane>
-                <Tab.Pane eventKey="top_status_tags"><TopStatusTags/></Tab.Pane>
-                <Tab.Pane eventKey="top_statuses"><StatusesMostRetweeted/></Tab.Pane>
-                <Tab.Pane eventKey="top_users"><UsersMostRetweeted/></Tab.Pane>
-                <Tab.Pane eventKey="user_opinions_most_followed"><UserOpinionsMostFollowed/></Tab.Pane>
-                <Tab.Pane eventKey="user_opinion"><UserOpinion/></Tab.Pane>
-              </Tab.Content>
-            </Col>
-          </Row>
-        </Tab.Container>
-    </Container>
+export default class App extends PureComponent {
 
-  </span>
-);
+  componentDidMount(){
+    console.log("APP DID MOUNT")
 
-export default App;
+    ReactGA.pageview(window.location.pathname + window.location.search)
+    console.log("GA:", window.location.pathname + window.location.search)
+
+    ReactGA.event({category: "Developer", action: "Testing, 123"})
+  }
+
+  render(){
+    return (
+      <span>
+        <Alert key="warning" variant="warning">
+          FYI: This website is in development and may not reflect final research results.
+        </Alert>
+
+        <Container className="p-3">
+            <h1 className="header">Impeachment Tweet Analysis</h1>
+
+            <Tab.Container id="left-tabs-example" defaultActiveKey="home">
+              <Row>
+                <Col sm={3}>
+                  <Nav variant="pills" className="flex-column">
+                    <Nav.Item><Nav.Link eventKey="about">About</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="plotly_demo">Plotly Demo</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="recharts_demo">Recharts Demo</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="top_profile_tags">Bot Profile Hashtags</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="top_status_tags">Bot Tweet Hashtags</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="top_statuses">Bot Retweets</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="top_users">Bot Retweeted Users</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="user_opinions_most_followed">Mean Opinions</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link eventKey="user_opinion">User Opinions</Nav.Link></Nav.Item>
+                  </Nav>
+                </Col>
+                <Col sm={9}>
+                  <Tab.Content>
+                    <Tab.Pane eventKey="about"><AboutPage/></Tab.Pane>
+                    <Tab.Pane eventKey="plotly_demo"><PlotlyDemo/></Tab.Pane>
+                    <Tab.Pane eventKey="recharts_demo"><RechartsDemo/></Tab.Pane>
+                    <Tab.Pane eventKey="top_profile_tags"><TopProfileTags/></Tab.Pane>
+                    <Tab.Pane eventKey="top_status_tags"><TopStatusTags/></Tab.Pane>
+                    <Tab.Pane eventKey="top_statuses"><StatusesMostRetweeted/></Tab.Pane>
+                    <Tab.Pane eventKey="top_users"><UsersMostRetweeted/></Tab.Pane>
+                    <Tab.Pane eventKey="user_opinions_most_followed"><UserOpinionsMostFollowed/></Tab.Pane>
+                    <Tab.Pane eventKey="user_opinion"><UserOpinion/></Tab.Pane>
+                  </Tab.Content>
+                </Col>
+              </Row>
+            </Tab.Container>
+        </Container>
+
+      </span>
+    )
+
+  }
+
+}

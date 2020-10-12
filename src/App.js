@@ -14,8 +14,10 @@ import DashboardSeven from "./dashboards/DashboardSeven"
 import AltHome from './_NavigableApp/App.js';
 import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
 
-
-
+import ReactGA from "react-ga"
+const GA_TRACKER_ID = process.env.GA_TRACKER_ID
+console.log("GA INIT", GA_TRACKER_ID)
+ReactGA.initialize(GA_TRACKER_ID)
 
 function App() {
   return (
@@ -28,7 +30,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/alt-home" component={AltHome} />
-       
+
           <Route path="/about" component={About} />
           <Route path="/dashboard-one" component={DashboardOne} />
           <Route path="/dashboard-two" component={DashboardTwo} />

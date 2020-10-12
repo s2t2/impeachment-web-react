@@ -8,6 +8,8 @@ import {VictoryChart, VictoryBar, VictoryAxis} from 'victory' // VictoryTheme, V
 import {scaleSequential, interpolateRdBu} from 'd3'
 import './VBarChart.css'
 
+import ReactGA from "react-ga"
+
 import RangeSlider from 'react-bootstrap-range-slider'
 //import { Range } from 'rc-slider'
 import Slider from 'rc-slider'
@@ -22,6 +24,7 @@ function formatBigNumber(num) {
 
 
 
+
 export default class MyBarChart extends PureComponent {
     constructor(props) {
       super(props)
@@ -33,10 +36,12 @@ export default class MyBarChart extends PureComponent {
     }
 
     handleTweetMinChange(changeEvent){
+        ReactGA.event({category: "User", action: "User Mean Opinions Dashboard Change Tweet Min"})
         this.setState({tweetMin: changeEvent.target.value})
     }
 
     handleOpinionRangeChange(newRange){
+        ReactGA.event({category: "User", action: "User Mean Opinions Dashboard Change Opinion Range"})
         console.log("CHANGE OPINION RANGE", newRange)
         this.setState({opinionRange: newRange})
     }

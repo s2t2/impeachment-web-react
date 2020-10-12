@@ -6,6 +6,8 @@ import cachedData from './data.js'
 import BarChart from './VBarChart.js'
 //import List from './List.js'
 
+import ReactGA from "react-ga"
+
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
 export default class Dashboard extends PureComponent {
@@ -39,6 +41,13 @@ export default class Dashboard extends PureComponent {
 
     componentDidMount(){
         console.log("DASHBOARD DID MOUNT")
+
+        ReactGA.pageview(window.location.pathname + window.location.search)
+        console.log("GA MEAN OPINION:", window.location.pathname + window.location.search)
+
+        ReactGA.event({category: "Developer", action: "User Mean Opinions Dashboard Did Mount"})
+
+
         this.fetchData()
     }
 
