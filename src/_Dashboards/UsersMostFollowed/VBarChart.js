@@ -25,11 +25,14 @@ function formatBigNumber(num) {
 export default class MyBarChart extends PureComponent {
     constructor(props) {
       super(props)
-      this.state = {tweetMin: 5, opinionRange: [0, 100]} // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
+      this.state = {tweetMin: 5, opinionRange: [0, 100],
+        userCategories:["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY"]
+    } // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
       this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
       this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
       //this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
       //this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
+      this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
     }
 
     handleTweetMinChange(changeEvent){
@@ -57,9 +60,25 @@ export default class MyBarChart extends PureComponent {
     //    this.setState({opinionRange: [opinionMin, opinionMax]})
     //}
 
+    handleCategoryCheck(changeEvent){
+        var category = changeEvent.target.value
+        console.log("CHECK USER CATEGORY:", category)
+
+        var userCategories = this.state.userCategories
+        var categoryIndex = userCategories.indexOf(category)
+        if (categoryIndex >= 0 ) {
+            userCategories.splice(categoryIndex, 1) // remove item from array
+        } else {
+            userCategories.push(category)
+        }
+        console.log("CATEGORIES:", userCategories)
+        this.setState({userCategories: userCategories}) // this is updating state but why not triggering a re-render?
+    }
+
     render() {
         var tweetMin = this.state.tweetMin
         var opinionRange = this.state.opinionRange
+        var userCategories = this.state.userCategories
         var barCount = this.props.barCount || 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
 
         // FILTER AND SORT USERS
@@ -139,6 +158,49 @@ export default class MyBarChart extends PureComponent {
                             <Form.Control type="number" min={1} max={100} value={opinionRange[1]} onChange={this.handleOpinionMaxChange}/>
                         </Col>  */}
                     </Form.Group>
+
+
+                    <Form.Group as={Row} id="user-category-checks">
+                        <Col xs="5">
+                            <Form.Label>User Category</Form.Label>
+
+                            <div key="inline-checkbox" className="mb-3">
+                                <Form.Check inline label="Media Outlet" value="MAJOR-MEDIA-OUTLET" type="checkbox" id="check-major-media-outlet"
+                                    checked={userCategories.includes("MAJOR-MEDIA-OUTLET")}
+                                    onChange={this.handleCategoryCheck}
+                                />
+
+                                <Form.Check inline label="Elected Official" value="ELECTED-OFFICIAL" type="checkbox" id="check-elected-official"
+                                    checked={userCategories.includes("ELECTED-OFFICIAL")}
+                                    onChange={this.handleCategoryCheck}
+                                />
+                                <Form.Check inline label="Political Party" value="PARTY" type="checkbox" id="check-party"
+                                    checked={userCategories.includes("PARTY")}
+                                    onChange={this.handleCategoryCheck}
+                                />
+                                <Form.Check inline label="Others" value="OTHER" type="checkbox" id="check-others"
+                                    checked={userCategories.includes("OTHER")}
+                                    onChange={this.handleCategoryCheck}
+                                />
+                            </div>
+
+
+                        </Col>
+                    </Form.Group>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </Form>
 
                 <VictoryChart
