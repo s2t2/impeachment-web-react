@@ -1,31 +1,33 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card'
-import Sidebar from '../../layouts/Sidebar';
-import StickyMenu from '../../layouts/StickyMenu';
 import ScrollableAnchor from 'react-scrollable-anchor'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+//import Card from 'react-bootstrap/Card'
 
-// importing local image
+import Sidebar from '../../layouts/Sidebar'
+import StickyMenu from '../../layouts/StickyMenu'
 
-import exampleDailyBotProbabilities from "./bot_probabilities_histogram_20200201.png"
-import botCommunityAssignments from "./community-assignments.png"
-
-// import StatusesMostRetweeted from
-// "../../_Dashboards/StatusesMostRetweeted/Dashboard"
-
-import DasbhoardOneAbout from "./DasbhoardOneAbout"
-import DashboardTwoAbout from "./DashboardTwoAbout"
-import DashboardThreeAbout from "./DashboardThreeAbout"
-import DashboardFourAbout from "./DashboardFourAbout"
-import DashboardSixAbout from "./DashboardSixAbout"
-
-import StatusesTableAboutDashboard from "./StatusesTableAboutDashboard"
-
-import BotCommunitiesAbout from "./BotCommunitiesAbout"
+//// importing local image
+//
+//import exampleDailyBotProbabilities from "./bot_probabilities_histogram_20200201.png"
+//import botCommunityAssignments from "./community-assignments.png"
+//
+//// import StatusesMostRetweeted from
+//// "../../_Dashboards/StatusesMostRetweeted/Dashboard"
+//
+//import DasbhoardOneAbout from "./DasbhoardOneAbout"
+//import DashboardTwoAbout from "./DashboardTwoAbout"
+//import DashboardThreeAbout from "./DashboardThreeAbout"
+//import DashboardFourAbout from "./DashboardFourAbout"
+//import DashboardSixAbout from "./DashboardSixAbout"
+//
+//import StatusesTableAboutDashboard from "./StatusesTableAboutDashboard"
+//
+//import BotCommunitiesAbout from "./BotCommunitiesAbout"
 
 function About() {
+
     return (
         <Container fluid className="no-padding">
             <Row>
@@ -362,6 +364,10 @@ function About() {
                                     </div>
                                 </ScrollableAnchor>
 
+
+
+                                {/*
+
                                 <ScrollableAnchor id={'section2'}>
                                     <div className="full-screen">
                                         <Card>
@@ -606,6 +612,11 @@ function About() {
 
                                     </div>
                                 </ScrollableAnchor>
+
+
+
+                            */}
+
 
                             </Col>
 
