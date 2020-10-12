@@ -7,7 +7,7 @@ import BarChart from './VBarChart.js'
 //import List from './List.js'
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
-const CACHE_MODE = process.env.REACT_APP_CACHE_MODE || true
+const CACHE_MODE = process.env.REACT_APP_CACHE_MODE || true // TODO: convert env var to bool
 
 export default class Dashboard extends PureComponent {
     constructor(props) {
