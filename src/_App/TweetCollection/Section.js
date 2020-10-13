@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Table from 'react-bootstrap/Table'
 
-export default function TweetCollectionSection() {
+export default function TweetCollection() {
     var topics = [
         {"topic": "#FactsMatter", "date": "2019-12-17"},
         {"topic": "#IGHearing", "date": "2019-12-17"},

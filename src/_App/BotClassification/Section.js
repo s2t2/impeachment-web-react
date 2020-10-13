@@ -4,12 +4,11 @@ import Container from 'react-bootstrap/Container'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
-import Table from 'react-bootstrap/Table'
+//import Table from 'react-bootstrap/Table'
 
 import exampleDailyBotProbabilities from "../../_Dashboards/About/bot_probabilities_histogram_20200201.png"
 
-export default function TweetCollectionSection() {
-
+export default function BotClassification() {
     return (
         <Container>
             <Card>
