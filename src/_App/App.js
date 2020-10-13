@@ -25,7 +25,7 @@ import BotCommunityActivity from "./BotCommunityActivity/Section.js"
 import BotCommunityLanguage from './BotCommunityLanguage/Section'
 import SentimentAnalysis from './SentimentAnalysis/Section'
 import UserOpinion from './UserOpinion/Section'
-import TopUserOpinion from '../_Dashboards/UsersMostFollowed/Dashboard'
+import TopUserOpinion from './TopUserOpinion/Section'
 import BotImpact from './BotImpact/Section'
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})

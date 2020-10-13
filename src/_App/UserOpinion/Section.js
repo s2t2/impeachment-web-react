@@ -19,7 +19,7 @@ export default function UserOpinionSection() {
         <Container>
             <Card>
                 <Card.Body>
-                    <Card.Title><h2>Impeachment Opinion Analysis by User</h2></Card.Title>
+                    <Card.Title><h2>Impeachment Opinion Analysis (by User)</h2></Card.Title>
                     <Card.Text>
                         After <a href="/sentiment-analysis">training the binary classifier models</a> to detect which bot community language any given tweet most closely resembles, we used the models to predict impeachment opinion scores for the remaining tweets in our dataset. A score of <code>0</code> means the tweet more closely resembles language used by Community 0 (left-leaning bots), while a score of <code>1</code> means the tweet more closely resembles language used by Community 1 (right-leaning bots).
                     </Card.Text>
