@@ -30,6 +30,7 @@ export default class Dashboard extends PureComponent {
     render() {
         var spinIntoStuff = <Spinner/>
         if (this.state.parsedResponse) {
+            var handle = `@${this.state.screen_name.toUpperCase()}`
             var profileUrl = `https://twitter.com/${this.state.screen_name}`
             var metric = this.state.metric
 
@@ -38,32 +39,31 @@ export default class Dashboard extends PureComponent {
             //console.log("STATUSES:", statuses.length, "SCORE:", meanOpinionScore)
 
             spinIntoStuff = <span>
-                <h3>
-                    {`@${this.state.screen_name.toUpperCase()}`}
-                    <a href={profileUrl}><UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/></a>
-                </h3>
+                <Row>
+                    <Col sm={12} md={12} lg={8}>
+                        <h3>{handle} <a href={profileUrl}><UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/></a></h3>
 
-                <p className="lead">Mean Opinion Score: <code>{meanOpinionScore.toFixed(2)}</code></p>
-
-                <Form.Group as={Row}>
-                    <Col xs="12">
-                        <Form.Label>Opinion Model</Form.Label>
-
-                        <div key="inline-radios" className="mb-3">
-                            <Form.Check inline label="Logistic Regression" value="score_lr" type="radio" id="radio-lr"
-                                checked={metric === "score_lr"}
-                                onChange={this.handleModelSelect}
-                            />
-                            <Form.Check inline label="Naive Bayes" value="score_nb" type="radio" id="radio-nb"
-                                checked={metric === "score_nb"}
-                                onChange={this.handleModelSelect}
-                            />
-                        </div>
-
+                        <p className="lead">Mean Opinion Score: <code>{meanOpinionScore.toFixed(2)}</code></p>
                     </Col>
-                </Form.Group>
 
 
+                    <Col sm={12} md={12} lg={4}>
+                        <Form style={{paddingTop:8}}>
+                            <Form.Label>Opinion Model:</Form.Label>
+
+                            <div key="inline-radios" className="mb-3">
+                                <Form.Check inline label="Logistic Regression" value="score_lr" type="radio" id="radio-lr"
+                                    checked={metric === "score_lr"}
+                                    onChange={this.handleModelSelect}
+                                />
+                                <Form.Check inline label="Naive Bayes" value="score_nb" type="radio" id="radio-nb"
+                                    checked={metric === "score_nb"}
+                                    onChange={this.handleModelSelect}
+                                />
+                            </div>
+                        </Form>
+                    </Col>
+                </Row>
 
                 <GaugeChart id="necessary" style={{width: "400px", height:"180px", margin: "10px auto"}}
                     arcsLength={[0.3, 0.4, 0.3]}
