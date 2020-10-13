@@ -10,6 +10,38 @@ import Spinner from "../Spinner"
 
 var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
+
+
+
+
+
+const UsersBarChart = function(props){
+    const {data, barFill} = props
+    console.log("DATA", data, "FILL", barFill)
+
+    var chartContainerStyle = { width: "100%", height: 500}
+    var chartMargins = {top: 5, right: 30, left: 100, bottom: 5}
+
+    return (
+        <div style={chartContainerStyle}>
+            <ResponsiveContainer>
+                <BarChart data={data} layout="vertical" margin={chartMargins}>
+                    <XAxis type="number" dataKey="retweet_count"/>
+                    <YAxis type="category" dataKey="retweeted_user_screen_name"/>
+                    <CartesianGrid strokeDasharray="1 1"/>
+                    <Tooltip/>
+                    <Legend/>
+                    <Bar dataKey="retweet_count" fill={barFill}/>
+                </BarChart>
+            </ResponsiveContainer>
+        </div>
+    )
+}
+
+
+
+
+
 export default class UsersMostRetweeted extends React.Component {
     constructor(props) {
         super(props)
@@ -32,31 +64,18 @@ export default class UsersMostRetweeted extends React.Component {
             var chartMargins = {top: 5, right: 30, left: 100, bottom: 5}
 
             spinIntoCharts = <span>
-                <h4 className='app-center'>Users Most Retweeted by Bot Community</h4>
+                <h4 className="app-center">Users Most Retweeted by Bot Community</h4>
+
                 <Row>
                     <Col sm={12} md={12} lg={6}>
-                        <div className="chartWrapper">
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text className="app-center">
-                                        Users Most Retweeted by Left-leaning Bots
-                                    </Card.Text>
-
-                                    <div style={chartContainerStyle}>
-                                        <ResponsiveContainer>
-                                            <BarChart data={community0} layout="vertical" margin={chartMargins}>
-                                                <XAxis type="number" dataKey="retweet_count"/>
-                                                <YAxis type="category" dataKey="retweeted_user_screen_name"/>
-                                                <CartesianGrid strokeDasharray="1 1"/>
-                                                <Tooltip/>
-                                                <Legend/>
-                                                <Bar dataKey="retweet_count" fill="#002868"/>
-                                            </BarChart>
-                                        </ResponsiveContainer>
-                                    </div>
-                                </Card.Body>
-                            </Card>
-                        </div>
+                        <Card>
+                            <Card.Body>
+                                <Card.Text className="app-center">
+                                    Users Most Retweeted by Left-leaning Bots
+                                </Card.Text>
+                                <UsersBarChart data={community0} barFill="#002868"/>
+                            </Card.Body>
+                        </Card>
                     </Col>
 
                     <Col sm={12} md={12} lg={6}>
@@ -65,19 +84,7 @@ export default class UsersMostRetweeted extends React.Component {
                                 <Card.Text className="app-center">
                                     Users Most Retweeted by Right-leaning Bots
                                 </Card.Text>
-
-                                <div style={chartContainerStyle}>
-                                    <ResponsiveContainer>
-                                        <BarChart data={community1} layout="vertical" margin={chartMargins}>
-                                            <XAxis type="number" dataKey="retweet_count"/>
-                                            <YAxis type="category" dataKey="retweeted_user_screen_name"/>
-                                            <CartesianGrid strokeDasharray="1 1"/>
-                                            <Tooltip/>
-                                            <Legend/>
-                                            <Bar dataKey="retweet_count" fill="#bf0a30"/>
-                                        </BarChart>
-                                    </ResponsiveContainer>
-                                </div>
+                                <UsersBarChart data={community1} barFill="#bf0a30"/>
                             </Card.Body>
                         </Card>
                     </Col>
