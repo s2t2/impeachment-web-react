@@ -19,7 +19,7 @@ import About from "./About.js"
 import AltAbout from "../_Dashboards/About/Page.js"
 
 import TweetCollection from "./TweetCollection/Section.js"
-
+import BotClassification from "./BotClassification/Section.js"
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
@@ -37,8 +37,7 @@ export default function App() {
             "key": "bot-classification",
             "text": "II. Bot Classification",
             "links": [
-                {"key": "dashboard-3", "text": "Dashboard 3",  "component": Home, "visible": true},
-                {"key": "dashboard-4", "text": "Dashboard 4",  "component": Home, "visible": true}
+                {"key": "bot-classification", "text": "Bot Classification",  "component": BotClassification, "visible": true},
             ]
         },
         {

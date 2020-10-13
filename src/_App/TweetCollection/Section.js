@@ -54,17 +54,8 @@ export default function TweetCollectionSection() {
                     <Card.Title><h2>Tweet Collection</h2></Card.Title>
                     <Card.Text>
                         <p>
-                            Over X days, from 12/20/2019 to 03/24/2020, we collected tweets about the Trump Impeachment proceedings, totalling 67.6 million tweets by 3.6 million users. Of these, 55.9 million (82.6%) were retweets, by 2.7 million users.
+                            Over X days, from 12/20/2019 to 03/24/2020, we collected tweets about the Trump Impeachment proceedings. Specifically, we collected any tweet mentioning any these impeachment-related topics:
                         </p>
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-
-            <Card>
-                <Card.Body>
-                    <Card.Title><h3>Collection Topics</h3></Card.Title>
-                    <Card.Text>
-                        <p>We specifically collected any tweet mentioning these impeachment-related topics:</p>
 
                         {/*
                         <ul>
@@ -86,24 +77,18 @@ export default function TweetCollectionSection() {
                             </Table>
                         </div>
 
-
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-
-            <Card>
-                <Card.Body>
-                    <Card.Title><h3>Collection Results</h3></Card.Title>
-                    <Card.Text>
                         <p>
-                            In total, our dataset includes 67.6 million tweets by 3.6 million unique users. Of these, 55.9 million (82.6%) were retweets, by 2.7 million unique users.
+                            In total, we collected 67.6 million tweets by 3.6 million unique users. Of these, 55.9 million (82.6%) were retweets, by 2.7 million unique users.
                         </p>
                         <p>
                             NOTE: despite running our collector continuously, we were not able to collect every single tweet about impeachment. This is due to Twitter API rate limits which caused our collector to sleep intermittently when it was being rate-limited.
                         </p>
+
                     </Card.Text>
                 </Card.Body>
             </Card>
+
+
 
             {/* TODO: bar graph of tweets per day */ }
             {/* TODO: bar graph of top retweeted users */ }
