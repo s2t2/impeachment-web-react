@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
 import ProfileHashtags from "./ProfileHashtags" // "../../_Dashboards/TopProfileTags/Dashboard"
-//import BotStatusTags from "./ProfileHashtags" // "../../_Dashboards/TopStatusTags/Dashboard"
+import StatusHashtags from "./StatusHashtags" // "../../_Dashboards/TopStatusTags/Dashboard"
 
 export default function BotCommunityLanguage() {
 
@@ -30,6 +30,12 @@ export default function BotCommunityLanguage() {
 
                    {/*  <TopProfileTags/> */ }
 
+                </Card.Body>
+            </Card>
+
+            <Card>
+                <Card.Body>
+                    <StatusHashtags/>
                 </Card.Body>
             </Card>
 
