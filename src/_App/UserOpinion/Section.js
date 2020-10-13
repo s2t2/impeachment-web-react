@@ -25,7 +25,7 @@ export default function UserOpinionSection() {
                     </Card.Text>
 
                     <Card.Text>
-                        We then calculated the mean Impeachment Opinion Score for all users in our dataset. The chart below shows how our models scored tweets by any given user.
+                        We then calculated the mean impeachment opinion score for all users in our dataset. The chart below shows how our models scored tweets by any given user.
                     </Card.Text>
                 </Card.Body>
             </Card>
