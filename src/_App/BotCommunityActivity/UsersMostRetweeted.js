@@ -32,12 +32,14 @@ export default class UsersMostRetweeted extends React.Component {
             var community0 = orderBy(users.filter(function (u) {return u["community_id"] === 0}), metric, "desc")
             var community1 = orderBy(users.filter(function (u) {return u["community_id"] === 1}), metric, "desc")
 
-            spinIntoCharts = <Container fluid>
-                <h3 className='app-center'>Users Most Retweeted by Community</h3>
+            var chartContainerStyle = {width: "100%", height: 500}
+            var chartMargins = {top: 5, right: 30, left: 100, bottom: 5}
+
+            spinIntoCharts = <span>
+                <h4 className='app-center'>Users Most Retweeted by Bot Community</h4>
                 <Row>
                     <Col sm={12} md={12} lg={6}>
                         <div className="chartWrapper">
-
                             <Card>
                                 <Card.Body>
                                     <Card.Text className="app-center">
@@ -45,12 +47,9 @@ export default class UsersMostRetweeted extends React.Component {
                                     </Card.Text>
                                 </Card.Body>
 
-                                <div style={{ width: "100%", height: 500}}>
+                                <div style={chartContainerStyle}>
                                     <ResponsiveContainer>
-                                        <BarChart
-                                            data={community0}
-                                            layout="vertical"
-                                            margin={{top: 5, right: 30, left: 100, bottom: 5}}>
+                                        <BarChart data={community0} layout="vertical" margin={chartMargins}>
                                             <XAxis type="number" dataKey="retweet_count"/>
                                             <YAxis type="category" dataKey="retweeted_user_screen_name"/>
                                             <CartesianGrid strokeDasharray="1 1"/>
@@ -60,61 +59,39 @@ export default class UsersMostRetweeted extends React.Component {
                                         </BarChart>
                                     </ResponsiveContainer>
                                 </div>
-
                             </Card>
                         </div>
                     </Col>
+
                     <Col sm={12} md={12} lg={6}>
-
                         <Card>
-
                             <Card.Body>
                                 <Card.Text className="app-center">
-
                                     Users Most Retweeted by Right-leaning Bots
-
                                 </Card.Text>
                             </Card.Body>
 
-                            <div
-                                style={{
-                                width: '100%',
-                                height: 500
-                            }}>
+                            <div style={chartContainerStyle}>
                                 <ResponsiveContainer>
-                                    <BarChart
-                                        data={community1}
-                                        layout="vertical"
-                                        margin={{
-                                        top: 5,
-                                        right: 30,
-                                        left: 100,
-                                        bottom: 5
-                                    }}>
+                                    <BarChart data={community1} layout="vertical" margin={chartMargins}>
                                         <XAxis type="number" dataKey="retweet_count"/>
                                         <YAxis type="category" dataKey="retweeted_user_screen_name"/>
                                         <CartesianGrid strokeDasharray="1 1"/>
                                         <Tooltip/>
                                         <Legend/>
                                         <Bar dataKey="retweet_count" fill="#bf0a30"/>
-
                                     </BarChart>
                                 </ResponsiveContainer>
                             </div>
-
-
                         </Card>
                     </Col>
                 </Row>
-            </Container>
-
+            </span>
         }
 
         return (
-            <Container fluid className="no-padding">
-                <Container fluid>
-                    {spinIntoCharts}
-                </Container>
+            <Container fluid>
+                {spinIntoCharts}
             </Container>
         )
     }
