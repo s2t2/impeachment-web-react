@@ -13,7 +13,6 @@ function Mainmenu() {
                     <Nav className="ml-auto">
                         <Nav.Link href="/alt-home">Alt Home</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link>
-                        <Nav.Link href="/about-scroll">Scroll</Nav.Link>
                     </Nav>
 
                 </Navbar.Collapse>

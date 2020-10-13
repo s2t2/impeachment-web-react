@@ -3,7 +3,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./pages/Home"
 import About from "./pages/about/About"
-import AboutScroll from "./pages/about/AboutScroll"
 import Mainmenu from "./layouts/Mainmenu"
 import DashboardOne from "./dashboards/DashboardOne"
 import DashboardTwo from "./dashboards/DashboardTwo"
@@ -32,9 +31,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/alt-home" component={AltHome} />
-
           <Route path="/about" component={About} />
-          <Route path="/about-scroll" component={AboutScroll} />
           <Route path="/dashboard-one" component={DashboardOne} />
           <Route path="/dashboard-two" component={DashboardTwo} />
           <Route path="/dashboard-three" component={DashboardThree} />
