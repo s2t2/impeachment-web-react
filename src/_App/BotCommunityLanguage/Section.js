@@ -17,21 +17,19 @@ export default function BotCommunityLanguage() {
                 <Card.Body>
                     <Card.Title><h2>Bot Community Language Analysis</h2></Card.Title>
                     <Card.Text>
-                        <p>
-                            We analyzed the language patterns exhibited by each bot community, to determine which terms and hashtags appeared most frequently in tweets by members of that community. We also analyzed which terms and hashtags appeared most frequently in bot profiles. The results are below.
-                        </p>
-                        <TopStatusTags/>
-
-                        { /*
-                        <p>
-                            It is interesting to observe the right-leaning community using hashtags related to the <a href="https://www.cbsnews.com/news/what-is-the-qanon-conspiracy-theory/">"Q-Anon" conspiracy theory</a> (e.g. <i>#QAnon</i>, <i>#WWG1WGA</i>, <i>#GreatAwakening</i>, etc.).
-                        </p>
-                        */}
-
-
-                        <TopProfileTags/>
-
+                        We analyzed the language patterns exhibited by each bot community, to determine which terms and hashtags appeared most frequently in tweets by members of that community. We also analyzed which terms and hashtags appeared most frequently in bot profiles. The results are below.
                     </Card.Text>
+
+                    <TopStatusTags/>
+
+                    { /*
+                    <p>
+                        It is interesting to observe the right-leaning community using hashtags related to the <a href="https://www.cbsnews.com/news/what-is-the-qanon-conspiracy-theory/">"Q-Anon" conspiracy theory</a> (e.g. <i>#QAnon</i>, <i>#WWG1WGA</i>, <i>#GreatAwakening</i>, etc.).
+                    </p>
+                    */}
+
+                    <TopProfileTags/>
+
                 </Card.Body>
             </Card>
         </Container>

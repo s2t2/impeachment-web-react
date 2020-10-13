@@ -13,16 +13,9 @@ export default function BotCommunitySentiment() {
             <Card>
                 <Card.Body>
                     <Card.Title><h2>Bot Community Sentiment Analysis</h2></Card.Title>
+
                     <Card.Text>
-
-                        <p>We trained some binary classifier models...</p>
-
-
-
-
-
-
-
+                        We trained some binary classifier models...
                     </Card.Text>
                 </Card.Body>
             </Card>

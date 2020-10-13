@@ -52,43 +52,41 @@ export default function TweetCollection() {
             <Card>
                 <Card.Body>
                     <Card.Title><h2>Tweet Collection</h2></Card.Title>
+
                     <Card.Text>
-                        <p>
-                            Over X days, from 12/20/2019 to 03/24/2020, we collected tweets about the Trump Impeachment proceedings. Specifically, we collected any tweet mentioning any of the impeachment-related topics below.
-                        </p>
-
-                        {/*
-                        <ul>
-                            {topicListItems}
-                        </ul>
-                        */}
-
-                        <div class="table-responsive">
-                            <Table striped bordered hover size="sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Topic / Hashtag</th>
-                                        <th scope="col">Date Added</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {topicRows}
-                                </tbody>
-                            </Table>
-                        </div>
-
-                        <p>
-                            In total, we collected 67.6 million tweets by 3.6 million unique users. Of these, 55.9 million (82.6%) were retweets, by 2.7 million unique users.
-                        </p>
-                        <p>
-                            NOTE: despite running our collector continuously, we were not able to collect every single tweet about impeachment. This is due to Twitter API rate limits which caused our collector to sleep intermittently when it was being rate-limited.
-                        </p>
-
+                        Over X days, from 12/20/2019 to 03/24/2020, we collected tweets about the Trump Impeachment proceedings. Specifically, we collected any tweet mentioning any of the impeachment-related topics below.
                     </Card.Text>
+
+                    {/*
+                    <ul>
+                        {topicListItems}
+                    </ul>
+                    */}
+
+                    <div class="table-responsive">
+                        <Table striped bordered hover size="sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Topic / Hashtag</th>
+                                    <th scope="col">Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {topicRows}
+                            </tbody>
+                        </Table>
+                    </div>
+
+                    <Card.Text>
+                        In total, we collected 67.6 million tweets by 3.6 million unique users. Of these, 55.9 million (82.6%) were retweets, by 2.7 million unique users.
+                    </Card.Text>
+
+                    <Card.Text>
+                        NOTE: despite running our collector continuously, we were not able to collect every single tweet about impeachment. This is due to Twitter API rate limits which caused our collector to sleep intermittently when it was being rate-limited.
+                    </Card.Text>
+
                 </Card.Body>
             </Card>
-
-
 
             {/* TODO: bar graph of tweets per day */ }
             {/* TODO: bar graph of top retweeted users */ }
