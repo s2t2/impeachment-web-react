@@ -19,6 +19,33 @@ const BarLabel = function(props) {
     )
 }
 
+const StatusesBarChart = function(props){
+    const {data, barFill} = props
+    console.log("DATA", data, "FILL", barFill)
+
+    var chartContainerStyle = { width: '100%', height: 500}
+    var chartMargin = {top: 5,left: 10, bottom: 5}
+
+    return (
+        <div style={chartContainerStyle}>
+            <ResponsiveContainer>
+
+                <BarChart data={data} layout="vertical" margin={chartMargin}>
+                    <XAxis type="number" dataKey="retweet_count"/>
+                    <YAxis type="category" dataKey="status_text" width={525} tick={{fontSize: 14}}/>
+                    <CartesianGrid strokeDasharray="1 1"/>
+                    <Tooltip
+                        labelFormatter={() => undefined}
+                        formatter={(okay) => [new Intl.NumberFormat('en').format(okay), undefined]}
+                    />
+                    <Legend/>
+                    <Bar dataKey="retweet_count" fill={barFill} label={<BarLabel/>}/>
+                </BarChart>
+            </ResponsiveContainer>
+        </div>
+    )
+}
+
 export default class StatusesMostRetweeted extends React.Component {
     constructor(props) {
         super(props)
@@ -48,22 +75,7 @@ export default class StatusesMostRetweeted extends React.Component {
                         <Card.Text className="app-center">
                             Statuses Most Retweeted by Left-leaning Bots
                         </Card.Text>
-
-                        <div style={chartContainerStyle}>
-                            <ResponsiveContainer>
-                                <BarChart data={community0} layout="vertical" margin={{chartMargin}}>
-                                    <XAxis type="number" dataKey="retweet_count"/>
-                                    <YAxis type="category" dataKey="status_text" width={525} tick={{fontSize: 14}}/>
-                                    <CartesianGrid strokeDasharray="1 1"/>
-                                    <Tooltip
-                                        labelFormatter={() => undefined}
-                                        formatter={(okay) => [new Intl.NumberFormat('en').format(okay), undefined]}
-                                    />
-                                    <Legend/>
-                                    <Bar dataKey="retweet_count" fill="#002868" label={<BarLabel/>}/>
-                                </BarChart>
-                            </ResponsiveContainer>
-                        </div>
+                        <StatusesBarChart data={community0} barFill="#002868"/>
                     </Card.Body>
                 </Card>
 
@@ -72,22 +84,7 @@ export default class StatusesMostRetweeted extends React.Component {
                         <Card.Text className="app-center">
                             Statuses Most Retweeted by Right-leaning Bots
                         </Card.Text>
-
-                        <div style={chartContainerStyle}>
-                            <ResponsiveContainer>
-                                <BarChart data={community1} layout="vertical" margin={chartMargin}>
-                                    <XAxis type="number" dataKey="retweet_count"/>
-                                    <YAxis type="category" dataKey="status_text" width={525} tick={{fontSize: 14}}/>
-                                    <CartesianGrid strokeDasharray="1 1"/>
-                                    <Tooltip
-                                        labelFormatter={() => undefined}
-                                        formatter={(okay) => [new Intl.NumberFormat('en').format(okay), undefined]}
-                                    />
-                                    <Legend/>
-                                    <Bar dataKey="retweet_count" fill="#bf0a30" label={<BarLabel/>}/>
-                                </BarChart>
-                            </ResponsiveContainer>
-                        </div>
+                        <StatusesBarChart data={community1} barFill="#bf0a30"/>
                     </Card.Body>
                 </Card>
             </span>
