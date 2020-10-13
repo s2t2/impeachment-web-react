@@ -22,56 +22,6 @@ ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
 export default function App() {
 
-    //var sidebar = [
-    //    {"key":"tweet-collection",      "group":   "I. Tweet Collection",    "text": "Dashboard 1",     "component": Home,    "visible": true},
-    //    {"key":"tweet-collection",      "group":   "I. Tweet Collection",    "text": "Dashboard 2",     "component": Home,    "visible": true},
-    //    {"key":"tweet-collection",      "group":   "I. Tweet Collection",    "text": "Dashboard 3",     "component": Home,    "visible": true},
-    //    {"key":"bot-classification",    "group":  "II. Bot Classification",  "text": "My Dashboard 1",  "component": Home,    "visible": true},
-    //    {"key":"bot-classification",    "group":  "II. Bot Classification",  "text": "My Dashboard 2",  "component": Home,    "visible": true},
-    //    {"key":"bot-classification",    "group":  "II. Bot Classification",  "text": "My Dashboard 3",  "component": Home,    "visible": true},
-    //    {"key":"bot-clustering",        "group": "III. Bot Clustering",      "text": "My Dashboard",    "component": Home,    "visible": true},
-    //    {"key":"bot-impact",            "group":  "IV. Bot Impact",          "text": "Dashboard",       "component": Home,    "visible": true},
-    //    {"key":"bot-impact",            "group":  "IV. Bot Impact",          "text": "Dashboard 2",     "component": Home,    "visible": true},
-    //    {"key":"opinion-analysis",      "group":   "V. Opinion Analysis",    "text": "My Dashboard",    "component": Home,    "visible": true},
-    //    {"key":"opinion-analysis",      "group":   "V. Opinion Analysis",    "text": "My Dashboard 2",  "component": Home,    "visible": true},
-    //].filter(function(link){
-    //    return link["visible"] === true
-    //}).map(function(link){
-    //    link["href"] = `/${link['key']}`
-    //    return link
-    //})
-    //var sidebarLinks = sidebar.map(function(link){
-    //    return <NavLink key={link["key"]} to={link["href"]} activeClassName="active">{link["text"]}</NavLink>
-    //})
-    //var sidebarRoutes = sidebar.map(function(route){
-    //    return <Route key={route["key"]} path={route["href"]} component={route["component"]} />
-    //})
-
-    //var groupNames = sidebar.map(function(){
-    //    return
-    //})
-    //var navItems = ____
-    //    var sidebarLinks = ""
-    //    return(
-    //        <Nav className="ml-auto">
-    //            <h6 className="mobile-dasbhoard-menu-title">I. Tweet Collection</h6>
-//
-    //            <div className="mobile-dasbhoard-menu">
-    //                {sidebarLinks}
-    //            </div>
-    //        </Nav>
-    //    )
-    //}
-    //
-    //console.log("GROUPS:", grps)
-    //console.log("GROUPS:", _values(grps))
-
-    //var groups = groupBy(sidebar, "group")
-    //var sidebarSections = values(groupBy(sidebar, "group")).map(function(sectionName){
-    //    console.log("SECTION:", sectionName)
-    //})
-    //debugger;
-
     var sidebar = [
         {
             "key": "tweet-collection",
