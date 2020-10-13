@@ -10,6 +10,29 @@ import Spinner from "../Spinner"
 
 var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
+const HashtagsBarChart = function(props){
+    const {data, barFill} = props
+    console.log("DATA", data, "FILL", barFill)
+
+    var chartContainerStyle = { width: "100%", height: 650}
+    var chartMargins = {top: 5, right: 30, left: 150, bottom: 5}
+
+    return (
+        <div style={chartContainerStyle}>
+            <ResponsiveContainer>
+                <BarChart data={data} layout="vertical" margin={chartMargins}>
+                    <XAxis type="number" dataKey="pct" />
+                    <YAxis type="category" dataKey="token" tick={{ fontSize: 14 }} />
+                    <CartesianGrid strokeDasharray="1 1"/>
+                    <Tooltip/>
+                    <Legend/>
+                    <Bar dataKey="pct" fill={barFill}/>
+                </BarChart>
+            </ResponsiveContainer>
+        </div>
+    )
+}
+
 export default class DashboardThreeAbout extends React.Component {
     constructor(props) {
         super(props)
@@ -37,18 +60,7 @@ export default class DashboardThreeAbout extends React.Component {
                                     Top Hashtags in Left-leaning Bot Profiles
                                 </Card.Text>
 
-                                <div style={{ width: '100%', height: 800 }}>
-                                    <ResponsiveContainer>
-                                        <BarChart data={community0} layout="vertical" margin={{top: 5, right: 30, left: 150, bottom: 5}}>
-                                            <XAxis type="number" dataKey="pct" />
-                                            <YAxis tick={{ fontSize: 14 }} type="category" dataKey="token" />
-                                            <CartesianGrid strokeDasharray="1 1" />
-                                            <Tooltip />
-                                            <Legend />
-                                            <Bar dataKey="pct" fill="#002868" />
-                                        </BarChart>
-                                    </ResponsiveContainer>
-                                </div>
+                                 <HashtagsBarChart data={community0} barFill="#002868" />
                             </Card.Body>
                         </Card>
                     </Col>
@@ -60,18 +72,7 @@ export default class DashboardThreeAbout extends React.Component {
                                     Top Hashtags in Right-leaning Bot Profiles
                                 </Card.Text>
 
-                                <div style={{ width: '100%', height: 800 }}>
-                                    <ResponsiveContainer>
-                                        <BarChart data={community1} layout="vertical" margin={{top: 5, right: 30, left: 150, bottom: 5}}>
-                                            <XAxis type="number" dataKey="pct" />
-                                            <YAxis tick={{ fontSize: 14 }} type="category" dataKey="token" />
-                                            <CartesianGrid strokeDasharray="1 1" />
-                                            <Tooltip />
-                                            <Legend />
-                                            <Bar dataKey="pct" fill="#bf0a30" />
-                                        </BarChart>
-                                    </ResponsiveContainer>
-                                </div>
+                                <HashtagsBarChart data={community1} barFill="#bf0a30" />
                             </Card.Body>
                         </Card>
                     </Col>
