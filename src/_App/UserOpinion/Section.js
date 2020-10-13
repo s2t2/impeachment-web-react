@@ -6,17 +6,28 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-export default function UserOpinion() {
+import UserOpinionDashboard from "./Dashboard"
+
+export default function UserOpinionSection() {
     return (
         <Container>
             <Card>
                 <Card.Body>
-                    <Card.Title><h2>User Opinion Analysis</h2></Card.Title>
+                    <Card.Title><h2>Impeachment Opinion Analysis by User</h2></Card.Title>
                     <Card.Text>
-
-                        <p>After training our classifier models, we used them to predict the "impeachment opinion scores" for the remaining tweets in our dataset...</p>
-
+                        After <a href="/sentiment-analysis">training the binary classifier models</a> to detect which bot community language any given tweet most closely resembles, we used the models to predict impeachment opinion scores for the remaining tweets in our dataset. A score of <code>0</code> means the tweet more closely resembles language used by Community 0 (left-leaning bots), while a score of <code>1</code> means the tweet more closely resembles language used by Community 1 (right-leaning bots).
                     </Card.Text>
+
+                    <Card.Text>
+                        We then calculated the mean Impeachment Opinion Score for all users in our dataset. The chart below shows how our models scored tweets by any given user.
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+
+            <Card>
+                <Card.Body>
+                    {/* <input type="text"></input> */}
+                    <UserOpinionDashboard screen_name="POLITICO"/>
                 </Card.Body>
             </Card>
         </Container>

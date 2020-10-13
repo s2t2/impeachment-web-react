@@ -33,7 +33,7 @@ const HashtagsBarChart = function(props){
     )
 }
 
-export default class DashboardThreeAbout extends React.Component {
+export default class StatusHashtags extends React.Component {
     constructor(props) {
         super(props)
         this.state = {parsedResponse: null}

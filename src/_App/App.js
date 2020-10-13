@@ -23,10 +23,10 @@ import BotClassification from "./BotClassification/Section.js"
 import BotCommunities from "./BotCommunities/Section.js"
 import BotCommunityActivity from "./BotCommunityActivity/Section.js"
 import BotCommunityLanguage from './BotCommunityLanguage/Section'
-//import BotCommunitySentiment from './BotCommunitySentiment/Section'
-import BotImpact from './BotImpact/Section'
+import SentimentAnalysis from './SentimentAnalysis/Section'
 import UserOpinion from './UserOpinion/Section'
 import TopUserOpinion from '../_Dashboards/UsersMostFollowed/Dashboard'
+import BotImpact from './BotImpact/Section'
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
@@ -54,24 +54,24 @@ export default function App() {
                 {"key": "bot-community-clustering", "text": "Bot Communities",  "component": BotCommunities, "visible": true},
                 {"key": "bot-community-analysis", "text": "Bot Community Activity",  "component": BotCommunityActivity, "visible": true},
                 {"key": "bot-community-language", "text": "Bot Community Language",  "component": BotCommunityLanguage, "visible": true},
-                //{"key": "bot-community-sentiment", "text": "Bot Community Sentiment",  "component": BotCommunitySentiment, "visible": true},
+            ]
+        },
+        {
+            "key": "sentiment-analysis",
+            "text": "IV. Sentiment Analysis",
+            "links": [
+                {"key": "sentiment-analysis", "text": "Sentiment Analysis",  "component": SentimentAnalysis, "visible": true},
+                {"key": "user-opinions", "text": "User Opinions",  "component": UserOpinion, "visible": true},
+                {"key": "top-user-opinions", "text": "Top User Opinions",  "component": TopUserOpinion, "visible": true},
             ]
         },
         {
             "key": "bot-impact",
-            "text": "IV. Bot Impact",
+            "text": "V. Bot Impact",
             "links": [
                 {"key": "bot-impact", "text": "Bot Impact",  "component": BotImpact, "visible": true},
             ]
         },
-        {
-            "key": "opinion-analysis",
-            "text": "V. Opinion Analysis",
-            "links": [
-                {"key": "user-opinions", "text": "User Opinions",  "component": UserOpinion, "visible": true},
-                {"key": "top-user-opinions", "text": "Top User Opinions",  "component": TopUserOpinion, "visible": true},
-            ]
-        }
     ]
 
     var sidebarLinks = []
