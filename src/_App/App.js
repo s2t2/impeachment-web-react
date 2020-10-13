@@ -24,6 +24,8 @@ import BotCommunities from "./BotCommunities/Section.js"
 import BotCommunityAnalysis from "./BotCommunityAnalysis/Section.js"
 import BotCommunityLanguage from './BotCommunityLanguage/Section'
 import BotCommunitySentiment from './BotCommunitySentiment/Section'
+import BotImpact from './BotImpact/Section'
+import UserOpinion from './UserOpinion/Section'
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
@@ -45,13 +47,27 @@ export default function App() {
             ]
         },
         {
-            "key": "bot-clustering",
+            "key": "bot-communities",
             "text": "III. Bot Communities",
             "links": [
-                {"key": "bot-communities", "text": "Bot Communities",  "component": BotCommunities, "visible": true},
+                {"key": "bot-community-clustering", "text": "Bot Communities",  "component": BotCommunities, "visible": true},
                 {"key": "bot-community-analysis", "text": "Bot Community Analysis",  "component": BotCommunityAnalysis, "visible": true},
                 {"key": "bot-community-language", "text": "Bot Community Language",  "component": BotCommunityLanguage, "visible": true},
                 {"key": "bot-community-sentiment", "text": "Bot Community Sentiment",  "component": BotCommunitySentiment, "visible": true},
+            ]
+        },
+        {
+            "key": "opinion-analysis",
+            "text": "IV. Bot Impact",
+            "links": [
+                {"key": "bot-impact", "text": "Bot Impact",  "component": BotImpact, "visible": true},
+            ]
+        },
+        {
+            "key": "opinion-analysis",
+            "text": "V. Opinion Analysis",
+            "links": [
+                {"key": "opinion-analysis", "text": "Opinion Analysis",  "component": UserOpinion, "visible": true},
             ]
         }
     ]

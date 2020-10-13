@@ -6,22 +6,15 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-
-export default function BotCommunitySentiment() {
+export default function UserOpinion() {
     return (
         <Container>
             <Card>
                 <Card.Body>
-                    <Card.Title><h2>Bot Community Sentiment Analysis</h2></Card.Title>
+                    <Card.Title><h2>User Opinion Analysis</h2></Card.Title>
                     <Card.Text>
 
-                        <p>We trained some binary classifier models...</p>
-
-
-
-
-
-
+                        <p>After training our classifier models, we used them to predict the "impeachment opinion scores" for the remaining tweets in our dataset...</p>
 
                     </Card.Text>
                 </Card.Body>
