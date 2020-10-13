@@ -21,11 +21,12 @@ import AltAbout from "../_Dashboards/About/Page.js"
 import TweetCollection from "./TweetCollection/Section.js"
 import BotClassification from "./BotClassification/Section.js"
 import BotCommunities from "./BotCommunities/Section.js"
-import BotCommunityAnalysis from "./BotCommunityAnalysis/Section.js"
+import BotCommunityActivity from "./BotCommunityActivity/Section.js"
 import BotCommunityLanguage from './BotCommunityLanguage/Section'
-import BotCommunitySentiment from './BotCommunitySentiment/Section'
+//import BotCommunitySentiment from './BotCommunitySentiment/Section'
 import BotImpact from './BotImpact/Section'
 import UserOpinion from './UserOpinion/Section'
+import TopUserOpinion from '../_Dashboards/UsersMostFollowed/Dashboard'
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
@@ -51,13 +52,13 @@ export default function App() {
             "text": "III. Bot Communities",
             "links": [
                 {"key": "bot-community-clustering", "text": "Bot Communities",  "component": BotCommunities, "visible": true},
-                {"key": "bot-community-analysis", "text": "Bot Community Analysis",  "component": BotCommunityAnalysis, "visible": true},
+                {"key": "bot-community-analysis", "text": "Bot Community Activity",  "component": BotCommunityActivity, "visible": true},
                 {"key": "bot-community-language", "text": "Bot Community Language",  "component": BotCommunityLanguage, "visible": true},
-                {"key": "bot-community-sentiment", "text": "Bot Community Sentiment",  "component": BotCommunitySentiment, "visible": true},
+                //{"key": "bot-community-sentiment", "text": "Bot Community Sentiment",  "component": BotCommunitySentiment, "visible": true},
             ]
         },
         {
-            "key": "opinion-analysis",
+            "key": "bot-impact",
             "text": "IV. Bot Impact",
             "links": [
                 {"key": "bot-impact", "text": "Bot Impact",  "component": BotImpact, "visible": true},
@@ -67,7 +68,8 @@ export default function App() {
             "key": "opinion-analysis",
             "text": "V. Opinion Analysis",
             "links": [
-                {"key": "opinion-analysis", "text": "Opinion Analysis",  "component": UserOpinion, "visible": true},
+                {"key": "user-opinions", "text": "User Opinions",  "component": UserOpinion, "visible": true},
+                {"key": "top-user-opinions", "text": "Top User Opinions",  "component": TopUserOpinion, "visible": true},
             ]
         }
     ]

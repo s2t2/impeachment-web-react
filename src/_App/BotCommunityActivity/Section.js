@@ -16,7 +16,7 @@ export default function BotCommunityAnalysis() {
         <Container>
             <Card>
                 <Card.Body>
-                    <Card.Title><h2>Bot Community Analysis</h2></Card.Title>
+                    <Card.Title><h2>Bot Community Activity Analysis</h2></Card.Title>
                     <Card.Text>
 
                         <p>
