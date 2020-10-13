@@ -225,3 +225,11 @@ RC Slider:
 
   + https://github.com/react-component/slider
   + http://react-component.github.io/slider/?path=/story/rc-slider--range
+
+### URL Params
+
+```sh
+npm install query-string --save
+```
+
+  + https://github.com/sindresorhus/query-string

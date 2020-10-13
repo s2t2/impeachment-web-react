@@ -16,7 +16,8 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 export default class Dashboard extends PureComponent {
     constructor(props) {
         super(props)
-        this.state = {screen_name: "politico", metric: "score_lr", parsedResponse: null} // TODO: get screen name from input box or URL params (maybe use window.location.href and split it, or find some kind of react router property)
+        //this.state = {screen_name: "politico", metric: "score_lr", parsedResponse: null} // TODO: get screen name from input box or URL params (maybe use window.location.href and split it, or find some kind of react router property)
+        this.state = {metric: "score_lr", parsedResponse: null} // TODO: get screen name from input box or URL params (maybe use window.location.href and split it, or find some kind of react router property)
         this.fetchData = this.fetchData.bind(this)
         this.handleModelSelect = this.handleModelSelect.bind(this)
     }
@@ -30,8 +31,8 @@ export default class Dashboard extends PureComponent {
     render() {
         var spinIntoStuff = <Spinner/>
         if (this.state.parsedResponse) {
-            var handle = `@${this.state.screen_name.toUpperCase()}`
-            var profileUrl = `https://twitter.com/${this.state.screen_name}`
+            var handle = `@${this.props.screen_name.toUpperCase()}`
+            var profileUrl = `https://twitter.com/${this.props.screen_name}`
             var metric = this.state.metric
 
             var statuses = this.state.parsedResponse
@@ -91,7 +92,7 @@ export default class Dashboard extends PureComponent {
     }
 
     fetchData(){
-        var requestUrl = `${API_URL}/api/v1/user_tweets/${this.state.screen_name}`
+        var requestUrl = `${API_URL}/api/v1/user_tweets/${this.props.screen_name}`
         console.log("REQUEST URL:", requestUrl)
         fetch(requestUrl)
         .then(function(response) {

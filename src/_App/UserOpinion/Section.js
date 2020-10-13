@@ -5,10 +5,16 @@ import Container from 'react-bootstrap/Container'
 //import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
+import queryString from 'query-string'
 
 import UserOpinionDashboard from "./Dashboard"
 
 export default function UserOpinionSection() {
+
+    let params = queryString.parse(window.location.search)
+    var screenName = params["screen_name"] || "POLITICO"
+    console.log("URL PARAMS:", params, screenName)
+
     return (
         <Container>
             <Card>
@@ -27,7 +33,7 @@ export default function UserOpinionSection() {
             <Card>
                 <Card.Body>
                     {/* <input type="text"></input> */}
-                    <UserOpinionDashboard screen_name="POLITICO"/>
+                    <UserOpinionDashboard screen_name={screenName}/>
                 </Card.Body>
             </Card>
         </Container>
