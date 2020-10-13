@@ -19,7 +19,7 @@ export default function StatusesTable(props) {
     })
 
     return (
-        <div class="table-responsive">
+        <div className="table-responsive">
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>

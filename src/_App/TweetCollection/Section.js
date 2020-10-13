@@ -63,7 +63,7 @@ export default function TweetCollection() {
                     </ul>
                     */}
 
-                    <div class="table-responsive">
+                    <div className="table-responsive">
                         <Table striped bordered hover size="sm">
                             <thead>
                                 <tr>

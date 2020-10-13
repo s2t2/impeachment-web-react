@@ -17,21 +17,21 @@ export default function UserStatusesTable(props) {
         var date = format(Date.parse(status["created_at"]), 'yyyy-MM-dd')
 
         return (
-            <tr>
+            <tr key={status["status_id"]}>
                 <td style={{"whiteSpace": "nowrap"}}>{date}</td>
                 <td>
                     {status["status_text"]}
 
                     <a href={statusUrl}><UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/></a>
                 </td>
-                <td><code>{status["score_lr"]}</code></td> {/*  ({status["prediction_lr"]}) */}
-                <td><code>{status["score_nb"]}</code></td> {/*  ({status["prediction_nb"]}) */}
+                <td><code>{status["score_lr"]}</code></td>
+                <td><code>{status["score_nb"]}</code></td>
             </tr>
         )
     })
 
     return (
-        <div class="table-responsive">
+        <div className="table-responsive">
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>

@@ -2,6 +2,10 @@ import React, { PureComponent } from 'react'
 import Container from 'react-bootstrap/Container'
 import GaugeChart from 'react-gauge-chart'
 import { meanBy } from 'lodash'
+import Form from 'react-bootstrap/Form'
+//import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 import UserStatusesTable from './UserStatusesTable.js'
 import Spinner from '../Spinner'
@@ -14,6 +18,13 @@ export default class Dashboard extends PureComponent {
         super(props)
         this.state = {screen_name: "politico", metric: "score_lr", parsedResponse: null} // TODO: get screen name from input box or URL params (maybe use window.location.href and split it, or find some kind of react router property)
         this.fetchData = this.fetchData.bind(this)
+        this.handleModelSelect = this.handleModelSelect.bind(this)
+    }
+
+    handleModelSelect(changeEvent){
+        var metric = changeEvent.target.value
+        console.log("SELECT METRIC:", metric)
+        this.setState({"metric": metric})
     }
 
     render() {
@@ -23,17 +34,36 @@ export default class Dashboard extends PureComponent {
             var metric = this.state.metric
 
             var statuses = this.state.parsedResponse
-            var meanOpinionScore = meanBy(statuses, (status) => status["score_lr"])
-            console.log("STATUSES:", statuses.length, "SCORE:", meanOpinionScore)
+            var meanOpinionScore = meanBy(statuses, (status) => status[metric])
+            //console.log("STATUSES:", statuses.length, "SCORE:", meanOpinionScore)
 
             spinIntoStuff = <span>
                 <h3>
                     {`@${this.state.screen_name.toUpperCase()}`}
-                    <a href={profileUrl}>
-                    <UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/>
-                    </a>
+                    <a href={profileUrl}><UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/></a>
                 </h3>
-                <p class="lead">Mean Opinion Score: <code>{meanOpinionScore.toFixed(2)}</code></p>
+
+                <p className="lead">Mean Opinion Score: <code>{meanOpinionScore.toFixed(2)}</code></p>
+
+                <Form.Group as={Row}>
+                    <Col xs="12">
+                        <Form.Label>Opinion Model</Form.Label>
+
+                        <div key="inline-radios" className="mb-3">
+                            <Form.Check inline label="Logistic Regression" value="score_lr" type="radio" id="radio-lr"
+                                checked={metric === "score_lr"}
+                                onChange={this.handleModelSelect}
+                            />
+                            <Form.Check inline label="Naive Bayes" value="score_nb" type="radio" id="radio-nb"
+                                checked={metric === "score_nb"}
+                                onChange={this.handleModelSelect}
+                            />
+                        </div>
+
+                    </Col>
+                </Form.Group>
+
+
 
                 <GaugeChart id="necessary" style={{width: "400px", height:"180px", margin: "10px auto"}}
                     arcsLength={[0.3, 0.4, 0.3]}
