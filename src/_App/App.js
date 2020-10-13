@@ -19,7 +19,23 @@ import About from "./About.js"
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
 export default function App() {
-  return (
+
+    var sidebarLinks = [
+        {"href":"/tweet-collection",     "key":"tweet-collection",      "text": "I. Tweet Collection",         "visible": true},
+        {"href":"/bot-classification",   "key":"bot-classification",    "text": "II. Bot Classification",      "visible": true},
+        {"href":"/bot-clustering",       "key":"bot-clustering",        "text": "III. Bot Clustering",         "visible": true},
+        {"href":"/bot-impact",           "key":"bot-impact",            "text": "IV. Bot Impact",              "visible": true},
+        {"href":"/opinion-analysis",     "key":"opinion-analysis",      "text": "V. Opinion Analysis",         "visible": true},
+    ]
+    .filter(function(link){
+        return link["visible"] === true
+    })
+    .map(function(link){
+        //console.log(link)
+        return <NavLink key={link["key"]} to={link["href"]} activeClassName="active">{link["text"]}</NavLink>
+    })
+
+    return (
         <Router>
             <div className="App">
 
@@ -52,9 +68,7 @@ export default function App() {
                                 <h6 className="mobile-dasbhoard-menu-title">Dashboards</h6>
 
                                 <div className="mobile-dasbhoard-menu">
-                                    <NavLink to="/dashboard-one" activeClassName="active">Dashboard One</NavLink>
-                                    <NavLink to="/dashboard-two" activeClassName="active">Dashboard Two</NavLink>
-                                    <NavLink to="/dashboard-three" activeClassName="active">Dashboard Three</NavLink>
+                                   {sidebarLinks}
                                 </div>
                             </Nav>
                         </Navbar.Collapse>
@@ -68,9 +82,7 @@ export default function App() {
                                 <div className="sidebar d-none d-md-block d-sm-none">
                                     <Nav sticky="top" defaultActiveKey="/" className="flex-column">
                                         <div className="sidebarWrapper">
-                                            <NavLink to="/dashboard-one" activeClassName="active">Dashboard One</NavLink>
-                                            <NavLink to="/dashboard-two" activeClassName="active">Dashboard Two</NavLink>
-                                            <NavLink to="/dashboard-three" activeClassName="active">Dashboard Three</NavLink>
+                                            {sidebarLinks}
                                         </div>
                                     </Nav>
                                 </div>
