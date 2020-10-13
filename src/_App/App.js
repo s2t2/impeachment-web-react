@@ -16,7 +16,7 @@ import './App.css'
 
 import Home from "./Home.js"
 import About from "./About.js"
-import AltAbout from "../_Dashboards/About/Page.js"
+//import AltAbout from "../_Dashboards/About/Page.js"
 
 import TweetCollection from "./TweetCollection/Section.js"
 import BotClassification from "./BotClassification/Section.js"
@@ -112,7 +112,7 @@ export default function App() {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
                                 <Nav.Link href="/about">About</Nav.Link>
-                                <Nav.Link href="/alt-about">Alt About</Nav.Link>
+                                {/* <Nav.Link href="/alt-about">Alt About</Nav.Link> */}
                           </Nav>
                         </Navbar.Collapse>
                     </Navbar>
@@ -127,7 +127,7 @@ export default function App() {
                             <Nav className="ml-auto">
                                 <div className="mobile-dasbhoard-menu">
                                     <NavLink to="/about" activeClassName="active">About</NavLink>
-                                    <NavLink to="/alt-about" activeClassName="active">Alt About</NavLink>
+                                    {/* <NavLink to="/alt-about" activeClassName="active">Alt About</NavLink> */}
                                 </div>
                             </Nav>
 
@@ -157,7 +157,7 @@ export default function App() {
                             <Switch>
                                 <Route path="/" exact component={Home} />
                                 <Route path="/about" component={About} />
-                                <Route path="/alt-about" component={AltAbout} />
+                                {/* <Route path="/alt-about" component={AltAbout} /> */}
                                 {sidebarRoutes}
                             </Switch>
                         </Col>
