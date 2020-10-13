@@ -6,7 +6,6 @@ import Card from 'react-bootstrap/Card'
 import Sidebar from '../layouts/Sidebar';
 import WelcomeAlert from "../alerts/WelcomeAlert"
 import ReactWordcloud from 'react-wordcloud';
-import Spinner from 'react-bootstrap/Spinner';
 import {orderBy} from 'lodash';
 
 import CustomLoader from "../layouts/CustomLoader"
@@ -140,7 +139,7 @@ class DasbhoardSix extends React.Component {
                                     width: "100%",
                                     height: "100%"
                                 }}>
-                                    <ReactWordcloud options={optionsTwo} words={wordsCommunity0}/>
+                                    <ReactWordcloud options={optionsTwo} words={wordsCommunity1}/>
                                 </div>
 
                             </Card.Body>

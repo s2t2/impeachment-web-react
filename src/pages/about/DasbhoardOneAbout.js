@@ -37,9 +37,7 @@ class DasbhoardOneAbout extends React.Component {
     render() {
         var spinIntoCharts;
         if (this.state.parsedResponse) {
-            console.log("Raw data");
-            var rawdata = this.state.parsedResponse;
-
+           
             var users = this.state.parsedResponse;
 
             var metric = this.state.metric
