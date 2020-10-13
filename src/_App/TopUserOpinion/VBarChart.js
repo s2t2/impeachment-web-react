@@ -111,8 +111,53 @@ export default class MyBarChart extends Component {
             }) // sort before slice
             .slice(-barCount) // negative number takes last X users (which is actually the top X users)
 
+
+        var chartPadding = { left: 175, top: 15, right: 50, bottom: 130 } // spacing for axis labels (screen names)
+        var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
         return (
             <span>
+
+                <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
+                    <VictoryBar horizontal data={users} x="handle" y="follower_count"
+                        animate={true}
+                        //barWidth={12}
+                        barRatio={0.87}
+                        //alignment="middle"
+
+                        labels={({ datum }) => datum["scorePct"]}
+                        //labelComponent={<VictoryLabel dx={-30}/>}
+                        style={{
+                            data: {
+                                fill: ({ datum }) => colorScale(datum[opinionMetric]),
+                                //stroke: ({ index }) => +index % 2 === 0  ? "#000000" : "#c43a31",
+                                //fillOpacity: 0.7,
+                                //strokeWidth: 3
+                            },
+                            labels: {
+                                fontSize: 10,
+                                padding:2
+                                //fill: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31"
+                            }
+                        }}
+                    />
+                    <VictoryAxis
+                        //label="Screen Name"
+                        //tickFormat={["a", "b", "c", "d", "e"]}
+                    />
+                    <VictoryAxis dependentAxis
+                        //tickFormat={(tick) => `${tick}%`}
+                        tickFormat={formatBigNumber}
+                        label="Follower Count"
+                        style={{
+                            //axis: {stroke: "#756f6a"},
+                            axisLabel: {fontSize: 10, padding:25},
+                            //grid: {stroke: ({ tick }) => tick > 0.5 ? "red" : "grey"},
+                            ticks: {stroke: "grey", size: 4},
+                            tickLabels: {fontSize: 10, padding:5}
+                        }}
+                    />
+                </VictoryChart>
+
                 <Form >
                     <Form.Group as={Row}>
                         <Col xs="5">
@@ -171,8 +216,7 @@ export default class MyBarChart extends Component {
                         </Col>  */}
                     </Form.Group>
 
-
-                    <Form.Group as={Row} id="user-category-checks">
+                    <Form.Group as={Row}>
                         <Col xs="5">
                             <Form.Label>User Category</Form.Label>
 
@@ -213,83 +257,9 @@ export default class MyBarChart extends Component {
                                     onChange={this.handleModelSelect}
                                 />
                             </div>
-
                         </Col>
                     </Form.Group>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </Form>
-
-                <VictoryChart
-                    padding={{ left: 175, top: 15, right: 50, bottom: 130 }} // spacing for axis labels (screen names)
-                    domainPadding={{ x: [10,0] }} // spacing between bottom bar and bottom axis
-                >
-                    <VictoryBar horizontal data={users} x="handle" y="follower_count"
-                        animate={true}
-                        //barWidth={12}
-                        barRatio={0.87}
-                        //alignment="middle"
-
-                        labels={({ datum }) => datum["scorePct"]}
-                        //labelComponent={<VictoryLabel dx={-30}/>}
-                        style={{
-                            data: {
-                                fill: ({ datum }) => colorScale(datum[opinionMetric]),
-                                //stroke: ({ index }) => +index % 2 === 0  ? "#000000" : "#c43a31",
-                                //fillOpacity: 0.7,
-                                //strokeWidth: 3
-                            },
-                            labels: {
-                                fontSize: 10,
-                                padding:2
-                                //fill: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31"
-                            }
-                        }}
-
-
-
-
-
-
-
-
-
-
-
-                    />
-                    <VictoryAxis
-                        //label="Screen Name"
-                        //tickFormat={["a", "b", "c", "d", "e"]}
-                    />
-                    <VictoryAxis dependentAxis
-                        //tickFormat={(tick) => `${tick}%`}
-                        tickFormat={formatBigNumber}
-                        label="Follower Count"
-
-                        style={{
-                            //axis: {stroke: "#756f6a"},
-                            axisLabel: {fontSize: 10, padding:25},
-                            //grid: {stroke: ({ tick }) => tick > 0.5 ? "red" : "grey"},
-                            ticks: {stroke: "grey", size: 4},
-                            tickLabels: {fontSize: 10, padding:5}
-                        }}
-
-
-
-                    />
-                </VictoryChart>
             </span>
         )
     }
