@@ -18,6 +18,14 @@ import Home from "./Home.js"
 import About from "./About.js"
 //import AltAbout from "../_Dashboards/About/Page.js"
 
+
+import TweetCollectionPage from "./Pages/TweetCollection"
+import BotAnalysisPage from "./Pages/BotAnalysis"
+import OpinionAnalysisPage from "./Pages/OpinionAnalysis"
+
+
+
+
 import TweetCollection from "./TweetCollection/Section.js"
 
 import BotClassification from "./BotClassification/Section.js"
@@ -38,7 +46,7 @@ export default function App() {
         {
             "key": "tweet-collection",
             "text": "I. Tweet Collection",
-            "component": About,
+            "component": TweetCollectionPage,
             "links": [
                 {"key": "tweet-collection", "text": "Tweet Collection",  "component": TweetCollection, "visible": true},
             ]
@@ -46,7 +54,7 @@ export default function App() {
         {
             "key": "bot-analysis",
             "text": "II. Bot Analysis",
-            "component": About,
+            "component": BotAnalysisPage,
             "links": [
                 {"key": "bot-classification", "text": "Bot Classification",  "component": BotClassification, "visible": true},
                 {"key": "bot-community-clustering", "text": "Bot Communities",  "component": BotCommunities, "visible": true},
@@ -58,7 +66,7 @@ export default function App() {
         {
             "key": "opinion-analysis",
             "text": "III. Opinion Analysis",
-            "component": About,
+            "component": OpinionAnalysisPage,
             "links": [
                 {"key": "model-training", "text": "Model Training",  "component": OpinionAnalysis, "visible": true},
                 {"key": "user-opinions", "text": "User Opinions",  "component": UserOpinion, "visible": true},
