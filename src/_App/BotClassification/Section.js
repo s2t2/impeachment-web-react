@@ -17,17 +17,18 @@ export default function TweetCollectionSection() {
                     <Card.Title><h2>Bot Classification</h2></Card.Title>
                     <Card.Text>
                        <p>
-                            The previous research provides a method for identifying which Twitter users are bots, based on their retweet behavior. It suggests bots exhibit the behavior of retweeting humans at significant quantities.
+                            Previous research suggests it is possible to identify bots because they exhibit certain behaviors, specifically retweeting humans with high frequency.
                         </p>
                         <p>
-                            So for each day in our collection period, we examined that day's retweets to identify which users retweeted with sufficient frequency to differentiate them from normal users, and our model assigned each user a daily bot probability score from 0 (not bot) to 1 (bot). An example daily distribution of bot scores is below. Most scores are around 0.5.
+                            So for each day in our collection period, we examined that day's retweets to identify which users retweeted with sufficient frequency to differentiate them from normal users. Our model assigned each user a "daily bot probability score" from <code>0</code> (not bot) to <code>1</code> (bot). An example distribution of daily bot scores is below:
                         </p>
                         <img src={exampleDailyBotProbabilities} alt="a histogram depicting bot probabilities" class="img-fluid"/>
+
                         <p>
                             After assigning daily bot scores to all users, we identified which users had at least one daily probability greater than 80%, and labeled these users as bots. In total, this method yielded 24,150 bots, which represents 0.67% of the total users and 0.87% of the total retweeters in our dataset.
                         </p>
                         <p>
-                        It is interesting to observe that despite only representing less than 1% of all users, these bots were responsible for 20.9 million tweets (31% of the total tweets) and 20.1 million retweets (36% of the total tweets).
+                            Despite only representing less than 1% of all users, these bots were responsible for 20.9 million tweets (31% of the total tweets) and 20.1 million retweets (36% of the total tweets).
                         </p>
                     </Card.Text>
                 </Card.Body>
