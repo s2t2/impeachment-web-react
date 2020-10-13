@@ -19,14 +19,16 @@ import About from "./About.js"
 //import AltAbout from "../_Dashboards/About/Page.js"
 
 import TweetCollection from "./TweetCollection/Section.js"
+
 import BotClassification from "./BotClassification/Section.js"
 import BotCommunities from "./BotCommunities/Section.js"
 import BotCommunityActivity from "./BotCommunityActivity/Section.js"
 import BotCommunityLanguage from './BotCommunityLanguage/Section'
-import SentimentAnalysis from './SentimentAnalysis/Section'
+import BotImpact from './BotImpact/Section'
+
+import OpinionAnalysis from './SentimentAnalysis/Section'
 import UserOpinion from './UserOpinion/Section'
 import TopUserOpinion from './TopUserOpinion/Section'
-import BotImpact from './BotImpact/Section'
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
@@ -36,47 +38,44 @@ export default function App() {
         {
             "key": "tweet-collection",
             "text": "I. Tweet Collection",
+            "component": About,
             "links": [
                 {"key": "tweet-collection", "text": "Tweet Collection",  "component": TweetCollection, "visible": true},
             ]
         },
         {
-            "key": "bot-classification",
-            "text": "II. Bot Classification",
+            "key": "bot-analysis",
+            "text": "II. Bot Analysis",
+            "component": About,
             "links": [
                 {"key": "bot-classification", "text": "Bot Classification",  "component": BotClassification, "visible": true},
-            ]
-        },
-        {
-            "key": "bot-communities",
-            "text": "III. Bot Communities",
-            "links": [
                 {"key": "bot-community-clustering", "text": "Bot Communities",  "component": BotCommunities, "visible": true},
                 {"key": "bot-community-analysis", "text": "Bot Community Activity",  "component": BotCommunityActivity, "visible": true},
                 {"key": "bot-community-language", "text": "Bot Community Language",  "component": BotCommunityLanguage, "visible": true},
+                {"key": "bot-impact", "text": "Bot Impact",  "component": BotImpact, "visible": true},
             ]
         },
         {
-            "key": "sentiment-analysis",
-            "text": "IV. Sentiment Analysis",
+            "key": "opinion-analysis",
+            "text": "III. Opinion Analysis",
+            "component": About,
             "links": [
-                {"key": "sentiment-analysis", "text": "Sentiment Analysis",  "component": SentimentAnalysis, "visible": true},
+                {"key": "model-training", "text": "Model Training",  "component": OpinionAnalysis, "visible": true},
                 {"key": "user-opinions", "text": "User Opinions",  "component": UserOpinion, "visible": true},
                 {"key": "top-user-opinions", "text": "Top User Opinions",  "component": TopUserOpinion, "visible": true},
-            ]
-        },
-        {
-            "key": "bot-impact",
-            "text": "V. Bot Impact",
-            "links": [
-                {"key": "bot-impact", "text": "Bot Impact",  "component": BotImpact, "visible": true},
             ]
         },
     ]
 
     var sidebarLinks = []
+    var sidebarSectionLinks = []
     var sidebarSections = sidebar.map(function(section){
-        var sectionLinks = section["links"].map(function(link){
+        section["href"] = `/${section['key']}`
+
+        var sectionLink = <NavLink key={section["key"]} to={section["href"]} activeClassName="active">{section["text"]}</NavLink>
+        sidebarSectionLinks.push(sectionLink)
+
+        var pageLinks = section["links"].map(function(link){
             link["href"] = `/${link['key']}`
             var navLink = <NavLink key={link["key"]} to={link["href"]} activeClassName="active">{link["text"]}</NavLink>
             sidebarLinks.push(navLink)
@@ -87,7 +86,7 @@ export default function App() {
                 <h6 className="mobile-dasbhoard-menu-title">{section["text"]}</h6>
 
                 <div className="mobile-dasbhoard-menu">
-                    {sectionLinks}
+                    {pageLinks}
                 </div>
             </span>
         )
@@ -95,6 +94,8 @@ export default function App() {
 
     var sidebarRoutes = []
     sidebar.forEach(function(section){
+        sidebarRoutes.push(<Route key={section["key"]} path={section["href"]} component={section["component"]} />)
+
         section["links"].forEach(function(link){
             sidebarRoutes.push(<Route key={link["key"]} path={link["href"]} component={link["component"]} />)
         })
@@ -146,7 +147,7 @@ export default function App() {
                                     <Nav sticky="top" defaultActiveKey="/" className="flex-column">
                                         <div className="sidebarWrapper">
                                             {/* {sidebarSections} {sidebarLinks} */}
-                                            {sidebarLinks}
+                                            {sidebarSectionLinks}
                                         </div>
                                     </Nav>
                                 </div>
