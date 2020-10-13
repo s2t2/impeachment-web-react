@@ -115,10 +115,13 @@ export default function App() {
         }
     ]
 
+    var sidebarLinks = []
     var sidebarSections = sidebar.map(function(section){
         var sectionLinks = section["links"].map(function(link){
             link["href"] = `/${link['key']}`
-            return <NavLink key={link["key"]} to={link["href"]} activeClassName="active">{link["text"]}</NavLink>
+            var navLink = <NavLink key={link["key"]} to={link["href"]} activeClassName="active">{link["text"]}</NavLink>
+            sidebarLinks.push(navLink)
+            return navLink
         })
         return (
             <span key={section["key"]}>
@@ -133,16 +136,10 @@ export default function App() {
 
     var sidebarRoutes = []
     sidebar.forEach(function(section){
-
         section["links"].forEach(function(link){
             sidebarRoutes.push(<Route key={link["key"]} path={link["href"]} component={link["component"]} />)
         })
-
     })
-
-    //var sidebarRoutes = [
-    //    <Route key="" path="" component= />
-    //]
 
     return (
         <Router>
@@ -187,7 +184,8 @@ export default function App() {
                                 <div className="sidebar d-none d-md-block d-sm-none">
                                     <Nav sticky="top" defaultActiveKey="/" className="flex-column">
                                         <div className="sidebarWrapper">
-                                            {sidebarSections}
+                                            {/* {sidebarSections} {sidebarLinks} */}
+                                            {sidebarLinks}
                                         </div>
                                     </Nav>
                                 </div>
