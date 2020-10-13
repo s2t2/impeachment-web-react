@@ -23,6 +23,7 @@ import BotClassification from "./BotClassification/Section.js"
 import BotCommunities from "./BotCommunities/Section.js"
 import BotCommunityAnalysis from "./BotCommunityAnalysis/Section.js"
 import BotCommunityLanguage from './BotCommunityLanguage/Section'
+import BotCommunitySentiment from './BotCommunitySentiment/Section'
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
@@ -50,6 +51,7 @@ export default function App() {
                 {"key": "bot-communities", "text": "Bot Communities",  "component": BotCommunities, "visible": true},
                 {"key": "bot-community-analysis", "text": "Bot Community Analysis",  "component": BotCommunityAnalysis, "visible": true},
                 {"key": "bot-community-language", "text": "Bot Community Language",  "component": BotCommunityLanguage, "visible": true},
+                {"key": "bot-community-sentiment", "text": "Bot Community Sentiment",  "component": BotCommunitySentiment, "visible": true},
             ]
         }
     ]

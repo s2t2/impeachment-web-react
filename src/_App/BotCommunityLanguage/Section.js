@@ -18,7 +18,7 @@ export default function BotCommunityLanguage() {
                     <Card.Title><h2>Bot Community Language Analysis</h2></Card.Title>
                     <Card.Text>
                         <p>
-                            We analyzed the language patterns exhibited by each bot community, to determine which terms and hashtags appeared most frequently in tweets by members of that community. The results are below.
+                            We analyzed the language patterns exhibited by each bot community, to determine which terms and hashtags appeared most frequently in tweets by members of that community. We also analyzed which terms and hashtags appeared most frequently in bot profiles. The results are below.
                         </p>
                         <TopStatusTags/>
 
@@ -28,9 +28,7 @@ export default function BotCommunityLanguage() {
                         </p>
                         */}
 
-                        <p>
-                            We also analyzed which terms and hashtags appeared most frequently in bot profiles. The results are below.
-                        </p>
+
                         <TopProfileTags/>
 
                     </Card.Text>
