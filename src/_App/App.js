@@ -22,6 +22,7 @@ import TweetCollection from "./TweetCollection/Section.js"
 import BotClassification from "./BotClassification/Section.js"
 import BotCommunities from "./BotCommunities/Section.js"
 import BotCommunityAnalysis from "./BotCommunityAnalysis/Section.js"
+import BotCommunityLanguage from './BotCommunityLanguage/Section'
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
@@ -44,10 +45,11 @@ export default function App() {
         },
         {
             "key": "bot-clustering",
-            "text": "III. Bot Clustering",
+            "text": "III. Bot Communities",
             "links": [
-                {"key": "bot-clustering", "text": "Bot Communities",  "component": BotCommunities, "visible": true},
+                {"key": "bot-communities", "text": "Bot Communities",  "component": BotCommunities, "visible": true},
                 {"key": "bot-community-analysis", "text": "Bot Community Analysis",  "component": BotCommunityAnalysis, "visible": true},
+                {"key": "bot-community-language", "text": "Bot Community Language",  "component": BotCommunityLanguage, "visible": true},
             ]
         }
     ]
