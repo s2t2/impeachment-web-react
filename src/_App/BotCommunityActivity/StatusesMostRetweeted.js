@@ -8,6 +8,8 @@ import {orderBy} from 'lodash'
 
 import Spinner from "../Spinner"
 
+import StatusesMostRetweetedTable from "./StatusesMostRetweetedTable"
+
 var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
 const BarLabel = function(props) {
@@ -75,7 +77,10 @@ export default class StatusesMostRetweeted extends React.Component {
                         <Card.Text className="app-center">
                             Statuses Most Retweeted by Left-leaning Bots
                         </Card.Text>
-                        <StatusesBarChart data={community0} barFill="#002868"/>
+
+                        {/* <StatusesBarChart data={community0} barFill="#002868"/> */}
+
+                        <StatusesMostRetweetedTable data={community0}/>
                     </Card.Body>
                 </Card>
 
@@ -84,7 +89,9 @@ export default class StatusesMostRetweeted extends React.Component {
                         <Card.Text className="app-center">
                             Statuses Most Retweeted by Right-leaning Bots
                         </Card.Text>
-                        <StatusesBarChart data={community1} barFill="#bf0a30"/>
+
+                        {/* <StatusesBarChart data={community1} barFill="#bf0a30"/> */}
+                        <StatusesMostRetweetedTable data={community1}/>
                     </Card.Body>
                 </Card>
             </span>
