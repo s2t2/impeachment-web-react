@@ -6,8 +6,8 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import TopProfileTags from "../../_Dashboards/TopProfileTags/Dashboard"
-import TopStatusTags from "../../_Dashboards/TopStatusTags/Dashboard"
+import ProfileHashtags from "./ProfileHashtags" // "../../_Dashboards/TopProfileTags/Dashboard"
+//import BotStatusTags from "./ProfileHashtags" // "../../_Dashboards/TopStatusTags/Dashboard"
 
 export default function BotCommunityLanguage() {
 
@@ -20,7 +20,7 @@ export default function BotCommunityLanguage() {
                         We analyzed the language patterns exhibited by each bot community, to determine which terms and hashtags appeared most frequently in tweets by members of that community. We also analyzed which terms and hashtags appeared most frequently in bot profiles. The results are below.
                     </Card.Text>
 
-                    <TopStatusTags/>
+                    {/*  <TopStatusTags/> */ }
 
                     { /*
                     <p>
@@ -28,10 +28,19 @@ export default function BotCommunityLanguage() {
                     </p>
                     */}
 
-                    <TopProfileTags/>
+                   {/*  <TopProfileTags/> */ }
 
                 </Card.Body>
             </Card>
+
+            <Card>
+                <Card.Body>
+                    <ProfileHashtags/>
+                </Card.Body>
+            </Card>
+
+
+
         </Container>
     )
 }
