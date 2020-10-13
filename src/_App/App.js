@@ -16,6 +16,7 @@ import './App.css'
 
 import Home from "./Home.js"
 import About from "./About.js"
+import AltAbout from "../_Dashboards/About/Page.js"
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
@@ -153,7 +154,8 @@ export default function App() {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
                                 <Nav.Link href="/about">About</Nav.Link>
-                            </Nav>
+                                <Nav.Link href="/alt-about">Alt About</Nav.Link>
+                          </Nav>
                         </Navbar.Collapse>
                     </Navbar>
                 </div>
@@ -167,6 +169,7 @@ export default function App() {
                             <Nav className="ml-auto">
                                 <div className="mobile-dasbhoard-menu">
                                     <NavLink to="/about" activeClassName="active">About</NavLink>
+                                    <NavLink to="/alt-about" activeClassName="active">Alt About</NavLink>
                                 </div>
                             </Nav>
 
@@ -192,10 +195,11 @@ export default function App() {
                             </div>
                         </Col>
 
-                        <Col md={10}>
+                        <Col md={10} style={{paddingTop:70}}>
                             <Switch>
                                 <Route path="/" exact component={Home} />
                                 <Route path="/about" component={About} />
+                                <Route path="/alt-about" component={AltAbout} />
                                 {sidebarRoutes}
                             </Switch>
                         </Col>
