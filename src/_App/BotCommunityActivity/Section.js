@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import StatusesMostRetweeted from   "../../_Dashboards/StatusesMostRetweeted/Dashboard" // "./StatusesMostRetweeted" // "../../_Dashboards/StatusesMostRetweeted/Dashboard"
+import StatusesMostRetweeted from "./StatusesMostRetweeted" // "../../_Dashboards/StatusesMostRetweeted/Dashboard"
 import UsersMostRetweeted from "./UsersMostRetweeted" // "../../_Dashboards/UsersMostRetweeted/Dashboard"
 
 export default function BotCommunityAnalysis() {
@@ -30,6 +30,12 @@ export default function BotCommunityAnalysis() {
             <Card>
                 <Card.Body>
                     <UsersMostRetweeted/>
+                </Card.Body>
+            </Card>
+
+            <Card>
+                <Card.Body>
+                    <StatusesMostRetweeted/>
                 </Card.Body>
             </Card>
         </Container>
