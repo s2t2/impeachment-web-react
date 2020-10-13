@@ -4,6 +4,6 @@ import React from 'react'
 export default function Home() {
 
     return (
-        <h1>WELCOME HOME</h1>
+        <h1 style={{marginTop:70}}>WELCOME HOME</h1>
     )
 }

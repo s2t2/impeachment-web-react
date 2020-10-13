@@ -20,19 +20,25 @@ ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
 export default function App() {
 
-    var sidebarLinks = [
-        {"href":"/tweet-collection",     "key":"tweet-collection",      "text": "I. Tweet Collection",         "visible": true},
-        {"href":"/bot-classification",   "key":"bot-classification",    "text": "II. Bot Classification",      "visible": true},
-        {"href":"/bot-clustering",       "key":"bot-clustering",        "text": "III. Bot Clustering",         "visible": true},
-        {"href":"/bot-impact",           "key":"bot-impact",            "text": "IV. Bot Impact",              "visible": true},
-        {"href":"/opinion-analysis",     "key":"opinion-analysis",      "text": "V. Opinion Analysis",         "visible": true},
-    ]
-    .filter(function(link){
+    var sidebar = [
+        {"key":"tweet-collection",      "text":   "I. Tweet Collection",    "component": Home,    "visible": true},
+        {"key":"bot-classification",    "text":  "II. Bot Classification",  "component": Home,    "visible": true},
+        {"key":"bot-clustering",        "text": "III. Bot Clustering",      "component": Home,    "visible": true},
+        {"key":"bot-impact",            "text":  "IV. Bot Impact",          "component": Home,    "visible": true},
+        {"key":"opinion-analysis",      "text":   "V. Opinion Analysis",    "component": Home,    "visible": true},
+    ].filter(function(link){
         return link["visible"] === true
+    }).map(function(link){
+        link["href"] = `/${link['key']}`
+        return link
     })
-    .map(function(link){
-        //console.log(link)
+
+    var sidebarLinks = sidebar.map(function(link){
         return <NavLink key={link["key"]} to={link["href"]} activeClassName="active">{link["text"]}</NavLink>
+    })
+
+    var sidebarRoutes = sidebar.map(function(route){
+        return <Route key={route["key"]} path={route["href"]} component={route["component"]} />
     })
 
     return (
@@ -93,6 +99,7 @@ export default function App() {
                             <Switch>
                                 <Route path="/" exact component={Home} />
                                 <Route path="/about" component={About} />
+                                {sidebarRoutes}
                             </Switch>
                         </Col>
                     </Row>
