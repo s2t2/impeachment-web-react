@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from "./pages/Home"
+import Home from "./home/Home"
 import About from "./pages/about/About"
 import Mainmenu from "./layouts/Mainmenu"
 import DashboardOne from "./dashboards/DashboardOne"
