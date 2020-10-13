@@ -19,7 +19,7 @@ export default function BotClassification() {
                             Previous research suggests it is possible to identify bots because they exhibit certain behaviors, specifically retweeting humans with high frequency.
                         </p>
                         <p>
-                            So for each day in our collection period, we examined that day's retweets to identify which users retweeted with sufficient frequency to differentiate them from normal users. Our model assigned each user a "daily bot probability score" from <code>0</code> (not bot) to <code>1</code> (bot). An example distribution of daily bot scores is below:
+                            So for each day in our collection period, we examined that day's retweets to identify which users retweeted with sufficient frequency to differentiate them from normal users. Our model assigned each user a "daily bot probability score" from <code>0</code> (not bot) to <code>1</code> (bot). An example distribution of daily bot scores is below.
                         </p>
                         <img src={exampleDailyBotProbabilities} alt="a histogram depicting bot probabilities" class="img-fluid"/>
 

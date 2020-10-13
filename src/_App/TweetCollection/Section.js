@@ -54,7 +54,7 @@ export default function TweetCollection() {
                     <Card.Title><h2>Tweet Collection</h2></Card.Title>
                     <Card.Text>
                         <p>
-                            Over X days, from 12/20/2019 to 03/24/2020, we collected tweets about the Trump Impeachment proceedings. Specifically, we collected any tweet mentioning any these impeachment-related topics:
+                            Over X days, from 12/20/2019 to 03/24/2020, we collected tweets about the Trump Impeachment proceedings. Specifically, we collected any tweet mentioning any of the impeachment-related topics below.
                         </p>
 
                         {/*
