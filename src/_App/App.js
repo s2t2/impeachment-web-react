@@ -18,6 +18,9 @@ import Home from "./Home.js"
 import About from "./About.js"
 import AltAbout from "../_Dashboards/About/Page.js"
 
+import TweetCollection from "./TweetCollection/Section.js"
+
+
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
 export default function App() {
@@ -27,8 +30,7 @@ export default function App() {
             "key": "tweet-collection",
             "text": "I. Tweet Collection",
             "links": [
-                {"key": "dashboard-1", "text": "Dashboard 1",  "component": Home, "visible": true},
-                {"key": "dashboard-2", "text": "Dashboard 2",  "component": Home, "visible": true}
+                {"key": "tweet-collection", "text": "Tweet Collection",  "component": TweetCollection, "visible": true},
             ]
         },
         {
