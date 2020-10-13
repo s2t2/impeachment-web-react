@@ -14,7 +14,7 @@ export default function BotImpact() {
                     <Card.Title><h2>Bot Impact Analysis</h2></Card.Title>
 
                     <Card.Text>
-                        We analyzed the impact the bots had on the conversation...
+                        Coming Soon...
                     </Card.Text>
                 </Card.Body>
             </Card>

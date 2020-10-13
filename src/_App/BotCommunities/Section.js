@@ -13,10 +13,10 @@ export default function BotCommunities() {
         <Container>
             <Card>
                 <Card.Body>
-                    <Card.Title><h2>Bot Community Clustering</h2></Card.Title>
+                    <Card.Title><h2>Bot Communities</h2></Card.Title>
 
                     <Card.Text>
-                        After identifying the bots, we re-examined their retweet behavior to discern who they were retweeting, and how often. Then for each pair of bots, we compared this data to produce a <a href="https://deepai.org/machine-learning-glossary-and-terms/jaccard-index">Jaccard coefficient</a> (similarity score) between each bot pair.
+                        After identifying the bots, we re-examined their retweet behavior to discern who they were retweeting, and how often. Then for each pair of bots, we compared their retweet beneficiaries to produce a <a href="https://deepai.org/machine-learning-glossary-and-terms/jaccard-index">Jaccard coefficient</a> (similarity score) between each bot pair.
                     </Card.Text>
 
                     <Card.Text>
@@ -28,6 +28,10 @@ export default function BotCommunities() {
                     </Card.Text>
 
                     <img src={botCommunityAssignments} alt="a chart depicting the number of bots in each community" class="img-fluid"/>
+
+                    <Card.Text>
+                        After <a href="/bot-language-analysis">analyzing these communities further</a>, we observe Community 0 represents left-leaning bots (pro-Impeachment), while Community 1 represents right-leaning bots (pro-Trump).
+                    </Card.Text>
                 </Card.Body>
             </Card>
         </Container>

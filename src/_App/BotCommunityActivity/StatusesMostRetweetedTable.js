@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-//import Table from 'react-bootstrap/Table'
+import Table from 'react-bootstrap/Table'
 
 export default function StatusesTable(props) {
     var {data} = props
@@ -20,7 +20,7 @@ export default function StatusesTable(props) {
 
     return (
         <div class="table-responsive">
-            <table class="table table-hover">
+            <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
                         <th scope="col">Rank</th>
@@ -31,7 +31,7 @@ export default function StatusesTable(props) {
                 <tbody>
                     {tableRows}
                 </tbody>
-            </table>
+            </Table>
         </div>
     )
 }
