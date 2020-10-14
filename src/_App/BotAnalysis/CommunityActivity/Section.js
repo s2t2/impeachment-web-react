@@ -21,20 +21,8 @@ export default function BotCommunityAnalysis() {
                         By examining the retweet beneficiaries of each bot community, we observe Community 0 represents left-leaning bots (pro-Impeachment), while Community 1 represents right-leaning bots (pro-Trump). We also observe that left-leaning bots retweet a greater variety of users, while right-leaning bots retweet Trump most by-far.
                     </Card.Text>
 
-                    {/*  <UsersMostRetweeted/> */}
-
-                    {/* <StatusesMostRetweeted metric="retweeter_count"/> */}
-                </Card.Body>
-            </Card>
-
-            <Card>
-                <Card.Body>
                     <UsersMostRetweeted/>
-                </Card.Body>
-            </Card>
 
-            <Card>
-                <Card.Body>
                     <StatusesMostRetweeted/>
                 </Card.Body>
             </Card>

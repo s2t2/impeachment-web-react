@@ -33,10 +33,6 @@ const UsersBarChart = function(props){
     )
 }
 
-
-
-
-
 export default class UsersMostRetweeted extends React.Component {
     constructor(props) {
         super(props)
@@ -45,10 +41,8 @@ export default class UsersMostRetweeted extends React.Component {
     }
 
     render() {
-        var spinIntoCharts
-        if (!this.state.parsedResponse) {
-            spinIntoCharts = <Spinner/>
-        } else {
+        var spinIntoCharts = <Spinner/>
+        if (this.state.parsedResponse) {
             var users = this.state.parsedResponse
             var metric = this.state.metric
 
