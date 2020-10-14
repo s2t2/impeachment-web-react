@@ -16,9 +16,9 @@ import './App.css'
 
 import Home from "./Home.js"
 import About from "./About.js"
-import TweetCollectionPage from "./Pages/TweetCollection"
-import BotAnalysisPage from "./Pages/BotAnalysis"
-import OpinionAnalysisPage from "./Pages/OpinionAnalysis"
+import TweetCollectionPage from "./TweetCollection/Page"
+import BotAnalysisPage from "./BotAnalysis/Page"
+import OpinionAnalysisPage from "./OpinionAnalysis/Page"
 
 //import TweetCollectionTopics from "./TweetCollection/Topics"
 //import TweetCollectionResults from "./TweetCollection/Results"

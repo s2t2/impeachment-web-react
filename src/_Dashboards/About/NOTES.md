@@ -23,6 +23,20 @@ from impeachment_production.tweets
 
 ```
 
+```sql
+SELECT
+  extract(date from created_at) as collection_date
+
+  ,count(distinct status_id) as status_count
+  ,count(distinct user_id) as user_count
+
+  ,count(distinct CASE WHEN retweet_status_id is not null then status_id end) as rt_count
+  ,count(distinct CASE WHEN retweet_status_id is not null then user_id end) as rt_user_count
+FROM impeachment_production.tweets
+GROUP BY 1
+ORDER BY 1
+```
+
 ### Bot Classification
 
 ```sql

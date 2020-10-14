@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Table from 'react-bootstrap/Table'
 
-export default function BotAnalysisPage() {
+export default function OpinionAnalysisPage() {
 
     return (
         <Container>
