@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
 import Container from 'react-bootstrap/Container'
 
-import Spinner from '../Spinner.js'
-import cachedData from './data.js'
+import Spinner from '../../Spinner.js'
 import BarChart from './VBarChart.js'
 //import List from './List.js'
+import cachedData from './data.js'
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 const CACHE_MODE = process.env.REACT_APP_CACHE_MODE || true // TODO: convert env var to bool
@@ -12,7 +12,7 @@ const CACHE_MODE = process.env.REACT_APP_CACHE_MODE || true // TODO: convert env
 export default class Dashboard extends PureComponent {
     constructor(props) {
         super(props)
-        this.state = {limit: 500, parsedResponse: null} // TODO: get screen name from input box or URL params (maybe use window.location.href and split it, or find some kind of react router property)
+        this.state = {limit: 500, parsedResponse: null}
         this.fetchData = this.fetchData.bind(this)
     }
 

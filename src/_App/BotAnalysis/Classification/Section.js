@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import exampleDailyBotProbabilities from "../../_Dashboards/About/bot_probabilities_histogram_20200201.png"
+import exampleDailyBotProbabilities from "../../../_Dashboards/About/bot_probabilities_histogram_20200201.png" // TODO
 
 export default function BotClassification() {
     return (

@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container'
 //import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 
-import TopUserOpinionsDashboard from './TopUserOpinion/Dashboard' // "./About.js" // "./Home.js"
+import HomePage from './OpinionAnalysis/TopUsers/Dashboard' // "./About.js" // "./Home.js"
 
 export default function Home() {
 
@@ -13,7 +13,7 @@ export default function Home() {
         <Container>
             <Card>
                 <Card.Body>
-                    <TopUserOpinionsDashboard/>
+                    <HomePage/>
                 </Card.Body>
             </Card>
         </Container>

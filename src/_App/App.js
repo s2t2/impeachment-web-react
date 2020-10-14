@@ -14,62 +14,59 @@ import Col from 'react-bootstrap/Col'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
-import Home from "./Home.js"
-import About from "./About.js"
-import TweetCollectionPage from "./TweetCollection/Page"
-import BotAnalysisPage from "./BotAnalysis/Page"
-import OpinionAnalysisPage from "./OpinionAnalysis/Page"
+import Home from './Home.js'
+import About from './About.js'
 
-//import TweetCollectionTopics from "./TweetCollection/Topics"
-//import TweetCollectionResults from "./TweetCollection/Results"
-import TweetCollection from "./TweetCollection/Section"
+import TweetCollectionPage from './TweetCollection/Page'
 
-import BotClassification from "./BotClassification/Section.js"
-import BotCommunityClustering from "./BotCommunities/Section.js"
-import BotCommunityActivity from "./BotCommunityActivity/Section.js"
-import BotCommunityLanguage from './BotCommunityLanguage/Section'
-import BotImpact from './BotImpact/Section'
+import BotAnalysisPage from './BotAnalysis/Page'
+import BotClassification from './BotAnalysis/Classification/Section'
+import BotCommunityClustering from "./BotAnalysis/CommunityClustering/Section"
+import BotCommunityActivity from './BotAnalysis/CommunityActivity/Section'
+import BotCommunityLanguage from './BotAnalysis/CommunityLanguage/Section'
+import BotImpact from './BotAnalysis/Impact/Section'
 
-import OpinionAnalysis from './SentimentAnalysis/Section'
-import UserOpinions from './UserOpinion/Section'
-import TopUserOpinions from './TopUserOpinion/Section'
+import OpinionAnalysisPage from './OpinionAnalysis/Page'
+import OpinionModels from './OpinionAnalysis/Models/Section'
+import UserOpinions from './OpinionAnalysis/User/Section'
+import TopUserOpinions from './OpinionAnalysis/TopUsers/Section'
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
-export default function App() {
+var sidebar = [
+    {
+        "key": "tweet-collection",
+        "text": "I. Tweet Collection",
+        "component": TweetCollectionPage,
+        "links": [
+            {"key": "tweet-collection", "text": "Tweet Collection",  "component": TweetCollectionPage},
+        ]
+    },
+    {
+        "key": "bot-analysis",
+        "text": "II. Bot Analysis",
+        "component": BotAnalysisPage,
+        "links": [
+            {"key": "bot-classification", "text": "Bot Classification",  "component": BotClassification},
+            {"key": "bot-community-clustering", "text": "Bot Community Clustering",  "component": BotCommunityClustering},
+            {"key": "bot-community-activity", "text": "Bot Community Activity",  "component": BotCommunityActivity},
+            {"key": "bot-community-language", "text": "Bot Community Language",  "component": BotCommunityLanguage},
+            {"key": "bot-impact", "text": "Bot Impact",  "component": BotImpact},
+        ]
+    },
+    {
+        "key": "opinion-analysis",
+        "text": "III. Opinion Analysis",
+        "component": OpinionAnalysisPage,
+        "links": [
+            {"key": "opinion-models", "text": "Opinion Models",  "component": OpinionModels},
+            {"key": "user-opinions", "text": "User Opinions",  "component": UserOpinions},
+            {"key": "top-user-opinions", "text": "Top User Opinions",  "component": TopUserOpinions},
+        ]
+    }
+]
 
-    var sidebar = [
-        {
-            "key": "tweet-collection",
-            "text": "I. Tweet Collection",
-            "component": TweetCollectionPage,
-            "links": [
-                {"key": "tweet-collection", "text": "Tweet Collection",  "component": TweetCollection},
-            ]
-        },
-        {
-            "key": "bot-analysis",
-            "text": "II. Bot Analysis",
-            "component": BotAnalysisPage,
-            "links": [
-                {"key": "bot-classification", "text": "Bot Classification",  "component": BotClassification},
-                {"key": "bot-community-clustering", "text": "Bot Community Clustering",  "component": BotCommunityClustering},
-                {"key": "bot-community-activity", "text": "Bot Community Activity",  "component": BotCommunityActivity},
-                {"key": "bot-community-language", "text": "Bot Community Language",  "component": BotCommunityLanguage},
-                {"key": "bot-impact", "text": "Bot Impact",  "component": BotImpact},
-            ]
-        },
-        {
-            "key": "opinion-analysis",
-            "text": "III. Opinion Analysis",
-            "component": OpinionAnalysisPage,
-            "links": [
-                {"key": "opinion-model-training", "text": "Model Training",  "component": OpinionAnalysis},
-                {"key": "user-opinions", "text": "User Opinions",  "component": UserOpinions},
-                {"key": "top-user-opinions", "text": "Top User Opinions",  "component": TopUserOpinions},
-            ]
-        },
-    ]
+export default function App() {
 
     // ROUTES
 

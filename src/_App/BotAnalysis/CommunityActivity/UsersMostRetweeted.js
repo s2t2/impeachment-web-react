@@ -6,37 +6,41 @@ import Card from 'react-bootstrap/Card'
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts'
 import {orderBy} from 'lodash'
 
-import Spinner from "../Spinner"
+import Spinner from "../../Spinner"
 
 var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
-const HashtagsBarChart = function(props){
+const UsersBarChart = function(props){
     const {data, barFill} = props
     console.log("DATA", data, "FILL", barFill)
 
-    var chartContainerStyle = { width: "100%", height: 650}
-    var chartMargins = {top: 5, right: 30, left: 150, bottom: 5}
+    var chartContainerStyle = { width: "100%", height: 500}
+    var chartMargins = {top: 5, right: 30, left: 100, bottom: 5}
 
     return (
         <div style={chartContainerStyle}>
             <ResponsiveContainer>
                 <BarChart data={data} layout="vertical" margin={chartMargins}>
-                    <XAxis type="number" dataKey="pct" />
-                    <YAxis type="category" dataKey="token" tick={{ fontSize: 14 }} />
+                    <XAxis type="number" dataKey="retweet_count"/>
+                    <YAxis type="category" dataKey="retweeted_user_screen_name"/>
                     <CartesianGrid strokeDasharray="1 1"/>
                     <Tooltip/>
                     <Legend/>
-                    <Bar dataKey="pct" fill={barFill}/>
+                    <Bar dataKey="retweet_count" fill={barFill}/>
                 </BarChart>
             </ResponsiveContainer>
         </div>
     )
 }
 
-export default class StatusHashtags extends React.Component {
+
+
+
+
+export default class UsersMostRetweeted extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {parsedResponse: null}
+        this.state = {metric: "retweet_count", parsedResponse: null}
         this.fetchData = this.fetchData.bind(this)
     }
 
@@ -45,22 +49,23 @@ export default class StatusHashtags extends React.Component {
         if (!this.state.parsedResponse) {
             spinIntoCharts = <Spinner/>
         } else {
-            var tags = this.state.parsedResponse;
+            var users = this.state.parsedResponse
+            var metric = this.state.metric
 
-            var community0 = orderBy(tags.filter(function (t) {return t["community_id"] === 0}), "pct", "desc")
-            var community1 = orderBy(tags.filter(function (t) {return t["community_id"] === 1}), "pct", "desc")
+            var community0 = orderBy(users.filter(function (u) {return u["community_id"] === 0}), metric, "desc")
+            var community1 = orderBy(users.filter(function (u) {return u["community_id"] === 1}), metric, "desc")
 
-            spinIntoCharts = <Container fluid>
-                <h4 className='app-center'>Top Hashtags in Bot Tweets</h4>
+            spinIntoCharts = <span>
+                <h4 className="app-center">Users Most Retweeted by Bot Community</h4>
+
                 <Row>
                     <Col sm={12} md={12} lg={6}>
                         <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
-                                    Top Hashtags in Left-leaning Bot Tweets
+                                    Users Most Retweeted by Left-leaning Bots
                                 </Card.Text>
-
-                                 <HashtagsBarChart data={community0} barFill="#002868" />
+                                <UsersBarChart data={community0} barFill="#002868"/>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -69,22 +74,21 @@ export default class StatusHashtags extends React.Component {
                         <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
-                                    Top Hashtags in Right-leaning Bot Tweets
+                                    Users Most Retweeted by Right-leaning Bots
                                 </Card.Text>
-
-                                <HashtagsBarChart data={community1} barFill="#bf0a30" />
+                                <UsersBarChart data={community1} barFill="#bf0a30"/>
                             </Card.Body>
                         </Card>
                     </Col>
                 </Row>
-            </Container>
+            </span>
         }
 
         return (
             <Container fluid>
                 {spinIntoCharts}
             </Container>
-        );
+        )
     }
 
     componentDidMount() {
@@ -92,8 +96,12 @@ export default class StatusHashtags extends React.Component {
         this.fetchData()
     }
 
+    componentDidUpdate(prevProps) {
+        console.log("DASHBOARD DID UPDATE")
+    }
+
     fetchData() {
-        var requestUrl = `${API_URL}/api/v0/top_status_tags?limit=20`
+        var requestUrl = `${API_URL}/api/v0/users_most_retweeted?limit=10&metric=${this.state.metric}`
         console.log("REQUEST URL:", requestUrl)
         fetch(requestUrl).then(function (response) {
             // console.log("RAW RESPONSE", "STATUS", response.status, response.statusText,

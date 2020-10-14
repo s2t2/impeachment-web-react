@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card'
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts'
 import {orderBy} from 'lodash'
 
-import Spinner from "../Spinner"
+import Spinner from "../../Spinner"
 
 var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 

@@ -7,8 +7,8 @@ import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
+import Spinner from '../../Spinner'
 import UserStatusesTable from './UserStatusesTable.js'
-import Spinner from '../Spinner'
 import { ReactComponent as UpArrow } from './arrow-upright.svg'
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"

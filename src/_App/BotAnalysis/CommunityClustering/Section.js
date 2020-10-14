@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import botCommunityAssignments from "../../_Dashboards/About/community-assignments.png"
+import botCommunityAssignments from "../../../_Dashboards/About/community-assignments.png" // TODO
 
 export default function BotCommunities() {
     return (
