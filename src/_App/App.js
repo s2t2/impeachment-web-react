@@ -16,27 +16,23 @@ import './App.css'
 
 import Home from "./Home.js"
 import About from "./About.js"
-//import AltAbout from "../_Dashboards/About/Page.js"
-
-
 import TweetCollectionPage from "./Pages/TweetCollection"
 import BotAnalysisPage from "./Pages/BotAnalysis"
 import OpinionAnalysisPage from "./Pages/OpinionAnalysis"
 
-
-
-
-import TweetCollection from "./TweetCollection/Section.js"
+//import TweetCollectionTopics from "./TweetCollection/Topics"
+//import TweetCollectionResults from "./TweetCollection/Results"
+import TweetCollection from "./TweetCollection/Section"
 
 import BotClassification from "./BotClassification/Section.js"
-import BotCommunities from "./BotCommunities/Section.js"
+import BotCommunityClustering from "./BotCommunities/Section.js"
 import BotCommunityActivity from "./BotCommunityActivity/Section.js"
 import BotCommunityLanguage from './BotCommunityLanguage/Section'
 import BotImpact from './BotImpact/Section'
 
 import OpinionAnalysis from './SentimentAnalysis/Section'
-import UserOpinion from './UserOpinion/Section'
-import TopUserOpinion from './TopUserOpinion/Section'
+import UserOpinions from './UserOpinion/Section'
+import TopUserOpinions from './TopUserOpinion/Section'
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
@@ -48,7 +44,7 @@ export default function App() {
             "text": "I. Tweet Collection",
             "component": TweetCollectionPage,
             "links": [
-                {"key": "tweet-collection", "text": "Tweet Collection",  "component": TweetCollection, "visible": true},
+                {"key": "tweet-collection", "text": "Tweet Collection",  "component": TweetCollection},
             ]
         },
         {
@@ -56,11 +52,11 @@ export default function App() {
             "text": "II. Bot Analysis",
             "component": BotAnalysisPage,
             "links": [
-                {"key": "bot-classification", "text": "Bot Classification",  "component": BotClassification, "visible": true},
-                {"key": "bot-community-clustering", "text": "Bot Communities",  "component": BotCommunities, "visible": true},
-                {"key": "bot-community-analysis", "text": "Bot Community Activity",  "component": BotCommunityActivity, "visible": true},
-                {"key": "bot-community-language", "text": "Bot Community Language",  "component": BotCommunityLanguage, "visible": true},
-                {"key": "bot-impact", "text": "Bot Impact",  "component": BotImpact, "visible": true},
+                {"key": "bot-classification", "text": "Bot Classification",  "component": BotClassification},
+                {"key": "bot-community-clustering", "text": "Bot Community Clustering",  "component": BotCommunityClustering},
+                {"key": "bot-community-activity", "text": "Bot Community Activity",  "component": BotCommunityActivity},
+                {"key": "bot-community-language", "text": "Bot Community Language",  "component": BotCommunityLanguage},
+                {"key": "bot-impact", "text": "Bot Impact",  "component": BotImpact},
             ]
         },
         {
@@ -68,12 +64,29 @@ export default function App() {
             "text": "III. Opinion Analysis",
             "component": OpinionAnalysisPage,
             "links": [
-                {"key": "model-training", "text": "Model Training",  "component": OpinionAnalysis, "visible": true},
-                {"key": "user-opinions", "text": "User Opinions",  "component": UserOpinion, "visible": true},
-                {"key": "top-user-opinions", "text": "Top User Opinions",  "component": TopUserOpinion, "visible": true},
+                {"key": "opinion-model-training", "text": "Model Training",  "component": OpinionAnalysis},
+                {"key": "user-opinions", "text": "User Opinions",  "component": UserOpinions},
+                {"key": "top-user-opinions", "text": "Top User Opinions",  "component": TopUserOpinions},
             ]
         },
     ]
+
+    // ROUTES
+
+    var sidebarRoutes = []
+    sidebar.forEach(function(section){
+        sidebarRoutes.push(
+            <Route key={section["key"]} path={section["href"]} component={section["component"]} />
+        )
+
+        section["links"].forEach(function(link){
+            sidebarRoutes.push(
+                <Route key={link["key"]} path={link["href"]} component={link["component"]} />
+            )
+        })
+    })
+
+    // LINKS
 
     var sidebarLinks = []
     var sidebarSectionLinks = []
@@ -100,28 +113,18 @@ export default function App() {
         )
     })
 
-    var sidebarRoutes = []
-    sidebar.forEach(function(section){
-        sidebarRoutes.push(<Route key={section["key"]} path={section["href"]} component={section["component"]} />)
-
-        section["links"].forEach(function(link){
-            sidebarRoutes.push(<Route key={link["key"]} path={link["href"]} component={link["component"]} />)
-        })
-    })
-
     return (
         <Router>
             <div className="App">
 
                 <div className="d-none d-lg-block d-md-block d-xl-block">
                     <Navbar fixed="top" bg="light">
-                        <Navbar.Brand href="/">Impeachment Tweet Analysis</Navbar.Brand>
+                        <Navbar.Brand href="/" style={{fontSize:22}}>Impeachment Tweet Analysis</Navbar.Brand>
 
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
                                 <Nav.Link href="/about">About</Nav.Link>
-                                {/* <Nav.Link href="/alt-about">Alt About</Nav.Link> */}
                           </Nav>
                         </Navbar.Collapse>
                     </Navbar>
@@ -136,7 +139,6 @@ export default function App() {
                             <Nav className="ml-auto">
                                 <div className="mobile-dasbhoard-menu">
                                     <NavLink to="/about" activeClassName="active">About</NavLink>
-                                    {/* <NavLink to="/alt-about" activeClassName="active">Alt About</NavLink> */}
                                 </div>
                             </Nav>
 
@@ -154,8 +156,7 @@ export default function App() {
                                 <div className="sidebar d-none d-md-block d-sm-none">
                                     <Nav sticky="top" defaultActiveKey="/" className="flex-column">
                                         <div className="sidebarWrapper">
-                                            {/* {sidebarSections} {sidebarLinks} */}
-                                            {sidebarSectionLinks}
+                                            {sidebarSectionLinks} {/* {sidebarSections} {sidebarLinks} {sidebarSectionLinks} */}
                                         </div>
                                     </Nav>
                                 </div>
@@ -166,7 +167,6 @@ export default function App() {
                             <Switch>
                                 <Route path="/" exact component={Home} />
                                 <Route path="/about" component={About} />
-                                {/* <Route path="/alt-about" component={AltAbout} /> */}
                                 {sidebarRoutes}
                             </Switch>
                         </Col>

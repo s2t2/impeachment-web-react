@@ -13,9 +13,20 @@ export default function About() {
                 <Card.Body>
                     <Card.Title><h2>About</h2></Card.Title>
                     <Card.Text>
-                       <p>
                         This project builds upon the research of Tauhid Zaman, Nicolas Guenon Des Mesnards, et. al., as described by the paper: <a href="https://arxiv.org/abs/1810.12398">"Detecting Bots and Assessing Their Impact in Social Networks"</a> (2018). For this project, we analyzed tweets about the Trump Impeachment proceedings, with the aim of identifying automated Twitter accounts known as "bots", analyzing their behaviors, and assessing their impact on the conversation.
-                        </p>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+
+            <Card>
+                <Card.Body>
+                    <Card.Title><h3>Methodology</h3></Card.Title>
+                    <Card.Text>
+                        <ul>
+                            <li><a href="/tweet-collection">I. Tweet Collection</a></li>
+                            <li><a href="/bot-analysis">II. Bot Analysis</a></li>
+                            <li><a href="/opinion-analysis">III. Opinion Analysis</a></li>
+                        </ul>
                     </Card.Text>
                 </Card.Body>
             </Card>
@@ -33,7 +44,6 @@ export default function About() {
                 </Card.Body>
             </Card>
 
-
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Source Code</h3></Card.Title>
@@ -47,6 +57,7 @@ export default function About() {
                     </Card.Text>
                 </Card.Body>
             </Card>
+
         </Container>
     )
 }
