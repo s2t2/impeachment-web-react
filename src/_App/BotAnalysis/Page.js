@@ -6,8 +6,9 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-export default function BotAnalysisPage() {
+// TODO: pass the sidebar object from the app.js to assemble the nav links
 
+export default function BotAnalysisPage() {
     return (
         <Container>
             <Card>
@@ -17,9 +18,9 @@ export default function BotAnalysisPage() {
                     <Card.Text>
                         <ul>
                             <li><a href="/bot-classification">Bot Classification</a></li>
-                            <li><a href="/bot-communities">Bot Community Clustering</a></li>
-                            <li><a href="/bot-community-activity-analysis">Bot Community Activity Analysis</a></li>
-                            <li><a href="/bot-community-language-analysis">Bot Community Language Analysis</a></li>
+                            <li><a href="/bot-community-clustering">Bot Community Clustering</a></li>
+                            <li><a href="/bot-community-activity">Bot Community Activity Analysis</a></li>
+                            <li><a href="/bot-community-language">Bot Community Language Analysis</a></li>
                             <li><a href="/bot-impact">Bot Impact Analysis</a></li>
                         </ul>
                     </Card.Text>
