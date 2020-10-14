@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-//import App from './App.js'
+//import App from './_SidebarApp/App.js'
 //import App from './_NavigableApp/App.js'
 //import App from './_Dashboards/UsersMostFollowed/Dashboard.js'
 import App from './_App/App.js'
