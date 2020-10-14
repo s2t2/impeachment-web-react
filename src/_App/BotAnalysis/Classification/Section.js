@@ -8,12 +8,12 @@ import Card from 'react-bootstrap/Card'
 
 import exampleDailyBotProbabilities from "../../../_Dashboards/About/bot_probabilities_histogram_20200201.png" // TODO
 
-export default function BotClassification() {
+export default function BotClassificationSection() {
     return (
         <Container>
             <Card>
                 <Card.Body>
-                    <Card.Title><h2>Bot Classification</h2></Card.Title>
+                    <Card.Title><h3>Bot Classification</h3></Card.Title>
 
                     <h4>Bot Behaviors</h4>
                     <Card.Text>

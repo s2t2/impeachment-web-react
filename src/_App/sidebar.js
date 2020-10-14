@@ -3,12 +3,12 @@
 
 import TweetCollectionPage from './TweetCollection/Page'
 
-import BotAnalysisPage from './BotAnalysis/Page'
-import BotClassification from './BotAnalysis/Classification/Section'
-import BotCommunityClustering from "./BotAnalysis/CommunityClustering/Section"
-import BotCommunityActivity from './BotAnalysis/CommunityActivity/Section'
-import BotCommunityLanguage from './BotAnalysis/CommunityLanguage/Section'
-import BotImpact from './BotAnalysis/Impact/Section'
+import BotAnalysisPage from './BotAnalysis/SectionIndex'
+import BotClassification from './BotAnalysis/Classification/Page'
+import BotClustering from "./BotAnalysis/Clustering/Page"
+import BotCommunityActivity from './BotAnalysis/CommunityActivity/Page'
+import BotCommunityLanguage from './BotAnalysis/CommunityLanguage/Page'
+import BotImpact from './BotAnalysis/Impact/Page'
 
 import OpinionAnalysisPage from './OpinionAnalysis/Page'
 import OpinionModels from './OpinionAnalysis/Models/Section'
@@ -30,7 +30,7 @@ var sidebar = [
         "component": BotAnalysisPage,
         "sections": [
             {"key": "bot-classification", "title": "Bot Classification",  "component": BotClassification},
-            {"key": "bot-community-clustering", "title": "Bot Community Clustering",  "component": BotCommunityClustering},
+            {"key": "bot-community-clustering", "title": "Bot Community Clustering",  "component": BotClustering},
             {"key": "bot-community-activity", "title": "Bot Community Activity",  "component": BotCommunityActivity},
             {"key": "bot-community-language", "title": "Bot Community Language",  "component": BotCommunityLanguage},
             {"key": "bot-impact", "title": "Bot Impact",  "component": BotImpact},

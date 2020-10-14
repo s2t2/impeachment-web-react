@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import sidebar from './../sidebar'
+import sidebar from '../sidebar'
 
 const PAGE_KEY = "bot-analysis"
 

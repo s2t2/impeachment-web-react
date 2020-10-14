@@ -15,7 +15,7 @@ export default function BotCommunityLanguage() {
         <Container>
             <Card>
                 <Card.Body>
-                    <Card.Title><h2>Bot Community Language</h2></Card.Title>
+                    <Card.Title><h3>Bot Community Language</h3></Card.Title>
                     <Card.Text>
                         We analyzed the language patterns exhibited by each bot community, to determine which terms and hashtags appeared most frequently in tweets by members of that community. We also analyzed which terms and hashtags appeared most frequently in bot profiles. The results are below.
                     </Card.Text>
