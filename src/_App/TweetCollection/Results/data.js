@@ -1,45 +1,4 @@
 
-const topics = [
-    {"topic": "#FactsMatter", "date": "2019-12-12"},
-    {"topic": "#IGHearing", "date": "2019-12-12"},
-    {"topic": "#IGReport", "date": "2019-12-12"},
-    {"topic": "#ImpeachAndConvict", "date": "2019-12-12"},
-    {"topic": "#ImpeachAndConvictTrump", "date": "2019-12-12"},
-    {"topic": "#SenateHearing", "date": "2019-12-12"},
-    {"topic": "#TrumpImpeachment", "date": "2019-12-12"},
-    {"topic": "impeach", "date": "2019-12-12"},
-    {"topic": "impeached", "date": "2019-12-12"},
-    {"topic": "impeachment", "date": "2019-12-12"},
-    {"topic": "Trump to Pelosi", "date": "2019-12-12"},
-    {"topic": "#25thAmendmentNow", "date": "2019-12-18"},
-    {"topic": "#ImpeachAndRemove", "date": "2019-12-18"},
-    {"topic": "#ImpeachmentEve", "date": "2019-12-18"},
-    {"topic": "#ImpeachmentRally", "date": "2019-12-18"},
-    {"topic": "#NotAboveTheLaw", "date": "2019-12-18"},
-    {"topic": "#trumpletter", "date": "2019-12-18"},
-    {"topic": "#GOPCoverup", "date": "2020-01-22"},
-    {"topic": "#ShamTrial", "date": "2020-01-22"},
-    {"topic": "#AquittedForever", "date": "2020-02-06"},
-    {"topic": "#CountryOverParty", "date": "2020-02-06"},
-    {"topic": "#CoverUpGOP", "date": "2020-02-06"},
-    {"topic": "#MitchMcCoverup", "date": "2020-02-06"},
-    {"topic": "#MoscowMitch", "date": "2020-02-06"}
-]
-
-const timeline = [
-    {"date": "2019-10-28", "title": "House Approves Resolution"},
-    {"date": "2019-11-13", "title": "House Intelligence Committee Hearings"},
-    {"date": "2019-12-04", "title": "House Judiciary Committee Hearings"},
-    {"date": "2019-12-12", "title": "House Judiciary Committee Debates and Approves Articles"},
-    {"date": "2020-01-15", "title": "House Sends Articles to Senate"},
-    {"date": "2020-01-15", "title": "Senate Announces Rules"},
-    {"date": "2020-01-15", "title": "Senate Approves Rules"},
-    {"date": "2020-01-23", "title": "Opening Arguments"},
-    {"date": "2020-01-31", "title": "Senate Blocks Witnesses"},
-    {"date": "2020-02-03", "title": "Closing Remarks"},
-    {"date": "2020-02-05", "title": "Senate Acquits"}
-]
-
 const results = [
     //{'date': '2019-12-02', 'status_count': 2, 'user_count': 2, 'retweet_count': 1, 'retweeter_count': 1},
     {'date': '2019-12-12', 'status_count': 1060213, 'user_count': 287917, 'retweet_count': 865312, 'retweeter_count': 217047},
@@ -148,4 +107,4 @@ const results = [
     {'date': '2020-03-24', 'status_count': 226520, 'user_count': 121449, 'retweet_count': 184280, 'retweeter_count': 99633},
 
 ]
-export {topics, timeline, results}
+export default results

@@ -2,6 +2,9 @@
 //import React from 'react'
 
 import TweetCollection from './TweetCollection/Page'
+import CollectionTimeline from './TweetCollection/Timeline/Page'
+import CollectionTopics from './TweetCollection/Topics/Page'
+import CollectionResults from './TweetCollection/Results/Page'
 
 import BotAnalysis from './BotAnalysis/SectionIndex'
 import BotClassification from './BotAnalysis/Classification/Page'
@@ -21,7 +24,9 @@ var sidebar = [
         "title": "I. Tweet Collection",
         "component": TweetCollection,
         "sections": [
-            {"key": "tweet-collection", "title": "Tweet Collection",  "component": TweetCollection},
+            {"key": "collection-timeline", "title": "Collection Timeline",  "component": CollectionTimeline},
+            {"key": "collection-topics", "title": "Collection Topics",  "component": CollectionTopics},
+            {"key": "collection-results", "title": "Collection Results",  "component": CollectionResults},
         ]
     },
     {
