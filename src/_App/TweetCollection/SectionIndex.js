@@ -8,7 +8,7 @@ import Card from 'react-bootstrap/Card'
 
 import sidebar from '../sidebar'
 
-const PAGE_KEY = "bot-analysis"
+const PAGE_KEY = "tweet-collection"
 
 export default function SectionIndex() {
 
@@ -29,7 +29,6 @@ export default function SectionIndex() {
                             {listItems}
                         </ul>
                     </Card.Text>
-
                 </Card.Body>
             </Card>
         </Container>

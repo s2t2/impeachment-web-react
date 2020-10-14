@@ -1,33 +1,33 @@
 
 //import React from 'react'
 
-import TweetCollectionPage from './TweetCollection/Page'
+import TweetCollection from './TweetCollection/Page'
 
-import BotAnalysisPage from './BotAnalysis/SectionIndex'
+import BotAnalysis from './BotAnalysis/SectionIndex'
 import BotClassification from './BotAnalysis/Classification/Page'
 import BotClustering from "./BotAnalysis/Clustering/Page"
 import BotCommunityActivity from './BotAnalysis/CommunityActivity/Page'
 import BotCommunityLanguage from './BotAnalysis/CommunityLanguage/Page'
 import BotImpact from './BotAnalysis/Impact/Page'
 
-import OpinionAnalysisPage from './OpinionAnalysis/Page'
-import OpinionModels from './OpinionAnalysis/Models/Section'
-import UserOpinions from './OpinionAnalysis/User/Section'
-import TopUserOpinions from './OpinionAnalysis/TopUsers/Section'
+import OpinionAnalysis from './OpinionAnalysis/SectionIndex'
+import OpinionModels from './OpinionAnalysis/Models/Page'
+import UserOpinions from './OpinionAnalysis/User/Page'
+import TopUserOpinions from './OpinionAnalysis/TopUsers/Page'
 
 var sidebar = [
     {
         "key": "tweet-collection",
         "title": "I. Tweet Collection",
-        "component": TweetCollectionPage,
+        "component": TweetCollection,
         "sections": [
-            {"key": "tweet-collection", "title": "Tweet Collection",  "component": TweetCollectionPage},
+            {"key": "tweet-collection", "title": "Tweet Collection",  "component": TweetCollection},
         ]
     },
     {
         "key": "bot-analysis",
         "title": "II. Bot Analysis",
-        "component": BotAnalysisPage,
+        "component": BotAnalysis,
         "sections": [
             {"key": "bot-classification", "title": "Bot Classification",  "component": BotClassification},
             {"key": "bot-community-clustering", "title": "Bot Community Clustering",  "component": BotClustering},
@@ -39,7 +39,7 @@ var sidebar = [
     {
         "key": "opinion-analysis",
         "title": "III. Opinion Analysis",
-        "component": OpinionAnalysisPage,
+        "component": OpinionAnalysis,
         "sections": [
             {"key": "opinion-models", "title": "Opinion Models",  "component": OpinionModels},
             {"key": "user-opinions", "title": "User Opinions",  "component": UserOpinions},
