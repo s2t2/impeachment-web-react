@@ -8,7 +8,7 @@ import CollectionResults from './TweetCollection/Results/Page'
 
 import BotAnalysis from './BotAnalysis/SectionIndex'
 import BotClassification from './BotAnalysis/Classification/Page'
-import BotClustering from "./BotAnalysis/Clustering/Page"
+import BotCommunities from "./BotAnalysis/Communities/Page"
 import BotCommunityActivity from './BotAnalysis/CommunityActivity/Page'
 import BotCommunityLanguage from './BotAnalysis/CommunityLanguage/Page'
 import BotImpact from './BotAnalysis/Impact/Page'
@@ -35,7 +35,7 @@ var sidebar = [
         "component": BotAnalysis,
         "sections": [
             {"key": "bot-classification", "title": "Bot Classification",  "component": BotClassification},
-            {"key": "bot-community-clustering", "title": "Bot Community Clustering",  "component": BotClustering},
+            {"key": "bot-communities", "title": "Bot Communities",  "component": BotCommunities},
             {"key": "bot-community-activity", "title": "Bot Community Activity",  "component": BotCommunityActivity},
             {"key": "bot-community-language", "title": "Bot Community Language",  "component": BotCommunityLanguage},
             {"key": "bot-impact", "title": "Bot Impact",  "component": BotImpact},
