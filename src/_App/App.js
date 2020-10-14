@@ -38,7 +38,7 @@ var sidebar = [
         "key": "tweet-collection",
         "text": "I. Tweet Collection",
         "component": TweetCollectionPage,
-        "links": [
+        "sections": [
             {"key": "tweet-collection", "text": "Tweet Collection",  "component": TweetCollectionPage},
         ]
     },
@@ -46,7 +46,7 @@ var sidebar = [
         "key": "bot-analysis",
         "text": "II. Bot Analysis",
         "component": BotAnalysisPage,
-        "links": [
+        "sections": [
             {"key": "bot-classification", "text": "Bot Classification",  "component": BotClassification},
             {"key": "bot-community-clustering", "text": "Bot Community Clustering",  "component": BotCommunityClustering},
             {"key": "bot-community-activity", "text": "Bot Community Activity",  "component": BotCommunityActivity},
@@ -58,7 +58,7 @@ var sidebar = [
         "key": "opinion-analysis",
         "text": "III. Opinion Analysis",
         "component": OpinionAnalysisPage,
-        "links": [
+        "sections": [
             {"key": "opinion-models", "text": "Opinion Models",  "component": OpinionModels},
             {"key": "user-opinions", "text": "User Opinions",  "component": UserOpinions},
             {"key": "top-user-opinions", "text": "Top User Opinions",  "component": TopUserOpinions},
@@ -71,40 +71,39 @@ export default function App() {
     // ROUTES
 
     var sidebarRoutes = []
-    sidebar.forEach(function(section){
+
+    sidebar.forEach(function(page){
         sidebarRoutes.push(
-            <Route key={section["key"]} path={section["href"]} component={section["component"]} />
+            <Route key={page["key"]} path={`/${page["key"]}`} component={page["component"]} />
         )
 
-        section["links"].forEach(function(link){
+        page["sections"].forEach(function(section){
             sidebarRoutes.push(
-                <Route key={link["key"]} path={link["href"]} component={link["component"]} />
+                <Route key={section["key"]} path={`/${section["key"]}`} component={section["component"]} />
             )
         })
     })
 
     // LINKS
 
-    var sidebarLinks = []
-    var sidebarSectionLinks = []
-    var sidebarSections = sidebar.map(function(section){
-        section["href"] = `/${section['key']}`
+    //var sidebarLinks = [] // used in mobile nav
+    var pageLinks = [] // used in mobile nav
 
-        var sectionLink = <NavLink key={section["key"]} to={section["href"]} activeClassName="active">{section["text"]}</NavLink>
-        sidebarSectionLinks.push(sectionLink)
+    var sidebarSections = sidebar.map(function(page){
+        var pageLink = <NavLink key={page["key"]} to={`/${page['key']}`} activeClassName="active">{page["text"]}</NavLink>
+        pageLinks.push(pageLink)
 
-        var pageLinks = section["links"].map(function(link){
-            link["href"] = `/${link['key']}`
-            var navLink = <NavLink key={link["key"]} to={link["href"]} activeClassName="active">{link["text"]}</NavLink>
-            sidebarLinks.push(navLink)
-            return navLink
+        var sectionLinks = page["sections"].map(function(section){
+            var sectionLink = <NavLink key={section["key"]} to={`/${section['key']}`} activeClassName="active">{section["text"]}</NavLink>
+            //sidebarLinks.push(sectionLink)
+            return sectionLink
         })
         return (
-            <span key={section["key"]}>
-                <h6 className="mobile-dasbhoard-menu-title">{section["text"]}</h6>
+            <span key={page["key"]}>
+                <h6 className="mobile-dasbhoard-menu-title">{page["text"]}</h6>
 
                 <div className="mobile-dasbhoard-menu">
-                    {pageLinks}
+                    {sectionLinks}
                 </div>
             </span>
         )
@@ -153,7 +152,7 @@ export default function App() {
                                 <div className="sidebar d-none d-md-block d-sm-none">
                                     <Nav sticky="top" defaultActiveKey="/" className="flex-column">
                                         <div className="sidebarWrapper">
-                                            {sidebarSectionLinks} {/* {sidebarSections} {sidebarLinks} {sidebarSectionLinks} */}
+                                            {pageLinks} {/* {sidebarSections} {sidebarLinks} {pageLinks} */}
                                         </div>
                                     </Nav>
                                 </div>
