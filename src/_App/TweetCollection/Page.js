@@ -64,7 +64,7 @@ export default function TweetCollectionPage() {
 
                     <h4>Topics</h4>
                     <Card.Text>
-                        Specifically, we collected all tweets mentioning any of the impeachment-related topics below.
+                        Specifically, we collected all tweets mentioning any of the impeachment-related topics below. We periodically added new topics to reflect conversation trends about current events.
                     </Card.Text>
                     <div className="table-responsive">
                         <Table striped bordered hover size="sm">
