@@ -37,7 +37,7 @@ export default function TweetCollectionPage() {
                 <Card.Body>
                     <Card.Title><h2>I. Tweet Collection</h2></Card.Title>
 
-                    <h4>Timeline</h4>
+                    <h4>Collection Timeline</h4>
                     <Card.Text>
                         For over ninety days, from 12/12/2019 to 03/24/2020, we collected tweets about the Trump Impeachment proceedings. This time period does not cover the entire proceedings in the House of Representatives, but does include the entire Senate Trial, which took place from 01/15 to 02/05. Most of our analysis focuses on the sixty-day period between 12/20 and 02/20.
                     </Card.Text>
@@ -62,7 +62,7 @@ export default function TweetCollectionPage() {
                     </ul>
                     */}
 
-                    <h4>Topics</h4>
+                    <h4>Collection Topics</h4>
                     <Card.Text>
                         Specifically, we collected all tweets mentioning any of the impeachment-related topics below. We periodically added new topics to reflect conversation trends about current events.
                     </Card.Text>

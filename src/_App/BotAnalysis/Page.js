@@ -6,22 +6,27 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-// TODO: pass the sidebar object from the app.js to assemble the nav links
+import sidebar from './../sidebar'
+
+const PAGE_KEY = "bot-analysis"
 
 export default function BotAnalysisPage() {
+
+    var page = sidebar.filter(function(page){ return page["key"] === PAGE_KEY})[0]
+
+    var listItems = page["sections"].map(function(section){
+        return <li key={section["key"]}><a href={`/${section['key']}`}>{section["title"]}</a></li>
+    })
+
     return (
         <Container>
             <Card>
                 <Card.Body>
-                    <Card.Title><h2>II. Bot Analysis</h2></Card.Title>
+                    <Card.Title><h2>{page["title"]}</h2></Card.Title>
 
                     <Card.Text>
                         <ul>
-                            <li><a href="/bot-classification">Bot Classification</a></li>
-                            <li><a href="/bot-community-clustering">Bot Community Clustering</a></li>
-                            <li><a href="/bot-community-activity">Bot Community Activity Analysis</a></li>
-                            <li><a href="/bot-community-language">Bot Community Language Analysis</a></li>
-                            <li><a href="/bot-impact">Bot Impact Analysis</a></li>
+                            {listItems}
                         </ul>
                     </Card.Text>
 

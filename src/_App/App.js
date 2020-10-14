@@ -44,17 +44,17 @@ export default function App() {
     var pageLinks = [] // used in mobile nav
 
     var sidebarSections = sidebar.map(function(page){
-        var pageLink = <NavLink key={page["key"]} to={`/${page['key']}`} activeClassName="active">{page["text"]}</NavLink>
+        var pageLink = <NavLink key={page["key"]} to={`/${page['key']}`} activeClassName="active">{page["title"]}</NavLink>
         pageLinks.push(pageLink)
 
         var sectionLinks = page["sections"].map(function(section){
-            var sectionLink = <NavLink key={section["key"]} to={`/${section['key']}`} activeClassName="active">{section["text"]}</NavLink>
+            var sectionLink = <NavLink key={section["key"]} to={`/${section['key']}`} activeClassName="active">{section["title"]}</NavLink>
             //sidebarLinks.push(sectionLink)
             return sectionLink
         })
         return (
             <span key={page["key"]}>
-                <h6 className="mobile-dasbhoard-menu-title">{page["text"]}</h6>
+                <h6 className="mobile-dasbhoard-menu-title">{page["title"]}</h6>
 
                 <div className="mobile-dasbhoard-menu">
                     {sectionLinks}
