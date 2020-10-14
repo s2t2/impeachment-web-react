@@ -11,7 +11,7 @@ export default function BotImpact() {
         <Container>
             <Card>
                 <Card.Body>
-                    <Card.Title><h3>Bot Impact Analysis</h3></Card.Title>
+                    <Card.Title><h3>Bot Impact</h3></Card.Title>
 
                     <Card.Text>
                         Coming Soon...

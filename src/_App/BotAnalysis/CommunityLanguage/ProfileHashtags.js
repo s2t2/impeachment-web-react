@@ -41,10 +41,8 @@ export default class ProfileHashtags extends React.Component {
     }
 
     render() {
-        var spinIntoCharts
-        if (!this.state.parsedResponse) {
-            spinIntoCharts = <Spinner/>
-        } else {
+        var spinIntoCharts = <Spinner/>
+        if (this.state.parsedResponse) {
             var tags = this.state.parsedResponse;
 
             var community0 = orderBy(tags.filter(function (t) {return t["community_id"] === 0}), "pct", "desc")
