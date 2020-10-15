@@ -16,6 +16,19 @@ const Range = createSliderWithTooltip(Slider.Range);
 
 const colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
 
+const allCategories = [
+    {"name":"GOVERNMENT",               "label": "Government"},
+    {"name":"PARTY",                    "label": "Political Party"},
+    {"name":"ELECTED-OFFICIAL",         "label": "Elected Official"},
+    {"name":"MAJOR-MEDIA-OUTLET",       "label": "Major Media Outlet"},
+    {"name":"MEDIA-OUTLET",             "label": "Media Outlet"},
+    {"name":"NEWS-SHOW",                "label": "News Show"},
+    {"name":"POLITICAL-COMMENTATOR",    "label": "Political Commentator"},
+    {"name":"LEGAL-SCHOLAR",            "label": "Legal Scholar"},
+    {"name":"CELEBRITY",                "label": "Celebrity"},
+    {"name":"OTHER",                    "label": "Other"}
+]
+
 function formatBigNumber(num) {
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
 } // h/t: https://stackoverflow.com/a/9461657
@@ -26,7 +39,7 @@ export default class MyBarChart extends Component {
       this.state = {
         tweetMin: 5,
         opinionRange: [0, 100],
-        userCategories: ["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY", "OTHER"],
+        userCategories: allCategories.map(function(category){ return category["name"] }), //["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY", "OTHER"],
         opinionModel: "lr"
     } // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
       this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
@@ -91,6 +104,17 @@ export default class MyBarChart extends Component {
         var opinionModel = this.state.opinionModel
         var opinionMetric = `avg_score_${opinionModel}`
         var barCount = this.props.barCount || 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
+        var handleCategoryCheck = this.handleCategoryCheck
+
+        // RADIO BUTTONS FOR EACH CATEGORY
+        var categoryChecks = allCategories.map(function(category){
+            return (
+                <Form.Check inline type="checkbox" key={category["name"]} value={category["name"]} label={category["label"]}
+                    checked={userCategories.includes(category["name"])}
+                    onChange={handleCategoryCheck}
+                />
+            )
+        })
 
         // FILTER AND SORT USERS
         var users = this.props.users
@@ -110,7 +134,6 @@ export default class MyBarChart extends Component {
                 return a["follower_count"] - b["follower_count"] // chart wants this order
             }) // sort before slice
             .slice(-barCount) // negative number takes last X users (which is actually the top X users)
-
 
         var chartPadding = { left: 175, top: 15, right: 50, bottom: 130 } // spacing for axis labels (screen names)
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
@@ -221,23 +244,7 @@ export default class MyBarChart extends Component {
                             <Form.Label>User Category</Form.Label>
 
                             <div key="inline-checkbox" className="mb-3">
-                                <Form.Check inline label="Media Outlet" value="MAJOR-MEDIA-OUTLET" type="checkbox" id="check-major-media-outlet"
-                                    checked={userCategories.includes("MAJOR-MEDIA-OUTLET")}
-                                    onChange={this.handleCategoryCheck}
-                                />
-
-                                <Form.Check inline label="Elected Official" value="ELECTED-OFFICIAL" type="checkbox" id="check-elected-official"
-                                    checked={userCategories.includes("ELECTED-OFFICIAL")}
-                                    onChange={this.handleCategoryCheck}
-                                />
-                                <Form.Check inline label="Political Party" value="PARTY" type="checkbox" id="check-party"
-                                    checked={userCategories.includes("PARTY")}
-                                    onChange={this.handleCategoryCheck}
-                                />
-                                <Form.Check inline label="Others" value="OTHER" type="checkbox" id="check-others"
-                                    checked={userCategories.includes("OTHER")}
-                                    onChange={this.handleCategoryCheck}
-                                />
+                                {categoryChecks}
                             </div>
                         </Col>
 

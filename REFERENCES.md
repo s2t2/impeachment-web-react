@@ -113,6 +113,7 @@ npm install react-router-bootstrap react-router-dom --save
 ## Tools
 
   + https://awsm-tools.com/code/coffee2js
+  + https://jsonlint.com/
 
 
 ## Plotly React

@@ -12,7 +12,7 @@ const CACHE_MODE = process.env.REACT_APP_CACHE_MODE || true // TODO: convert env
 export default class Dashboard extends PureComponent {
     constructor(props) {
         super(props)
-        this.state = {limit: 500, parsedResponse: null}
+        this.state = {limit: 1000, parsedResponse: null}
         this.fetchData = this.fetchData.bind(this)
     }
 
@@ -20,12 +20,8 @@ export default class Dashboard extends PureComponent {
         var spinIntoStuff = <Spinner />
         if (this.state.parsedResponse) {
             var users = this.state.parsedResponse
-            console.log("USERS MOST FOLLOWED:", users.length)
-
-            spinIntoStuff = <span>
-                <BarChart users={users}/>
-                {/*<List users={users}/>*/}
-            </span>
+            //console.log("USERS MOST FOLLOWED:", users.length)
+            spinIntoStuff = <BarChart users={users}/>
         }
 
         return (

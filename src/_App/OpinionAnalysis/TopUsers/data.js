@@ -3998,6 +3998,4006 @@ var users = [{
 	"follower_count": 80341,
 	"screen_name": "IHEARTMINDY",
 	"status_count": 80
+}, {
+	"avg_score_bert": 0.0472,
+	"avg_score_lr": 0.0449,
+	"avg_score_nb": 0.0337,
+	"category": "OTHER",
+	"follower_count": 80266,
+	"screen_name": "JOHNPAVLOVITZ",
+	"status_count": 89
+}, {
+	"avg_score_bert": 0.0461,
+	"avg_score_lr": 0.0756,
+	"avg_score_nb": 0.0672,
+	"category": "OTHER",
+	"follower_count": 80020,
+	"screen_name": "JOANWALSH",
+	"status_count": 119
+}, {
+	"avg_score_bert": 0.9356,
+	"avg_score_lr": 0.867,
+	"avg_score_nb": 0.8404,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 79920,
+	"screen_name": "REPANDYBIGGSAZ",
+	"status_count": 376
+}, {
+	"avg_score_bert": 0.2503,
+	"avg_score_lr": 0.25,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 79871,
+	"screen_name": "SYMONEDSANDERS",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.9713,
+	"avg_score_lr": 0.8985,
+	"avg_score_nb": 0.9047,
+	"category": "OTHER",
+	"follower_count": 79749,
+	"screen_name": "STEPH93065",
+	"status_count": 2445
+}, {
+	"avg_score_bert": 0.8099,
+	"avg_score_lr": 0.3,
+	"avg_score_nb": 0.3,
+	"category": "OTHER",
+	"follower_count": 79742,
+	"screen_name": "JASONKANDER",
+	"status_count": 10
+}, {
+	"avg_score_bert": 0.1494,
+	"avg_score_lr": 0.2365,
+	"avg_score_nb": 0.1724,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 79611,
+	"screen_name": "BUZZFEEDNEWS",
+	"status_count": 203
+}, {
+	"avg_score_bert": 0.8544,
+	"avg_score_lr": 0.7727,
+	"avg_score_nb": 0.8636,
+	"category": "OTHER",
+	"follower_count": 79571,
+	"screen_name": "STCLAIRASHLEY",
+	"status_count": 22
+}, {
+	"avg_score_bert": 0.0735,
+	"avg_score_lr": 0.0561,
+	"avg_score_nb": 0.028,
+	"category": "OTHER",
+	"follower_count": 79460,
+	"screen_name": "AYNRANDPAULRYAN",
+	"status_count": 107
+}, {
+	"avg_score_bert": 0.1162,
+	"avg_score_lr": 0.1205,
+	"avg_score_nb": 0.1205,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 79425,
+	"screen_name": "THENATION",
+	"status_count": 83
+}, {
+	"avg_score_bert": 0.1755,
+	"avg_score_lr": 0.1489,
+	"avg_score_nb": 0.1489,
+	"category": "OTHER",
+	"follower_count": 79355,
+	"screen_name": "BETTYBOWERS",
+	"status_count": 94
+}, {
+	"avg_score_bert": 0.2181,
+	"avg_score_lr": 0.2825,
+	"avg_score_nb": 0.3079,
+	"category": "MAJOR-MEDIA-OUTLET",
+	"follower_count": 79335,
+	"screen_name": "AXIOS",
+	"status_count": 354
+}, {
+	"avg_score_bert": 0.8047,
+	"avg_score_lr": 0.8406,
+	"avg_score_nb": 0.8792,
+	"category": "OTHER",
+	"follower_count": 79308,
+	"screen_name": "THOMAS1774PAINE",
+	"status_count": 778
+}, {
+	"avg_score_bert": 0.7052,
+	"avg_score_lr": 0.6463,
+	"avg_score_nb": 0.6341,
+	"category": "OTHER",
+	"follower_count": 79264,
+	"screen_name": "JOHNWHUBER",
+	"status_count": 82
+}, {
+	"avg_score_bert": 0.4586,
+	"avg_score_lr": 0.2143,
+	"avg_score_nb": 0.1429,
+	"category": "OTHER",
+	"follower_count": 79161,
+	"screen_name": "CARLREINER",
+	"status_count": 14
+}, {
+	"avg_score_bert": 0.1621,
+	"avg_score_lr": 0.2105,
+	"avg_score_nb": 0.1579,
+	"category": "OTHER",
+	"follower_count": 78928,
+	"screen_name": "GENMHAYDEN",
+	"status_count": 19
+}, {
+	"avg_score_bert": 0.1343,
+	"avg_score_lr": 0.0513,
+	"avg_score_nb": 0.0256,
+	"category": "OTHER",
+	"follower_count": 78843,
+	"screen_name": "MIKEL_JOLLETT",
+	"status_count": 39
+}, {
+	"avg_score_bert": 0.9784,
+	"avg_score_lr": 0.8026,
+	"avg_score_nb": 0.8158,
+	"category": "OTHER",
+	"follower_count": 78782,
+	"screen_name": "THERIGHTMELISSA",
+	"status_count": 76
+}, {
+	"avg_score_bert": 0.9017,
+	"avg_score_lr": 0.8992,
+	"avg_score_nb": 0.877,
+	"category": "OTHER",
+	"follower_count": 78683,
+	"screen_name": "THEBRADFORDFILE",
+	"status_count": 496
+}, {
+	"avg_score_bert": 0.0974,
+	"avg_score_lr": 0.097,
+	"avg_score_nb": 0.0939,
+	"category": "OTHER",
+	"follower_count": 78672,
+	"screen_name": "PSYCHDR100",
+	"status_count": 330
+}, {
+	"avg_score_bert": 0.0481,
+	"avg_score_lr": 0.2727,
+	"avg_score_nb": 0.1818,
+	"category": "OTHER",
+	"follower_count": 78635,
+	"screen_name": "ADAMSERWER",
+	"status_count": 11
+}, {
+	"avg_score_bert": 0.5519,
+	"avg_score_lr": 0.6809,
+	"avg_score_nb": 0.766,
+	"category": "NON-PROFIT",
+	"follower_count": 78629,
+	"screen_name": "HERITAGE",
+	"status_count": 47
+}, {
+	"avg_score_bert": 0.1173,
+	"avg_score_lr": 0.1518,
+	"avg_score_nb": 0.0804,
+	"category": "OTHER",
+	"follower_count": 78621,
+	"screen_name": "ZERLINAMAXWELL",
+	"status_count": 112
+}, {
+	"avg_score_bert": 0.3021,
+	"avg_score_lr": 0.5,
+	"avg_score_nb": 0.5,
+	"category": "OTHER",
+	"follower_count": 78510,
+	"screen_name": "ROBDELANEY",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.2145,
+	"avg_score_lr": 0.0909,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 78495,
+	"screen_name": "JKBJOURNALIST",
+	"status_count": 11
+}, {
+	"avg_score_bert": 0.1663,
+	"avg_score_lr": 0.1698,
+	"avg_score_nb": 0.0943,
+	"category": "OTHER",
+	"follower_count": 78468,
+	"screen_name": "JBOUIE",
+	"status_count": 53
+}, {
+	"avg_score_bert": 0.0613,
+	"avg_score_lr": 0.0849,
+	"avg_score_nb": 0.0472,
+	"category": "OTHER",
+	"follower_count": 78433,
+	"screen_name": "TONYPOSNANSKI",
+	"status_count": 106
+}, {
+	"avg_score_bert": 0.1579,
+	"avg_score_lr": 0.0714,
+	"avg_score_nb": 0.0714,
+	"category": "OTHER",
+	"follower_count": 78264,
+	"screen_name": "REVDRBARBER",
+	"status_count": 14
+}, {
+	"avg_score_bert": 0.4703,
+	"avg_score_lr": 0.8,
+	"avg_score_nb": 1.0,
+	"category": "OTHER",
+	"follower_count": 78248,
+	"screen_name": "REALMINIAOC",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.1884,
+	"avg_score_lr": 0.3077,
+	"avg_score_nb": 0.3846,
+	"category": "OTHER",
+	"follower_count": 78134,
+	"screen_name": "SLPNG_GIANTS",
+	"status_count": 13
+}, {
+	"avg_score_bert": 0.1749,
+	"avg_score_lr": 0.1776,
+	"avg_score_nb": 0.1506,
+	"category": "OTHER",
+	"follower_count": 78055,
+	"screen_name": "EMPTYWHEEL",
+	"status_count": 259
+}, {
+	"avg_score_bert": 0.6298,
+	"avg_score_lr": 0.8333,
+	"avg_score_nb": 0.8148,
+	"category": "POLITICAL-COMMENTATOR",
+	"follower_count": 77998,
+	"screen_name": "THEHERMANCAIN",
+	"status_count": 54
+}, {
+	"avg_score_bert": 0.9016,
+	"avg_score_lr": 0.8491,
+	"avg_score_nb": 0.8255,
+	"category": "OTHER",
+	"follower_count": 77985,
+	"screen_name": "JOHNCARDILLO",
+	"status_count": 212
+}, {
+	"avg_score_bert": 0.1905,
+	"avg_score_lr": 0.2432,
+	"avg_score_nb": 0.2162,
+	"category": "OTHER",
+	"follower_count": 77972,
+	"screen_name": "DANABASHCNN",
+	"status_count": 37
+}, {
+	"avg_score_bert": 0.9874,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 0.8889,
+	"category": "OTHER",
+	"follower_count": 77816,
+	"screen_name": "RANDYRRQUAID",
+	"status_count": 9
+}, {
+	"avg_score_bert": 0.3004,
+	"avg_score_lr": 0.2432,
+	"avg_score_nb": 0.1622,
+	"category": "OTHER",
+	"follower_count": 77773,
+	"screen_name": "PAULAREIDCBS",
+	"status_count": 37
+}, {
+	"avg_score_bert": 0.0798,
+	"avg_score_lr": 0.1174,
+	"avg_score_nb": 0.081,
+	"category": "OTHER",
+	"follower_count": 77758,
+	"screen_name": "THEPLUMLINEGS",
+	"status_count": 247
+}, {
+	"avg_score_bert": 0.163,
+	"avg_score_lr": 0.1439,
+	"avg_score_nb": 0.1259,
+	"category": "OTHER",
+	"follower_count": 77734,
+	"screen_name": "JOSHTPM",
+	"status_count": 278
+}, {
+	"avg_score_bert": 0.8468,
+	"avg_score_lr": 0.8986,
+	"avg_score_nb": 0.8919,
+	"category": "OTHER",
+	"follower_count": 77610,
+	"screen_name": "TIMRUNSHISMOUTH",
+	"status_count": 148
+}, {
+	"avg_score_bert": 0.3704,
+	"avg_score_lr": 0.75,
+	"avg_score_nb": 0.75,
+	"category": "OTHER",
+	"follower_count": 76922,
+	"screen_name": "CONSERVMILLEN",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.9061,
+	"avg_score_lr": 0.8533,
+	"avg_score_nb": 0.8667,
+	"category": "OTHER",
+	"follower_count": 76865,
+	"screen_name": "TRACYBEANZ",
+	"status_count": 75
+}, {
+	"avg_score_bert": 0.9045,
+	"avg_score_lr": 0.8796,
+	"avg_score_nb": 0.8639,
+	"category": "OTHER",
+	"follower_count": 76852,
+	"screen_name": "KAMVTV",
+	"status_count": 382
+}, {
+	"avg_score_bert": 0.931,
+	"avg_score_lr": 0.881,
+	"avg_score_nb": 0.9167,
+	"category": "OTHER",
+	"follower_count": 76850,
+	"screen_name": "DEEPSTATEEXPOSE",
+	"status_count": 84
+}, {
+	"avg_score_bert": 0.7017,
+	"avg_score_lr": 0.7755,
+	"avg_score_nb": 0.8469,
+	"category": "OTHER",
+	"follower_count": 76805,
+	"screen_name": "JOEYSALADS",
+	"status_count": 98
+}, {
+	"avg_score_bert": 0.995,
+	"avg_score_lr": 0.9569,
+	"avg_score_nb": 0.9494,
+	"category": "OTHER",
+	"follower_count": 76631,
+	"screen_name": "GATEWAYPUNDIT",
+	"status_count": 395
+}, {
+	"avg_score_bert": 0.1993,
+	"avg_score_lr": 0.3333,
+	"avg_score_nb": 0.4583,
+	"category": "MAJOR-MEDIA-OUTLET",
+	"follower_count": 76626,
+	"screen_name": "FINANCIALTIMES",
+	"status_count": 48
+}, {
+	"avg_score_bert": 0.1719,
+	"avg_score_lr": 0.2,
+	"avg_score_nb": 0.24,
+	"category": "OTHER",
+	"follower_count": 76500,
+	"screen_name": "SENWHITEHOUSE",
+	"status_count": 50
+}, {
+	"avg_score_bert": 0.2779,
+	"avg_score_lr": 0.7273,
+	"avg_score_nb": 0.7273,
+	"category": "OTHER",
+	"follower_count": 76478,
+	"screen_name": "MCHOOYAH",
+	"status_count": 11
+}, {
+	"avg_score_bert": 0.9957,
+	"avg_score_lr": 0.96,
+	"avg_score_nb": 0.92,
+	"category": "OTHER",
+	"follower_count": 76133,
+	"screen_name": "ANDREWPOLLACKFL",
+	"status_count": 25
+}, {
+	"avg_score_bert": 0.2149,
+	"avg_score_lr": 0.2197,
+	"avg_score_nb": 0.197,
+	"category": "POLITICAL-COMMENTATOR",
+	"follower_count": 76101,
+	"screen_name": "TODAYSHOW",
+	"status_count": 132
+}, {
+	"avg_score_bert": 0.8578,
+	"avg_score_lr": 0.893,
+	"avg_score_nb": 0.893,
+	"category": "OTHER",
+	"follower_count": 76019,
+	"screen_name": "1776STONEWALL",
+	"status_count": 271
+}, {
+	"avg_score_bert": 0.9546,
+	"avg_score_lr": 0.9167,
+	"avg_score_nb": 0.8542,
+	"category": "OTHER",
+	"follower_count": 75996,
+	"screen_name": "ACTBRIGITTE",
+	"status_count": 48
+}, {
+	"avg_score_bert": 0.2846,
+	"avg_score_lr": 0.2083,
+	"avg_score_nb": 0.4167,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 75777,
+	"screen_name": "THR",
+	"status_count": 24
+}, {
+	"avg_score_bert": 0.0782,
+	"avg_score_lr": 0.1005,
+	"avg_score_nb": 0.0861,
+	"category": "POLITICAL-COMMENTATOR",
+	"follower_count": 75578,
+	"screen_name": "DONNABRAZILE",
+	"status_count": 209
+}, {
+	"avg_score_bert": 0.9988,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 1.0,
+	"category": "OTHER",
+	"follower_count": 75567,
+	"screen_name": "TECHNO_FOG",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.1667,
+	"avg_score_lr": 0.1094,
+	"avg_score_nb": 0.125,
+	"category": "OTHER",
+	"follower_count": 75368,
+	"screen_name": "DEREKCRESSMAN",
+	"status_count": 128
+}, {
+	"avg_score_bert": 0.5385,
+	"avg_score_lr": 0.5882,
+	"avg_score_nb": 0.2941,
+	"category": "OTHER",
+	"follower_count": 75329,
+	"screen_name": "MTAIBBI",
+	"status_count": 17
+}, {
+	"avg_score_bert": 0.1289,
+	"avg_score_lr": 0.1034,
+	"avg_score_nb": 0.1724,
+	"category": "OTHER",
+	"follower_count": 75292,
+	"screen_name": "TRAVISALLEN02",
+	"status_count": 29
+}, {
+	"avg_score_bert": 0.2533,
+	"avg_score_lr": 0.2469,
+	"avg_score_nb": 0.284,
+	"category": "MAJOR-MEDIA-OUTLET",
+	"follower_count": 75284,
+	"screen_name": "GUARDIANNEWS",
+	"status_count": 81
+}, {
+	"avg_score_bert": 0.875,
+	"avg_score_lr": 0.8333,
+	"avg_score_nb": 0.8889,
+	"category": "OTHER",
+	"follower_count": 74963,
+	"screen_name": "LISAMARIEBOOTHE",
+	"status_count": 18
+}, {
+	"avg_score_bert": 0.2131,
+	"avg_score_lr": 0.2615,
+	"avg_score_nb": 0.2308,
+	"category": "OTHER",
+	"follower_count": 74839,
+	"screen_name": "JONATHANVSWAN",
+	"status_count": 65
+}, {
+	"avg_score_bert": 0.5873,
+	"avg_score_lr": 0.32,
+	"avg_score_nb": 0.44,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 74408,
+	"screen_name": "PEOPLE",
+	"status_count": 25
+}, {
+	"avg_score_bert": 0.9364,
+	"avg_score_lr": 0.8951,
+	"avg_score_nb": 0.907,
+	"category": "OTHER",
+	"follower_count": 74369,
+	"screen_name": "DRAWANDSTRIKE",
+	"status_count": 1516
+}, {
+	"avg_score_bert": 0.1742,
+	"avg_score_lr": 0.0667,
+	"avg_score_nb": 0.1333,
+	"category": "OTHER",
+	"follower_count": 74326,
+	"screen_name": "SENJEFFMERKLEY",
+	"status_count": 30
+}, {
+	"avg_score_bert": 0.0048,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "CELEBRITY",
+	"follower_count": 74322,
+	"screen_name": "ZACHBRAFF",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.2681,
+	"avg_score_lr": 0.3333,
+	"avg_score_nb": 0.1667,
+	"category": "OTHER",
+	"follower_count": 74281,
+	"screen_name": "PPACT",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.225,
+	"avg_score_lr": 0.1973,
+	"avg_score_nb": 0.1224,
+	"category": "OTHER",
+	"follower_count": 74243,
+	"screen_name": "ERICGARLAND",
+	"status_count": 147
+}, {
+	"avg_score_bert": 0.2103,
+	"avg_score_lr": 0.2105,
+	"avg_score_nb": 0.3158,
+	"category": "OTHER",
+	"follower_count": 74202,
+	"screen_name": "QASIMRASHID",
+	"status_count": 19
+}, {
+	"avg_score_bert": 0.1679,
+	"avg_score_lr": 0.2105,
+	"avg_score_nb": 0.1053,
+	"category": "OTHER",
+	"follower_count": 74055,
+	"screen_name": "ABBYDPHILLIP",
+	"status_count": 19
+}, {
+	"avg_score_bert": 0.0259,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 74031,
+	"screen_name": "SENSHERRODBROWN",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.0975,
+	"avg_score_lr": 0.1364,
+	"avg_score_nb": 0.0928,
+	"category": "OTHER",
+	"follower_count": 73902,
+	"screen_name": "LOLGOP",
+	"status_count": 485
+}, {
+	"avg_score_bert": 0.3564,
+	"avg_score_lr": 0.4,
+	"avg_score_nb": 0.4,
+	"category": "OTHER",
+	"follower_count": 73893,
+	"screen_name": "MARWILLIAMSON",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.658,
+	"avg_score_lr": 0.9565,
+	"avg_score_nb": 0.9565,
+	"category": "OTHER",
+	"follower_count": 73728,
+	"screen_name": "ARIFLEISCHER",
+	"status_count": 23
+}, {
+	"avg_score_bert": 0.0069,
+	"avg_score_lr": 0.1667,
+	"avg_score_nb": 0.0417,
+	"category": "OTHER",
+	"follower_count": 73714,
+	"screen_name": "BRYCETACHE",
+	"status_count": 24
+}, {
+	"avg_score_bert": 0.0259,
+	"avg_score_lr": 0.0702,
+	"avg_score_nb": 0.0478,
+	"category": "OTHER",
+	"follower_count": 73619,
+	"screen_name": "BRADLEYWHITFORD",
+	"status_count": 356
+}, {
+	"avg_score_bert": 0.184,
+	"avg_score_lr": 0.1875,
+	"avg_score_nb": 0.1563,
+	"category": "OTHER",
+	"follower_count": 73493,
+	"screen_name": "IRONSTACHE",
+	"status_count": 32
+}, {
+	"avg_score_bert": 0.1427,
+	"avg_score_lr": 0.3333,
+	"avg_score_nb": 0.1667,
+	"category": "OTHER",
+	"follower_count": 73453,
+	"screen_name": "THEGOODGODABOVE",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.8116,
+	"avg_score_lr": 0.4545,
+	"avg_score_nb": 0.2727,
+	"category": "OTHER",
+	"follower_count": 73338,
+	"screen_name": "CSTAMPER_",
+	"status_count": 11
+}, {
+	"avg_score_bert": 0.7442,
+	"avg_score_lr": 0.7432,
+	"avg_score_nb": 0.7838,
+	"category": "OTHER",
+	"follower_count": 73286,
+	"screen_name": "FDRLST",
+	"status_count": 74
+}, {
+	"avg_score_bert": 0.1815,
+	"avg_score_lr": 0.0909,
+	"avg_score_nb": 0.0909,
+	"category": "OTHER",
+	"follower_count": 73129,
+	"screen_name": "NICKKRISTOF",
+	"status_count": 22
+}, {
+	"avg_score_bert": 0.8423,
+	"avg_score_lr": 0.9038,
+	"avg_score_nb": 0.8302,
+	"category": "OTHER",
+	"follower_count": 72963,
+	"screen_name": "REALERICCARMEN",
+	"status_count": 53
+}, {
+	"avg_score_bert": 0.8852,
+	"avg_score_lr": 0.9427,
+	"avg_score_nb": 0.9427,
+	"category": "OTHER",
+	"follower_count": 72798,
+	"screen_name": "BLAZETV",
+	"status_count": 192
+}, {
+	"avg_score_bert": 0.8834,
+	"avg_score_lr": 0.6923,
+	"avg_score_nb": 0.6923,
+	"category": "OTHER",
+	"follower_count": 72774,
+	"screen_name": "ARMASTRANGELO",
+	"status_count": 13
+}, {
+	"avg_score_bert": 0.0913,
+	"avg_score_lr": 0.1586,
+	"avg_score_nb": 0.0669,
+	"category": "OTHER",
+	"follower_count": 72400,
+	"screen_name": "TRUEFACTSSTATED",
+	"status_count": 971
+}, {
+	"avg_score_bert": 0.0154,
+	"avg_score_lr": 0.0412,
+	"avg_score_nb": 0.0275,
+	"category": "OTHER",
+	"follower_count": 72304,
+	"screen_name": "MCSPOCKY",
+	"status_count": 655
+}, {
+	"avg_score_bert": 0.1641,
+	"avg_score_lr": 0.1429,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 71889,
+	"screen_name": "KEITHELLISON",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.97,
+	"avg_score_lr": 0.967,
+	"avg_score_nb": 0.967,
+	"category": "OTHER",
+	"follower_count": 71611,
+	"screen_name": "VAREPALL",
+	"status_count": 91
+}, {
+	"avg_score_bert": 0.7752,
+	"avg_score_lr": 0.7746,
+	"avg_score_nb": 0.7089,
+	"category": "OTHER",
+	"follower_count": 71446,
+	"screen_name": "KURTSCHLICHTER",
+	"status_count": 316
+}, {
+	"avg_score_bert": 0.189,
+	"avg_score_lr": 0.2321,
+	"avg_score_nb": 0.25,
+	"category": "OTHER",
+	"follower_count": 70988,
+	"screen_name": "BUSINESSINSIDER",
+	"status_count": 56
+}, {
+	"avg_score_bert": 0.192,
+	"avg_score_lr": 0.1224,
+	"avg_score_nb": 0.102,
+	"category": "OTHER",
+	"follower_count": 70953,
+	"screen_name": "CROOKEDMEDIA",
+	"status_count": 49
+}, {
+	"avg_score_bert": 0.987,
+	"avg_score_lr": 0.9614,
+	"avg_score_nb": 0.9823,
+	"category": "OTHER",
+	"follower_count": 70791,
+	"screen_name": "QTANON1",
+	"status_count": 621
+}, {
+	"avg_score_bert": 0.3163,
+	"avg_score_lr": 0.2242,
+	"avg_score_nb": 0.1387,
+	"category": "OTHER",
+	"follower_count": 70775,
+	"screen_name": "MEETTHEPRESS",
+	"status_count": 620
+}, {
+	"avg_score_bert": 0.2252,
+	"avg_score_lr": 0.3036,
+	"avg_score_nb": 0.3929,
+	"category": "OTHER",
+	"follower_count": 70758,
+	"screen_name": "QUICKTAKE",
+	"status_count": 168
+}, {
+	"avg_score_bert": 0.8754,
+	"avg_score_lr": 0.875,
+	"avg_score_nb": 0.8571,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 70744,
+	"screen_name": "BONGINOREPORT",
+	"status_count": 56
+}, {
+	"avg_score_bert": 0.0382,
+	"avg_score_lr": 0.2,
+	"avg_score_nb": 0.2,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 70653,
+	"screen_name": "MARKWARNER",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.9008,
+	"avg_score_lr": 0.8519,
+	"avg_score_nb": 0.8642,
+	"category": "OTHER",
+	"follower_count": 70626,
+	"screen_name": "MICHAELJKNOWLES",
+	"status_count": 81
+}, {
+	"avg_score_bert": 0.0246,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0714,
+	"category": "OTHER",
+	"follower_count": 70540,
+	"screen_name": "NACHOSARAH",
+	"status_count": 14
+}, {
+	"avg_score_bert": 0.1325,
+	"avg_score_lr": 0.1773,
+	"avg_score_nb": 0.1478,
+	"category": "OTHER",
+	"follower_count": 70415,
+	"screen_name": "HEIDINBC",
+	"status_count": 203
+}, {
+	"avg_score_bert": 0.1005,
+	"avg_score_lr": 0.0625,
+	"avg_score_nb": 0.0625,
+	"category": "OTHER",
+	"follower_count": 70413,
+	"screen_name": "LAURENDUCA",
+	"status_count": 32
+}, {
+	"avg_score_bert": 0.1038,
+	"avg_score_lr": 0.1279,
+	"avg_score_nb": 0.1163,
+	"category": "OTHER",
+	"follower_count": 70315,
+	"screen_name": "JEFFREYGUTERMAN",
+	"status_count": 172
+}, {
+	"avg_score_bert": 0.6826,
+	"avg_score_lr": 0.6818,
+	"avg_score_nb": 0.5,
+	"category": "OTHER",
+	"follower_count": 70221,
+	"screen_name": "CBS_HERRIDGE",
+	"status_count": 22
+}, {
+	"avg_score_bert": 0.0939,
+	"avg_score_lr": 0.1125,
+	"avg_score_nb": 0.0901,
+	"category": "OTHER",
+	"follower_count": 70206,
+	"screen_name": "B52MALMET",
+	"status_count": 1032
+}, {
+	"avg_score_bert": 0.0292,
+	"avg_score_lr": 0.2667,
+	"avg_score_nb": 0.2667,
+	"category": "OTHER",
+	"follower_count": 70205,
+	"screen_name": "RONWYDEN",
+	"status_count": 15
+}, {
+	"avg_score_bert": 0.0827,
+	"avg_score_lr": 0.25,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 70149,
+	"screen_name": "CAROLECADWALLA",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.7511,
+	"avg_score_lr": 0.6667,
+	"avg_score_nb": 0.7778,
+	"category": "OTHER",
+	"follower_count": 70148,
+	"screen_name": "VARNEYCO",
+	"status_count": 9
+}, {
+	"avg_score_bert": 0.2255,
+	"avg_score_lr": 0.3038,
+	"avg_score_nb": 0.2911,
+	"category": "OTHER",
+	"follower_count": 70146,
+	"screen_name": "AFP",
+	"status_count": 79
+}, {
+	"avg_score_bert": 0.1673,
+	"avg_score_lr": 0.2308,
+	"avg_score_nb": 0.2308,
+	"category": "OTHER",
+	"follower_count": 69909,
+	"screen_name": "ANGELA_RYE",
+	"status_count": 13
+}, {
+	"avg_score_bert": 0.3224,
+	"avg_score_lr": 0.1892,
+	"avg_score_nb": 0.1712,
+	"category": "OTHER",
+	"follower_count": 69585,
+	"screen_name": "LAWFAREBLOG",
+	"status_count": 111
+}, {
+	"avg_score_bert": 0.4615,
+	"avg_score_lr": 0.3125,
+	"avg_score_nb": 0.625,
+	"category": "OTHER",
+	"follower_count": 69565,
+	"screen_name": "AJPLUS",
+	"status_count": 16
+}, {
+	"avg_score_bert": 0.9955,
+	"avg_score_lr": 0.9744,
+	"avg_score_nb": 0.9231,
+	"category": "OTHER",
+	"follower_count": 69241,
+	"screen_name": "ACTFORAMERICA",
+	"status_count": 39
+}, {
+	"avg_score_bert": 0.9017,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 1.0,
+	"category": "OTHER",
+	"follower_count": 69217,
+	"screen_name": "KENNEDYNATION",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.0564,
+	"avg_score_lr": 0.117,
+	"avg_score_nb": 0.0745,
+	"category": "OTHER",
+	"follower_count": 69216,
+	"screen_name": "JAMILSMITH",
+	"status_count": 94
+}, {
+	"avg_score_bert": 0.152,
+	"avg_score_lr": 0.0916,
+	"avg_score_nb": 0.0677,
+	"category": "OTHER",
+	"follower_count": 69068,
+	"screen_name": "SYKESCHARLIE",
+	"status_count": 251
+}, {
+	"avg_score_bert": 0.1811,
+	"avg_score_lr": 0.2222,
+	"avg_score_nb": 0.1667,
+	"category": "OTHER",
+	"follower_count": 68863,
+	"screen_name": "JOSHSCAMPBELL",
+	"status_count": 18
+}, {
+	"avg_score_bert": 0.0967,
+	"avg_score_lr": 0.2619,
+	"avg_score_nb": 0.2143,
+	"category": "OTHER",
+	"follower_count": 68770,
+	"screen_name": "OLIVIANUZZI",
+	"status_count": 42
+}, {
+	"avg_score_bert": 0.1481,
+	"avg_score_lr": 0.1212,
+	"avg_score_nb": 0.0909,
+	"category": "OTHER",
+	"follower_count": 68606,
+	"screen_name": "SELECTEDWISDOM",
+	"status_count": 33
+}, {
+	"avg_score_bert": 0.1014,
+	"avg_score_lr": 0.3333,
+	"avg_score_nb": 0.6667,
+	"category": "NON-PROFIT",
+	"follower_count": 68587,
+	"screen_name": "HRC",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.1301,
+	"avg_score_lr": 0.0556,
+	"avg_score_nb": 0.0185,
+	"category": "OTHER",
+	"follower_count": 68383,
+	"screen_name": "COLMORRISDAVIS",
+	"status_count": 54
+}, {
+	"avg_score_bert": 0.1342,
+	"avg_score_lr": 0.2131,
+	"avg_score_nb": 0.1803,
+	"category": "OTHER",
+	"follower_count": 68380,
+	"screen_name": "DWUHLFELDERLAW",
+	"status_count": 61
+}, {
+	"avg_score_bert": 0.2776,
+	"avg_score_lr": 0.25,
+	"avg_score_nb": 0.25,
+	"category": "OTHER",
+	"follower_count": 68279,
+	"screen_name": "BILLBOARD",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.0667,
+	"avg_score_lr": 0.0833,
+	"avg_score_nb": 0.0833,
+	"category": "OTHER",
+	"follower_count": 68198,
+	"screen_name": "DOUGJONES",
+	"status_count": 12
+}, {
+	"avg_score_bert": 0.5452,
+	"avg_score_lr": 0.75,
+	"avg_score_nb": 0.5,
+	"category": "OTHER",
+	"follower_count": 68021,
+	"screen_name": "EW",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.2878,
+	"avg_score_lr": 0.2424,
+	"avg_score_nb": 0.1515,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 68012,
+	"screen_name": "VICENEWS",
+	"status_count": 66
+}, {
+	"avg_score_bert": 0.7818,
+	"avg_score_lr": 0.7826,
+	"avg_score_nb": 0.8478,
+	"category": "OTHER",
+	"follower_count": 67948,
+	"screen_name": "EMERALDROBINSON",
+	"status_count": 46
+}, {
+	"avg_score_bert": 0.1448,
+	"avg_score_lr": 0.1159,
+	"avg_score_nb": 0.087,
+	"category": "OTHER",
+	"follower_count": 67910,
+	"screen_name": "BRIANKLAAS",
+	"status_count": 69
+}, {
+	"avg_score_bert": 0.9967,
+	"avg_score_lr": 0.9625,
+	"avg_score_nb": 0.9833,
+	"category": "OTHER",
+	"follower_count": 67905,
+	"screen_name": "CRRJA5",
+	"status_count": 240
+}, {
+	"avg_score_bert": 0.1493,
+	"avg_score_lr": 0.125,
+	"avg_score_nb": 0.125,
+	"category": "NON-PROFIT",
+	"follower_count": 67785,
+	"screen_name": "NAACP",
+	"status_count": 8
+}, {
+	"avg_score_bert": 0.8435,
+	"avg_score_lr": 0.75,
+	"avg_score_nb": 0.6985,
+	"category": "OTHER",
+	"follower_count": 67582,
+	"screen_name": "MSCHLAPP",
+	"status_count": 136
+}, {
+	"avg_score_bert": 0.1171,
+	"avg_score_lr": 0.25,
+	"avg_score_nb": 0.1923,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 67543,
+	"screen_name": "VANITYFAIR",
+	"status_count": 104
+}, {
+	"avg_score_bert": 0.2504,
+	"avg_score_lr": 0.3,
+	"avg_score_nb": 0.2167,
+	"category": "OTHER",
+	"follower_count": 67447,
+	"screen_name": "KFILE",
+	"status_count": 60
+}, {
+	"avg_score_bert": 0.0323,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 67222,
+	"screen_name": "TOMPEREZ",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.0604,
+	"avg_score_lr": 0.6667,
+	"avg_score_nb": 1.0,
+	"category": "OTHER",
+	"follower_count": 67155,
+	"screen_name": "GREGABBOTT_TX",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.0514,
+	"avg_score_lr": 0.0889,
+	"avg_score_nb": 0.0333,
+	"category": "OTHER",
+	"follower_count": 67150,
+	"screen_name": "JULIADAVISNEWS",
+	"status_count": 90
+}, {
+	"avg_score_bert": 0.9846,
+	"avg_score_lr": 0.8983,
+	"avg_score_nb": 0.8983,
+	"category": "OTHER",
+	"follower_count": 67144,
+	"screen_name": "JESSIEJANEDUFF",
+	"status_count": 787
+}, {
+	"avg_score_bert": 0.2726,
+	"avg_score_lr": 0.3333,
+	"avg_score_nb": 0.0833,
+	"category": "OTHER",
+	"follower_count": 67059,
+	"screen_name": "BAKARI_SELLERS",
+	"status_count": 12
+}, {
+	"avg_score_bert": 0.708,
+	"avg_score_lr": 0.7,
+	"avg_score_nb": 0.7,
+	"category": "OTHER",
+	"follower_count": 66972,
+	"screen_name": "OFFICIALMCAFEE",
+	"status_count": 10
+}, {
+	"avg_score_bert": 0.1476,
+	"avg_score_lr": 0.36,
+	"avg_score_nb": 0.28,
+	"category": "OTHER",
+	"follower_count": 66875,
+	"screen_name": "THEROOT",
+	"status_count": 25
+}, {
+	"avg_score_bert": 0.0216,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 66812,
+	"screen_name": "TONYSCHWARTZ",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.2394,
+	"avg_score_lr": 0.3543,
+	"avg_score_nb": 0.5433,
+	"category": "POLITICAL-COMMENTATOR",
+	"follower_count": 66788,
+	"screen_name": "GMA",
+	"status_count": 127
+}, {
+	"avg_score_bert": 0.0118,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 66719,
+	"screen_name": "REPBARBARALEE",
+	"status_count": 11
+}, {
+	"avg_score_bert": 0.7892,
+	"avg_score_lr": 0.6667,
+	"avg_score_nb": 0.7778,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 66697,
+	"screen_name": "VARIETY",
+	"status_count": 18
+}, {
+	"avg_score_bert": 0.3494,
+	"avg_score_lr": 0.2857,
+	"avg_score_nb": 0.2857,
+	"category": "OTHER",
+	"follower_count": 66668,
+	"screen_name": "NAOMIAKLEIN",
+	"status_count": 14
+}, {
+	"avg_score_bert": 0.2585,
+	"avg_score_lr": 0.2091,
+	"avg_score_nb": 0.2,
+	"category": "OTHER",
+	"follower_count": 66664,
+	"screen_name": "PARKERMOLLOY",
+	"status_count": 110
+}, {
+	"avg_score_bert": 0.0577,
+	"avg_score_lr": 0.3043,
+	"avg_score_nb": 0.0435,
+	"category": "OTHER",
+	"follower_count": 66632,
+	"screen_name": "WILLIEGEIST",
+	"status_count": 23
+}, {
+	"avg_score_bert": 0.0686,
+	"avg_score_lr": 0.1538,
+	"avg_score_nb": 0.0769,
+	"category": "OTHER",
+	"follower_count": 66626,
+	"screen_name": "JOAQUINCASTROTX",
+	"status_count": 13
+}, {
+	"avg_score_bert": 0.0231,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 66584,
+	"screen_name": "KAYKOSMOS",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.0034,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 66529,
+	"screen_name": "DONTTRYTHIS",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.9594,
+	"avg_score_lr": 0.8571,
+	"avg_score_nb": 0.8163,
+	"category": "OTHER",
+	"follower_count": 66251,
+	"screen_name": "REALDRGINA",
+	"status_count": 49
+}, {
+	"avg_score_bert": 0.4537,
+	"avg_score_lr": 0.3846,
+	"avg_score_nb": 0.3846,
+	"category": "OTHER",
+	"follower_count": 66250,
+	"screen_name": "FAREEDZAKARIA",
+	"status_count": 13
+}, {
+	"avg_score_bert": 0.8238,
+	"avg_score_lr": 0.6667,
+	"avg_score_nb": 0.8333,
+	"category": "OTHER",
+	"follower_count": 66193,
+	"screen_name": "HARRISFAULKNER",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.9218,
+	"avg_score_lr": 0.902,
+	"avg_score_nb": 0.8824,
+	"category": "OTHER",
+	"follower_count": 66172,
+	"screen_name": "TIMMURTAUGH",
+	"status_count": 51
+}, {
+	"avg_score_bert": 0.1158,
+	"avg_score_lr": 0.1563,
+	"avg_score_nb": 0.1354,
+	"category": "OTHER",
+	"follower_count": 65975,
+	"screen_name": "POPEHAT",
+	"status_count": 96
+}, {
+	"avg_score_bert": 0.1585,
+	"avg_score_lr": 0.1538,
+	"avg_score_nb": 0.0,
+	"category": "CELEBRITY",
+	"follower_count": 65928,
+	"screen_name": "BARBRASTREISAND",
+	"status_count": 13
+}, {
+	"avg_score_bert": 0.1014,
+	"avg_score_lr": 0.1204,
+	"avg_score_nb": 0.1019,
+	"category": "OTHER",
+	"follower_count": 65900,
+	"screen_name": "BREENEWSOME",
+	"status_count": 108
+}, {
+	"avg_score_bert": 0.2101,
+	"avg_score_lr": 0.3333,
+	"avg_score_nb": 0.0,
+	"category": "CELEBRITY",
+	"follower_count": 65879,
+	"screen_name": "QUESTLOVE",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.1674,
+	"avg_score_lr": 0.22,
+	"avg_score_nb": 0.2185,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 65711,
+	"screen_name": "SALON",
+	"status_count": 151
+}, {
+	"avg_score_bert": 0.171,
+	"avg_score_lr": 0.2,
+	"avg_score_nb": 0.0667,
+	"category": "OTHER",
+	"follower_count": 65679,
+	"screen_name": "MICHAELIANBLACK",
+	"status_count": 15
+}, {
+	"avg_score_bert": 0.1081,
+	"avg_score_lr": 0.1702,
+	"avg_score_nb": 0.1277,
+	"category": "OTHER",
+	"follower_count": 65632,
+	"screen_name": "ADAMCBEST",
+	"status_count": 47
+}, {
+	"avg_score_bert": 0.5789,
+	"avg_score_lr": 0.5349,
+	"avg_score_nb": 0.5116,
+	"category": "OTHER",
+	"follower_count": 65540,
+	"screen_name": "KYLEKULINSKI",
+	"status_count": 43
+}, {
+	"avg_score_bert": 0.1184,
+	"avg_score_lr": 0.2195,
+	"avg_score_nb": 0.1463,
+	"category": "OTHER",
+	"follower_count": 65527,
+	"screen_name": "VOTEVETS",
+	"status_count": 41
+}, {
+	"avg_score_bert": 0.8215,
+	"avg_score_lr": 0.875,
+	"avg_score_nb": 0.75,
+	"category": "OTHER",
+	"follower_count": 65396,
+	"screen_name": "EDHENRY",
+	"status_count": 8
+}, {
+	"avg_score_bert": 0.4274,
+	"avg_score_lr": 0.6364,
+	"avg_score_nb": 0.6364,
+	"category": "OTHER",
+	"follower_count": 65264,
+	"screen_name": "MATTWALSHBLOG",
+	"status_count": 11
+}, {
+	"avg_score_bert": 0.1852,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 65189,
+	"screen_name": "COMPLEX",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.1003,
+	"avg_score_lr": 0.0808,
+	"avg_score_nb": 0.0404,
+	"category": "OTHER",
+	"follower_count": 65066,
+	"screen_name": "SIFILL_LDF",
+	"status_count": 99
+}, {
+	"avg_score_bert": 0.9649,
+	"avg_score_lr": 0.9184,
+	"avg_score_nb": 0.898,
+	"category": "OTHER",
+	"follower_count": 64918,
+	"screen_name": "HRENEE80",
+	"status_count": 49
+}, {
+	"avg_score_bert": 0.3022,
+	"avg_score_lr": 0.3635,
+	"avg_score_nb": 0.4397,
+	"category": "MAJOR-MEDIA-OUTLET",
+	"follower_count": 64892,
+	"screen_name": "ABCPOLITICS",
+	"status_count": 630
+}, {
+	"avg_score_bert": 0.8819,
+	"avg_score_lr": 0.8594,
+	"avg_score_nb": 0.9063,
+	"category": "OTHER",
+	"follower_count": 64732,
+	"screen_name": "GRRRGRAPHICS",
+	"status_count": 64
+}, {
+	"avg_score_bert": 0.7644,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 1.0,
+	"category": "OTHER",
+	"follower_count": 64722,
+	"screen_name": "MARKSTEYNONLINE",
+	"status_count": 12
+}, {
+	"avg_score_bert": 0.086,
+	"avg_score_lr": 0.1634,
+	"avg_score_nb": 0.1503,
+	"category": "OTHER",
+	"follower_count": 64692,
+	"screen_name": "WALSHFREEDOM",
+	"status_count": 153
+}, {
+	"avg_score_bert": 0.2673,
+	"avg_score_lr": 0.2373,
+	"avg_score_nb": 0.1189,
+	"category": "OTHER",
+	"follower_count": 64613,
+	"screen_name": "JILEVIN",
+	"status_count": 1354
+}, {
+	"avg_score_bert": 0.7221,
+	"avg_score_lr": 0.7652,
+	"avg_score_nb": 0.7913,
+	"category": "OTHER",
+	"follower_count": 64409,
+	"screen_name": "INEVITABLE_ET",
+	"status_count": 115
+}, {
+	"avg_score_bert": 0.036,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 64323,
+	"screen_name": "JEFFREYTOOBIN",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.1778,
+	"avg_score_lr": 0.2857,
+	"avg_score_nb": 0.1429,
+	"category": "OTHER",
+	"follower_count": 64269,
+	"screen_name": "ROKHANNA",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.1051,
+	"avg_score_lr": 0.1079,
+	"avg_score_nb": 0.1223,
+	"category": "OTHER",
+	"follower_count": 64266,
+	"screen_name": "THERICKYDAVILA",
+	"status_count": 139
+}, {
+	"avg_score_bert": 0.3335,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.3333,
+	"category": "OTHER",
+	"follower_count": 64057,
+	"screen_name": "WKAMAUBELL",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.9956,
+	"avg_score_lr": 0.9529,
+	"avg_score_nb": 0.9768,
+	"category": "OTHER",
+	"follower_count": 63707,
+	"screen_name": "JAMIERODR14",
+	"status_count": 3188
+}, {
+	"avg_score_bert": 0.4635,
+	"avg_score_lr": 0.6667,
+	"avg_score_nb": 0.6667,
+	"category": "OTHER",
+	"follower_count": 63591,
+	"screen_name": "JOHNSTOSSEL",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.083,
+	"avg_score_lr": 0.093,
+	"avg_score_nb": 0.0465,
+	"category": "OTHER",
+	"follower_count": 63579,
+	"screen_name": "THEYOUNGTURKS",
+	"status_count": 43
+}, {
+	"avg_score_bert": 0.0396,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 63545,
+	"screen_name": "YESYOURERACIST",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.1554,
+	"avg_score_lr": 0.2206,
+	"avg_score_nb": 0.1618,
+	"category": "OTHER",
+	"follower_count": 63497,
+	"screen_name": "BRYANBEHAR",
+	"status_count": 68
+}, {
+	"avg_score_bert": 0.5566,
+	"avg_score_lr": 0.4,
+	"avg_score_nb": 0.6,
+	"category": "OTHER",
+	"follower_count": 63496,
+	"screen_name": "PDCHINA",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.2687,
+	"avg_score_lr": 0.1875,
+	"avg_score_nb": 0.125,
+	"category": "OTHER",
+	"follower_count": 63446,
+	"screen_name": "JULIAIOFFE",
+	"status_count": 32
+}, {
+	"avg_score_bert": 0.1029,
+	"avg_score_lr": 0.1923,
+	"avg_score_nb": 0.1923,
+	"category": "OTHER",
+	"follower_count": 63332,
+	"screen_name": "KENDILANIANNBC",
+	"status_count": 26
+}, {
+	"avg_score_bert": 0.0943,
+	"avg_score_lr": 0.0625,
+	"avg_score_nb": 0.0625,
+	"category": "OTHER",
+	"follower_count": 63286,
+	"screen_name": "DRJENGUNTER",
+	"status_count": 16
+}, {
+	"avg_score_bert": 0.0667,
+	"avg_score_lr": 0.0813,
+	"avg_score_nb": 0.0766,
+	"category": "OTHER",
+	"follower_count": 63271,
+	"screen_name": "DJROTHKOPF",
+	"status_count": 418
+}, {
+	"avg_score_bert": 0.0518,
+	"avg_score_lr": 0.0798,
+	"avg_score_nb": 0.0579,
+	"category": "OTHER",
+	"follower_count": 63235,
+	"screen_name": "UROCKLIVE1",
+	"status_count": 2158
+}, {
+	"avg_score_bert": 0.4711,
+	"avg_score_lr": 0.4167,
+	"avg_score_nb": 0.25,
+	"category": "OTHER",
+	"follower_count": 63183,
+	"screen_name": "ANAKASPARIAN",
+	"status_count": 12
+}, {
+	"avg_score_bert": 0.0431,
+	"avg_score_lr": 0.1685,
+	"avg_score_nb": 0.0955,
+	"category": "OTHER",
+	"follower_count": 63100,
+	"screen_name": "SFPELOSI",
+	"status_count": 178
+}, {
+	"avg_score_bert": 0.1378,
+	"avg_score_lr": 0.135,
+	"avg_score_nb": 0.1166,
+	"category": "OTHER",
+	"follower_count": 63068,
+	"screen_name": "WAJAHATALI",
+	"status_count": 326
+}, {
+	"avg_score_bert": 0.1364,
+	"avg_score_lr": 0.2444,
+	"avg_score_nb": 0.2444,
+	"category": "OTHER",
+	"follower_count": 62996,
+	"screen_name": "JYSEXTON",
+	"status_count": 45
+}, {
+	"avg_score_bert": 0.2278,
+	"avg_score_lr": 0.25,
+	"avg_score_nb": 0.125,
+	"category": "OTHER",
+	"follower_count": 62976,
+	"screen_name": "DAVEWEASEL",
+	"status_count": 8
+}, {
+	"avg_score_bert": 0.3698,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.25,
+	"category": "OTHER",
+	"follower_count": 62974,
+	"screen_name": "MEDIUM",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.0347,
+	"avg_score_lr": 0.1338,
+	"avg_score_nb": 0.1146,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 62897,
+	"screen_name": "REPVALDEMINGS",
+	"status_count": 157
+}, {
+	"avg_score_bert": 0.1575,
+	"avg_score_lr": 0.2302,
+	"avg_score_nb": 0.223,
+	"category": "OTHER",
+	"follower_count": 62872,
+	"screen_name": "KATIEPHANG",
+	"status_count": 139
+}, {
+	"avg_score_bert": 0.1217,
+	"avg_score_lr": 0.0787,
+	"avg_score_nb": 0.0674,
+	"category": "OTHER",
+	"follower_count": 62854,
+	"screen_name": "KENOLIN1",
+	"status_count": 89
+}, {
+	"avg_score_bert": 0.1711,
+	"avg_score_lr": 0.284,
+	"avg_score_nb": 0.2469,
+	"category": "OTHER",
+	"follower_count": 62793,
+	"screen_name": "SEUNGMINKIM",
+	"status_count": 81
+}, {
+	"avg_score_bert": 0.2317,
+	"avg_score_lr": 0.301,
+	"avg_score_nb": 0.2718,
+	"category": "OTHER",
+	"follower_count": 62670,
+	"screen_name": "CILLIZZACNN",
+	"status_count": 103
+}, {
+	"avg_score_bert": 0.1711,
+	"avg_score_lr": 0.1818,
+	"avg_score_nb": 0.1818,
+	"category": "OTHER",
+	"follower_count": 62621,
+	"screen_name": "KENKLIPPENSTEIN",
+	"status_count": 11
+}, {
+	"avg_score_bert": 0.1089,
+	"avg_score_lr": 0.1528,
+	"avg_score_nb": 0.1167,
+	"category": "OTHER",
+	"follower_count": 62389,
+	"screen_name": "NYCSOUTHPAW",
+	"status_count": 360
+}, {
+	"avg_score_bert": 0.0512,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0667,
+	"category": "OTHER",
+	"follower_count": 62323,
+	"screen_name": "WOODRUFFBETS",
+	"status_count": 15
+}, {
+	"avg_score_bert": 0.1404,
+	"avg_score_lr": 0.087,
+	"avg_score_nb": 0.087,
+	"category": "OTHER",
+	"follower_count": 62240,
+	"screen_name": "TRISH_ZORNIO",
+	"status_count": 23
+}, {
+	"avg_score_bert": 0.9252,
+	"avg_score_lr": 0.9091,
+	"avg_score_nb": 0.9091,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 62079,
+	"screen_name": "SENATORTIMSCOTT",
+	"status_count": 11
+}, {
+	"avg_score_bert": 0.6422,
+	"avg_score_lr": 0.6755,
+	"avg_score_nb": 0.6702,
+	"category": "OTHER",
+	"follower_count": 62023,
+	"screen_name": "REDSTEEZE",
+	"status_count": 188
+}, {
+	"avg_score_bert": 0.1136,
+	"avg_score_lr": 0.2041,
+	"avg_score_nb": 0.3265,
+	"category": "OTHER",
+	"follower_count": 61909,
+	"screen_name": "CGTNOFFICIAL",
+	"status_count": 49
+}, {
+	"avg_score_bert": 0.0514,
+	"avg_score_lr": 0.0667,
+	"avg_score_nb": 0.1111,
+	"category": "OTHER",
+	"follower_count": 61843,
+	"screen_name": "CASLERNOEL",
+	"status_count": 45
+}, {
+	"avg_score_bert": 0.0032,
+	"avg_score_lr": 0.1429,
+	"avg_score_nb": 0.0952,
+	"category": "OTHER",
+	"follower_count": 61809,
+	"screen_name": "JANEMARIELYNCH",
+	"status_count": 21
+}, {
+	"avg_score_bert": 0.0671,
+	"avg_score_lr": 0.1,
+	"avg_score_nb": 0.1,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 61790,
+	"screen_name": "JOHNKASICH",
+	"status_count": 10
+}, {
+	"avg_score_bert": 0.05,
+	"avg_score_lr": 0.0847,
+	"avg_score_nb": 0.1017,
+	"category": "OTHER",
+	"follower_count": 61698,
+	"screen_name": "OLGANYC1211",
+	"status_count": 59
+}, {
+	"avg_score_bert": 0.99,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 1.0,
+	"category": "OTHER",
+	"follower_count": 61698,
+	"screen_name": "KSORBS",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.2567,
+	"avg_score_lr": 0.25,
+	"avg_score_nb": 0.25,
+	"category": "OTHER",
+	"follower_count": 61693,
+	"screen_name": "LISAMURKOWSKI",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.2971,
+	"avg_score_lr": 0.3778,
+	"avg_score_nb": 0.2889,
+	"category": "POLITICAL-COMMENTATOR",
+	"follower_count": 61664,
+	"screen_name": "SECUPP",
+	"status_count": 45
+}, {
+	"avg_score_bert": 0.1075,
+	"avg_score_lr": 0.1406,
+	"avg_score_nb": 0.125,
+	"category": "OTHER",
+	"follower_count": 61625,
+	"screen_name": "JOHN_SIPHER",
+	"status_count": 64
+}, {
+	"avg_score_bert": 0.9925,
+	"avg_score_lr": 0.875,
+	"avg_score_nb": 0.7778,
+	"category": "OTHER",
+	"follower_count": 61617,
+	"screen_name": "KIMKBALTIMORE",
+	"status_count": 9
+}, {
+	"avg_score_bert": 0.9984,
+	"avg_score_lr": 0.7843,
+	"avg_score_nb": 0.8686,
+	"category": "OTHER",
+	"follower_count": 61475,
+	"screen_name": "OLIVERMCGEE",
+	"status_count": 510
+}, {
+	"avg_score_bert": 0.2439,
+	"avg_score_lr": 0.5,
+	"avg_score_nb": 0.5,
+	"category": "OTHER",
+	"follower_count": 61382,
+	"screen_name": "SKYNEWSBREAK",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.0556,
+	"avg_score_lr": 0.064,
+	"avg_score_nb": 0.072,
+	"category": "OTHER",
+	"follower_count": 61346,
+	"screen_name": "SWINGLEFT",
+	"status_count": 125
+}, {
+	"avg_score_bert": 0.9799,
+	"avg_score_lr": 0.871,
+	"avg_score_nb": 0.8145,
+	"category": "OTHER",
+	"follower_count": 61339,
+	"screen_name": "STUMPFORTRUMP",
+	"status_count": 124
+}, {
+	"avg_score_bert": 0.3646,
+	"avg_score_lr": 0.3636,
+	"avg_score_nb": 0.2727,
+	"category": "OTHER",
+	"follower_count": 61318,
+	"screen_name": "JEREMYSCAHILL",
+	"status_count": 11
+}, {
+	"avg_score_bert": 0.2901,
+	"avg_score_lr": 0.3011,
+	"avg_score_nb": 0.2903,
+	"category": "OTHER",
+	"follower_count": 61295,
+	"screen_name": "CHARLESPPIERCE",
+	"status_count": 93
+}, {
+	"avg_score_bert": 0.8777,
+	"avg_score_lr": 0.875,
+	"avg_score_nb": 0.75,
+	"category": "OTHER",
+	"follower_count": 61114,
+	"screen_name": "MICHAELJOHNS",
+	"status_count": 16
+}, {
+	"avg_score_bert": 0.0284,
+	"avg_score_lr": 0.0235,
+	"avg_score_nb": 0.0088,
+	"category": "OTHER",
+	"follower_count": 61102,
+	"screen_name": "DEMWRITE",
+	"status_count": 341
+}, {
+	"avg_score_bert": 0.381,
+	"avg_score_lr": 0.4634,
+	"avg_score_nb": 0.3415,
+	"category": "OTHER",
+	"follower_count": 61073,
+	"screen_name": "IANBREMMER",
+	"status_count": 41
+}, {
+	"avg_score_bert": 0.2859,
+	"avg_score_lr": 0.375,
+	"avg_score_nb": 0.25,
+	"category": "OTHER",
+	"follower_count": 60985,
+	"screen_name": "BRENNANCENTER",
+	"status_count": 24
+}, {
+	"avg_score_bert": 0.6216,
+	"avg_score_lr": 0.5625,
+	"avg_score_nb": 0.5781,
+	"category": "OTHER",
+	"follower_count": 60940,
+	"screen_name": "GUYPBENSON",
+	"status_count": 128
+}, {
+	"avg_score_bert": 0.1398,
+	"avg_score_lr": 0.1826,
+	"avg_score_nb": 0.1411,
+	"category": "OTHER",
+	"follower_count": 60935,
+	"screen_name": "STONEKETTLE",
+	"status_count": 241
+}, {
+	"avg_score_bert": 0.0096,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 60842,
+	"screen_name": "PUBLIC_CITIZEN",
+	"status_count": 37
+}, {
+	"avg_score_bert": 0.3651,
+	"avg_score_lr": 0.2727,
+	"avg_score_nb": 0.25,
+	"category": "OTHER",
+	"follower_count": 60781,
+	"screen_name": "WEIJIA",
+	"status_count": 44
+}, {
+	"avg_score_bert": 0.3755,
+	"avg_score_lr": 0.5714,
+	"avg_score_nb": 0.5714,
+	"category": "OTHER",
+	"follower_count": 60664,
+	"screen_name": "JEDEDIAHBILA",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.2297,
+	"avg_score_lr": 0.1972,
+	"avg_score_nb": 0.2018,
+	"category": "POLITICAL-COMMENTATOR",
+	"follower_count": 60533,
+	"screen_name": "NBCNIGHTLYNEWS",
+	"status_count": 218
+}, {
+	"avg_score_bert": 0.6873,
+	"avg_score_lr": 0.6829,
+	"avg_score_nb": 0.4878,
+	"category": "POLITICAL-COMMENTATOR",
+	"follower_count": 60510,
+	"screen_name": "GERALDORIVERA",
+	"status_count": 41
+}, {
+	"avg_score_bert": 0.2586,
+	"avg_score_lr": 0.0909,
+	"avg_score_nb": 0.0909,
+	"category": "OTHER",
+	"follower_count": 60466,
+	"screen_name": "OMARIJHARDY",
+	"status_count": 11
+}, {
+	"avg_score_bert": 0.9942,
+	"avg_score_lr": 0.9299,
+	"avg_score_nb": 0.9431,
+	"category": "OTHER",
+	"follower_count": 60381,
+	"screen_name": "BFRASER747",
+	"status_count": 3127
+}, {
+	"avg_score_bert": 0.0376,
+	"avg_score_lr": 0.0588,
+	"avg_score_nb": 0.1176,
+	"category": "OTHER",
+	"follower_count": 60260,
+	"screen_name": "NHANNAHJONES",
+	"status_count": 17
+}, {
+	"avg_score_bert": 0.4555,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 60103,
+	"screen_name": "KWELKERNBC",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.0315,
+	"avg_score_lr": 0.25,
+	"avg_score_nb": 0.1667,
+	"category": "OTHER",
+	"follower_count": 60079,
+	"screen_name": "MARAWILSON",
+	"status_count": 12
+}, {
+	"avg_score_bert": 0.0357,
+	"avg_score_lr": 0.0935,
+	"avg_score_nb": 0.0841,
+	"category": "OTHER",
+	"follower_count": 60016,
+	"screen_name": "USNAVYMOMPA",
+	"status_count": 107
+}, {
+	"avg_score_bert": 0.9916,
+	"avg_score_lr": 0.891,
+	"avg_score_nb": 0.8936,
+	"category": "OTHER",
+	"follower_count": 59832,
+	"screen_name": "JBAKER31826004",
+	"status_count": 376
+}, {
+	"avg_score_bert": 0.7348,
+	"avg_score_lr": 0.7679,
+	"avg_score_nb": 0.7143,
+	"category": "OTHER",
+	"follower_count": 59726,
+	"screen_name": "JESSEKELLYDC",
+	"status_count": 56
+}, {
+	"avg_score_bert": 0.9169,
+	"avg_score_lr": 0.871,
+	"avg_score_nb": 0.872,
+	"category": "OTHER",
+	"follower_count": 59712,
+	"screen_name": "TRUMPSTUDENTS",
+	"status_count": 125
+}, {
+	"avg_score_bert": 0.215,
+	"avg_score_lr": 0.2368,
+	"avg_score_nb": 0.2368,
+	"category": "OTHER",
+	"follower_count": 59711,
+	"screen_name": "DAVIDCAYJ",
+	"status_count": 38
+}, {
+	"avg_score_bert": 0.8644,
+	"avg_score_lr": 0.8983,
+	"avg_score_nb": 0.9153,
+	"category": "OTHER",
+	"follower_count": 59685,
+	"screen_name": "MARSHABLACKBURN",
+	"status_count": 59
+}, {
+	"avg_score_bert": 0.0167,
+	"avg_score_lr": 0.0649,
+	"avg_score_nb": 0.027,
+	"category": "OTHER",
+	"follower_count": 59681,
+	"screen_name": "JENNYCOHN1",
+	"status_count": 185
+}, {
+	"avg_score_bert": 0.9034,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 1.0,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 59651,
+	"screen_name": "SENTOMCOTTON",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.071,
+	"avg_score_lr": 0.1111,
+	"avg_score_nb": 0.1481,
+	"category": "OTHER",
+	"follower_count": 59610,
+	"screen_name": "MSPACKYETTI",
+	"status_count": 27
+}, {
+	"avg_score_bert": 0.1002,
+	"avg_score_lr": 0.1579,
+	"avg_score_nb": 0.2193,
+	"category": "OTHER",
+	"follower_count": 59594,
+	"screen_name": "KEITHBOYKIN",
+	"status_count": 114
+}, {
+	"avg_score_bert": 0.8095,
+	"avg_score_lr": 0.8444,
+	"avg_score_nb": 0.8978,
+	"category": "OTHER",
+	"follower_count": 59443,
+	"screen_name": "ADAMBALDWIN",
+	"status_count": 225
+}, {
+	"avg_score_bert": 0.2088,
+	"avg_score_lr": 0.2857,
+	"avg_score_nb": 0.2857,
+	"category": "OTHER",
+	"follower_count": 59410,
+	"screen_name": "RYANLIZZA",
+	"status_count": 21
+}, {
+	"avg_score_bert": 0.9939,
+	"avg_score_lr": 0.8726,
+	"avg_score_nb": 0.8651,
+	"category": "OTHER",
+	"follower_count": 59344,
+	"screen_name": "CHRISTIEC733",
+	"status_count": 519
+}, {
+	"avg_score_bert": 0.7627,
+	"avg_score_lr": 0.6667,
+	"avg_score_nb": 1.0,
+	"category": "OTHER",
+	"follower_count": 59317,
+	"screen_name": "JENNAJAMESON",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.1518,
+	"avg_score_lr": 0.3243,
+	"avg_score_nb": 0.2162,
+	"category": "OTHER",
+	"follower_count": 59293,
+	"screen_name": "JORDANUHL",
+	"status_count": 37
+}, {
+	"avg_score_bert": 0.1215,
+	"avg_score_lr": 0.1453,
+	"avg_score_nb": 0.1026,
+	"category": "OTHER",
+	"follower_count": 59231,
+	"screen_name": "GREGOLEAR",
+	"status_count": 117
+}, {
+	"avg_score_bert": 0.1812,
+	"avg_score_lr": 0.1176,
+	"avg_score_nb": 0.1176,
+	"category": "OTHER",
+	"follower_count": 59186,
+	"screen_name": "JELANI9",
+	"status_count": 17
+}, {
+	"avg_score_bert": 0.821,
+	"avg_score_lr": 0.8529,
+	"avg_score_nb": 0.9118,
+	"category": "OTHER",
+	"follower_count": 59142,
+	"screen_name": "REALTYLERZED",
+	"status_count": 34
+}, {
+	"avg_score_bert": 0.2747,
+	"avg_score_lr": 0.2667,
+	"avg_score_nb": 0.3333,
+	"category": "OTHER",
+	"follower_count": 59093,
+	"screen_name": "YOURANONNEWS",
+	"status_count": 15
+}, {
+	"avg_score_bert": 0.0233,
+	"avg_score_lr": 0.0769,
+	"avg_score_nb": 0.1538,
+	"category": "POLITICAL-COMMENTATOR",
+	"follower_count": 59073,
+	"screen_name": "60MINUTES",
+	"status_count": 13
+}, {
+	"avg_score_bert": 0.4807,
+	"avg_score_lr": 0.548,
+	"avg_score_nb": 0.6285,
+	"category": "OTHER",
+	"follower_count": 59062,
+	"screen_name": "BOSNERDLEY",
+	"status_count": 323
+}, {
+	"avg_score_bert": 0.2978,
+	"avg_score_lr": 0.4203,
+	"avg_score_nb": 0.3768,
+	"category": "OTHER",
+	"follower_count": 58956,
+	"screen_name": "JONAHDISPATCH",
+	"status_count": 69
+}, {
+	"avg_score_bert": 0.8391,
+	"avg_score_lr": 0.8667,
+	"avg_score_nb": 0.8667,
+	"category": "OTHER",
+	"follower_count": 58940,
+	"screen_name": "M2MADNESS",
+	"status_count": 30
+}, {
+	"avg_score_bert": 0.106,
+	"avg_score_lr": 0.1132,
+	"avg_score_nb": 0.0629,
+	"category": "OTHER",
+	"follower_count": 58796,
+	"screen_name": "STOP_TRUMP20",
+	"status_count": 159
+}, {
+	"avg_score_bert": 0.8599,
+	"avg_score_lr": 0.7725,
+	"avg_score_nb": 0.8174,
+	"category": "OTHER",
+	"follower_count": 58773,
+	"screen_name": "THELASTREFUGE2",
+	"status_count": 334
+}, {
+	"avg_score_bert": 0.9506,
+	"avg_score_lr": 0.8,
+	"avg_score_nb": 0.8533,
+	"category": "OTHER",
+	"follower_count": 58766,
+	"screen_name": "IWASHINGTON",
+	"status_count": 75
+}, {
+	"avg_score_bert": 0.673,
+	"avg_score_lr": 0.669,
+	"avg_score_nb": 0.6301,
+	"category": "OTHER",
+	"follower_count": 58737,
+	"screen_name": "JOHNCORNYN",
+	"status_count": 146
+}, {
+	"avg_score_bert": 0.1318,
+	"avg_score_lr": 0.0833,
+	"avg_score_nb": 0.0606,
+	"category": "OTHER",
+	"follower_count": 58736,
+	"screen_name": "LOUISEMENSCH",
+	"status_count": 132
+}, {
+	"avg_score_bert": 0.0679,
+	"avg_score_lr": 0.0833,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 58650,
+	"screen_name": "EMRAZZ",
+	"status_count": 12
+}, {
+	"avg_score_bert": 0.7858,
+	"avg_score_lr": 0.7303,
+	"avg_score_nb": 0.8618,
+	"category": "OTHER",
+	"follower_count": 58587,
+	"screen_name": "NRO",
+	"status_count": 152
+}, {
+	"avg_score_bert": 0.8862,
+	"avg_score_lr": 0.8929,
+	"avg_score_nb": 0.8929,
+	"category": "OTHER",
+	"follower_count": 58529,
+	"screen_name": "GREGRUBINI",
+	"status_count": 84
+}, {
+	"avg_score_bert": 0.0995,
+	"avg_score_lr": 0.1667,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 58276,
+	"screen_name": "ESGLAUDE",
+	"status_count": 12
+}, {
+	"avg_score_bert": null,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 0.963,
+	"category": "OTHER",
+	"follower_count": 58241,
+	"screen_name": "G_THEORIGINAL",
+	"status_count": 27
+}, {
+	"avg_score_bert": 0.1425,
+	"avg_score_lr": 0.375,
+	"avg_score_nb": 0.4375,
+	"category": "OTHER",
+	"follower_count": 58202,
+	"screen_name": "KATIEHILL4CA",
+	"status_count": 16
+}, {
+	"avg_score_bert": 0.942,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 1.0,
+	"category": "OTHER",
+	"follower_count": 58129,
+	"screen_name": "JOY_VILLA",
+	"status_count": 24
+}, {
+	"avg_score_bert": 0.9425,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 1.0,
+	"category": "OTHER",
+	"follower_count": 58104,
+	"screen_name": "AMYMEK",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.209,
+	"avg_score_lr": 0.0714,
+	"avg_score_nb": 0.0357,
+	"category": "OTHER",
+	"follower_count": 58017,
+	"screen_name": "NIGHTLYPOLITICS",
+	"status_count": 28
+}, {
+	"avg_score_bert": 0.9944,
+	"avg_score_lr": 0.9166,
+	"avg_score_nb": 0.9897,
+	"category": "OTHER",
+	"follower_count": 57783,
+	"screen_name": "JULIEREICHWEIN1",
+	"status_count": 2807
+}, {
+	"avg_score_bert": 0.9535,
+	"avg_score_lr": 0.9344,
+	"avg_score_nb": 0.9016,
+	"category": "OTHER",
+	"follower_count": 57623,
+	"screen_name": "GAYREPUBLICSWAG",
+	"status_count": 61
+}, {
+	"avg_score_bert": 0.6121,
+	"avg_score_lr": 0.25,
+	"avg_score_nb": 0.25,
+	"category": "OTHER",
+	"follower_count": 57542,
+	"screen_name": "ROGUESNRADVISOR",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.1942,
+	"avg_score_lr": 0.2727,
+	"avg_score_nb": 0.2727,
+	"category": "OTHER",
+	"follower_count": 57477,
+	"screen_name": "ROLANDSCAHILL",
+	"status_count": 11
+}, {
+	"avg_score_bert": 0.9916,
+	"avg_score_lr": 0.8286,
+	"avg_score_nb": 0.8,
+	"category": "OTHER",
+	"follower_count": 57351,
+	"screen_name": "MICHAELCOUDREY",
+	"status_count": 35
+}, {
+	"avg_score_bert": 0.0104,
+	"avg_score_lr": 0.2143,
+	"avg_score_nb": 0.0714,
+	"category": "OTHER",
+	"follower_count": 57065,
+	"screen_name": "MICHAELRAPAPORT",
+	"status_count": 14
+}, {
+	"avg_score_bert": 0.0559,
+	"avg_score_lr": 0.1087,
+	"avg_score_nb": 0.1304,
+	"category": "OTHER",
+	"follower_count": 56996,
+	"screen_name": "BRIANTYLERCOHEN",
+	"status_count": 92
+}, {
+	"avg_score_bert": 0.6108,
+	"avg_score_lr": 0.2222,
+	"avg_score_nb": 0.3333,
+	"category": "OTHER",
+	"follower_count": 56759,
+	"screen_name": "KIMDOTCOM",
+	"status_count": 9
+}, {
+	"avg_score_bert": 0.5426,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 56712,
+	"screen_name": "DAVIDSIROTA",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.1263,
+	"avg_score_lr": 0.1429,
+	"avg_score_nb": 0.1071,
+	"category": "OTHER",
+	"follower_count": 56560,
+	"screen_name": "CONNIESCHULTZ",
+	"status_count": 28
+}, {
+	"avg_score_bert": 0.0024,
+	"avg_score_lr": 0.3333,
+	"avg_score_nb": 0.3333,
+	"category": "OTHER",
+	"follower_count": 56534,
+	"screen_name": "SUSANSARANDON",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.1796,
+	"avg_score_lr": 0.1563,
+	"avg_score_nb": 0.125,
+	"category": "OTHER",
+	"follower_count": 56456,
+	"screen_name": "ABFALECBALDWIN",
+	"status_count": 32
+}, {
+	"avg_score_bert": 0.0385,
+	"avg_score_lr": 0.1014,
+	"avg_score_nb": 0.0507,
+	"category": "OTHER",
+	"follower_count": 56356,
+	"screen_name": "RONALDKLAIN",
+	"status_count": 138
+}, {
+	"avg_score_bert": 0.176,
+	"avg_score_lr": 0.2105,
+	"avg_score_nb": 0.1579,
+	"category": "OTHER",
+	"follower_count": 56343,
+	"screen_name": "LSARSOUR",
+	"status_count": 19
+}, {
+	"avg_score_bert": 0.27,
+	"avg_score_lr": 0.5,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 56224,
+	"screen_name": "BESSBELL",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.8899,
+	"avg_score_lr": 0.9057,
+	"avg_score_nb": 0.9057,
+	"category": "OTHER",
+	"follower_count": 56145,
+	"screen_name": "MARTINGEDDES",
+	"status_count": 53
+}, {
+	"avg_score_bert": 0.2893,
+	"avg_score_lr": 0.3,
+	"avg_score_nb": 0.1,
+	"category": "OTHER",
+	"follower_count": 56130,
+	"screen_name": "NATE_COHN",
+	"status_count": 10
+}, {
+	"avg_score_bert": 0.5679,
+	"avg_score_lr": 0.5625,
+	"avg_score_nb": 0.625,
+	"category": "LEGAL-SCHOLAR",
+	"follower_count": 55983,
+	"screen_name": "JONATHANTURLEY",
+	"status_count": 96
+}, {
+	"avg_score_bert": 0.1307,
+	"avg_score_lr": 0.1929,
+	"avg_score_nb": 0.1206,
+	"category": "OTHER",
+	"follower_count": 55919,
+	"screen_name": "ELIENYC",
+	"status_count": 141
+}, {
+	"avg_score_bert": 0.0077,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.25,
+	"category": "OTHER",
+	"follower_count": 55873,
+	"screen_name": "OVERSIGHTDEMS",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.1321,
+	"avg_score_lr": 0.1752,
+	"avg_score_nb": 0.1709,
+	"category": "OTHER",
+	"follower_count": 55863,
+	"screen_name": "TERI_KANEFIELD",
+	"status_count": 468
+}, {
+	"avg_score_bert": 0.0718,
+	"avg_score_lr": 0.073,
+	"avg_score_nb": 0.0568,
+	"category": "OTHER",
+	"follower_count": 55753,
+	"screen_name": "CHERIJACOBUS",
+	"status_count": 740
+}, {
+	"avg_score_bert": 0.0715,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 55751,
+	"screen_name": "AODESPAIR",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.1021,
+	"avg_score_lr": 0.2,
+	"avg_score_nb": 0.1125,
+	"category": "OTHER",
+	"follower_count": 55706,
+	"screen_name": "DRJASONJOHNSON",
+	"status_count": 80
+}, {
+	"avg_score_bert": 0.1071,
+	"avg_score_lr": 0.1421,
+	"avg_score_nb": 0.1316,
+	"category": "OTHER",
+	"follower_count": 55706,
+	"screen_name": "EDWARDTHARDY",
+	"status_count": 190
+}, {
+	"avg_score_bert": 0.0829,
+	"avg_score_lr": 0.25,
+	"avg_score_nb": 0.25,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 55659,
+	"screen_name": "VOGUEMAGAZINE",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.0497,
+	"avg_score_lr": 0.04,
+	"avg_score_nb": 0.04,
+	"category": "OTHER",
+	"follower_count": 55609,
+	"screen_name": "JOSEPHABONDY",
+	"status_count": 25
+}, {
+	"avg_score_bert": 0.6019,
+	"avg_score_lr": 0.6364,
+	"avg_score_nb": 0.6364,
+	"category": "OTHER",
+	"follower_count": 55566,
+	"screen_name": "ZUBYMUSIC",
+	"status_count": 11
+}, {
+	"avg_score_bert": 0.1003,
+	"avg_score_lr": 0.4286,
+	"avg_score_nb": 0.381,
+	"category": "MAJOR-MEDIA-OUTLET",
+	"follower_count": 55506,
+	"screen_name": "TELEGRAPH",
+	"status_count": 21
+}, {
+	"avg_score_bert": 0.2582,
+	"avg_score_lr": 0.4255,
+	"avg_score_nb": 0.2979,
+	"category": "OTHER",
+	"follower_count": 55462,
+	"screen_name": "KELLYO",
+	"status_count": 47
+}, {
+	"avg_score_bert": 0.1842,
+	"avg_score_lr": 0.2128,
+	"avg_score_nb": 0.1915,
+	"category": "OTHER",
+	"follower_count": 55440,
+	"screen_name": "MATTHEWJDOWD",
+	"status_count": 94
+}, {
+	"avg_score_bert": 0.9391,
+	"avg_score_lr": 0.8805,
+	"avg_score_nb": 0.8904,
+	"category": "OTHER",
+	"follower_count": 55374,
+	"screen_name": "DFBHARVARD",
+	"status_count": 520
+}, {
+	"avg_score_bert": 0.0901,
+	"avg_score_lr": 0.2075,
+	"avg_score_nb": 0.249,
+	"category": "OTHER",
+	"follower_count": 55276,
+	"screen_name": "HOUSEJUDICIARY",
+	"status_count": 241
+}, {
+	"avg_score_bert": 0.0374,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 55248,
+	"screen_name": "MARCLAMONTHILL",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.0788,
+	"avg_score_lr": 0.1667,
+	"avg_score_nb": 0.1667,
+	"category": "OTHER",
+	"follower_count": 55191,
+	"screen_name": "NPRINSKEEP",
+	"status_count": 54
+}, {
+	"avg_score_bert": 0.2682,
+	"avg_score_lr": 0.1,
+	"avg_score_nb": 0.3,
+	"category": "OTHER",
+	"follower_count": 55167,
+	"screen_name": "KIRSTENPOWERS",
+	"status_count": 10
+}, {
+	"avg_score_bert": 0.9799,
+	"avg_score_lr": 0.9323,
+	"avg_score_nb": 0.9569,
+	"category": "OTHER",
+	"follower_count": 55134,
+	"screen_name": "KATTHEHAMMER1",
+	"status_count": 325
+}, {
+	"avg_score_bert": 0.0457,
+	"avg_score_lr": 0.1042,
+	"avg_score_nb": 0.0833,
+	"category": "OTHER",
+	"follower_count": 55106,
+	"screen_name": "TOMJCHICAGO",
+	"status_count": 48
+}, {
+	"avg_score_bert": 0.4444,
+	"avg_score_lr": 0.5,
+	"avg_score_nb": 0.25,
+	"category": "OTHER",
+	"follower_count": 55097,
+	"screen_name": "KAIKAHELE",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.1403,
+	"avg_score_lr": 0.1755,
+	"avg_score_nb": 0.1361,
+	"category": "OTHER",
+	"follower_count": 54955,
+	"screen_name": "DAVIDMWEISSMAN",
+	"status_count": 507
+}, {
+	"avg_score_bert": 0.1204,
+	"avg_score_lr": 0.1333,
+	"avg_score_nb": 0.0667,
+	"category": "OTHER",
+	"follower_count": 54872,
+	"screen_name": "ADYBARKAN",
+	"status_count": 15
+}, {
+	"avg_score_bert": 0.4577,
+	"avg_score_lr": 0.8,
+	"avg_score_nb": 0.7833,
+	"category": "OTHER",
+	"follower_count": 54832,
+	"screen_name": "MAILONLINE",
+	"status_count": 60
+}, {
+	"avg_score_bert": 0.102,
+	"avg_score_lr": 0.0526,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 54817,
+	"screen_name": "BRADREASON",
+	"status_count": 19
+}, {
+	"avg_score_bert": 0.1585,
+	"avg_score_lr": 0.1553,
+	"avg_score_nb": 0.1068,
+	"category": "OTHER",
+	"follower_count": 54810,
+	"screen_name": "BENCJACOBS",
+	"status_count": 206
+}, {
+	"avg_score_bert": 0.9709,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 1.0,
+	"category": "OTHER",
+	"follower_count": 54632,
+	"screen_name": "VA_SHIVA",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.2251,
+	"avg_score_lr": 0.2137,
+	"avg_score_nb": 0.2393,
+	"category": "MAJOR-MEDIA-OUTLET",
+	"follower_count": 54617,
+	"screen_name": "NBCPOLITICS",
+	"status_count": 351
+}, {
+	"avg_score_bert": 0.9895,
+	"avg_score_lr": 0.875,
+	"avg_score_nb": 0.875,
+	"category": "OTHER",
+	"follower_count": 54611,
+	"screen_name": "RWSALT",
+	"status_count": 40
+}, {
+	"avg_score_bert": 0.4111,
+	"avg_score_lr": 0.3208,
+	"avg_score_nb": 0.3154,
+	"category": "OTHER",
+	"follower_count": 54552,
+	"screen_name": "THREADREADERAPP",
+	"status_count": 1490
+}, {
+	"avg_score_bert": 0.1915,
+	"avg_score_lr": 0.1611,
+	"avg_score_nb": 0.1889,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 54469,
+	"screen_name": "DAILYKOS",
+	"status_count": 180
+}, {
+	"avg_score_bert": 0.247,
+	"avg_score_lr": 0.3214,
+	"avg_score_nb": 0.3571,
+	"category": "OTHER",
+	"follower_count": 54387,
+	"screen_name": "KATIECOURIC",
+	"status_count": 28
+}, {
+	"avg_score_bert": 0.1206,
+	"avg_score_lr": 0.2195,
+	"avg_score_nb": 0.1463,
+	"category": "OTHER",
+	"follower_count": 54125,
+	"screen_name": "FOREIGNPOLICY",
+	"status_count": 41
+}, {
+	"avg_score_bert": 0.6863,
+	"avg_score_lr": 0.1667,
+	"avg_score_nb": 0.8333,
+	"category": "OTHER",
+	"follower_count": 54088,
+	"screen_name": "REDISTRICT",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.1645,
+	"avg_score_lr": 0.2778,
+	"avg_score_nb": 0.2222,
+	"category": "OTHER",
+	"follower_count": 53922,
+	"screen_name": "ALT_USCIS",
+	"status_count": 36
+}, {
+	"avg_score_bert": 0.0832,
+	"avg_score_lr": 0.3333,
+	"avg_score_nb": 0.6667,
+	"category": "OTHER",
+	"follower_count": 53891,
+	"screen_name": "VERGE",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.1114,
+	"avg_score_lr": 0.1304,
+	"avg_score_nb": 0.0435,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 53749,
+	"screen_name": "REPSEANMALONEY",
+	"status_count": 23
+}, {
+	"avg_score_bert": 0.1386,
+	"avg_score_lr": 0.125,
+	"avg_score_nb": 0.375,
+	"category": "OTHER",
+	"follower_count": 53728,
+	"screen_name": "MISHACOLLINS",
+	"status_count": 8
+}, {
+	"avg_score_bert": 0.991,
+	"avg_score_lr": 0.8182,
+	"avg_score_nb": 0.7727,
+	"category": "OTHER",
+	"follower_count": 53493,
+	"screen_name": "NICKADAMSINUSA",
+	"status_count": 22
+}, {
+	"avg_score_bert": 0.9601,
+	"avg_score_lr": 0.95,
+	"avg_score_nb": 0.95,
+	"category": "OTHER",
+	"follower_count": 53459,
+	"screen_name": "MARC_LOTTER",
+	"status_count": 40
+}, {
+	"avg_score_bert": 0.1217,
+	"avg_score_lr": 0.1923,
+	"avg_score_nb": 0.1346,
+	"category": "OTHER",
+	"follower_count": 53431,
+	"screen_name": "ANGRYBLACKLADY",
+	"status_count": 52
+}, {
+	"avg_score_bert": 0.4342,
+	"avg_score_lr": 0.8333,
+	"avg_score_nb": 0.6667,
+	"category": "OTHER",
+	"follower_count": 53390,
+	"screen_name": "DAVIDLIMBAUGH",
+	"status_count": 12
+}, {
+	"avg_score_bert": 0.8012,
+	"avg_score_lr": 0.8525,
+	"avg_score_nb": 0.8852,
+	"category": "OTHER",
+	"follower_count": 53390,
+	"screen_name": "POLITICALSHORT",
+	"status_count": 61
+}, {
+	"avg_score_bert": 0.1884,
+	"avg_score_lr": 0.1429,
+	"avg_score_nb": 0.1429,
+	"category": "OTHER",
+	"follower_count": 53359,
+	"screen_name": "THEDWECK",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.9759,
+	"avg_score_lr": 0.9443,
+	"avg_score_nb": 0.952,
+	"category": "OTHER",
+	"follower_count": 53347,
+	"screen_name": "AMERIKANGIRLLL",
+	"status_count": 521
+}, {
+	"avg_score_bert": 0.7366,
+	"avg_score_lr": 0.746,
+	"avg_score_nb": 0.746,
+	"category": "OTHER",
+	"follower_count": 53336,
+	"screen_name": "COMFORTABLYSMUG",
+	"status_count": 252
+}, {
+	"avg_score_bert": 0.026,
+	"avg_score_lr": 0.1667,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 53292,
+	"screen_name": "BIRBIGS",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.3287,
+	"avg_score_lr": 0.1923,
+	"avg_score_nb": 0.1538,
+	"category": "OTHER",
+	"follower_count": 53284,
+	"screen_name": "JDIAMOND1",
+	"status_count": 26
+}, {
+	"avg_score_bert": 0.0034,
+	"avg_score_lr": 0.3333,
+	"avg_score_nb": 0.3333,
+	"category": "OTHER",
+	"follower_count": 53251,
+	"screen_name": "PFTOMPKINS",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.3186,
+	"avg_score_lr": 0.3333,
+	"avg_score_nb": 0.6667,
+	"category": "POLITICAL-COMMENTATOR",
+	"follower_count": 53235,
+	"screen_name": "KARLROVE",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.1381,
+	"avg_score_lr": 0.1277,
+	"avg_score_nb": 0.0851,
+	"category": "OTHER",
+	"follower_count": 53159,
+	"screen_name": "ALTPUBLICLANDS",
+	"status_count": 47
+}, {
+	"avg_score_bert": 0.0204,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 53119,
+	"screen_name": "IJASONALEXANDER",
+	"status_count": 16
+}, {
+	"avg_score_bert": 0.1028,
+	"avg_score_lr": 0.1145,
+	"avg_score_nb": 0.1205,
+	"category": "OTHER",
+	"follower_count": 53092,
+	"screen_name": "4EVERNEVERTRUMP",
+	"status_count": 166
+}, {
+	"avg_score_bert": 0.146,
+	"avg_score_lr": 0.1468,
+	"avg_score_nb": 0.0367,
+	"category": "OTHER",
+	"follower_count": 52866,
+	"screen_name": "HARRYLITMAN",
+	"status_count": 109
+}, {
+	"avg_score_bert": 0.0464,
+	"avg_score_lr": 0.0619,
+	"avg_score_nb": 0.0432,
+	"category": "OTHER",
+	"follower_count": 52825,
+	"screen_name": "LAUFERLAW",
+	"status_count": 533
+}, {
+	"avg_score_bert": 0.088,
+	"avg_score_lr": 0.2,
+	"avg_score_nb": 0.1111,
+	"category": "OTHER",
+	"follower_count": 52816,
+	"screen_name": "TIMOBRIEN",
+	"status_count": 45
+}, {
+	"avg_score_bert": 0.1187,
+	"avg_score_lr": 0.1481,
+	"avg_score_nb": 0.1481,
+	"category": "OTHER",
+	"follower_count": 52805,
+	"screen_name": "TOMARNOLD",
+	"status_count": 27
+}, {
+	"avg_score_bert": 0.787,
+	"avg_score_lr": 0.8571,
+	"avg_score_nb": 0.8571,
+	"category": "OTHER",
+	"follower_count": 52756,
+	"screen_name": "YOUNGDEMS4TRUMP",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.0254,
+	"avg_score_lr": 0.0704,
+	"avg_score_nb": 0.0493,
+	"category": "OTHER",
+	"follower_count": 52721,
+	"screen_name": "MIAFARROW",
+	"status_count": 142
+}, {
+	"avg_score_bert": 0.8769,
+	"avg_score_lr": 0.8611,
+	"avg_score_nb": 0.8935,
+	"category": "OTHER",
+	"follower_count": 52582,
+	"screen_name": "CJTRUTH",
+	"status_count": 216
+}, {
+	"avg_score_bert": 0.1869,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 52519,
+	"screen_name": "NYTIMESWORLD",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.2644,
+	"avg_score_lr": 0.0714,
+	"avg_score_nb": 0.0857,
+	"category": "OTHER",
+	"follower_count": 52477,
+	"screen_name": "THEREVAL",
+	"status_count": 70
+}, {
+	"avg_score_bert": 0.6312,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 52454,
+	"screen_name": "AJCGLOBAL",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.9477,
+	"avg_score_lr": 0.9305,
+	"avg_score_nb": 0.9465,
+	"category": "OTHER",
+	"follower_count": 52397,
+	"screen_name": "ANDERSONDRLJA",
+	"status_count": 187
+}, {
+	"avg_score_bert": 0.9682,
+	"avg_score_lr": 0.9524,
+	"avg_score_nb": 0.9524,
+	"category": "OTHER",
+	"follower_count": 52383,
+	"screen_name": "LIFENEWSHQ",
+	"status_count": 21
+}, {
+	"avg_score_bert": 0.0033,
+	"avg_score_lr": 0.6667,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 52362,
+	"screen_name": "RICHARDANGWIN",
+	"status_count": 21
+}, {
+	"avg_score_bert": 0.9108,
+	"avg_score_lr": 0.8795,
+	"avg_score_nb": 0.8916,
+	"category": "OTHER",
+	"follower_count": 52223,
+	"screen_name": "GREGNORBERG",
+	"status_count": 166
+}, {
+	"avg_score_bert": 0.0191,
+	"avg_score_lr": 0.0209,
+	"avg_score_nb": 0.0261,
+	"category": "OTHER",
+	"follower_count": 52196,
+	"screen_name": "THEPUBLIUSUSA",
+	"status_count": 574
+}, {
+	"avg_score_bert": 0.046,
+	"avg_score_lr": 0.1852,
+	"avg_score_nb": 0.1481,
+	"category": "OTHER",
+	"follower_count": 52193,
+	"screen_name": "IDA_SKIBENES",
+	"status_count": 27
+}, {
+	"avg_score_bert": 0.0772,
+	"avg_score_lr": 0.0885,
+	"avg_score_nb": 0.0453,
+	"category": "OTHER",
+	"follower_count": 52165,
+	"screen_name": "NORMORNSTEIN",
+	"status_count": 486
+}, {
+	"avg_score_bert": 0.737,
+	"avg_score_lr": 0.8824,
+	"avg_score_nb": 0.7647,
+	"category": "OTHER",
+	"follower_count": 52112,
+	"screen_name": "PASTORDSCOTT",
+	"status_count": 17
+}, {
+	"avg_score_bert": 0.9986,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 1.0,
+	"category": "OTHER",
+	"follower_count": 52108,
+	"screen_name": "DOINGRIGHT1",
+	"status_count": 14
+}, {
+	"avg_score_bert": 0.0593,
+	"avg_score_lr": 0.0702,
+	"avg_score_nb": 0.0526,
+	"category": "OTHER",
+	"follower_count": 52022,
+	"screen_name": "TIFFANYDCROSS",
+	"status_count": 114
+}, {
+	"avg_score_bert": 0.0289,
+	"avg_score_lr": 0.0803,
+	"avg_score_nb": 0.076,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 52020,
+	"screen_name": "GOVHOWARDDEAN",
+	"status_count": 250
+}, {
+	"avg_score_bert": 0.2904,
+	"avg_score_lr": 0.5294,
+	"avg_score_nb": 0.5294,
+	"category": "OTHER",
+	"follower_count": 51994,
+	"screen_name": "XHNEWS",
+	"status_count": 17
+}, {
+	"avg_score_bert": 0.0671,
+	"avg_score_lr": 0.1429,
+	"avg_score_nb": 0.1429,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 51933,
+	"screen_name": "NYMAG",
+	"status_count": 70
+}, {
+	"avg_score_bert": 0.844,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "GOVERNMENT",
+	"follower_count": 51915,
+	"screen_name": "SMITHSONIAN",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.1067,
+	"avg_score_lr": 0.25,
+	"avg_score_nb": 0.1875,
+	"category": "OTHER",
+	"follower_count": 51837,
+	"screen_name": "ANAMARIECOX",
+	"status_count": 16
+}, {
+	"avg_score_bert": 0.5557,
+	"avg_score_lr": 0.3439,
+	"avg_score_nb": 0.2609,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 51824,
+	"screen_name": "TPM",
+	"status_count": 253
+}, {
+	"avg_score_bert": 0.7545,
+	"avg_score_lr": 0.5714,
+	"avg_score_nb": 0.8571,
+	"category": "OTHER",
+	"follower_count": 51773,
+	"screen_name": "CARTERWPAGE",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.0509,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 51739,
+	"screen_name": "WORKWTHECOACH",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.0894,
+	"avg_score_lr": 0.0833,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 51651,
+	"screen_name": "SAMANTHAJPOWER",
+	"status_count": 12
+}, {
+	"avg_score_bert": 0.0958,
+	"avg_score_lr": 0.0357,
+	"avg_score_nb": 0.0357,
+	"category": "OTHER",
+	"follower_count": 51529,
+	"screen_name": "MANINABASEMENT",
+	"status_count": 28
+}, {
+	"avg_score_bert": 0.2689,
+	"avg_score_lr": 0.25,
+	"avg_score_nb": 0.0,
+	"category": "LEGAL-SCHOLAR",
+	"follower_count": 51499,
+	"screen_name": "SCOTUSBLOG",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.8977,
+	"avg_score_lr": 0.8974,
+	"avg_score_nb": 0.8974,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 51478,
+	"screen_name": "HAWLEYMO",
+	"status_count": 39
+}, {
+	"avg_score_bert": 0.9749,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 1.0,
+	"category": "OTHER",
+	"follower_count": 51423,
+	"screen_name": "CR",
+	"status_count": 31
+}, {
+	"avg_score_bert": 0.1164,
+	"avg_score_lr": 0.0897,
+	"avg_score_nb": 0.0769,
+	"category": "OTHER",
+	"follower_count": 51397,
+	"screen_name": "PAULBEGALA",
+	"status_count": 78
+}, {
+	"avg_score_bert": 0.1554,
+	"avg_score_lr": 0.2791,
+	"avg_score_nb": 0.2326,
+	"category": "OTHER",
+	"follower_count": 51337,
+	"screen_name": "SCOTTMSTEDMAN",
+	"status_count": 43
+}, {
+	"avg_score_bert": 0.286,
+	"avg_score_lr": 0.2919,
+	"avg_score_nb": 0.2617,
+	"category": "OTHER",
+	"follower_count": 51332,
+	"screen_name": "ERICBOEHLERT",
+	"status_count": 298
+}, {
+	"avg_score_bert": 0.0719,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 51300,
+	"screen_name": "SUNRISEMVMT",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.0514,
+	"avg_score_lr": 0.0769,
+	"avg_score_nb": 0.0769,
+	"category": "OTHER",
+	"follower_count": 51293,
+	"screen_name": "MICHAELSKOLNIK",
+	"status_count": 13
+}, {
+	"avg_score_bert": 0.7766,
+	"avg_score_lr": 0.6667,
+	"avg_score_nb": 0.6667,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 51288,
+	"screen_name": "RONPAUL",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.0533,
+	"avg_score_lr": 0.24,
+	"avg_score_nb": 0.16,
+	"category": "OTHER",
+	"follower_count": 51268,
+	"screen_name": "BRIANEFALLON",
+	"status_count": 25
+}, {
+	"avg_score_bert": 0.9923,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 0.8333,
+	"category": "OTHER",
+	"follower_count": 51139,
+	"screen_name": "SCHERIEMURRAY",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.7879,
+	"avg_score_lr": 0.5161,
+	"avg_score_nb": 0.7097,
+	"category": "OTHER",
+	"follower_count": 51026,
+	"screen_name": "CASSANDRARULES",
+	"status_count": 31
+}, {
+	"avg_score_bert": 0.2668,
+	"avg_score_lr": 0.3158,
+	"avg_score_nb": 0.2105,
+	"category": "OTHER",
+	"follower_count": 51004,
+	"screen_name": "PEOPLE4BERNIE",
+	"status_count": 19
+}, {
+	"avg_score_bert": 0.0068,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 50966,
+	"screen_name": "ACTUALEPAFACTS",
+	"status_count": 15
+}, {
+	"avg_score_bert": 0.2054,
+	"avg_score_lr": 0.2651,
+	"avg_score_nb": 0.4096,
+	"category": "OTHER",
+	"follower_count": 50924,
+	"screen_name": "MARKETWATCH",
+	"status_count": 83
+}, {
+	"avg_score_bert": 0.0758,
+	"avg_score_lr": 0.1111,
+	"avg_score_nb": 0.1667,
+	"category": "OTHER",
+	"follower_count": 50894,
+	"screen_name": "PATTYMURRAY",
+	"status_count": 18
+}, {
+	"avg_score_bert": 0.7856,
+	"avg_score_lr": 0.5625,
+	"avg_score_nb": 0.5,
+	"category": "OTHER",
+	"follower_count": 50788,
+	"screen_name": "SGTREPORT",
+	"status_count": 16
+}, {
+	"avg_score_bert": 0.0209,
+	"avg_score_lr": 0.0328,
+	"avg_score_nb": 0.0328,
+	"category": "OTHER",
+	"follower_count": 50760,
+	"screen_name": "RANTTMEDIA",
+	"status_count": 61
+}, {
+	"avg_score_bert": 0.9919,
+	"avg_score_lr": 0.9607,
+	"avg_score_nb": 0.9823,
+	"category": "OTHER",
+	"follower_count": 50752,
+	"screen_name": "DGPURSER",
+	"status_count": 2318
+}, {
+	"avg_score_bert": 0.2698,
+	"avg_score_lr": 0.3553,
+	"avg_score_nb": 0.4408,
+	"category": "POLITICAL-COMMENTATOR",
+	"follower_count": 50614,
+	"screen_name": "THEVIEW",
+	"status_count": 152
+}, {
+	"avg_score_bert": 0.9837,
+	"avg_score_lr": 0.96,
+	"avg_score_nb": 0.9743,
+	"category": "OTHER",
+	"follower_count": 50593,
+	"screen_name": "SXDOC",
+	"status_count": 3226
+}, {
+	"avg_score_bert": 0.9441,
+	"avg_score_lr": 0.9212,
+	"avg_score_nb": 0.9096,
+	"category": "OTHER",
+	"follower_count": 50544,
+	"screen_name": "VOTINGFEMAIE",
+	"status_count": 520
+}, {
+	"avg_score_bert": 0.7282,
+	"avg_score_lr": 0.6522,
+	"avg_score_nb": 0.7391,
+	"category": "OTHER",
+	"follower_count": 50491,
+	"screen_name": "REALANNAPAULINA",
+	"status_count": 23
+}, {
+	"avg_score_bert": 0.2131,
+	"avg_score_lr": 0.1659,
+	"avg_score_nb": 0.0917,
+	"category": "OTHER",
+	"follower_count": 50433,
+	"screen_name": "NYTOPINION",
+	"status_count": 229
+}, {
+	"avg_score_bert": 0.0885,
+	"avg_score_lr": 0.1613,
+	"avg_score_nb": 0.1355,
+	"category": "OTHER",
+	"follower_count": 50346,
+	"screen_name": "ROBANDERSON2018",
+	"status_count": 155
+}, {
+	"avg_score_bert": 0.9355,
+	"avg_score_lr": 0.9189,
+	"avg_score_nb": 0.9731,
+	"category": "OTHER",
+	"follower_count": 50302,
+	"screen_name": "EYESONQ",
+	"status_count": 186
+}, {
+	"avg_score_bert": 0.4536,
+	"avg_score_lr": 0.493,
+	"avg_score_nb": 0.5615,
+	"category": "OTHER",
+	"follower_count": 50174,
+	"screen_name": "DCEXAMINER",
+	"status_count": 789
+}, {
+	"avg_score_bert": 0.111,
+	"avg_score_lr": 0.2143,
+	"avg_score_nb": 0.2143,
+	"category": "OTHER",
+	"follower_count": 50117,
+	"screen_name": "LHFANG",
+	"status_count": 14
+}, {
+	"avg_score_bert": 0.2841,
+	"avg_score_lr": 0.4074,
+	"avg_score_nb": 0.3704,
+	"category": "OTHER",
+	"follower_count": 50022,
+	"screen_name": "DAVIDAFRENCH",
+	"status_count": 54
+}, {
+	"avg_score_bert": 0.027,
+	"avg_score_lr": 0.3333,
+	"avg_score_nb": 0.3333,
+	"category": "OTHER",
+	"follower_count": 49991,
+	"screen_name": "ASHLEYFEINBERG",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.124,
+	"avg_score_lr": 0.2091,
+	"avg_score_nb": 0.2182,
+	"category": "OTHER",
+	"follower_count": 49941,
+	"screen_name": "JMARTNYT",
+	"status_count": 110
+}, {
+	"avg_score_bert": 0.9583,
+	"avg_score_lr": 0.9204,
+	"avg_score_nb": 0.9334,
+	"category": "OTHER",
+	"follower_count": 49884,
+	"screen_name": "NO_SILENCED",
+	"status_count": 3079
+}, {
+	"avg_score_bert": 0.039,
+	"avg_score_lr": 0.0789,
+	"avg_score_nb": 0.0526,
+	"category": "OTHER",
+	"follower_count": 49879,
+	"screen_name": "COLEYWORLD",
+	"status_count": 114
+}, {
+	"avg_score_bert": 0.1899,
+	"avg_score_lr": 0.4286,
+	"avg_score_nb": 0.4857,
+	"category": "OTHER",
+	"follower_count": 49860,
+	"screen_name": "RIGHTWINGWATCH",
+	"status_count": 35
+}, {
+	"avg_score_bert": 0.0919,
+	"avg_score_lr": 0.1667,
+	"avg_score_nb": 0.1667,
+	"category": "OTHER",
+	"follower_count": 49846,
+	"screen_name": "MJMCKEAN",
+	"status_count": 12
+}, {
+	"avg_score_bert": 0.1879,
+	"avg_score_lr": 0.1887,
+	"avg_score_nb": 0.1509,
+	"category": "OTHER",
+	"follower_count": 49730,
+	"screen_name": "MOLLYMCKEW",
+	"status_count": 53
+}, {
+	"avg_score_bert": 0.031,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.4,
+	"category": "OTHER",
+	"follower_count": 49720,
+	"screen_name": "GIZMODO",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.9878,
+	"avg_score_lr": 0.946,
+	"avg_score_nb": 0.9576,
+	"category": "OTHER",
+	"follower_count": 49684,
+	"screen_name": "GAETASUSAN",
+	"status_count": 1722
+}, {
+	"avg_score_bert": 0.8751,
+	"avg_score_lr": 0.25,
+	"avg_score_nb": 0.25,
+	"category": "OTHER",
+	"follower_count": 49680,
+	"screen_name": "MICHAELEDYSON",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.7025,
+	"avg_score_lr": 0.6667,
+	"avg_score_nb": 0.6667,
+	"category": "OTHER",
+	"follower_count": 49680,
+	"screen_name": "JORDAN_SATHER_",
+	"status_count": 15
+}, {
+	"avg_score_bert": 0.154,
+	"avg_score_lr": 0.1429,
+	"avg_score_nb": 0.1429,
+	"category": "OTHER",
+	"follower_count": 49627,
+	"screen_name": "SENATORBENNET",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.1067,
+	"avg_score_lr": 0.1,
+	"avg_score_nb": 0.05,
+	"category": "OTHER",
+	"follower_count": 49519,
+	"screen_name": "IRONHORSE76",
+	"status_count": 80
+}, {
+	"avg_score_bert": 0.092,
+	"avg_score_lr": 0.1429,
+	"avg_score_nb": 0.1429,
+	"category": "OTHER",
+	"follower_count": 49404,
+	"screen_name": "FRONTLINEPBS",
+	"status_count": 14
+}, {
+	"avg_score_bert": 0.8448,
+	"avg_score_lr": 0.7333,
+	"avg_score_nb": 0.7333,
+	"category": "OTHER",
+	"follower_count": 49387,
+	"screen_name": "THECOLLECTIVEQ",
+	"status_count": 15
+}, {
+	"avg_score_bert": 0.1199,
+	"avg_score_lr": 0.1534,
+	"avg_score_nb": 0.1364,
+	"category": "OTHER",
+	"follower_count": 49361,
+	"screen_name": "SBG1",
+	"status_count": 176
+}, {
+	"avg_score_bert": 0.9613,
+	"avg_score_lr": 0.9189,
+	"avg_score_nb": 0.9189,
+	"category": "OTHER",
+	"follower_count": 49320,
+	"screen_name": "HOOSIERS1986",
+	"status_count": 185
+}, {
+	"avg_score_bert": 0.0262,
+	"avg_score_lr": 0.0607,
+	"avg_score_nb": 0.0432,
+	"category": "OTHER",
+	"follower_count": 49286,
+	"screen_name": "MRJONCRYER",
+	"status_count": 857
+}, {
+	"avg_score_bert": 0.1744,
+	"avg_score_lr": 0.1644,
+	"avg_score_nb": 0.0959,
+	"category": "OTHER",
+	"follower_count": 49275,
+	"screen_name": "SAM_VINOGRAD",
+	"status_count": 73
+}, {
+	"avg_score_bert": 0.9984,
+	"avg_score_lr": 0.9587,
+	"avg_score_nb": 0.9917,
+	"category": "OTHER",
+	"follower_count": 49263,
+	"screen_name": "MRMICHAELBURKES",
+	"status_count": 121
+}, {
+	"avg_score_bert": 0.2863,
+	"avg_score_lr": 0.2857,
+	"avg_score_nb": 0.1429,
+	"category": "OTHER",
+	"follower_count": 49262,
+	"screen_name": "BROOKEBCNN",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.1204,
+	"avg_score_lr": 0.1724,
+	"avg_score_nb": 0.1724,
+	"category": "OTHER",
+	"follower_count": 49261,
+	"screen_name": "HOWARDFINEMAN",
+	"status_count": 29
+}, {
+	"avg_score_bert": 0.9499,
+	"avg_score_lr": 0.9217,
+	"avg_score_nb": 0.9452,
+	"category": "OTHER",
+	"follower_count": 49008,
+	"screen_name": "SOLMEMES1",
+	"status_count": 383
+}, {
+	"avg_score_bert": 0.0024,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 48963,
+	"screen_name": "COMEDYCENTRAL",
+	"status_count": 8
+}, {
+	"avg_score_bert": 0.1135,
+	"avg_score_lr": 0.0833,
+	"avg_score_nb": 0.0417,
+	"category": "OTHER",
+	"follower_count": 48934,
+	"screen_name": "MICHAELSTEELE",
+	"status_count": 24
+}, {
+	"avg_score_bert": 0.2435,
+	"avg_score_lr": 0.2391,
+	"avg_score_nb": 0.3696,
+	"category": "MAJOR-MEDIA-OUTLET",
+	"follower_count": 48778,
+	"screen_name": "AJENEWS",
+	"status_count": 46
+}, {
+	"avg_score_bert": 0.0895,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 48773,
+	"screen_name": "BENWIKLER",
+	"status_count": 10
+}, {
+	"avg_score_bert": 0.0579,
+	"avg_score_lr": 0.0964,
+	"avg_score_nb": 0.0843,
+	"category": "OTHER",
+	"follower_count": 48729,
+	"screen_name": "WEAREOVERSIGHT",
+	"status_count": 83
+}, {
+	"avg_score_bert": 0.9887,
+	"avg_score_lr": 0.97,
+	"avg_score_nb": 0.9913,
+	"category": "OTHER",
+	"follower_count": 48670,
+	"screen_name": "TREY_VONDINKIS",
+	"status_count": 1834
+}, {
+	"avg_score_bert": 0.9566,
+	"avg_score_lr": 0.875,
+	"avg_score_nb": 0.875,
+	"category": "OTHER",
+	"follower_count": 48563,
+	"screen_name": "MERCEDESSCHLAPP",
+	"status_count": 24
+}, {
+	"avg_score_bert": 0.0346,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 48531,
+	"screen_name": "REALMUCKMAKER",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.5253,
+	"avg_score_lr": 0.4615,
+	"avg_score_nb": 0.5385,
+	"category": "OTHER",
+	"follower_count": 48498,
+	"screen_name": "CHUCKROSSDC",
+	"status_count": 52
+}, {
+	"avg_score_bert": 0.186,
+	"avg_score_lr": 0.2029,
+	"avg_score_nb": 0.1812,
+	"category": "OTHER",
+	"follower_count": 48478,
+	"screen_name": "JENNIFERJJACOBS",
+	"status_count": 138
+}, {
+	"avg_score_bert": 0.2188,
+	"avg_score_lr": 0.2864,
+	"avg_score_nb": 0.2727,
+	"category": "MAJOR-MEDIA-OUTLET",
+	"follower_count": 48477,
+	"screen_name": "NYTPOLITICS",
+	"status_count": 220
+}, {
+	"avg_score_bert": 0.9238,
+	"avg_score_lr": 0.8931,
+	"avg_score_nb": 0.9008,
+	"category": "OTHER",
+	"follower_count": 48463,
+	"screen_name": "RAHEEMKASSAM",
+	"status_count": 262
+}, {
+	"avg_score_bert": 0.0572,
+	"avg_score_lr": 0.5,
+	"avg_score_nb": 0.1667,
+	"category": "OTHER",
+	"follower_count": 48459,
+	"screen_name": "TRUMP_REGRETS",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.9758,
+	"avg_score_lr": 0.9583,
+	"avg_score_nb": 0.9822,
+	"category": "OTHER",
+	"follower_count": 48428,
+	"screen_name": "SANDRASENTINEL",
+	"status_count": 169
+}, {
+	"avg_score_bert": 0.1214,
+	"avg_score_lr": 0.0989,
+	"avg_score_nb": 0.0769,
+	"category": "OTHER",
+	"follower_count": 48403,
+	"screen_name": "LINCOLNSBIBLE",
+	"status_count": 91
+}, {
+	"avg_score_bert": 0.1443,
+	"avg_score_lr": 0.2368,
+	"avg_score_nb": 0.1974,
+	"category": "OTHER",
+	"follower_count": 48380,
+	"screen_name": "BLAKESMUSTACHE",
+	"status_count": 76
+}, {
+	"avg_score_bert": 0.067,
+	"avg_score_lr": 0.0565,
+	"avg_score_nb": 0.0565,
+	"category": "OTHER",
+	"follower_count": 48356,
+	"screen_name": "RGOODLAW",
+	"status_count": 124
+}, {
+	"avg_score_bert": 0.1903,
+	"avg_score_lr": 0.2308,
+	"avg_score_nb": 0.25,
+	"category": "OTHER",
+	"follower_count": 48353,
+	"screen_name": "HEERJEET",
+	"status_count": 52
+}, {
+	"avg_score_bert": 0.1702,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 48343,
+	"screen_name": "ALTSTATEDPT",
+	"status_count": 7
+}, {
+	"avg_score_bert": 0.3287,
+	"avg_score_lr": 0.3333,
+	"avg_score_nb": 0.3852,
+	"category": "OTHER",
+	"follower_count": 48264,
+	"screen_name": "JAKESHERMAN",
+	"status_count": 135
+}, {
+	"avg_score_bert": 0.0931,
+	"avg_score_lr": 0.1287,
+	"avg_score_nb": 0.0891,
+	"category": "OTHER",
+	"follower_count": 48250,
+	"screen_name": "DELAVEGALAW",
+	"status_count": 404
+}, {
+	"avg_score_bert": 0.1128,
+	"avg_score_lr": 0.1109,
+	"avg_score_nb": 0.1287,
+	"category": "OTHER",
+	"follower_count": 48236,
+	"screen_name": "RAWSTORY",
+	"status_count": 1049
+}, {
+	"avg_score_bert": 0.4058,
+	"avg_score_lr": 0.3684,
+	"avg_score_nb": 0.4211,
+	"category": "OTHER",
+	"follower_count": 48227,
+	"screen_name": "FRANKLUNTZ",
+	"status_count": 19
+}, {
+	"avg_score_bert": 0.141,
+	"avg_score_lr": 0.1842,
+	"avg_score_nb": 0.2632,
+	"category": "OTHER",
+	"follower_count": 48164,
+	"screen_name": "JAYROSEN_NYU",
+	"status_count": 38
+}, {
+	"avg_score_bert": 0.1421,
+	"avg_score_lr": 0.0704,
+	"avg_score_nb": 0.4225,
+	"category": "OTHER",
+	"follower_count": 48152,
+	"screen_name": "CHRISJZULLO",
+	"status_count": 71
+}, {
+	"avg_score_bert": 0.6003,
+	"avg_score_lr": 0.75,
+	"avg_score_nb": 0.75,
+	"category": "OTHER",
+	"follower_count": 48028,
+	"screen_name": "PATTON6966",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.7812,
+	"avg_score_lr": 0.8947,
+	"avg_score_nb": 0.7895,
+	"category": "OTHER",
+	"follower_count": 48011,
+	"screen_name": "KEVIN_SHIPP",
+	"status_count": 19
+}, {
+	"avg_score_bert": 0.0295,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 47976,
+	"screen_name": "JOHNRAMPTON",
+	"status_count": 4
+}, {
+	"avg_score_bert": 0.1255,
+	"avg_score_lr": 0.1769,
+	"avg_score_nb": 0.1538,
+	"category": "OTHER",
+	"follower_count": 47966,
+	"screen_name": "JONLEMIRE",
+	"status_count": 130
+}, {
+	"avg_score_bert": 0.9401,
+	"avg_score_lr": 0.9032,
+	"avg_score_nb": 0.9032,
+	"category": "OTHER",
+	"follower_count": 47952,
+	"screen_name": "ROBERTJOHNDAVI",
+	"status_count": 31
+}, {
+	"avg_score_bert": 0.0115,
+	"avg_score_lr": 0.0588,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 47892,
+	"screen_name": "TURNIP2020",
+	"status_count": 17
+}, {
+	"avg_score_bert": 0.0622,
+	"avg_score_lr": 0.2,
+	"avg_score_nb": 0.4,
+	"category": "OTHER",
+	"follower_count": 47832,
+	"screen_name": "MARKHERTLING",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.1496,
+	"avg_score_lr": 0.1892,
+	"avg_score_nb": 0.0811,
+	"category": "OTHER",
+	"follower_count": 47520,
+	"screen_name": "EJDIONNE",
+	"status_count": 37
+}, {
+	"avg_score_bert": 0.1042,
+	"avg_score_lr": 0.1667,
+	"avg_score_nb": 0.15,
+	"category": "OTHER",
+	"follower_count": 47515,
+	"screen_name": "JFREEWRIGHT",
+	"status_count": 60
+}, {
+	"avg_score_bert": 0.9224,
+	"avg_score_lr": 0.8619,
+	"avg_score_nb": 0.9116,
+	"category": "OTHER",
+	"follower_count": 47439,
+	"screen_name": "INTHEMATRIXXX",
+	"status_count": 181
+}, {
+	"avg_score_bert": 0.6126,
+	"avg_score_lr": 0.6829,
+	"avg_score_nb": 0.6585,
+	"category": "OTHER",
+	"follower_count": 47385,
+	"screen_name": "NOLTENC",
+	"status_count": 41
+}, {
+	"avg_score_bert": 0.0638,
+	"avg_score_lr": 0.0526,
+	"avg_score_nb": 0.0526,
+	"category": "OTHER",
+	"follower_count": 47373,
+	"screen_name": "KARASWISHER",
+	"status_count": 57
+}, {
+	"avg_score_bert": 0.9985,
+	"avg_score_lr": 0.9022,
+	"avg_score_nb": 0.8804,
+	"category": "OTHER",
+	"follower_count": 47178,
+	"screen_name": "MICHAEL_PINCHAK",
+	"status_count": 92
+}, {
+	"avg_score_bert": 0.2116,
+	"avg_score_lr": 0.2083,
+	"avg_score_nb": 0.1562,
+	"category": "OTHER",
+	"follower_count": 47069,
+	"screen_name": "ERICLIPTONNYT",
+	"status_count": 96
+}, {
+	"avg_score_bert": 0.8647,
+	"avg_score_lr": 0.9,
+	"avg_score_nb": 0.92,
+	"category": "OTHER",
+	"follower_count": 47016,
+	"screen_name": "DAVIDWEBBSHOW",
+	"status_count": 50
+}, {
+	"avg_score_bert": 0.8723,
+	"avg_score_lr": 0.8596,
+	"avg_score_nb": 0.9101,
+	"category": "OTHER",
+	"follower_count": 46978,
+	"screen_name": "HERBERT_L_REED",
+	"status_count": 1246
+}, {
+	"avg_score_bert": 0.9798,
+	"avg_score_lr": 0.8,
+	"avg_score_nb": 0.8,
+	"category": "OTHER",
+	"follower_count": 46948,
+	"screen_name": "VICTOENSING",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.0362,
+	"avg_score_lr": 0.0672,
+	"avg_score_nb": 0.0672,
+	"category": "OTHER",
+	"follower_count": 46942,
+	"screen_name": "LUNALUVGOOD2020",
+	"status_count": 119
+}, {
+	"avg_score_bert": 0.009,
+	"avg_score_lr": 0.125,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 46925,
+	"screen_name": "RTRAISTER",
+	"status_count": 8
+}, {
+	"avg_score_bert": 0.0689,
+	"avg_score_lr": 0.1304,
+	"avg_score_nb": 0.0435,
+	"category": "OTHER",
+	"follower_count": 46906,
+	"screen_name": "JULIETTEKAYYEM",
+	"status_count": 23
+}, {
+	"avg_score_bert": 0.9826,
+	"avg_score_lr": 0.9255,
+	"avg_score_nb": 0.9468,
+	"category": "OTHER",
+	"follower_count": 46878,
+	"screen_name": "PAPAWAT1",
+	"status_count": 94
+}, {
+	"avg_score_bert": 0.2565,
+	"avg_score_lr": 0.2525,
+	"avg_score_nb": 0.2525,
+	"category": "OTHER",
+	"follower_count": 46716,
+	"screen_name": "GARRETTHAAKE",
+	"status_count": 99
+}, {
+	"avg_score_bert": 0.8903,
+	"avg_score_lr": 0.9118,
+	"avg_score_nb": 0.8957,
+	"category": "OTHER",
+	"follower_count": 46710,
+	"screen_name": "ALASKAN_PATRIOT",
+	"status_count": 374
+}, {
+	"avg_score_bert": 0.0541,
+	"avg_score_lr": 0.062,
+	"avg_score_nb": 0.0465,
+	"category": "OTHER",
+	"follower_count": 46697,
+	"screen_name": "DESIGNATIONSIX",
+	"status_count": 129
+}, {
+	"avg_score_bert": 0.0357,
+	"avg_score_lr": 0.0556,
+	"avg_score_nb": 0.0494,
+	"category": "OTHER",
+	"follower_count": 46636,
+	"screen_name": "ALEXANDRACHALUP",
+	"status_count": 162
+}, {
+	"avg_score_bert": 0.1778,
+	"avg_score_lr": 0.125,
+	"avg_score_nb": 0.125,
+	"category": "OTHER",
+	"follower_count": 46618,
+	"screen_name": "GRAVELINSTITUTE",
+	"status_count": 8
+}, {
+	"avg_score_bert": 0.1823,
+	"avg_score_lr": 0.2826,
+	"avg_score_nb": 0.3315,
+	"category": "MEDIA-OUTLET",
+	"follower_count": 46574,
+	"screen_name": "NYDAILYNEWS",
+	"status_count": 184
+}, {
+	"avg_score_bert": 0.0493,
+	"avg_score_lr": 0.1667,
+	"avg_score_nb": 0.1667,
+	"category": "OTHER",
+	"follower_count": 46509,
+	"screen_name": "NUNESALT",
+	"status_count": 18
+}, {
+	"avg_score_bert": 0.8236,
+	"avg_score_lr": 0.8276,
+	"avg_score_nb": 0.7627,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 46509,
+	"screen_name": "SENRICKSCOTT",
+	"status_count": 59
+}, {
+	"avg_score_bert": 0.3689,
+	"avg_score_lr": 0.3889,
+	"avg_score_nb": 0.3819,
+	"category": "OTHER",
+	"follower_count": 46483,
+	"screen_name": "MYSTERYSOLVENT",
+	"status_count": 144
+}, {
+	"avg_score_bert": 0.0338,
+	"avg_score_lr": 0.1667,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 46443,
+	"screen_name": "CHIPFRANKLIN",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.8009,
+	"avg_score_lr": 0.8779,
+	"avg_score_nb": 0.8473,
+	"category": "OTHER",
+	"follower_count": 46316,
+	"screen_name": "LESSGOVMOREFUN",
+	"status_count": 131
+}, {
+	"avg_score_bert": 0.7176,
+	"avg_score_lr": 0.6667,
+	"avg_score_nb": 1.0,
+	"category": "ELECTED-OFFICIAL",
+	"follower_count": 46307,
+	"screen_name": "SENMCSALLYAZ",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.0206,
+	"avg_score_lr": 0.0189,
+	"avg_score_nb": 0.0094,
+	"category": "OTHER",
+	"follower_count": 46273,
+	"screen_name": "STEVENBESCHLOSS",
+	"status_count": 106
+}, {
+	"avg_score_bert": 0.0026,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 46202,
+	"screen_name": "STEVEKERR",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.0193,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.1667,
+	"category": "OTHER",
+	"follower_count": 46188,
+	"screen_name": "NYBOOKS",
+	"status_count": 6
+}, {
+	"avg_score_bert": 0.0741,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "POLITICAL-COMMENTATOR",
+	"follower_count": 46168,
+	"screen_name": "DAVIDPLOUFFE",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.2048,
+	"avg_score_lr": 0.188,
+	"avg_score_nb": 0.1579,
+	"category": "OTHER",
+	"follower_count": 46151,
+	"screen_name": "MARKSZAIDESQ",
+	"status_count": 133
+}, {
+	"avg_score_bert": 0.1997,
+	"avg_score_lr": 0.0909,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 46131,
+	"screen_name": "JOHNIADAROLA",
+	"status_count": 22
+}, {
+	"avg_score_bert": 0.9909,
+	"avg_score_lr": 0.8839,
+	"avg_score_nb": 0.9226,
+	"category": "OTHER",
+	"follower_count": 46104,
+	"screen_name": "GUSTBRIAN",
+	"status_count": 155
+}, {
+	"avg_score_bert": 0.9629,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 46084,
+	"screen_name": "ALEX_VERBEEK",
+	"status_count": 3
+}, {
+	"avg_score_bert": 0.1903,
+	"avg_score_lr": 0.1165,
+	"avg_score_nb": 0.0752,
+	"category": "OTHER",
+	"follower_count": 46078,
+	"screen_name": "SAFETYPINDAILY",
+	"status_count": 1728
+}, {
+	"avg_score_bert": 0.0434,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0286,
+	"category": "OTHER",
+	"follower_count": 46067,
+	"screen_name": "DAVIDCICILLINE",
+	"status_count": 35
+}, {
+	"avg_score_bert": 0.1367,
+	"avg_score_lr": 0.1111,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 46062,
+	"screen_name": "IN_PUBS",
+	"status_count": 9
+}, {
+	"avg_score_bert": 0.0514,
+	"avg_score_lr": 0.0449,
+	"avg_score_nb": 0.1067,
+	"category": "OTHER",
+	"follower_count": 46052,
+	"screen_name": "TALBERTSWAN",
+	"status_count": 178
+}, {
+	"avg_score_bert": 0.3323,
+	"avg_score_lr": 0.6154,
+	"avg_score_nb": 0.3077,
+	"category": "OTHER",
+	"follower_count": 45964,
+	"screen_name": "SHOMARISTONE",
+	"status_count": 13
+}, {
+	"avg_score_bert": 0.9302,
+	"avg_score_lr": 0.9112,
+	"avg_score_nb": 0.8994,
+	"category": "OTHER",
+	"follower_count": 45889,
+	"screen_name": "THEMARKETSWORK",
+	"status_count": 169
+}, {
+	"avg_score_bert": 0.0367,
+	"avg_score_lr": 0.0478,
+	"avg_score_nb": 0.0357,
+	"category": "OTHER",
+	"follower_count": 45850,
+	"screen_name": "TRANSLATEREALDT",
+	"status_count": 252
+}, {
+	"avg_score_bert": 0.0777,
+	"avg_score_lr": 0.0,
+	"avg_score_nb": 0.0,
+	"category": "OTHER",
+	"follower_count": 45849,
+	"screen_name": "FAKEDANSAVAGE",
+	"status_count": 5
+}, {
+	"avg_score_bert": 0.9594,
+	"avg_score_lr": 1.0,
+	"avg_score_nb": 0.9167,
+	"category": "OTHER",
+	"follower_count": 45832,
+	"screen_name": "JOSEPHJFLYNN1",
+	"status_count": 12
 }]
 
 export default users
