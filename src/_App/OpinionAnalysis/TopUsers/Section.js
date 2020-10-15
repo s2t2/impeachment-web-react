@@ -22,6 +22,7 @@ export default function TopUserOpinion() {
                     <Card.Text>
                         The chart below shows mean impeachment opinion scores for the users in our dataset who have the most followers.
                         {" "}NOTE: bar size represents the number of followers, while color represents the opinion score.
+                        {" "}NOTE: follower counts are based on users in our dataset only.
                     </Card.Text>
                 </Card.Body>
             </Card>
