@@ -57,13 +57,13 @@ export default function SentimentAnalysis() {
                         {""}  scores tweets as a decimal number between <code>0</code> and <code>1</code>.
                     </Card.Text>
 
-                    <h5>Data Splitting</h5>
+                    { /* <h5>Data Splitting</h5> */ }
                     <Card.Text>
                         We used 80% of the labeled data to train the models, and the remaining 20% to evaluate them.
                         For the binary classifier models, we split the training and testing data using stratified random sampling on the community label class.
                     </Card.Text>
 
-                    <h5>Tokenization and Vectorization</h5>
+                    {/* <h5>Tokenization and Vectorization</h5> */}
                     <Card.Text>
                         To train the binary classifier models, we tokenized the tweet texts (without using stopword removal), producing 1.1 million features,
                         {" "} and converted the tokens to vectors using a standard <a href="https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction">Term-Frequency / Inverse Document-Frequency</a> (TF/IDF) approach.
@@ -86,7 +86,12 @@ export default function SentimentAnalysis() {
 
                     <h4>Model Predictions</h4>
                     <Card.Text>
-                        Coming Soon...
+                        We used each binary classifier to assign an opinion score to all tweets in our dataset.
+                        {" "}And we used the BERT Transformer to assign an opinion score to all tweets created between 12/20 and 2/15.
+                    </Card.Text>
+
+                    <Card.Text>
+                        Use the <a href="/user-opinions">User Opinions</a> and <a href="top-user-opinions">Top User Opinions</a> dashboards to explore the results of these predictions.
                     </Card.Text>
                 </Card.Body>
             </Card>
