@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { PureComponent, useImperativeHandle } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -14,81 +14,100 @@ import queryString from 'query-string'
 
 import UserOpinionDashboard from "./Dashboard"
 
-function handleClick(event){
-    event.preventDefault() // prevent page reload
-    console.log("YOU CLICKED ME!")
-    console.log(event.target)
+export default class UserOpinionSection extends React.Component {
 
-}
+    constructor(props) {
+        super(props)
 
-export default function UserOpinionSection() {
+        let params = queryString.parse(window.location.search)
+        //console.log("URL PARAMS:", params)
+        var screenName = params["sn"] || "POLITICO" // append ?sn=BERNIESANDERS to the URL to customize via URL params!!!
 
-    let params = queryString.parse(window.location.search)
-    var screenName = params["screen_name"] || "POLITICO"
-    console.log("URL PARAMS:", params, screenName)
+        this.state = {screenName: screenName}
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
 
-    return (
-        <Container>
-            <Card>
-                <Card.Body>
-                    <Card.Title><h2>User Opinions</h2></Card.Title>
-                    <Card.Text>
-                        After <a href="/opinion-models">training opinion models</a> to detect which bot community language any given tweet most closely resembles, we used the models to predict impeachment opinion scores for the remaining tweets in our dataset. A score of <code>0</code> means the tweet more closely resembles language used by Community 0 (left-leaning bots), while a score of <code>1</code> means the tweet more closely resembles language used by Community 1 (right-leaning bots).
-                    </Card.Text>
+    handleSubmit(event){
+        event.preventDefault() // prevent page reload
+        var screenName = document.getElementById("inputScreenName").value
+        console.log("YOU CLICKED ME!", screenName)
+        this.setState({screenName: screenName})
+    }
 
-                    <Card.Text>
-                        We then calculated the mean impeachment opinion score for all users in our dataset.
-                        {" "}The dashboard below shows how our models scored tweets by any given user.
-                    </Card.Text>
+    render() {
 
-                    <Form style={{marginBottom:10}}>
-                        <Form.Row>
-                            <Form.Label>Change User:</Form.Label>
-                        </Form.Row>
+        var screenName = this.state.screenName
+        console.log("RENDER SECTION", screenName)
 
-                        <Form.Row className="align-items-center">
-                            <Col xs="auto">
-                                <Form.Control className="mb-2" id="inputScreenName" placeholder="POLITICO"/>
-                            </Col>
+        return (
+            <Container>
+                <Card>
+                    <Card.Body>
+                        <Card.Title><h2>User Opinions</h2></Card.Title>
+                        <Card.Text>
+                            After <a href="/opinion-models">training opinion models</a> to detect which bot community language any given tweet most closely resembles, we used the models to predict impeachment opinion scores for the remaining tweets in our dataset. A score of <code>0</code> means the tweet more closely resembles language used by Community 0 (left-leaning bots), while a score of <code>1</code> means the tweet more closely resembles language used by Community 1 (right-leaning bots).
+                        </Card.Text>
 
-                            <Col xs="auto">
-                                <Button type="submit" className="mb-2" variant="secondary" onClick={handleClick}>Submit</Button>
-                            </Col>
-                        </Form.Row>
-                    </Form>
+                        <Card.Text>
+                            We then calculated the mean impeachment opinion score for all users in our dataset.
+                            {" "}The dashboard below shows how our models scored tweets by any given user.
+                        </Card.Text>
 
-                    {/*
+                        <Form style={{marginBottom:10}}>
+                            <Form.Row>
+                                <Form.Label>Change User:</Form.Label>
+                            </Form.Row>
 
-                    <Form inline style={{marginBottom:10}}>
-                        <Form.Row className="align-items-center">
-                            <Col xs="auto">
-                                <Form.Label htmlFor="inputScreenName">Change User:</Form.Label>
-                            </Col>
-                            <Col xs="auto">
-                                <InputGroup.Prepend><InputGroup.Text>@</InputGroup.Text></InputGroup.Prepend>
-                                <Form.Control className="mb-2" id="inputScreenName" placeholder="POLITICO"/>
-                            </Col>
+                            <Form.Row className="align-items-center">
+                                <Col xs="auto">
+                                    <Form.Control id="inputScreenName" name="screenName" defaultValue={screenName} placeholder="POLITICO" className="mb-2" />
+                                </Col>
+
+                                <Col xs="auto">
+                                    <Button type="submit" className="mb-2" variant="secondary" onClick={this.handleSubmit}>Submit</Button>
+                                </Col>
+                            </Form.Row>
+                        </Form>
+
+                        {/*
+
+                        <Form inline style={{marginBottom:10}}>
+                            <Form.Row className="align-items-center">
+                                <Col xs="auto">
+                                    <Form.Label htmlFor="inputScreenName">Change User:</Form.Label>
+                                </Col>
+                                <Col xs="auto">
+                                    <InputGroup.Prepend><InputGroup.Text>@</InputGroup.Text></InputGroup.Prepend>
+                                    <Form.Control className="mb-2" id="inputScreenName" placeholder="POLITICO"/>
+                                </Col>
 
 
 
-                            <Col xs="auto">
-                                <Button type="submit" className="mb-2" variant="secondary">Submit</Button>
-                            </Col>
-                        </Form.Row>
-                    </Form>
+                                <Col xs="auto">
+                                    <Button type="submit" className="mb-2" variant="secondary">Submit</Button>
+                                </Col>
+                            </Form.Row>
+                        </Form>
 
-                    */}
+                        */}
 
-                </Card.Body>
-            </Card>
+                    </Card.Body>
+                </Card>
 
                 <Card>
                     <Card.Body>
+                        <UserOpinionDashboard screenName={screenName}/>
+                    </Card.Body>
+                </Card>
+            </Container>
+        )
+    }
 
-                    <UserOpinionDashboard screen_name={screenName}/>
+    componentDidMount(){
+        console.log("SECTION DID MOUNT")
+    }
 
-                </Card.Body>
-            </Card>
-        </Container>
-    )
+    componentDidUpdate(){
+        console.log("SECTION DID UPDATE")
+    }
 }
