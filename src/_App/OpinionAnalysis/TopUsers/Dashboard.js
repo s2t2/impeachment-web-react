@@ -33,7 +33,8 @@ export default class Dashboard extends PureComponent {
                 <h4>Mean Opinion Scores for Users Tweeting about Trump Impeachment</h4>
 
                 <p>
-                    The chart below shows mean impeachment opinion scores for the users in our dataset who have the most followers. NOTE: bar size represents the number of followers, while color represents the opinion score.
+                    The chart below shows mean impeachment opinion scores for the users in our dataset who have the most followers.
+                    {" "}NOTE: bar size represents the number of followers, while color represents the opinion score.
                 </p>
 
                 {spinIntoStuff}

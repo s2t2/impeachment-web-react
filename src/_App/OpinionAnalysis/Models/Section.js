@@ -91,14 +91,17 @@ export default function SentimentAnalysis() {
                     <Card.Text>
                         We used each binary classifier to assign an opinion score to all tweets in our dataset.
                         {" "}And we used the BERT Transformer to assign an opinion score to all tweets created between 12/20 and 2/15.
-
-                        {" "} Use the <a href="/user-opinions">User Opinions</a> and <a href="top-user-opinions">Top User Opinions</a> dashboards to explore the results of these predictions.
-                        {" "}The overall distribution of mean opinion scores for users with the most followers is below.
+                        {" "} NOTE: tweets by '@FOXNEWS' only include URLs in the text, so they're not able to be scored.
                     </Card.Text>
 
-                    <img src={meanOpinionsLR} className="img-fluid" style={{height:450, marginTop:25}} alt="a histogram of mean opinion scores for the Logistic Regression model"/>
-                    <img src={meanOpinionsNB} className="img-fluid" style={{height:450, marginTop:25}} alt="a histogram of mean opinion scores for the Naive Bayes model"/>
-                    <img src={meanOpinionsBERT} className="img-fluid" style={{height:450, marginTop:25}} alt="a histogram of mean opinion scores for the BERT Transformer model"/>
+                    <Card.Text>
+                        The overall distribution of mean opinion scores for users with the most followers is below.
+                        {" "} Use the <a href="/user-opinions">User Opinions</a> and <a href="top-user-opinions">Top User Opinions</a> dashboards to explore further.
+                    </Card.Text>
+
+                    <img src={meanOpinionsLR} className="img-fluid" style={{height:450, marginTop:15, marginBottom:10}} alt="a histogram of mean opinion scores for the Logistic Regression model"/>
+                    <img src={meanOpinionsNB} className="img-fluid" style={{height:450, marginTop:15, marginBottom:10}} alt="a histogram of mean opinion scores for the Naive Bayes model"/>
+                    <img src={meanOpinionsBERT} className="img-fluid" style={{height:450, marginTop:15, marginBottom:10}} alt="a histogram of mean opinion scores for the BERT Transformer model"/>
 
                 </Card.Body>
             </Card>
