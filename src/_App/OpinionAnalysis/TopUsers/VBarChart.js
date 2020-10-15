@@ -252,6 +252,8 @@ export default class MyBarChart extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
 
+                <p className="app-center">Most Followed Users Tweeting about Trump Impeachment</p>
+
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
                     <VictoryBar horizontal data={users} x="handle" y="follower_count"
                         animate={true}
