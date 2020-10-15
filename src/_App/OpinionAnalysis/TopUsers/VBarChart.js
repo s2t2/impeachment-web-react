@@ -54,11 +54,24 @@ export default class MyBarChart extends Component {
         this.handleModelSelect = this.handleModelSelect.bind(this)
 
         // SHOW ME (STATE MANIPULATION SHORTCUTS)
+
         this.showUsersMostFollowed = this.showUsersMostFollowed.bind(this)
         this.showUsersMostActive = this.showUsersMostActive.bind(this)
         this.showUsersMostLeftLeaning = this.showUsersMostLeftLeaning.bind(this)
         this.showUsersMostRightLeaning = this.showUsersMostRightLeaning.bind(this)
         this.showUsersMostNeutral = this.showUsersMostNeutral.bind(this)
+
+        this.showMediaMostFollowed = this.showMediaMostFollowed.bind(this)
+        this.showMediaMostActive = this.showMediaMostActive.bind(this)
+        this.showMediaMostLeftLeaning = this.showMediaMostLeftLeaning.bind(this)
+        this.showMediaMostRightLeaning = this.showMediaMostRightLeaning.bind(this)
+        this.showMediaMostNeutral = this.showMediaMostNeutral.bind(this)
+
+        this.showElectedOfficialsMostFollowed = this.showElectedOfficialsMostFollowed.bind(this)
+        this.showElectedOfficialsMostActive = this.showElectedOfficialsMostActive.bind(this)
+        this.showElectedOfficialsMostLeftLeaning = this.showElectedOfficialsMostLeftLeaning.bind(this)
+        this.showElectedOfficialsMostRightLeaning = this.showElectedOfficialsMostRightLeaning.bind(this)
+        this.showElectedOfficialsMostNeutral = this.showElectedOfficialsMostNeutral.bind(this)
     }
 
     handleTweetMinChange(changeEvent){
@@ -115,6 +128,58 @@ export default class MyBarChart extends Component {
     }
 
 
+
+
+
+    showMediaMostFollowed(){
+        console.log("SHOW ME: MEDIA MOST FOLLOWED") // currently sorted to users most followed, so just open all params
+        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: ["MAJOR-MEDIA-OUTLET","MEDIA-OUTLET"], opinionModel: "lr"})
+    }
+    showMediaMostActive(){
+        console.log("SHOW ME: MEDIA MOST ACTIVE")
+        this.setState({tweetMin: 200, opinionRange: [0, 100], userCategories: ["MAJOR-MEDIA-OUTLET","MEDIA-OUTLET"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showMediaMostLeftLeaning(){
+        console.log("SHOW ME: MEDIA MOST LEFT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [0, 20], userCategories: ["MAJOR-MEDIA-OUTLET","MEDIA-OUTLET"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showMediaMostRightLeaning(){
+        console.log("SHOW ME: MEDIA MOST RIGHT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [70, 100], userCategories: ["MAJOR-MEDIA-OUTLET","MEDIA-OUTLET"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showMediaMostNeutral(){
+        console.log("SHOW ME: MEDIA MOST NEUTRAL")
+        this.setState({tweetMin: 3, opinionRange: [30, 70], userCategories: ["MAJOR-MEDIA-OUTLET","MEDIA-OUTLET"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+
+
+
+
+
+    showElectedOfficialsMostFollowed(){
+        console.log("SHOW ME: ELECTED OFFICIALS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
+        var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
+        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: ["ELECTED-OFFICIAL"], opinionModel: "lr"})
+    }
+    showElectedOfficialsMostActive(){
+        console.log("SHOW ME: ELECTED OFFICIALS MOST ACTIVE")
+        this.setState({tweetMin: 75, opinionRange: [0, 100], userCategories: ["ELECTED-OFFICIAL"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showElectedOfficialsMostLeftLeaning(){
+        console.log("SHOW ME: ELECTED OFFICIALS MOST LEFT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [0, 10], userCategories: ["ELECTED-OFFICIAL"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showElectedOfficialsMostRightLeaning(){
+        console.log("SHOW ME: ELECTED OFFICIALS MOST RIGHT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: ["ELECTED-OFFICIAL"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showElectedOfficialsMostNeutral(){
+        console.log("SHOW ME: ELECTED OFFICIALS MOST NEUTRAL")
+        this.setState({tweetMin: 3, opinionRange: [35, 65], userCategories: ["ELECTED-OFFICIAL"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+
+
+
     render() {
         var tweetMin = this.state.tweetMin
         var opinionRange = this.state.opinionRange
@@ -164,11 +229,26 @@ export default class MyBarChart extends Component {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                        <Dropdown.Item href="#" onSelect={this.showUsersMostFollowed}>Users most followed</Dropdown.Item>
-                        <Dropdown.Item href="#" onSelect={this.showUsersMostActive}>Users most active</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showUsersMostFollowed}>Users most followed</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showUsersMostActive}>Users most active</Dropdown.Item>
                         <Dropdown.Item onSelect={this.showUsersMostLeftLeaning}>Users most left-leaning</Dropdown.Item>
                         <Dropdown.Item onSelect={this.showUsersMostRightLeaning}>Users most right-leaning</Dropdown.Item>
                         <Dropdown.Item onSelect={this.showUsersMostNeutral}>Users most neutral</Dropdown.Item>
+
+                        <Dropdown.Divider />
+                        <Dropdown.Item onSelect={this.showMediaMostFollowed}>Media most followed</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showMediaMostActive}>Media most active</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showMediaMostLeftLeaning}>Media most left-leaning</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showMediaMostRightLeaning}>Media most right-leaning</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showMediaMostNeutral}>Media most neutral</Dropdown.Item>
+
+                        <Dropdown.Divider />
+                        <Dropdown.Item onSelect={this.showElectedOfficialsMostFollowed}>Elected Officials most followed</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showElectedOfficialsMostActive}>Elected Officials most active</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showElectedOfficialsMostLeftLeaning}>Elected Officials most left-leaning</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showElectedOfficialsMostRightLeaning}>Elected Officials most right-leaning</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showElectedOfficialsMostNeutral}>Elected Officials most neutral</Dropdown.Item>
+
                     </Dropdown.Menu>
                 </Dropdown>
 
