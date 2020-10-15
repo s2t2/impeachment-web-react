@@ -35,7 +35,7 @@ export default class WordClouds extends React.Component {
     }
 
     fetchData() {
-        var requestUrl = `${API_URL}/api/v0/top_status_tags?limit=20`
+        var requestUrl = `${API_URL}/api/v0/top_profile_tags?limit=20`
         console.log("REQUEST URL:", requestUrl)
         fetch(requestUrl).then(function (response) {
             // console.log("RAW RESPONSE", "STATUS", response.status, response.statusText,

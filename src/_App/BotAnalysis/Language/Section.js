@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
 import ProfileHashtags from "./ProfileHashtags"
+import ProfileHashtagWordClouds from "./ProfileHashtagWordClouds"
 import StatusHashtags from "./StatusHashtags"
 import StatusHashtagWordClouds from "./StatusHashtagWordClouds"
 
@@ -25,9 +26,7 @@ export default function BotCommunityLanguage() {
                     <StatusHashtagWordClouds/>
 
                     <ProfileHashtags/>
-
-
-
+                    <ProfileHashtagWordClouds/>
 
                     {/*
                     <Card.Text>

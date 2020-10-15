@@ -45,8 +45,8 @@ export default class StatusHashtags extends React.Component {
         if (this.state.parsedResponse) {
             var tags = this.state.parsedResponse;
 
-            var community0 = orderBy(tags.filter(function (t) {return t["community_id"] === 0}), "pct", "desc")
-            var community1 = orderBy(tags.filter(function (t) {return t["community_id"] === 1}), "pct", "desc")
+            var community0 = orderBy(tags.filter(function (t) {return t["community_id"] === 0}), "pct", "desc") // TODO consider mapping the pct values .toFixed(4)
+            var community1 = orderBy(tags.filter(function (t) {return t["community_id"] === 1}), "pct", "desc") // TODO consider mapping the pct values .toFixed(4)
 
             spinIntoCharts = <Container fluid>
                 <h4 className='app-center'>Top Hashtags in Bot Tweets</h4>
