@@ -32,29 +32,33 @@ export default function About() {
                     </Card.Text>
 
                     {/* todo: make this from the sidebar sitemap */}
-                    <ul>
-                        <li className="font-weight-bold">I. Tweet Collection</li>
-                        <ul>
-                            <li><a href="/collection-topics">Collection Topics</a></li>
-                            <li><a href="/collection-timeline">Collection Timeline</a></li>
-                            <li><a href="/collection-results">Collection Results</a></li>
-                        </ul>
+                    <ol type="I">
+                        <li>Tweet Collection
+                            <ol>
+                                <li><a href="/collection-topics">Collection Topics</a></li>
+                                <li><a href="/collection-timeline">Collection Timeline</a></li>
+                                <li><a href="/collection-results">Collection Results</a></li>
+                            </ol>
+                        </li>
 
-                        <li className="font-weight-bold">II. Bot Analysis</li>
-                        <ul>
-                            <li><a href="/bot-classification">Bot Classification</a></li>
-                            <li><a href="/bot-communities">Bot Communities</a></li>
-                            <li><a href="/bot-language">Bot Language</a></li>
-                            <li><a href="/bot-impact">Bot Impact</a></li>
-                        </ul>
+                        <li>Bot Analysis
+                            <ol>
+                                <li><a href="/bot-classification">Bot Classification</a></li>
+                                <li><a href="/bot-communities">Bot Communities</a></li>
+                                <li><a href="/bot-language">Bot Language</a></li>
+                                <li><a href="/bot-impact">Bot Impact</a></li>
+                            </ol>
+                        </li>
 
-                        <li className="font-weight-bold">III. Opinion Analysis</li>
-                        <ul>
-                            <li><a href="/opinion-models">Opinion Models</a></li>
-                            <li><a href="/user-opinions">User Opinions</a></li>
-                            <li><a href="/top-user-opinions">Top User Opinions</a></li>
-                        </ul>
-                    </ul>
+
+                        <li>Opinion Analysis
+                            <ol>
+                                <li><a href="/opinion-models">Opinion Models</a></li>
+                                <li><a href="/user-opinions">User Opinions</a></li>
+                                <li><a href="/top-user-opinions">Top User Opinions</a></li>
+                            </ol>
+                        </li>
+                    </ol>
                 </Card.Body>
             </Card>
 
