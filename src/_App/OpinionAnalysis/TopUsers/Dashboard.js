@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
-import Container from 'react-bootstrap/Container'
+//import Container from 'react-bootstrap/Container'
+//import Dropdown from 'react-bootstrap/Dropdown'
 
 import Spinner from '../../Spinner.js'
 import BarChart from './VBarChart.js'
@@ -25,16 +26,18 @@ export default class Dashboard extends PureComponent {
         }
 
         return (
-            <Container fluid className="Dashboard">
-                <h4>Mean Opinion Scores for Users Tweeting about Trump Impeachment</h4>
+            <span>
+                {/* <h4>Mean Opinion Scores for Users Tweeting about Trump Impeachment</h4>
 
                 <p>
                     The chart below shows mean impeachment opinion scores for the users in our dataset who have the most followers.
                     {" "}NOTE: bar size represents the number of followers, while color represents the opinion score.
                 </p>
 
+                */}
+
                 {spinIntoStuff}
-            </Container>
+            </span>
         )
     }
 
