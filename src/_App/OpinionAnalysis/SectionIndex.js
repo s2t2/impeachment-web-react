@@ -5,14 +5,12 @@ import Container from 'react-bootstrap/Container'
 //import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
-import ReactGA from 'react-ga'
 
 import sidebar from '../sidebar'
 
 const PAGE_KEY = "opinion-analysis"
 
 export default function OpinionAnalysisPage() {
-    ReactGA.pageview(window.location.href)
 
     var page = sidebar.filter(function(page){ return page["key"] === PAGE_KEY})[0]
 

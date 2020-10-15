@@ -27,40 +27,38 @@ export default function About() {
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Methodology</h3></Card.Title>
-                    <Card.Text>
-                        <ul>
-                            <li><a href="/tweet-collection">I. Tweet Collection</a></li>
-                            <li><a href="/bot-analysis">II. Bot Analysis</a></li>
-                            <li><a href="/opinion-analysis">III. Opinion Analysis</a></li>
-                        </ul>
-                    </Card.Text>
+
+                    <ul>
+                        <li><a href="/tweet-collection">I. Tweet Collection</a></li>
+                        <li><a href="/bot-analysis">II. Bot Analysis</a></li>
+                        <li><a href="/opinion-analysis">III. Opinion Analysis</a></li>
+                    </ul>
                 </Card.Body>
             </Card>
 
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Team</h3></Card.Title>
-                    <Card.Text>
-                        <ul>
-                            <li><a href="https://www.zlisto.com/">Dr. Tauhid Zaman</a> (Yale University)</li>
-                            <li><a href="http://data-creative.info/team/">Michael J Rossetti</a> (Georgetown University, New York University)</li>
-                            <li>Special thanks to <a href="https://scholar.google.com/citations?hl=en&user=Xw7yaiUAAAAJ">Mohammad Samiul Islam</a> for front-end development and data visualization contributions!</li>
-                        </ul>
-                    </Card.Text>
+
+                    <ul>
+                        <li><a href="https://www.zlisto.com/">Dr. Tauhid Zaman</a> (Yale University)</li>
+                        <li><a href="http://data-creative.info/team/">Michael J Rossetti</a> (Georgetown University, New York University)</li>
+                        <li>Special thanks to <a href="https://scholar.google.com/citations?hl=en&user=Xw7yaiUAAAAJ">Mohammad Samiul Islam</a> for front-end development and data visualization contributions!</li>
+                    </ul>
                 </Card.Body>
             </Card>
 
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Source Code</h3></Card.Title>
-                    <Card.Text>
-                        <ul>
-                            <li><a href="https://github.com/zaman-lab/tweet-analyzer-py/blob/master/start">Tweet Collection and Analysis (Colab Notebooks)</a></li>
-                            <li><a href="https://github.com/zaman-lab/tweet-analyzer-py">Tweet Collection and Analysis (Python Scripts)</a></li>
-                            <li><a href="https://github.com/zaman-lab/tweet-analyzer-py/blob/master/api">Tweet Analysis API (Flask)</a></li>
-                            <li><a href="https://github.com/zaman-lab/impeachment-web-react">Tweet Analysis Website (React)</a></li>
-                        </ul>
-                    </Card.Text>
+
+                    <ul>
+                        <li><a href="https://github.com/zaman-lab/tweet-analyzer-py/blob/master/start">Tweet Collection and Analysis (Colab Notebooks)</a></li>
+                        <li><a href="https://github.com/zaman-lab/tweet-analyzer-py">Tweet Collection and Analysis (Python Scripts)</a></li>
+                        <li><a href="https://github.com/zaman-lab/tweet-analyzer-py/blob/master/api">Tweet Analysis API (Flask)</a></li>
+                        <li><a href="https://github.com/zaman-lab/impeachment-web-react">Tweet Analysis Website (React)</a></li>
+                    </ul>
+
                 </Card.Body>
             </Card>
 

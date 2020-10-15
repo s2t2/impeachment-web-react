@@ -21,6 +21,7 @@ import sidebar from './sidebar.js'
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
 export default function App() {
+    ReactGA.pageview(window.location.href)
 
     // ROUTES
 
