@@ -13,7 +13,7 @@ import { ReactComponent as UpArrow } from './arrow-upright.svg'
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
-export default class Dashboard extends React.Component {
+export default class Dashboard extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {metric: "score_lr", parsedResponse: null}
@@ -29,7 +29,6 @@ export default class Dashboard extends React.Component {
 
     render() {
         var screenName = this.props.screenName
-        console.log("RENDER DASHBOARD", screenName)
 
         var spinIntoStuff = <Spinner/>
         if (this.state.parsedResponse) {

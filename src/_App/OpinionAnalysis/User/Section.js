@@ -1,28 +1,24 @@
 
-import React, { PureComponent, useImperativeHandle } from 'react'
+import React, { PureComponent } from 'react'
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
+//import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/FormControl'
-import InputGroup from 'react-bootstrap/InputGroup'
+//import FormControl from 'react-bootstrap/FormControl'
+//import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button'
-
 import queryString from 'query-string'
 
 import UserOpinionDashboard from "./Dashboard"
 
-export default class UserOpinionSection extends React.Component {
+export default class UserOpinionSection extends PureComponent {
 
     constructor(props) {
         super(props)
-
         let params = queryString.parse(window.location.search)
-        //console.log("URL PARAMS:", params)
         var screenName = params["sn"] || "POLITICO" // append ?sn=BERNIESANDERS to the URL to customize via URL params!!!
-
         this.state = {screenName: screenName}
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -35,9 +31,7 @@ export default class UserOpinionSection extends React.Component {
     }
 
     render() {
-
         var screenName = this.state.screenName
-        console.log("RENDER SECTION", screenName)
 
         return (
             <Container>
@@ -96,18 +90,18 @@ export default class UserOpinionSection extends React.Component {
 
                 <Card>
                     <Card.Body>
-                        <UserOpinionDashboard screenName={screenName}/>
+                        <UserOpinionDashboard key={screenName} screenName={screenName}/>
                     </Card.Body>
                 </Card>
             </Container>
         )
     }
 
-    componentDidMount(){
-        console.log("SECTION DID MOUNT")
-    }
+    //componentDidMount(){
+    //    console.log("SECTION DID MOUNT")
+    //}
 
-    componentDidUpdate(){
-        console.log("SECTION DID UPDATE")
-    }
+    //componentDidUpdate(){
+    //    console.log("SECTION DID UPDATE")
+    //}
 }
