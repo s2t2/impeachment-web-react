@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form'
 //import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Dropdown from 'react-bootstrap/Dropdown'
+//import Button from 'react-bootstrap/Button'
 import {VictoryChart, VictoryBar, VictoryAxis} from 'victory' // VictoryTheme, VictoryLabel
 //import { orderBy } from 'lodash'
 import {scaleSequential, interpolateRdBu} from 'd3'
@@ -29,25 +31,34 @@ const allCategories = [
     {"name":"OTHER",                    "label": "Other"}
 ]
 
+var allCategoryNames = allCategories.map(function(category){ return category["name"] })
+
 function formatBigNumber(num) {
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
 } // h/t: https://stackoverflow.com/a/9461657
 
 export default class MyBarChart extends Component {
     constructor(props) {
-      super(props)
-      this.state = {
-        tweetMin: 5,
-        opinionRange: [0, 100],
-        userCategories: allCategories.map(function(category){ return category["name"] }), //["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY", "OTHER"],
-        opinionModel: "lr"
-    } // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
-      this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
-      this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
-      //this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
-      //this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
-      this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
-      this.handleModelSelect = this.handleModelSelect.bind(this)
+        super(props)
+        this.state = {
+            tweetMin: 5,
+            opinionRange: [0, 100],
+            userCategories: allCategoryNames, //["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY", "OTHER"],
+            opinionModel: "lr"
+        } // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
+        this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
+        this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
+        //this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
+        //this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
+        this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
+        this.handleModelSelect = this.handleModelSelect.bind(this)
+
+        // SHOW ME (STATE MANIPULATION SHORTCUTS)
+        this.showUsersMostFollowed = this.showUsersMostFollowed.bind(this)
+        this.showUsersMostActive = this.showUsersMostActive.bind(this)
+        this.showUsersMostLeftLeaning = this.showUsersMostLeftLeaning.bind(this)
+        this.showUsersMostRightLeaning = this.showUsersMostRightLeaning.bind(this)
+        this.showUsersMostNeutral = this.showUsersMostNeutral.bind(this)
     }
 
     handleTweetMinChange(changeEvent){
@@ -58,22 +69,6 @@ export default class MyBarChart extends Component {
         console.log("CHANGE OPINION RANGE", newRange)
         this.setState({opinionRange: newRange})
     }
-
-    //handleOpinionMinChange(changeEvent){
-    //    console.log("CHANGE OPINION MIN", changeEvent.target.value)
-    //    //var opinionMin = parseFloat(changeEvent.target.value) // convert string to decimal, but they end up as NaN. TODO: (maybe take user inputs as integers)
-    //    var opinionMin = changeEvent.target.value
-    //    var opinionMax = this.state.opinionRange[1]
-    //    this.setState({opinionRange: [changeEvent.target.value, opinionMax]})
-    //}
-
-    //handleOpinionMaxChange(changeEvent){
-    //    console.log("CHANGE OPINION MAX", "FROM", this.state.opinionRange, "TO", changeEvent.target.value)
-    //    var opinionMin = this.state.opinionRange[0]
-    //    //var opinionMax = parseFloat(changeEvent.target.value) // convert string to decimal, but they end up as NaN. TODO: (maybe take user inputs as integers)
-    //    var opinionMax = changeEvent.target.value
-    //    this.setState({opinionRange: [opinionMin, opinionMax]})
-    //}
 
     handleCategoryCheck(changeEvent){
         var category = changeEvent.target.value
@@ -96,6 +91,29 @@ export default class MyBarChart extends Component {
         console.log("SELECT MODEL:", model)
         this.setState({"opinionModel": model})
     }
+
+    showUsersMostFollowed(){
+        console.log("SHOW ME: USERS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
+        var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
+        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: allCategoryNames, opinionModel: "lr"})
+    }
+    showUsersMostActive(){
+        console.log("SHOW ME: USERS MOST ACTIVE")
+        this.setState({tweetMin: 200, opinionRange: [0, 100], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showUsersMostLeftLeaning(){
+        console.log("SHOW ME: USERS MOST LEFT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [0, 10], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showUsersMostRightLeaning(){
+        console.log("SHOW ME: USERS MOST RIGHT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showUsersMostNeutral(){
+        console.log("SHOW ME: USERS MOST NEUTRAL")
+        this.setState({tweetMin: 3, opinionRange: [45, 55], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+
 
     render() {
         var tweetMin = this.state.tweetMin
@@ -139,6 +157,20 @@ export default class MyBarChart extends Component {
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
         return (
             <span>
+
+                <Dropdown style={{}}>
+                    <Dropdown.Toggle variant="light" id="dropdown-basic">
+                        Show Me
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                        <Dropdown.Item href="#" onSelect={this.showUsersMostFollowed}>Users most followed</Dropdown.Item>
+                        <Dropdown.Item href="#" onSelect={this.showUsersMostActive}>Users most active</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showUsersMostLeftLeaning}>Users most left-leaning</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showUsersMostRightLeaning}>Users most right-leaning</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showUsersMostNeutral}>Users most neutral</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
 
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
                     <VictoryBar horizontal data={users} x="handle" y="follower_count"
@@ -246,6 +278,8 @@ export default class MyBarChart extends Component {
                             <div key="inline-checkbox" className="mb-3">
                                 {categoryChecks}
                             </div>
+
+                            <p>NOTE: categories are subjective</p>
                         </Col>
 
                         <Col xs="1">
@@ -271,6 +305,9 @@ export default class MyBarChart extends Component {
                         </Col>
                     </Form.Group>
                 </Form>
+
+
+
             </span>
         )
     }
