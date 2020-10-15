@@ -223,7 +223,7 @@ export default class MyBarChart extends Component {
         return (
             <span>
 
-                <Dropdown style={{}}>
+                <Dropdown>
                     <Dropdown.Toggle variant="light" id="dropdown-basic">
                         Show Me
                     </Dropdown.Toggle>
@@ -293,7 +293,7 @@ export default class MyBarChart extends Component {
                     />
                 </VictoryChart>
 
-                <Form >
+                <Form style={{marginTop: -175}}>
                     <Form.Group as={Row}>
                         <Col xs="5">
                             <Form.Label>Minimum Tweet Count</Form.Label>
