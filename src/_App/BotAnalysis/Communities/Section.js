@@ -17,7 +17,7 @@ export default function BotClustering() {
 
                     <h4>Bot Similarity</h4>
                     <Card.Text>
-                        After identifying the bots, we re-examined their retweet behavior to discern who they were retweeting, and how often. Then for each pair of bots, we compared their retweet beneficiaries to produce a <a href="https://deepai.org/machine-learning-glossary-and-terms/jaccard-index">Jaccard coefficient</a> (similarity score) between each bot pair.
+                        After <a href="/bot-classification">identifying the bots</a>, we re-examined their retweet behavior to discern who they were retweeting, and how often. Then for each pair of bots, we compared their retweet beneficiaries to produce a <a href="https://deepai.org/machine-learning-glossary-and-terms/jaccard-index">Jaccard coefficient</a> (similarity score) between each bot pair.
                     </Card.Text>
 
                     <h4>Bot Clustering</h4>

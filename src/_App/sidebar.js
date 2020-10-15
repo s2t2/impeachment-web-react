@@ -21,7 +21,7 @@ import TopUserOpinions from './OpinionAnalysis/TopUsers/Page'
 var sidebar = [
     {
         "key": "opinion-analysis",
-        "title": "III. Opinion Analysis",
+        "title": "Opinion Analysis",
         "component": OpinionAnalysis,
         "sections": [
             {"key": "top-user-opinions",    "title": "Top User Opinions",  "component": TopUserOpinions},
@@ -31,19 +31,19 @@ var sidebar = [
     },
     {
         "key": "bot-analysis",
-        "title": "II. Bot Analysis",
+        "title": "Bot Analysis",
         "component": BotAnalysis,
         "sections": [
-            {"key": "bot-community-activity",   "title": "Bot Activity",  "component": BotCommunityActivity},
-            {"key": "bot-community-language",   "title": "Bot Language",  "component": BotCommunityLanguage},
-            {"key": "bot-impact",               "title": "Bot Impact",  "component": BotImpact},
-            {"key": "bot-communities",          "title": "Bot Communities",  "component": BotCommunities},
-            {"key": "bot-classification",       "title": "Bot Classification",  "component": BotClassification}
+            {"key": "bot-activity",         "title": "Bot Activity",  "component": BotCommunityActivity},
+            {"key": "bot-language",         "title": "Bot Language",  "component": BotCommunityLanguage},
+            {"key": "bot-impact",           "title": "Bot Impact",  "component": BotImpact},
+            {"key": "bot-communities",       "title": "Bot Communities",  "component": BotCommunities},
+            {"key": "bot-classification",    "title": "Bot Classification",  "component": BotClassification}
         ]
     },
     {
         "key": "tweet-collection",
-        "title": "I. Tweet Collection",
+        "title": "Tweet Collection",
         "component": TweetCollection,
         "sections": [
             {"key": "collection-results",       "title": "Collection Results",  "component": CollectionResults},

@@ -10,15 +10,15 @@ import UsersMostRetweeted from "./UsersMostRetweeted"
 import StatusesMostRetweeted from "./StatusesMostRetweeted"
 import communityRetweetsOverTime from "./daily-rts-by-community.png"
 
-export default function BotCommunityAnalysis() {
+export default function BotActivitySection() {
 
     return (
         <Container>
             <Card>
                 <Card.Body>
-                    <Card.Title><h3>Bot Community Activity</h3></Card.Title>
+                    <Card.Title><h3>Bot Activity</h3></Card.Title>
                     <Card.Text>
-                        By examining the retweet activity of each bot community, we observe Community 0 represents left-leaning bots (pro-Impeachment), while Community 1 represents right-leaning bots (pro-Trump).
+                        By examining the retweet activity of each <a href="/bot-communities">bot community</a>, we observe Community 0 represents left-leaning bots (pro-Impeachment), while Community 1 represents right-leaning bots (pro-Trump).
                     </Card.Text>
 
                     <h4>Users Most Retweeted by Bot Community</h4>

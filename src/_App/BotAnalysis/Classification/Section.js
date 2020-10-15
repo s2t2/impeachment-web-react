@@ -17,12 +17,12 @@ export default function BotClassificationSection() {
 
                     <h4>Bot Behaviors</h4>
                     <Card.Text>
-                        The previous bot detection research suggests bots exhibit the primary behavior of retweeting humans at high frequencies.
+                        The <a href="/about">previous bot detection research</a> suggests bots exhibit the primary behavior of retweeting humans at high frequencies.
                     </Card.Text>
 
                     <h4>Retweet Analysis</h4>
                     <Card.Text>
-                        We examined the retweets for each day in our collection period to identify which users retweeted with sufficient frequency to differentiate them from humans. Based on these retweet frequencies, our bot classification model assigned each retweeter a "daily bot probability score" from <code>0</code> (not bot) to <code>1</code> (bot). An example distribution of daily bot probability scores is below.
+                        We examined the retweets for each day in our <a href="/collection-timeline">collection period</a> to identify which users retweeted with sufficient frequency to differentiate them from humans. Based on these retweet frequencies, our bot classification model assigned each retweeter a "daily bot probability score" from <code>0</code> (not bot) to <code>1</code> (bot). An example distribution of daily bot probability scores is below.
                     </Card.Text>
 
                     <img src={exampleDailyBotProbabilities} alt="a histogram depicting bot probabilities" class="img-fluid"/>

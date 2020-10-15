@@ -24,7 +24,7 @@ export default function SentimentAnalysis() {
 
                     <h4>Labeling Users</h4>
                     <Card.Text>
-                        For each community we chose a mutually exclusive list of the top <a href="/bot-community-language">bot profile hashtags</a>, excluding shared topics like <i>'#Impeachment'</i> and <i>'#FactsMatter'</i>, which were used by both communities.
+                        For each community we chose a mutually exclusive list of the top <a href="/bot-language">bot profile hashtags</a>, excluding shared topics like <i>'#Impeachment'</i> and <i>'#FactsMatter'</i>, which were used by both communities.
                         {" "} These community hashtags are listed below.
                     </Card.Text>
                     <CommunityTags/>

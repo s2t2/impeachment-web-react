@@ -27,10 +27,33 @@ export default function About() {
                 <Card.Body>
                     <Card.Title><h3>Methodology</h3></Card.Title>
 
+                    <Card.Text>
+                        Read about our methodology in chronological order by following the outline below:
+                    </Card.Text>
+
+                    {/* todo: make this from the sidebar sitemap */}
                     <ul>
-                        <li><a href="/tweet-collection">I. Tweet Collection</a></li>
-                        <li><a href="/bot-analysis">II. Bot Analysis</a></li>
-                        <li><a href="/opinion-analysis">III. Opinion Analysis</a></li>
+                        <li className="font-weight-bold">I. Tweet Collection</li>
+                        <ul>
+                            <li><a href="/collection-topics">A. Collection Topics</a></li>
+                            <li><a href="/collection-timeline">B. Collection Timeline</a></li>
+                            <li><a href="/collection-results">C. Collection Results</a></li>
+                        </ul>
+
+                        <li className="font-weight-bold">II. Bot Analysis</li>
+                        <ul>
+                            <li><a href="/bot-classification">A. Bot Classification</a></li>
+                            <li><a href="/bot-communities">B. Bot Communities</a></li>
+                            <li><a href="/bot-language">C. Bot Language</a></li>
+                            <li><a href="/bot-impact">D. Bot Impact</a></li>
+                        </ul>
+
+                        <li className="font-weight-bold">III. Opinion Analysis</li>
+                        <ul>
+                            <li><a href="/opinion-models">A. Opinion Models</a></li>
+                            <li><a href="/user-opinions">B. User Opinions</a></li>
+                            <li><a href="/top-user-opinions">C. Top User Opinions</a></li>
+                        </ul>
                     </ul>
                 </Card.Body>
             </Card>

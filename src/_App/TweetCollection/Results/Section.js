@@ -16,7 +16,7 @@ export default function Section() {
                     <Card.Title><h3>Collection Results</h3></Card.Title>
 
                     <Card.Text>
-                        In total, we collected 67.6 million tweets by 3.6 million unique users. Of these, 55.9 million (82.6%) were retweets, by 2.7 million unique users.
+                        During our <a href="/collection-timeline">collection period</a>, in total, we collected 67.6 million tweets by 3.6 million unique users. Of these, 55.9 million (82.6%) were retweets by 2.7 million unique users.
                     </Card.Text>
 
                     <img src={TweetsCollectedByDay} alt="an area chart of tweets collected by day" className="img-fluid" style={{marginBottom:20}}/>
