@@ -13,8 +13,7 @@ export default function About() {
                 <Card.Body>
                     <Card.Title><h2>About</h2></Card.Title>
                     <Card.Text>
-                        This project builds upon the research of Tauhid Zaman, Nicolas Guenon Des Mesnards, et. al., as described by the paper: <a href="https://arxiv.org/abs/1810.12398">"Detecting Bots and Assessing Their Impact in Social Networks"</a> (2018),
-                        {" "}and the research of Ceren Budak et. al., as described by the paper: <a href="https://5harad.com/papers/mediabias.pdf">"Fair and Balanced? Quantifying Media Bias Through Crowdsourced Content Analysis"</a> (2016).
+                        This project builds upon the research of Tauhid Zaman, Nicolas Guenon Des Mesnards, et. al., as described by the paper: <a href="https://arxiv.org/abs/1810.12398">"Detecting Bots and Assessing Their Impact in Social Networks"</a> (2018).
                     </Card.Text>
 
                     <Card.Text>
@@ -41,7 +40,7 @@ export default function About() {
                     <Card.Title><h3>Team</h3></Card.Title>
 
                     <ul>
-                        <li><a href="https://www.zlisto.com/">Dr. Tauhid Zaman</a> (Yale University)</li>
+                        <li><a href="https://www.zlisto.com/">Prof. Tauhid Zaman</a> (Yale University)</li>
                         <li><a href="http://data-creative.info/team/">Michael J Rossetti</a> (Georgetown University, New York University)</li>
                         <li>Special thanks to <a href="https://scholar.google.com/citations?hl=en&user=Xw7yaiUAAAAJ">Mohammad Samiul Islam</a> for front-end development and data visualization contributions!</li>
                     </ul>
