@@ -42,7 +42,10 @@ export default class Dashboard extends PureComponent {
             spinIntoStuff = <span>
                 <Row>
                     <Col sm={12} md={12} lg={8}>
-                        <h3>{handle} <a href={profileUrl}><UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/></a></h3>
+                        <h4>
+                            {handle}
+                            <a href={profileUrl}><UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/></a>
+                        </h4>
 
                         <p className="lead">Mean Opinion Score: <code>{meanOpinionScore.toFixed(2)}</code></p>
                     </Col>
