@@ -293,7 +293,7 @@ export default class MyBarChart extends Component {
                     />
                 </VictoryChart>
 
-                <Form style={{marginTop: -175}}>
+                <Form style={{marginTop: -50}}>
                     <Form.Group as={Row}>
                         <Col xs="5">
                             <Form.Label>Minimum Tweet Count</Form.Label>
