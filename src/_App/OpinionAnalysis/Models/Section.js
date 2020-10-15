@@ -7,6 +7,9 @@ import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
 import CommunityTags from './CommunityTags'
+import meanOpinionsLR from './mean-opinion-scores-for-top-users-lr.png'
+import meanOpinionsNB from './mean-opinion-scores-for-top-users-nb.png'
+import meanOpinionsBERT from './mean-opinion-scores-for-top-users-bert.png'
 
 export default function SentimentAnalysis() {
     return (
@@ -88,11 +91,15 @@ export default function SentimentAnalysis() {
                     <Card.Text>
                         We used each binary classifier to assign an opinion score to all tweets in our dataset.
                         {" "}And we used the BERT Transformer to assign an opinion score to all tweets created between 12/20 and 2/15.
+
+                        {" "} Use the <a href="/user-opinions">User Opinions</a> and <a href="top-user-opinions">Top User Opinions</a> dashboards to explore the results of these predictions.
+                        {" "}The overall distribution of mean opinion scores for users with the most followers is below.
                     </Card.Text>
 
-                    <Card.Text>
-                        Use the <a href="/user-opinions">User Opinions</a> and <a href="top-user-opinions">Top User Opinions</a> dashboards to explore the results of these predictions.
-                    </Card.Text>
+                    <img src={meanOpinionsLR} className="img-fluid" style={{height:450, marginTop:25}} alt="a histogram of mean opinion scores for the Logistic Regression model"/>
+                    <img src={meanOpinionsNB} className="img-fluid" style={{height:450, marginTop:25}} alt="a histogram of mean opinion scores for the Naive Bayes model"/>
+                    <img src={meanOpinionsBERT} className="img-fluid" style={{height:450, marginTop:25}} alt="a histogram of mean opinion scores for the BERT Transformer model"/>
+
                 </Card.Body>
             </Card>
         </Container>
