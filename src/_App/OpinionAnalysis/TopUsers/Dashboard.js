@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import Container from 'react-bootstrap/Container'
+//import Container from 'react-bootstrap/Container'
 
 import Spinner from '../../Spinner.js'
 import BarChart from './VBarChart.js'

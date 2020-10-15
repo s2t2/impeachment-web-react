@@ -158,7 +158,7 @@ export default class MyBarChart extends Component {
 
     showPolsMostFollowed(){
         console.log("SHOW ME: POLITICIANS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
-        var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
+        //var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
         this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: polCategoryNames, opinionModel: "lr"})
     }
     showPolsMostActive(){
