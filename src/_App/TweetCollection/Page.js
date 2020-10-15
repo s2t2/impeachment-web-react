@@ -10,9 +10,9 @@ export default function TweetCollectionPage() {
     return (
         <span>
             <SectionIndex/>
+            <ResultsSection/>
             <TimelineSection/>
             <TopicsSection/>
-            <ResultsSection/>
         </span>
     )
 }

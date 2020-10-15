@@ -17,12 +17,9 @@ export default function BotCommunityAnalysis() {
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Bot Community Activity</h3></Card.Title>
-
-                    <h4>Statuses Most Retweeted by Bot Community</h4>
                     <Card.Text>
                         By examining the retweet activity of each bot community, we observe Community 0 represents left-leaning bots (pro-Impeachment), while Community 1 represents right-leaning bots (pro-Trump).
                     </Card.Text>
-                    <StatusesMostRetweeted/>
 
                     <h4>Users Most Retweeted by Bot Community</h4>
                     <Card.Text>
@@ -35,6 +32,11 @@ export default function BotCommunityAnalysis() {
                         In general, left-leaning bots outnumber right-leaning bots 571 to 110, and generate a greater volume of tweets than right-leaning bots.
                     </Card.Text>
                     <img src={communityRetweetsOverTime} alt="a histogram depicting bot probabilities" style={{marginTop:20, marginBottom:20}} class="img-fluid"/>
+
+
+                    <h4>Statuses Most Retweeted by Bot Community</h4>
+                    <StatusesMostRetweeted/>
+
                 </Card.Body>
             </Card>
         </Container>
