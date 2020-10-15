@@ -16,6 +16,13 @@ export default function UserStatusesTable(props) {
         var statusUrl = `https://twitter.com/politico/status/${status["status_id"]}`
         var date = format(Date.parse(status["created_at"]), 'yyyy-MM-dd')
 
+        var bertScore
+        if(status["score_bert"]){
+            bertScore = status["score_bert"].toFixed(4)
+        } else {
+            bertScore = "N/A"
+        }
+
         return (
             <tr key={status["status_id"]}>
                 <td style={{"whiteSpace": "nowrap"}}>{date}</td>
@@ -26,7 +33,7 @@ export default function UserStatusesTable(props) {
                 </td>
                 <td><code>{status["score_lr"]}</code></td>
                 <td><code>{status["score_nb"]}</code></td>
-                <td><code>{status["score_bert"]}</code></td>
+                <td><code>{bertScore}</code></td>
             </tr>
         )
     })
