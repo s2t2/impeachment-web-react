@@ -18,7 +18,7 @@ export default function UserStatusesTable(props) {
 
         var bertScore
         if(status["score_bert"]){
-            bertScore = status["score_bert"].toFixed(4)
+            bertScore = status["score_bert"].toFixed(2)
         } else {
             bertScore = "N/A"
         }

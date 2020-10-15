@@ -256,6 +256,10 @@ export default class MyBarChart extends Component {
                                     checked={opinionModel === "nb"}
                                     onChange={this.handleModelSelect}
                                 />
+                                <Form.Check inline label="BERT Transformer" value="bert" type="radio" id="radio-bert"
+                                    checked={opinionModel === "bert"}
+                                    onChange={this.handleModelSelect}
+                                />
                             </div>
                         </Col>
                     </Form.Group>

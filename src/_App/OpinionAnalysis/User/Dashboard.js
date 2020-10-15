@@ -37,7 +37,10 @@ export default class Dashboard extends PureComponent {
             var metric = this.state.metric
 
             var statuses = this.state.parsedResponse
-            var meanOpinionScore = meanBy(statuses, (status) => status[metric])
+            var scoredStatuses = statuses.filter(function(status){
+                return status[metric] != null // need to remove these statuses, otherwise meanby will include in denominator and mess up the math
+            })
+            var meanOpinionScore = meanBy(scoredStatuses, (status) => status[metric])
             //console.log("STATUSES:", statuses.length, "SCORE:", meanOpinionScore)
 
             spinIntoStuff = <span>
