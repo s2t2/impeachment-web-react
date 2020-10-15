@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 //import Button from 'react-bootstrap/Button'
-import {VictoryChart, VictoryBar, VictoryAxis} from 'victory' // VictoryTheme, VictoryLabel
+import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend} from 'victory' // VictoryTheme, VictoryLabel
 //import { orderBy } from 'lodash'
 import {scaleSequential, interpolateRdBu} from 'd3'
 import './VBarChart.css'
@@ -45,13 +45,14 @@ export default class MyBarChart extends Component {
         this.state = {
             tweetMin: 5,
             opinionRange: [0, 100],
-            userCategories: allCategoryNames, //["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY", "OTHER"],
+            userCategories: allCategoryNames,
             opinionModel: "lr"
         } // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
+
+        // HANDLE CONTROLS
+
         this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
         this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
-        //this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
-        //this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
         this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
         this.handleModelSelect = this.handleModelSelect.bind(this)
 
@@ -75,110 +76,6 @@ export default class MyBarChart extends Component {
         this.showPolsMostRightLeaning = this.showPolsMostRightLeaning.bind(this)
         this.showPolsMostNeutral = this.showPolsMostNeutral.bind(this)
     }
-
-    handleTweetMinChange(changeEvent){
-        this.setState({tweetMin: changeEvent.target.value})
-    }
-
-    handleOpinionRangeChange(newRange){
-        console.log("CHANGE OPINION RANGE", newRange)
-        this.setState({opinionRange: newRange})
-    }
-
-    handleCategoryCheck(changeEvent){
-        var category = changeEvent.target.value
-        console.log("CHECK CATEGORY:", category)
-
-        var userCategories = this.state.userCategories
-        var categoryIndex = userCategories.indexOf(category) // will be -1 if item not in array
-        if (categoryIndex >= 0 ) {
-            userCategories.splice(categoryIndex, 1) // remove 1 item from array at the given position
-        } else {
-            userCategories.push(category)
-        }
-
-        console.log("CATEGORIES:", userCategories)
-        this.setState({userCategories: userCategories}) // this is updating state but why not triggering a re-render?
-    }
-
-    handleModelSelect(changeEvent){
-        var model = changeEvent.target.value
-        console.log("SELECT MODEL:", model)
-        this.setState({"opinionModel": model})
-    }
-
-    // ALL USERS
-
-    showUsersMostFollowed(){
-        console.log("SHOW ME: USERS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
-        var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
-        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: allCategoryNames, opinionModel: "lr"})
-    }
-    showUsersMostActive(){
-        console.log("SHOW ME: USERS MOST ACTIVE")
-        this.setState({tweetMin: 200, opinionRange: [0, 100], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showUsersMostLeftLeaning(){
-        console.log("SHOW ME: USERS MOST LEFT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [0, 10], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showUsersMostRightLeaning(){
-        console.log("SHOW ME: USERS MOST RIGHT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showUsersMostNeutral(){
-        console.log("SHOW ME: USERS MOST NEUTRAL")
-        this.setState({tweetMin: 3, opinionRange: [45, 55], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-
-    // MEDIA
-
-    showMediaMostFollowed(){
-        console.log("SHOW ME: MEDIA MOST FOLLOWED") // currently sorted to users most followed, so just open all params
-        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: mediaCategoryNames, opinionModel: "lr"})
-    }
-    showMediaMostActive(){
-        console.log("SHOW ME: MEDIA MOST ACTIVE")
-        this.setState({tweetMin: 200, opinionRange: [0, 100], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showMediaMostLeftLeaning(){
-        console.log("SHOW ME: MEDIA MOST LEFT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [0, 20], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showMediaMostRightLeaning(){
-        console.log("SHOW ME: MEDIA MOST RIGHT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [70, 100], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showMediaMostNeutral(){
-        console.log("SHOW ME: MEDIA MOST NEUTRAL")
-        this.setState({tweetMin: 3, opinionRange: [30, 70], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-
-    // POLITICIANS
-
-    showPolsMostFollowed(){
-        console.log("SHOW ME: POLITICIANS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
-        var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
-        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: polCategoryNames, opinionModel: "lr"})
-    }
-    showPolsMostActive(){
-        console.log("SHOW ME: POLITICIANS MOST ACTIVE")
-        this.setState({tweetMin: 75, opinionRange: [0, 100], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showPolsMostLeftLeaning(){
-        console.log("SHOW ME: POLITICIANS MOST LEFT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [0, 5], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showPolsMostRightLeaning(){
-        console.log("SHOW ME: POLITICIANS MOST RIGHT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showPolsMostNeutral(){
-        console.log("SHOW ME: POLITICIANS MOST NEUTRAL")
-        this.setState({tweetMin: 3, opinionRange: [35, 65], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-
-
 
     render() {
         var tweetMin = this.state.tweetMin
@@ -218,11 +115,15 @@ export default class MyBarChart extends Component {
             }) // sort before slice
             .slice(-barCount) // negative number takes last X users (which is actually the top X users)
 
+        var chartTitle = "Mean Opinion Scores for Top Users Tweeting About Impeachment"
+        var chartFooter = "Chart shows: users who have at least X followers, tweeting at least Y times about impeachment, with mean opinion score between A% and B%, who are categorized as 'MEDIA', 'MAJOR-MEDIA', 'ETC', 'LONG-LIST'."
         var chartPadding = { left: 175, top: 15, right: 50, bottom: 130 } // spacing for axis labels (screen names)
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
         return (
             <span>
+                <h4 className="app-center">{chartTitle}</h4>
 
+                { /*
                 <Dropdown style={{}}>
                     <Dropdown.Toggle variant="light" id="dropdown-basic">
                         Show Me
@@ -252,7 +153,33 @@ export default class MyBarChart extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
 
+                */}
+
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
+
+                    <VictoryLegend
+                        //title="Opinion Score" centerTitle
+                        orientation="horizontal"
+                        data={[
+                            { name: "Pro-Impeachment (0%)", symbol: { fill: colorScale(0.15), type: "circle" } },
+                            { name: "Pro-Trump (100%)",     symbol: { fill: colorScale(0.85), type: "circle"} },
+                        ]}
+                        //gutter={20}
+                        x={137}
+                        y={0}
+                        //width={20}
+                        //height={10}
+                        //padding={{ top: 1000, bottom: 1000 }}
+                        style={{
+                            //parent: {},
+                            //border: {stroke: "black"},
+                            title: {fontSize: 8},
+                            data: {fontSize: 8},
+                            labels: {fontSize: 8},
+                        }}
+
+                    />
+
                     <VictoryBar horizontal data={users} x="handle" y="follower_count"
                         animate={true}
                         //barWidth={12}
@@ -262,6 +189,7 @@ export default class MyBarChart extends Component {
                         labels={({ datum }) => datum["scorePct"]}
                         //labelComponent={<VictoryLabel dx={-30}/>}
                         style={{
+                            //parent: {}
                             data: {
                                 fill: ({ datum }) => colorScale(datum[opinionMetric]),
                                 //stroke: ({ index }) => +index % 2 === 0  ? "#000000" : "#c43a31",
@@ -292,6 +220,8 @@ export default class MyBarChart extends Component {
                         }}
                     />
                 </VictoryChart>
+
+                <p className="app-center">{chartFooter}</p>
 
                 <Form >
                     <Form.Group as={Row}>
@@ -386,8 +316,6 @@ export default class MyBarChart extends Component {
                     </Form.Group>
                 </Form>
 
-
-
             </span>
         )
     }
@@ -398,6 +326,110 @@ export default class MyBarChart extends Component {
 
     componentDidUpdate(prevProps) {
         console.log("BAR CHART DID UPDATE")
+    }
+
+    // HANDLE FORM INPUTS
+
+    handleTweetMinChange(changeEvent){
+        this.setState({tweetMin: changeEvent.target.value})
+    }
+
+    handleOpinionRangeChange(newRange){
+        console.log("CHANGE OPINION RANGE", newRange)
+        this.setState({opinionRange: newRange})
+    }
+
+    handleCategoryCheck(changeEvent){
+        var category = changeEvent.target.value
+        console.log("CHECK CATEGORY:", category)
+
+        var userCategories = this.state.userCategories
+        var categoryIndex = userCategories.indexOf(category) // will be -1 if item not in array
+        if (categoryIndex >= 0 ) {
+            userCategories.splice(categoryIndex, 1) // remove 1 item from array at the given position
+        } else {
+            userCategories.push(category)
+        }
+
+        console.log("CATEGORIES:", userCategories)
+        this.setState({userCategories: userCategories}) // this is updating state but why not triggering a re-render?
+    }
+
+    handleModelSelect(changeEvent){
+        var model = changeEvent.target.value
+        console.log("SELECT MODEL:", model)
+        this.setState({"opinionModel": model})
+    }
+
+    // SHOW ME: ALL USERS
+
+    showUsersMostFollowed(){
+        console.log("SHOW ME: USERS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
+        var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
+        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: allCategoryNames, opinionModel: "lr"})
+    }
+    showUsersMostActive(){
+        console.log("SHOW ME: USERS MOST ACTIVE")
+        this.setState({tweetMin: 200, opinionRange: [0, 100], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showUsersMostLeftLeaning(){
+        console.log("SHOW ME: USERS MOST LEFT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [0, 10], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showUsersMostRightLeaning(){
+        console.log("SHOW ME: USERS MOST RIGHT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showUsersMostNeutral(){
+        console.log("SHOW ME: USERS MOST NEUTRAL")
+        this.setState({tweetMin: 3, opinionRange: [45, 55], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+
+    // SHOW ME: MEDIA
+
+    showMediaMostFollowed(){
+        console.log("SHOW ME: MEDIA MOST FOLLOWED") // currently sorted to users most followed, so just open all params
+        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: mediaCategoryNames, opinionModel: "lr"})
+    }
+    showMediaMostActive(){
+        console.log("SHOW ME: MEDIA MOST ACTIVE")
+        this.setState({tweetMin: 200, opinionRange: [0, 100], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showMediaMostLeftLeaning(){
+        console.log("SHOW ME: MEDIA MOST LEFT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [0, 20], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showMediaMostRightLeaning(){
+        console.log("SHOW ME: MEDIA MOST RIGHT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [70, 100], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showMediaMostNeutral(){
+        console.log("SHOW ME: MEDIA MOST NEUTRAL")
+        this.setState({tweetMin: 3, opinionRange: [30, 70], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+
+    // SHOW ME: POLITICIANS
+
+    showPolsMostFollowed(){
+        console.log("SHOW ME: POLITICIANS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
+        var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
+        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: polCategoryNames, opinionModel: "lr"})
+    }
+    showPolsMostActive(){
+        console.log("SHOW ME: POLITICIANS MOST ACTIVE")
+        this.setState({tweetMin: 75, opinionRange: [0, 100], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showPolsMostLeftLeaning(){
+        console.log("SHOW ME: POLITICIANS MOST LEFT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [0, 5], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showPolsMostRightLeaning(){
+        console.log("SHOW ME: POLITICIANS MOST RIGHT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    }
+    showPolsMostNeutral(){
+        console.log("SHOW ME: POLITICIANS MOST NEUTRAL")
+        this.setState({tweetMin: 3, opinionRange: [35, 65], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
 
 }
