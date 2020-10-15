@@ -24,9 +24,11 @@ export default function BotCommunityLanguage() {
 
                     <ProfileHashtags/>
 
+                    {/*
                     <Card.Text>
                         NOTE: the hashtags <i>'#QAnon'</i>, <i>'#WWG1WGA'</i>, and <i>'#GreatAwakening'</i> are related to the <a href="https://www.cbsnews.com/news/what-is-the-qanon-conspiracy-theory/">"Q-Anon" conspiracy theory</a>.
                     </Card.Text>
+                    */}
                 </Card.Body>
             </Card>
         </Container>
