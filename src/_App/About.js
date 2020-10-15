@@ -14,7 +14,7 @@ export default function About() {
                     <Card.Title><h2>About</h2></Card.Title>
                     <Card.Text>
                         This project builds upon the research of Tauhid Zaman, Nicolas Guenon Des Mesnards, et. al., as described by the paper: <a href="https://arxiv.org/abs/1810.12398">"Detecting Bots and Assessing Their Impact in Social Networks"</a> (2018),
-                        {" "}and the research of __________________________ as described by the paper: <a href="#TODO_________">_____________________________________</a> (2016).
+                        {" "}and the research of Ceren Budak et. al., as described by the paper: <a href="https://5harad.com/papers/mediabias.pdf">"Fair and Balanced? Quantifying Media Bias Through Crowdsourced Content Analysis"</a> (2016).
                     </Card.Text>
 
                     <Card.Text>
