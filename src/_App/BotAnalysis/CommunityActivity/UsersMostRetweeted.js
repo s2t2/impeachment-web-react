@@ -50,7 +50,7 @@ export default class UsersMostRetweeted extends React.Component {
             var community1 = orderBy(users.filter(function (u) {return u["community_id"] === 1}), metric, "desc")
 
             spinIntoCharts = <span>
-                <h4 className="app-center">Users Most Retweeted by Bot Community</h4>
+                {/* <h4 className="app-center">Users Most Retweeted by Bot Community</h4> */}
 
                 <Row>
                     <Col sm={12} md={12} lg={6}>
