@@ -1,28 +1,34 @@
 
 
 import React from 'react'
+import {orderBy} from 'lodash'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+//import Table from 'react-bootstrap/Table'
 
-import CommunityTagsTable from '.CommunityTagsTable'
+import CommunityTagsTable from './CommunityTagsTable'
+import communityTags from  './data'
 
-export default function CommunityTags(props) {
+export default function CommunityTags() {
 
-        var community0 = orderBy(users.filter(function (u) {return u["community_id"] === 0}), metric, "desc")
-        var community1 = orderBy(users.filter(function (u) {return u["community_id"] === 1}), metric, "desc")
+    var community0 = orderBy(communityTags.filter(function (u) {return u["community_id"] === 0}), "tag", "asc")
+    var community1 = orderBy(communityTags.filter(function (u) {return u["community_id"] === 1}), "tag", "asc")
 
-        spinIntoCharts = <span>
-            <h4 className='app-center'>Statuses Most Retweeted by Bot Community</h4>
+    return (
+        <Container fluid>
+            <h5 className='app-center'>Bot Community Hashtags (for Data Labeling)</h5>
 
             <Row>
                 <Col sm={12} md={12} lg={6}>
                     <Card>
                         <Card.Body>
                             <Card.Text className="app-center">
-                                Statuses Most Retweeted by Left-leaning Bots
+                                Left-leaning Bot Community Hashtags
                             </Card.Text>
 
-                            {/* <StatusesBarChart data={community0} barFill="#002868"/> */}
-
-                            <StatusesMostRetweetedTable data={community0}/>
+                            <CommunityTagsTable data={community0}/>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -31,21 +37,14 @@ export default function CommunityTags(props) {
                     <Card>
                         <Card.Body>
                             <Card.Text className="app-center">
-                                Statuses Most Retweeted by Right-leaning Bots
+                                Right-leaning Bot Community Hashtags
                             </Card.Text>
 
-                            {/* <StatusesBarChart data={community1} barFill="#bf0a30"/> */}
-                            <StatusesMostRetweetedTable data={community1}/>
+                            <CommunityTagsTable data={community1}/>
                         </Card.Body>
                     </Card>
                 </Col>
             </Row>
-        </span>
-    }
-
-    return (
-        <Container fluid>
-            {spinIntoCharts}
         </Container>
     )
 }

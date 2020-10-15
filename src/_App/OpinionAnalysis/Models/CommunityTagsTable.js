@@ -1,14 +1,14 @@
 
+
 import React from 'react'
+import Table from 'react-bootstrap/Table'
 
-import communityTags from './data'
+export default function CommunityTagsTable(props) {
+    var {data} = props
 
-export default function CommunityTagsTable() {
-
-    var rows = communityTags.map(function(tag){
+    var tableRows = data.map(function(tag) {
         return (
             <tr>
-                <td>{tag["community_id"]}</td>
                 <td><i>{tag["tag"]}</i></td>
                 <td>{tag["description"]}</td>
             </tr>
@@ -16,19 +16,18 @@ export default function CommunityTagsTable() {
     })
 
     return (
-        <div class="table-responsive">
-            <table class="table table-hover">
+        <div className="table-responsive">
+            <Table striped bordered hover size="sm">
                 <thead>
-                <tr>
-                    <th scope="col">Bot Community</th>
-                    <th scope="col">Hashtag</th>
-                    <th scope="col">Description / Explanation</th>
-                </tr>
+                    <tr>
+                        <th scope="col">Hashtag</th>
+                        <th scope="col">Description</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    {rows}
+                    {tableRows}
                 </tbody>
-            </table>
+            </Table>
         </div>
     )
 }

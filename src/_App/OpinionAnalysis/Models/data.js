@@ -45,4 +45,130 @@ var communityTags = [
     {"community_id": 1,	"tag": "#NRA",              "description": "The National Rifle Association"}
 ]
 
+//var lrScores = {
+//	"model_name": "logistic_regression",
+//	"model_id": "2020-10-07-0220",
+//	"features": 1110682,
+//	"label_maker": "two_community_party_labels",
+//	"matrix_train": [2217524, 1110682],
+//	"matrix_test": [554381, 1110682],
+//	"scores_train": {
+//		"D": {
+//			"precision": 0.8894128664063466,
+//			"recall": 0.8938563259058538,
+//			"f1-score": 0.891629060162878,
+//			"support": 1126313
+//		},
+//		"R": {
+//			"precision": 0.8898740217247122,
+//			"recall": 0.8852852473078076,
+//			"f1-score": 0.8875737035412155,
+//			"support": 1091211
+//		},
+//		"accuracy": 0.889638623978816,
+//		"macro avg": {
+//			"precision": 0.8896434440655294,
+//			"recall": 0.8895707866068308,
+//			"f1-score": 0.8896013818520467,
+//			"support": 2217524
+//		},
+//		"weighted avg": {
+//			"precision": 0.8896397941672679,
+//			"recall": 0.889638623978816,
+//			"f1-score": 0.8896334787150645,
+//			"support": 2217524
+//		}
+//	},
+//	"scores_test": {
+//		"D": {
+//			"precision": 0.876414408436686,
+//			"recall": 0.8818799764186123,
+//			"f1-score": 0.8791386977086697,
+//			"support": 281578
+//		},
+//		"R": {
+//			"precision": 0.8772906543883533,
+//			"recall": 0.8716436402825483,
+//			"f1-score": 0.8744580307069963,
+//			"support": 272803
+//		},
+//		"accuracy": 0.8768428210923535,
+//		"macro avg": {
+//			"precision": 0.8768525314125197,
+//			"recall": 0.8767618083505803,
+//			"f1-score": 0.876798364207833,
+//			"support": 554381
+//		},
+//		"weighted avg": {
+//			"precision": 0.8768455965985327,
+//			"recall": 0.8768428210923535,
+//			"f1-score": 0.8768354080936622,
+//			"support": 554381
+//		}
+//	}
+//}
+//
+//var nbScores = {
+//    "model_name": "multinomial_nb",
+//    "model_id": "2020-10-07-0222",
+//    "features": 1110682,
+//    "label_maker": "two_community_party_labels",
+//    "matrix_train": [2217524, 1110682],
+//    "matrix_test": [554381, 1110682],
+//    "scores_train": {
+//        "D": {
+//            "precision": 0.8948443153280613,
+//            "recall": 0.9260010316847981,
+//            "f1-score": 0.9101561102379657,
+//            "support": 1126313
+//        },
+//        "R": {
+//            "precision": 0.9207733877062153,
+//            "recall": 0.8876825838449209,
+//            "f1-score": 0.9039252409707699,
+//            "support": 1091211
+//        },
+//        "accuracy": 0.9071450861411195,
+//        "macro avg": {
+//            "precision": 0.9078088515171383,
+//            "recall": 0.9068418077648595,
+//            "f1-score": 0.9070406756043679,
+//            "support": 2217524
+//        },
+//        "weighted avg": {
+//            "precision": 0.907603631122992,
+//            "recall": 0.9071450861411195,
+//            "f1-score": 0.9070899909608233,
+//            "support": 2217524
+//        }
+//    },
+//    "scores_test": {
+//        "D": {
+//            "precision": 0.8699430370002909,
+//            "recall": 0.9030535056005796,
+//            "f1-score": 0.8861891045579772,
+//            "support": 281578
+//        },
+//        "R": {
+//            "precision": 0.895843349129675,
+//            "recall": 0.8606503594168686,
+//            "f1-score": 0.8778942920867695,
+//            "support": 272803
+//        },
+//        "accuracy": 0.882187520856595,
+//        "macro avg": {
+//            "precision": 0.8828931930649829,
+//            "recall": 0.8818519325087242,
+//            "f1-score": 0.8820416983223733,
+//            "support": 554381
+//        },
+//        "weighted avg": {
+//            "precision": 0.882688211978929,
+//            "recall": 0.882187520856595,
+//            "f1-score": 0.8821073453949054,
+//            "support": 554381
+//        }
+//    }
+//}
+
 export default communityTags
