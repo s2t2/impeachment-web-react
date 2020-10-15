@@ -18,6 +18,11 @@ export default function TopUserOpinion() {
                     <Card.Text>
                         After <a href="/user-opinions">calculating mean opinion scores</a> for all users in our dataset, we are able to compare the user's scores relative to each other to see which are more pro-Impeachment vs which are more pro-Trump.
                     </Card.Text>
+
+                    <Card.Text>
+                        The chart below shows mean impeachment opinion scores for the users in our dataset who have the most followers.
+                        {" "}NOTE: bar size represents the number of followers, while color represents the opinion score.
+                    </Card.Text>
                 </Card.Body>
             </Card>
 
