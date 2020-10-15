@@ -65,6 +65,10 @@ export default class Dashboard extends PureComponent {
                                     checked={metric === "score_nb"}
                                     onChange={this.handleModelSelect}
                                 />
+                                <Form.Check inline label="BERT Transformer" value="score_bert" type="radio" id="radio-bert"
+                                    checked={metric === "score_bert"}
+                                    onChange={this.handleModelSelect}
+                                />
                             </div>
                         </Form>
                     </Col>

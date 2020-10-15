@@ -26,6 +26,7 @@ export default function UserStatusesTable(props) {
                 </td>
                 <td><code>{status["score_lr"]}</code></td>
                 <td><code>{status["score_nb"]}</code></td>
+                <td><code>{status["score_bert"]}</code></td>
             </tr>
         )
     })
@@ -39,6 +40,7 @@ export default function UserStatusesTable(props) {
                         <th scope="col">Status Text</th>
                         <th scope="col">Opinion Score (LR)</th>
                         <th scope="col">Opinion Score (NB)</th>
+                        <th scope="col">Opinion Score (BERT)</th>
                     </tr>
                 </thead>
                 <tbody>
