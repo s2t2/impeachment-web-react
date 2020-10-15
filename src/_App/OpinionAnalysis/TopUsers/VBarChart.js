@@ -32,6 +32,8 @@ const allCategories = [
 ]
 
 var allCategoryNames = allCategories.map(function(category){ return category["name"] })
+var govCategoryNames = ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT"]
+var mediaCategoryNames = ["MAJOR-MEDIA-OUTLET","MEDIA-OUTLET", "NEWS-SHOW"] // "POLITICAL-COMMENTATOR"
 
 function formatBigNumber(num) {
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
@@ -105,6 +107,11 @@ export default class MyBarChart extends Component {
         this.setState({"opinionModel": model})
     }
 
+
+
+
+
+
     showUsersMostFollowed(){
         console.log("SHOW ME: USERS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
         var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
@@ -133,23 +140,23 @@ export default class MyBarChart extends Component {
 
     showMediaMostFollowed(){
         console.log("SHOW ME: MEDIA MOST FOLLOWED") // currently sorted to users most followed, so just open all params
-        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: ["MAJOR-MEDIA-OUTLET","MEDIA-OUTLET"], opinionModel: "lr"})
+        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: mediaCategoryNames, opinionModel: "lr"})
     }
     showMediaMostActive(){
         console.log("SHOW ME: MEDIA MOST ACTIVE")
-        this.setState({tweetMin: 200, opinionRange: [0, 100], userCategories: ["MAJOR-MEDIA-OUTLET","MEDIA-OUTLET"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+        this.setState({tweetMin: 200, opinionRange: [0, 100], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
     showMediaMostLeftLeaning(){
         console.log("SHOW ME: MEDIA MOST LEFT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [0, 20], userCategories: ["MAJOR-MEDIA-OUTLET","MEDIA-OUTLET"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+        this.setState({tweetMin: 3, opinionRange: [0, 20], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
     showMediaMostRightLeaning(){
         console.log("SHOW ME: MEDIA MOST RIGHT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [70, 100], userCategories: ["MAJOR-MEDIA-OUTLET","MEDIA-OUTLET"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+        this.setState({tweetMin: 3, opinionRange: [70, 100], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
     showMediaMostNeutral(){
         console.log("SHOW ME: MEDIA MOST NEUTRAL")
-        this.setState({tweetMin: 3, opinionRange: [30, 70], userCategories: ["MAJOR-MEDIA-OUTLET","MEDIA-OUTLET"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+        this.setState({tweetMin: 3, opinionRange: [30, 70], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
 
 
@@ -159,23 +166,23 @@ export default class MyBarChart extends Component {
     showElectedOfficialsMostFollowed(){
         console.log("SHOW ME: ELECTED OFFICIALS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
         var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
-        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: ["ELECTED-OFFICIAL"], opinionModel: "lr"})
+        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: govCategoryNames, opinionModel: "lr"})
     }
     showElectedOfficialsMostActive(){
         console.log("SHOW ME: ELECTED OFFICIALS MOST ACTIVE")
-        this.setState({tweetMin: 75, opinionRange: [0, 100], userCategories: ["ELECTED-OFFICIAL"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+        this.setState({tweetMin: 75, opinionRange: [0, 100], userCategories: govCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
     showElectedOfficialsMostLeftLeaning(){
         console.log("SHOW ME: ELECTED OFFICIALS MOST LEFT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [0, 10], userCategories: ["ELECTED-OFFICIAL"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+        this.setState({tweetMin: 3, opinionRange: [0, 5], userCategories: govCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
     showElectedOfficialsMostRightLeaning(){
         console.log("SHOW ME: ELECTED OFFICIALS MOST RIGHT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: ["ELECTED-OFFICIAL"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: govCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
     showElectedOfficialsMostNeutral(){
         console.log("SHOW ME: ELECTED OFFICIALS MOST NEUTRAL")
-        this.setState({tweetMin: 3, opinionRange: [35, 65], userCategories: ["ELECTED-OFFICIAL"], opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+        this.setState({tweetMin: 3, opinionRange: [35, 65], userCategories: govCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
 
 
