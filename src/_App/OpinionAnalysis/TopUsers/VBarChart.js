@@ -32,8 +32,8 @@ const allCategories = [
 ]
 
 var allCategoryNames = allCategories.map(function(category){ return category["name"] })
-var govCategoryNames = ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT"]
-var mediaCategoryNames = ["MAJOR-MEDIA-OUTLET","MEDIA-OUTLET", "NEWS-SHOW"] // "POLITICAL-COMMENTATOR"
+var polCategoryNames = ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT"]
+var mediaCategoryNames = ["MAJOR-MEDIA-OUTLET", "MEDIA-OUTLET", "NEWS-SHOW"] // "POLITICAL-COMMENTATOR"
 
 function formatBigNumber(num) {
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
@@ -69,11 +69,11 @@ export default class MyBarChart extends Component {
         this.showMediaMostRightLeaning = this.showMediaMostRightLeaning.bind(this)
         this.showMediaMostNeutral = this.showMediaMostNeutral.bind(this)
 
-        this.showElectedOfficialsMostFollowed = this.showElectedOfficialsMostFollowed.bind(this)
-        this.showElectedOfficialsMostActive = this.showElectedOfficialsMostActive.bind(this)
-        this.showElectedOfficialsMostLeftLeaning = this.showElectedOfficialsMostLeftLeaning.bind(this)
-        this.showElectedOfficialsMostRightLeaning = this.showElectedOfficialsMostRightLeaning.bind(this)
-        this.showElectedOfficialsMostNeutral = this.showElectedOfficialsMostNeutral.bind(this)
+        this.showPolsMostFollowed = this.showPolsMostFollowed.bind(this)
+        this.showPolsMostActive = this.showPolsMostActive.bind(this)
+        this.showPolsMostLeftLeaning = this.showPolsMostLeftLeaning.bind(this)
+        this.showPolsMostRightLeaning = this.showPolsMostRightLeaning.bind(this)
+        this.showPolsMostNeutral = this.showPolsMostNeutral.bind(this)
     }
 
     handleTweetMinChange(changeEvent){
@@ -107,10 +107,7 @@ export default class MyBarChart extends Component {
         this.setState({"opinionModel": model})
     }
 
-
-
-
-
+    // ALL USERS
 
     showUsersMostFollowed(){
         console.log("SHOW ME: USERS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
@@ -134,9 +131,7 @@ export default class MyBarChart extends Component {
         this.setState({tweetMin: 3, opinionRange: [45, 55], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
 
-
-
-
+    // MEDIA
 
     showMediaMostFollowed(){
         console.log("SHOW ME: MEDIA MOST FOLLOWED") // currently sorted to users most followed, so just open all params
@@ -159,30 +154,28 @@ export default class MyBarChart extends Component {
         this.setState({tweetMin: 3, opinionRange: [30, 70], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
 
+    // POLITICIANS
 
-
-
-
-    showElectedOfficialsMostFollowed(){
-        console.log("SHOW ME: ELECTED OFFICIALS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
+    showPolsMostFollowed(){
+        console.log("SHOW ME: POLITICIANS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
         var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
-        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: govCategoryNames, opinionModel: "lr"})
+        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: polCategoryNames, opinionModel: "lr"})
     }
-    showElectedOfficialsMostActive(){
-        console.log("SHOW ME: ELECTED OFFICIALS MOST ACTIVE")
-        this.setState({tweetMin: 75, opinionRange: [0, 100], userCategories: govCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    showPolsMostActive(){
+        console.log("SHOW ME: POLITICIANS MOST ACTIVE")
+        this.setState({tweetMin: 75, opinionRange: [0, 100], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
-    showElectedOfficialsMostLeftLeaning(){
-        console.log("SHOW ME: ELECTED OFFICIALS MOST LEFT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [0, 5], userCategories: govCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    showPolsMostLeftLeaning(){
+        console.log("SHOW ME: POLITICIANS MOST LEFT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [0, 5], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
-    showElectedOfficialsMostRightLeaning(){
-        console.log("SHOW ME: ELECTED OFFICIALS MOST RIGHT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: govCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    showPolsMostRightLeaning(){
+        console.log("SHOW ME: POLITICIANS MOST RIGHT-LEANING")
+        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
-    showElectedOfficialsMostNeutral(){
-        console.log("SHOW ME: ELECTED OFFICIALS MOST NEUTRAL")
-        this.setState({tweetMin: 3, opinionRange: [35, 65], userCategories: govCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    showPolsMostNeutral(){
+        console.log("SHOW ME: POLITICIANS MOST NEUTRAL")
+        this.setState({tweetMin: 3, opinionRange: [35, 65], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
     }
 
 
@@ -250,11 +243,11 @@ export default class MyBarChart extends Component {
                         <Dropdown.Item onSelect={this.showMediaMostNeutral}>Media most neutral</Dropdown.Item>
 
                         <Dropdown.Divider />
-                        <Dropdown.Item onSelect={this.showElectedOfficialsMostFollowed}>Elected Officials most followed</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showElectedOfficialsMostActive}>Elected Officials most active</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showElectedOfficialsMostLeftLeaning}>Elected Officials most left-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showElectedOfficialsMostRightLeaning}>Elected Officials most right-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showElectedOfficialsMostNeutral}>Elected Officials most neutral</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showPolsMostFollowed}>Politicians most followed</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showPolsMostActive}>Politicians most active</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showPolsMostLeftLeaning}>Politicians most left-leaning</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showPolsMostRightLeaning}>Politicians most right-leaning</Dropdown.Item>
+                        <Dropdown.Item onSelect={this.showPolsMostNeutral}>Politicians most neutral</Dropdown.Item>
 
                     </Dropdown.Menu>
                 </Dropdown>
