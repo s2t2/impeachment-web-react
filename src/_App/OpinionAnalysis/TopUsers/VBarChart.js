@@ -5,16 +5,17 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 //import Button from 'react-bootstrap/Button'
-import {VictoryChart, VictoryBar, VictoryAxis} from 'victory' // VictoryTheme, VictoryLabel
+import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend} from 'victory' // VictoryTheme, VictoryLabel
 //import { orderBy } from 'lodash'
 import {scaleSequential, interpolateRdBu} from 'd3'
-import './VBarChart.css'
-
 import RangeSlider from 'react-bootstrap-range-slider'
 //import { Range } from 'rc-slider'
 import Slider from 'rc-slider'
+
+import './VBarChart.css'
+
 const { createSliderWithTooltip } = Slider
-const Range = createSliderWithTooltip(Slider.Range);
+const Range = createSliderWithTooltip(Slider.Range)
 
 const colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
 
@@ -218,6 +219,7 @@ export default class MyBarChart extends Component {
             }) // sort before slice
             .slice(-barCount) // negative number takes last X users (which is actually the top X users)
 
+        var chartTitle = "Users Tweeting about Trump Impeachment" // TODO: dynamic
         var chartPadding = { left: 175, top: 15, right: 50, bottom: 130 } // spacing for axis labels (screen names)
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
         return (
@@ -252,9 +254,68 @@ export default class MyBarChart extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
 
-                <p className="app-center">Most Followed Users Tweeting about Trump Impeachment</p>
+                <p className="app-center" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
+
+                {/*
+
+                <VictoryLabel text={chartTitle} textAnchor="center"/>
+
+                */}
+
+                <VictoryLegend height={15}
+                    //title="Opinion Score" centerTitle
+                    orientation="horizontal"
+                    data={[
+                        { name: "Pro-Impeachment (0%)", symbol: { fill: colorScale(0.15), type: "circle" } },
+                        { name: "Pro-Trump (100%)",     symbol: { fill: colorScale(0.85), type: "circle"} },
+                    ]}
+                    //gutter={20}
+                    x={120}
+                    y={0}
+                    //width={20}
+                    //height={10}
+                    //padding={{ top: 1000, bottom: 1000 }}
+                    style={{
+                        //parent: {},
+                        //border: {stroke: "black"},
+                        title: {fontSize: 10},
+                        data: {fontSize: 10},
+                        labels: {fontSize: 10},
+                    }}
+                />
+
 
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
+                    { /*
+                    <VictoryLabel text="Chart Title"
+                        x={225} y={10}
+                        textAnchor="middle"
+                    />
+
+                    <VictoryLegend
+                        height={15}
+                        //title="Opinion Score" centerTitle
+                        orientation="horizontal"
+                        data={[
+                            { name: "Pro-Impeachment (0%)", symbol: { fill: colorScale(0.15), type: "circle" } },
+                            { name: "Pro-Trump (100%)",     symbol: { fill: colorScale(0.85), type: "circle"} },
+                        ]}
+                        //gutter={20}
+                        x={200}
+                        y={20}
+                        //width={20}
+                        //height={10}
+                        //padding={{ top: 1000, bottom: 1000 }}
+                        style={{
+                            //parent: {},
+                            //border: {stroke: "black"},
+                            title: {fontSize: 10},
+                            data: {fontSize: 10},
+                            labels: {fontSize: 10},
+                        }}
+                    />
+                    */}
+
                     <VictoryBar horizontal data={users} x="handle" y="follower_count"
                         animate={true}
                         //barWidth={12}
@@ -264,6 +325,7 @@ export default class MyBarChart extends Component {
                         labels={({ datum }) => datum["scorePct"]}
                         //labelComponent={<VictoryLabel dx={-30}/>}
                         style={{
+                            //parent: { border: "1px solid #ccc" }
                             data: {
                                 fill: ({ datum }) => colorScale(datum[opinionMetric]),
                                 //stroke: ({ index }) => +index % 2 === 0  ? "#000000" : "#c43a31",
@@ -387,9 +449,6 @@ export default class MyBarChart extends Component {
                         </Col>
                     </Form.Group>
                 </Form>
-
-
-
             </span>
         )
     }

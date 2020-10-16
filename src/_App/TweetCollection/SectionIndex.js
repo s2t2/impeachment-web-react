@@ -24,11 +24,9 @@ export default function SectionIndex() {
                 <Card.Body>
                     <Card.Title><h2>{page["title"]}</h2></Card.Title>
 
-                    <Card.Text>
-                        <ul>
-                            {listItems}
-                        </ul>
-                    </Card.Text>
+                    <ul>
+                        {listItems}
+                    </ul>
                 </Card.Body>
             </Card>
         </Container>
