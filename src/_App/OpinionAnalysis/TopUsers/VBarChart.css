@@ -3,3 +3,37 @@
 .rc-slider-mark-text {
     width: 150px;
 }
+
+
+.chart-title-p {
+    display:none;
+}
+
+.chart-title-h4 {
+    display:block;
+}
+
+
+@media (min-width: 768px) and (max-width: 768px) {
+
+  .chart-title-p {
+        display:none;
+    }
+
+    .chart-title-h4 {
+        display:block;
+    }
+
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+    .chart-title-p {
+        display:block;
+    }
+
+    .chart-title-h4 {
+        display:none;
+    }
+
+}

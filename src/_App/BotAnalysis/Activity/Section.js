@@ -13,7 +13,7 @@ import communityRetweetsOverTime from "./daily-rts-by-community.png"
 export default function BotActivitySection() {
 
     return (
-        <Container>
+        <Container fluid>
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Bot Activity</h3></Card.Title>

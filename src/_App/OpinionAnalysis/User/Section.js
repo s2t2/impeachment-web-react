@@ -34,7 +34,7 @@ export default class UserOpinionSection extends PureComponent {
         var screenName = this.state.screenName
 
         return (
-            <Container>
+            <Container fluid>
                 <Card>
                     <Card.Body>
                         <Card.Title><h2>User Opinions</h2></Card.Title>

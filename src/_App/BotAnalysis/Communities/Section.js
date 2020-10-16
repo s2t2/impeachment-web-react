@@ -10,7 +10,7 @@ import botCommunityAssignments from "../../../_Dashboards/About/community-assign
 
 export default function BotClustering() {
     return (
-        <Container>
+        <Container fluid>
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Bot Communities</h3></Card.Title>

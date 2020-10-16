@@ -14,7 +14,7 @@ import StatusHashtagWordClouds from "./StatusHashtagWordClouds"
 export default function BotLanguageSection() {
 
     return (
-        <Container>
+        <Container fluid>
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Bot Language</h3></Card.Title>

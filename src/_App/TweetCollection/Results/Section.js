@@ -10,7 +10,7 @@ import TweetsCollectedByDay from "./tweets-collected-by-day.png"
 export default function Section() {
 
     return (
-        <Container>
+        <Container fluid>
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Collection Results</h3></Card.Title>

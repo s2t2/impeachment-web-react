@@ -254,7 +254,8 @@ export default class MyBarChart extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
 
-                <p className="app-center" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
+                <p className="app-center chart-title-p" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
+                <h4 className="app-center chart-title-h4" style={{marginTop:10, marginBottom:0}}>{chartTitle}</h4>
 
                 {/*
 

@@ -20,7 +20,7 @@ export default function Section() {
     })
 
     return (
-        <Container>
+        <Container fluid>
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Collection Timeline</h3></Card.Title>
