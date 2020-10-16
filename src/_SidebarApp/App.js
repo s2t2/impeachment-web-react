@@ -1,11 +1,9 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from "./pages/Home"
+import Home from "./home/Home"
 import About from "./pages/about/About"
-import AboutScroll from "./pages/about/AboutScroll"
 import Mainmenu from "./layouts/Mainmenu"
-import StickyMenu from "./layouts/StickyMenu"
 import DashboardOne from "./dashboards/DashboardOne"
 import DashboardTwo from "./dashboards/DashboardTwo"
 import DashboardThree from "./dashboards/DashboardThree"
@@ -19,7 +17,10 @@ import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
 
 import ReactGA from 'react-ga'
 
-ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
+
+ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, { debug: true })
+
+
 
 function App() {
 
@@ -33,9 +34,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/alt-home" component={AltHome} />
-
           <Route path="/about" component={About} />
-          <Route path="/about-scroll" component={AboutScroll} />
           <Route path="/dashboard-one" component={DashboardOne} />
           <Route path="/dashboard-two" component={DashboardTwo} />
           <Route path="/dashboard-three" component={DashboardThree} />

@@ -137,7 +137,7 @@ class DasbhoardSix extends React.Component {
                                     width: "100%",
                                     height: "100%"
                                 }}>
-                                    <ReactWordcloud options={optionsTwo} words={wordsCommunity0}/>
+                                    <ReactWordcloud options={optionsTwo} words={wordsCommunity1}/>
                                 </div>
 
                             </Card.Body>

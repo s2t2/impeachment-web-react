@@ -17,7 +17,6 @@ import {
     ResponsiveContainer
 } from 'recharts';
 
-import Spinner from 'react-bootstrap/Spinner';
 import CustomLoader from "../layouts/CustomLoader"
 import {orderBy} from 'lodash';
 
@@ -42,8 +41,7 @@ class DasbhoardOne extends React.Component {
     render() {
         var spinIntoCharts;
         if (this.state.parsedResponse) {
-            console.log("Raw data");
-            var rawdata = this.state.parsedResponse;
+            
 
             var users = this.state.parsedResponse;
 

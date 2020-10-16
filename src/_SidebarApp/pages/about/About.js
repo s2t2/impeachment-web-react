@@ -10,7 +10,6 @@ import ScrollableAnchor from 'react-scrollable-anchor'
 // importing local image
 
 import exampleDailyBotProbabilities from "./bot_probabilities_histogram_20200201.png"
-import botCommunityAssignments from "./community-assignments.png"
 
 // import StatusesMostRetweeted from
 // "../../_Dashboards/StatusesMostRetweeted/Dashboard"
