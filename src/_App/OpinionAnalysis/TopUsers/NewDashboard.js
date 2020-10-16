@@ -1,6 +1,8 @@
 
 import React, { PureComponent } from 'react'
 import queryString from 'query-string'
+import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card'
 
 import NewChart from './NewChart'
 
@@ -23,9 +25,11 @@ export default class MyBarChart extends PureComponent {
 
     render() {
         return (
-            <span>
-                <NewChart/>
-            </span>
+            <Container fluid>
+                <Card>
+                    <NewChart/>
+                </Card>
+            </Container>
         )
     }
 

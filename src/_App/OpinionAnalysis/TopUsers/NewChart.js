@@ -12,11 +12,8 @@ import './NewDashboard.css'
 //    return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
 //} // adds "K" for thousands h/t: https://stackoverflow.com/a/9461657
 
-const OPINION_MODEL_NAMES = {
-    "avg_score_lr": "Logistic Regression",
-    "avg_score_nb": "Naive Bayes",
-    "avg_score_bert": "BERT Transformer"
-}
+const OPINION_MODEL_NAMES = {"avg_score_lr": "Logistic Regression", "avg_score_nb": "Naive Bayes", "avg_score_bert": "BERT Transformer"}
+const ALL_CATEGORIES = ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT", "MAJOR-MEDIA-OUTLET", "MEDIA-OUTLET"]
 
 export default function NewChart(props) {
 
@@ -24,7 +21,7 @@ export default function NewChart(props) {
     // CHART OPTIONS
     //
 
-    var categories = props["categories"] || ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT", "MAJOR-MEDIA-OUTLET", "MEDIA-OUTLET"]
+    var categories = props["categories"] || ALL_CATEGORIES
     var tweetMin = parseInt(props["tweetMin"]) || 5
     var opinionMin = parseInt(props["opinionMin"]) || 0
     var opinionMax = parseInt(props["opinionMax"]) || 100
@@ -42,11 +39,12 @@ export default function NewChart(props) {
     //
 
     var chartTitle = "Users Tweeting about Trump Impeachment"
-    var chartFooter = `Chart shows top ${barCount} users`
-        chartFooter += ` sorted by ${sortMetric} ${sortOrder}.`
-        chartFooter += ` Includes only users categorized as: ${categories}`
-        chartFooter += ` with at least ${tweetMin} tweets about impeachment`
-        chartFooter += ` whose mean opinion score is between ${opinionMin}% and ${opinionMax}% (as scored by our ${opinionModel} opinion model).`
+    var chartFooter = `Chart shows users tweeting at least ${tweetMin} times about Trump Impeachment`
+        chartFooter += ` whose mean opinion score is between ${opinionMin}% and ${opinionMax}%`
+        chartFooter += ` (as scored by our ${opinionModel} opinion model).`
+        //chartFooter += ` .`
+        //chartFooter += ` sorted by ${sortMetric}`
+        //chartFooter += ` Includes only users categorized as: ${categories}`
 
     //var users = props["users"]
     //    .filter(function(user){
@@ -70,7 +68,7 @@ export default function NewChart(props) {
             <p className="app-center chart-title-p" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
             <h4 className="app-center chart-title-h4" style={{marginTop:10, marginBottom:0}}>{chartTitle}</h4>
 
-            <p>{chartFooter}</p>
+            <p style={{marginLeft:30, marginRight:30}}>{chartFooter}</p>
         </span>
     )
 }
