@@ -5,16 +5,17 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 //import Button from 'react-bootstrap/Button'
-import {VictoryChart, VictoryBar, VictoryAxis} from 'victory' // VictoryTheme, VictoryLabel
+import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend} from 'victory' // VictoryTheme, VictoryLabel
 //import { orderBy } from 'lodash'
 import {scaleSequential, interpolateRdBu} from 'd3'
-import './VBarChart.css'
-
 import RangeSlider from 'react-bootstrap-range-slider'
 //import { Range } from 'rc-slider'
 import Slider from 'rc-slider'
+
+import './VBarChart.css'
+
 const { createSliderWithTooltip } = Slider
-const Range = createSliderWithTooltip(Slider.Range);
+const Range = createSliderWithTooltip(Slider.Range)
 
 const colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
 
@@ -252,7 +253,29 @@ export default class MyBarChart extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
 
-                <p className="app-center">Most Followed Users Tweeting about Trump Impeachment</p>
+                <h5 className="app-center">Most Followed Users Tweeting about Trump Impeachment</h5>
+
+                <VictoryLegend height={15}
+                        //title="Opinion Score" centerTitle
+                        orientation="horizontal"
+                        data={[
+                            { name: "Pro-Impeachment (0%)", symbol: { fill: colorScale(0.15), type: "circle" } },
+                            { name: "Pro-Trump (100%)",     symbol: { fill: colorScale(0.85), type: "circle"} },
+                        ]}
+                        //gutter={20}
+                        x={137}
+                        y={0}
+                        //width={20}
+                        //height={10}
+                        //padding={{ top: 1000, bottom: 1000 }}
+                        style={{
+                            //parent: {},
+                            //border: {stroke: "black"},
+                            title: {fontSize: 8},
+                            data: {fontSize: 8},
+                            labels: {fontSize: 8},
+                        }}
+                    />
 
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
                     <VictoryBar horizontal data={users} x="handle" y="follower_count"
@@ -387,9 +410,6 @@ export default class MyBarChart extends Component {
                         </Col>
                     </Form.Group>
                 </Form>
-
-
-
             </span>
         )
     }
