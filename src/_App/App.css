@@ -162,9 +162,8 @@ p.app-center.card-text {
 /* Sticky Menu */
 
 .sticky-menu{
-position: fixed;
-top:300px;
-
+  position: fixed;
+  top:300px;
 }
 .full-screen{
   background: white;
@@ -181,11 +180,13 @@ top:300px;
 
 @media (min-width: 768px) and (max-width: 768px) {
 
-
   .mt-70 {
     margin-top: 70px !important;
   }
 
+  .page {
+    margin-top: 70px !important;
+  }
 
 }
 
@@ -208,6 +209,10 @@ top:300px;
   }
 
   .mt-70 {
+    margin-top: 20px;
+  }
+
+  .page {
     margin-top: 20px;
   }
 

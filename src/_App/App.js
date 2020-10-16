@@ -114,7 +114,7 @@ export default function App() {
                             </div>
                         </Col>
 
-                        <Col md={10} className="mt-70">
+                        <Col md={10} className="page">
                             <Switch>
                                 <Route path="/" exact component={Home} />
                                 <Route path="/about" component={About} />
