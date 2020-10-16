@@ -43,7 +43,7 @@ export default function SentimentAnalysis() {
                     </Card.Text>
 
                     <Card.Text>
-                        Since many of these labeled tweets were retweets that share the same tweet text as others, we de-duplicated all tweet texts (to prevent over-fitting that can occur when a model scores a tweet that shares the same text as one it has been trained on).
+                        Since many of these labeled tweets were retweets that share the same tweet text as others, for training the binary classifier models we de-duplicated all tweet texts (to prevent over-fitting that can occur when a model scores a tweet that shares the same text as one it has been trained on).
                         {" "}This resulted in a list of 2.8 million unique tweet texts with community labels to use for model training.
                         {" "} Of these 2.8 million labeled tweet texts, 1.38 million were left-leaning and 1.35 million were right-leaning.
                     </Card.Text>
@@ -91,12 +91,12 @@ export default function SentimentAnalysis() {
                     <Card.Text>
                         We used each binary classifier to assign an opinion score to all tweets in our dataset.
                         {" "}And we used the BERT Transformer to assign an opinion score to all tweets created between 12/20 and 2/15.
-                        {" "} NOTE: tweets by '@FOXNEWS' only include URLs in the text, so they're not able to be scored.
                     </Card.Text>
 
                     <Card.Text>
                         The overall distribution of mean opinion scores for users with the most followers is below.
                         {" "} Use the <a href="/user-opinions">User Opinions</a> and <a href="top-user-opinions">Top User Opinions</a> dashboards to explore further.
+                        {" "} NOTE: tweets by '@FOXNEWS' only include URLs in the text, so they're not able to be scored.
                     </Card.Text>
 
                     <img src={meanOpinionsLR} className="img-fluid" style={{height:450, marginTop:15, marginBottom:10}} alt="a histogram of mean opinion scores for the Logistic Regression model"/>
