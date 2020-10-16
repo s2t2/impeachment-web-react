@@ -173,6 +173,10 @@ top:300px;
 }
 
 
+.page {
+  padding-top: 70px;
+}
+
 /*
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -180,9 +184,12 @@ top:300px;
 
 @media (min-width: 768px) and (max-width: 768px) {
 
-
   .mt-70 {
     margin-top: 70px !important;
+  }
+
+  .page {
+    padding-top: 20px !important;
   }
 
 }
@@ -207,6 +214,10 @@ top:300px;
 
   .mt-70 {
     margin-top: 20px;
+  }
+
+  .page {
+    padding-top: 0px;
   }
 
 }

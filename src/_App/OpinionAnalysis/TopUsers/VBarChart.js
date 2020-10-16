@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
+//import MediaQuery from 'react-responsive'
 import Form from 'react-bootstrap/Form'
 //import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 //import Button from 'react-bootstrap/Button'
-import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend, VictoryLabel} from 'victory' // VictoryTheme, VictoryLabel
+import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend} from 'victory' // VictoryTheme, VictoryLabel
 //import { orderBy } from 'lodash'
 import {scaleSequential, interpolateRdBu} from 'd3'
 import RangeSlider from 'react-bootstrap-range-slider'
 //import { Range } from 'rc-slider'
 import Slider from 'rc-slider'
+
 
 import './VBarChart.css'
 
@@ -254,9 +256,19 @@ export default class MyBarChart extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
 
-                <h4 className="app-center" style={{marginTop:10, marginBott:0}}>{chartTitle}</h4>
+                <p className="app-center" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
+
+
+
 
                 {/*
+
+                <MediaQuery query="(max-device-width: 1024px)">
+                    <h4 className="app-center" style={{marginTop:10, marginBott:0}}>{chartTitle}</h4>
+                </MediaQuery>
+                <MediaQuery query="(max-device-width: 500px)">
+                    <p className="app-center" style={{marginTop:10, marginBott:0}}>{chartTitle}</p>
+                </MediaQuery>
 
                 <VictoryLabel text={chartTitle} textAnchor="center"/>
 
