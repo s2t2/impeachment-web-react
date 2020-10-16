@@ -14,7 +14,7 @@ import Col from 'react-bootstrap/Col'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
-import Home from './Home.js'
+import Home from './OpinionAnalysis/TopUsers/NewDashboard'
 import About from './About.js'
 import sidebar from './sidebar.js'
 
