@@ -190,13 +190,17 @@ npm install react-gauge-chart
 
 ## Victory Charts
 
-FTW
+FTW AMAZING
 
   + https://github.com/FormidableLabs/victory
   + https://formidable.com/open-source/victory/gallery/
   + https://formidable.com/open-source/victory/docs/victory-bar
   + https://codesandbox.io/s/laughing-resonance-772ee?file=/src/index.js:297-303
   + https://formidable.com/open-source/victory/docs/faq#containers-and-behaviors
+
+BUT SOMEWHAT DISAPPOINTING
+
+  + https://github.com/FormidableLabs/victory/issues/1718
 
 ## Color Scales
 
