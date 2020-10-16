@@ -316,8 +316,7 @@ export default class MyBarChart extends Component {
                     />
                     */}
 
-                    <VictoryBar horizontal
-                        data={users} x="handle" y="follower_count"
+                    <VictoryBar horizontal data={users} x="handle" y="follower_count"
                         animate={true}
                         //barWidth={12}
                         barRatio={0.87}
