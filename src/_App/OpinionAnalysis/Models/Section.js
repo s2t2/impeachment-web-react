@@ -13,7 +13,7 @@ import meanOpinionsBERT from './mean-opinion-scores-for-top-users-bert.png'
 
 export default function SentimentAnalysis() {
     return (
-        <Container>
+        <Container fluid>
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Opinion Models</h3></Card.Title>

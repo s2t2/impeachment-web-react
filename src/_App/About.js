@@ -8,7 +8,7 @@ import Card from 'react-bootstrap/Card'
 export default function About() {
 
     return (
-        <Container>
+        <Container fluid>
             <Card>
                 <Card.Body>
                     <Card.Title><h2>About</h2></Card.Title>

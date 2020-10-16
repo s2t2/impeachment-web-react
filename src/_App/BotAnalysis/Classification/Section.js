@@ -10,7 +10,7 @@ import exampleDailyBotProbabilities from "../../../_Dashboards/About/bot_probabi
 
 export default function BotClassificationSection() {
     return (
-        <Container>
+        <Container fluid>
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Bot Classification</h3></Card.Title>

@@ -19,7 +19,7 @@ export default function OpinionAnalysisPage() {
     })
 
     return (
-        <Container>
+        <Container fluid>
             <Card>
                 <Card.Body>
                     <Card.Title><h2>{page["title"]}</h2></Card.Title>

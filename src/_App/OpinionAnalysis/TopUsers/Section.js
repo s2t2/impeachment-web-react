@@ -11,7 +11,7 @@ import TopUserOpinionsDashboard from "./Dashboard"
 export default function TopUserOpinion() {
 
     return (
-        <Container>
+        <Container fluid>
             <Card>
                 <Card.Body>
                     <Card.Title><h2>Top User Opinions</h2></Card.Title>

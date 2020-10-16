@@ -8,7 +8,7 @@ import Card from 'react-bootstrap/Card'
 
 export default function BotImpact() {
     return (
-        <Container>
+        <Container fluid>
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Bot Impact</h3></Card.Title>
