@@ -155,6 +155,95 @@ top:300px;
 }
 
 
+/* Home page dashboard slider */
+
+.rc-slider {
+  position: relative;
+  height: 14px;
+  padding: 5px 0;
+  width: 100%;
+  border-radius: 6px;
+  touch-action: none;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  margin-bottom: 25px;
+}
+
+.rc-slider-step {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #CFD4D9 !important;
+}
+
+
+.rc-slider-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  cursor: -webkit-grab;
+  margin-top: -7px;
+  cursor: grab;
+  border-radius: 50%;
+  border: solid 2px #3479F6 !important;
+  background-color: #3479F6 !important;
+  touch-action: pan-x;
+}
+
+.rc-slider-dot-active {
+  border-color: #1677fe !important;
+}
+
+.rc-slider-dot {
+  position: absolute;
+  bottom: -2px;
+  margin-left: -4px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #3479F6 !important;
+  background-color: #3479F6 !important;
+  cursor: pointer;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+
+.rc-slider-tooltip-inner {
+  padding: 6px 2px !important;
+  min-width: 30px !important;
+  height: 26px !important;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  background-color: #313131 !important;
+  border-radius: 6px;
+}
+
+/* dashboard control wrapper */
+
+.dashboard-control-wrapper {
+  width: 100%;
+  border: 1px solid #e6e4e4;
+  padding-left: 60px;
+  border-radius: 5px;
+  padding-right: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+.dashboard-control-wrapper label{
+  width: 100%;
+  
+}
+
+
+
+
+
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px

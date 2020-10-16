@@ -10,7 +10,9 @@ import './VBarChart.css'
 
 import RangeSlider from 'react-bootstrap-range-slider'
 //import { Range } from 'rc-slider'
+
 import Slider from 'rc-slider'
+import { Handle } from "rc-slider";
 const { createSliderWithTooltip } = Slider
 const Range = createSliderWithTooltip(Slider.Range);
 
@@ -115,53 +117,63 @@ export default class MyBarChart extends Component {
             <span>
                 <Form >
                     <Form.Group as={Row}>
-                        <Col xs="5">
-                            <Form.Label>Minimum Tweet Count</Form.Label>
+                        <Col xs={12} sm={12} md={12} lg={6}>
+                            <div className="dashboard-control-wrapper">
+                                <Form.Label>Minimum Tweet Count</Form.Label>
 
-                            <RangeSlider min={3} max={200}
-                                value={tweetMin}
-                                onChange={this.handleTweetMinChange}
-                                tooltip="on" // "on" //"auto"
-                                tooltipPlacement="bottom"
+                                <RangeSlider min={3} max={200}
+                                    value={tweetMin}
+                                    onChange={this.handleTweetMinChange}
+                                    tooltip="on" // "on" //"auto"
+                                    tooltipPlacement="bottom"
                                 //tooltipLabel=
                                 //variant="dark"
-                            />
+                                />
+                            </div>
+                           
                         </Col> {/*}
                         <Col xs="2" style={{"paddingTop":"1.9em"}}>
                             <Form.Control type="number" min={3} max={200} value={tweetMin} onChange={this.handleTweetMinChange}/>
                         </Col> */}
 
-                        <Col xs="1">
-                        </Col>
+                        
 
-                        <Col xs="5">
-                            <Form.Label>Mean Opinion Score</Form.Label>
+                        <Col xs={12} sm={12} md={12} lg={6}>
+                            
+                            <div className="dashboard-control-wrapper">
+                                <Form.Label className="mb-3"> <p className="text-center">Mean Opinion Score</p>
+                                </Form.Label>
+                                
 
-                            <Range min={0} max={100} step={1}
-                                defaultValue={[0, 100]}
-                                value={opinionRange}
-                                marks={{
-                                    0: "Pro-Impeachment",
-                                    10: "",
-                                    20: "",
-                                    30: "",
-                                    40: "",
-                                    50: "Neutral",
-                                    60: "",
-                                    70: "",
-                                    80: "",
-                                    90: "",
-                                    100: "Pro-Trump"}}
-                                onChange={this.handleOpinionRangeChange}
-                                allowCross={false}
-                                //pushable={10}
-                                tooltip="auto"
-                                tipFormatter={value => `${value}%` }
-                                tipProps={{
-                                    visible: true,
-                                    placement: "top" // "top" "bottom"
-                                }}
-                            />
+                                <Range min={0} max={100} step={1}
+                                    defaultValue={[0, 100]}
+                                    value={opinionRange}
+                                    marks={{
+                                        0: "Pro-Impeachment",
+                                        10: "",
+                                        20: "",
+                                        30: "",
+                                        40: "",
+                                        50: "Neutral",
+                                        60: "",
+                                        70: "",
+                                        80: "",
+                                        90: "",
+                                        100: "Pro-Trump"
+                                    }}
+                                    onChange={this.handleOpinionRangeChange}
+                                    allowCross={false}
+                                    //pushable={10}
+                                    tooltip="auto"
+                                    tipFormatter={value => `${value}%`}
+                                    tipProps={{
+                                        visible: true,
+                                        placement: "top" // "top" "bottom",
+    
+                                    }}
+                                />
+                            </div>
+                            
                         </Col>
 
                         {/*}
@@ -173,35 +185,40 @@ export default class MyBarChart extends Component {
 
 
                     <Form.Group as={Row} id="user-category-checks">
-                        <Col xs="5">
-                            <Form.Label>User Category</Form.Label>
+                        <Col xs={12} sm={12} md={12} lg={6}>
+                        <div className="dashboard-control-wrapper">
+                            
+                                <Form.Label className="mt-3 form-label">User Category</Form.Label>
 
-                            <div key="inline-checkbox" className="mb-3">
-                                <Form.Check inline label="Media Outlet" value="MAJOR-MEDIA-OUTLET" type="checkbox" id="check-major-media-outlet"
-                                    checked={userCategories.includes("MAJOR-MEDIA-OUTLET")}
-                                    onChange={this.handleCategoryCheck}
-                                />
+                                <div key="inline-checkbox" className="mb-3">
+                                    <Form.Check inline label="Media Outlet" value="MAJOR-MEDIA-OUTLET" type="checkbox" id="check-major-media-outlet"
+                                        checked={userCategories.includes("MAJOR-MEDIA-OUTLET")}
+                                        onChange={this.handleCategoryCheck}
+                                    />
 
-                                <Form.Check inline label="Elected Official" value="ELECTED-OFFICIAL" type="checkbox" id="check-elected-official"
-                                    checked={userCategories.includes("ELECTED-OFFICIAL")}
-                                    onChange={this.handleCategoryCheck}
-                                />
-                                <Form.Check inline label="Political Party" value="PARTY" type="checkbox" id="check-party"
-                                    checked={userCategories.includes("PARTY")}
-                                    onChange={this.handleCategoryCheck}
-                                />
-                                <Form.Check inline label="Others" value="OTHER" type="checkbox" id="check-others"
-                                    checked={userCategories.includes("OTHER")}
-                                    onChange={this.handleCategoryCheck}
-                                />
-                            </div>
-                        </Col>
+                                    <Form.Check inline label="Elected Official" value="ELECTED-OFFICIAL" type="checkbox" id="check-elected-official"
+                                        checked={userCategories.includes("ELECTED-OFFICIAL")}
+                                        onChange={this.handleCategoryCheck}
+                                    />
+                                    <Form.Check inline label="Political Party" value="PARTY" type="checkbox" id="check-party"
+                                        checked={userCategories.includes("PARTY")}
+                                        onChange={this.handleCategoryCheck}
+                                    />
+                                    <Form.Check inline label="Others" value="OTHER" type="checkbox" id="check-others"
+                                        checked={userCategories.includes("OTHER")}
+                                        onChange={this.handleCategoryCheck}
+                                    />
+                                </div>
+                            
+                        </div>
+                         </Col>
+                        
 
-                        <Col xs="1">
-                        </Col>
+                        
+                        <Col xs={12} sm={12} md={12} lg={6}>
+                            <div className="dashboard-control-wrapper">
 
-                        <Col xs="5">
-                            <Form.Label>Opinion Model</Form.Label>
+                            <Form.Label className="mt-3">Opinion Model</Form.Label>
 
                             <div key="inline-radios" className="mb-3">
                                 <Form.Check inline label="Logistic Regression" value="lr" type="radio" id="radio-lr"
@@ -214,7 +231,13 @@ export default class MyBarChart extends Component {
                                 />
                             </div>
 
+
+                            </div>
                         </Col>
+
+                        
+
+                        
                     </Form.Group>
 
 
@@ -233,7 +256,7 @@ export default class MyBarChart extends Component {
                 </Form>
 
                 <VictoryChart
-                    padding={{ left: 175, top: 15, right: 50, bottom: 130 }} // spacing for axis labels (screen names)
+                    padding={{ left: 100, top: 15, right: 50, bottom: 130 }} // spacing for axis labels (screen names)
                     domainPadding={{ x: [10,0] }} // spacing between bottom bar and bottom axis
                 >
                     <VictoryBar horizontal data={users} x="handle" y="follower_count"
@@ -247,24 +270,21 @@ export default class MyBarChart extends Component {
                         style={{
                             data: {
                                 fill: ({ datum }) => colorScale(datum[opinionMetric]),
+                                fontSize:6,
                                 //stroke: ({ index }) => +index % 2 === 0  ? "#000000" : "#c43a31",
                                 //fillOpacity: 0.7,
                                 //strokeWidth: 3
                             },
                             labels: {
-                                fontSize: 10,
+                                fontSize:6,
                                 padding:2
                                 //fill: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31"
+                            },
+                            tickLabels: {
+                                fontSize: 6
                             }
+                            
                         }}
-
-
-
-
-
-
-
-
 
 
 
@@ -272,6 +292,11 @@ export default class MyBarChart extends Component {
                     <VictoryAxis
                         //label="Screen Name"
                         //tickFormat={["a", "b", "c", "d", "e"]}
+                        style={{
+                           
+                            ticks: { stroke: "grey", size: 4 },
+                            tickLabels: { fontSize: 6, padding: 5 }
+                        }}
                     />
                     <VictoryAxis dependentAxis
                         //tickFormat={(tick) => `${tick}%`}
@@ -280,10 +305,10 @@ export default class MyBarChart extends Component {
 
                         style={{
                             //axis: {stroke: "#756f6a"},
-                            axisLabel: {fontSize: 10, padding:25},
+                            axisLabel: {fontSize: 6, padding:25},
                             //grid: {stroke: ({ tick }) => tick > 0.5 ? "red" : "grey"},
                             ticks: {stroke: "grey", size: 4},
-                            tickLabels: {fontSize: 10, padding:5}
+                            tickLabels: {fontSize: 6, padding:5}
                         }}
 
 
