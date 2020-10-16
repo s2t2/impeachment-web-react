@@ -219,7 +219,7 @@ export default class MyBarChart extends Component {
             }) // sort before slice
             .slice(-barCount) // negative number takes last X users (which is actually the top X users)
 
-        var chartTitle = "Most Followed Users Tweeting about Trump Impeachment" // TODO: dynamic
+        var chartTitle = "Users Tweeting about Trump Impeachment" // TODO: dynamic
         var chartPadding = { left: 175, top: 15, right: 50, bottom: 130 } // spacing for axis labels (screen names)
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
         return (
