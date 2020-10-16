@@ -253,7 +253,7 @@ export default class MyBarChart extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
 
-                <h5 className="app-center">Most Followed Users Tweeting about Trump Impeachment</h5>
+                <h5 className="app-center" style={{marginTop:10, marginBott:0}}>Most Followed Users Tweeting about Trump Impeachment</h5>
 
                 <VictoryLegend height={15}
                         //title="Opinion Score" centerTitle
@@ -271,14 +271,15 @@ export default class MyBarChart extends Component {
                         style={{
                             //parent: {},
                             //border: {stroke: "black"},
-                            title: {fontSize: 8},
-                            data: {fontSize: 8},
-                            labels: {fontSize: 8},
+                            title: {fontSize: 10},
+                            data: {fontSize: 10},
+                            labels: {fontSize: 10},
                         }}
                     />
 
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
-                    <VictoryBar horizontal data={users} x="handle" y="follower_count"
+                    <VictoryBar horizontal
+                        data={users} x="handle" y="follower_count"
                         animate={true}
                         //barWidth={12}
                         barRatio={0.87}
