@@ -59,6 +59,7 @@ npx create-react-app impeachment-web-prototype-react
   + https://reactjs.org/docs/react-component.html
   + https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
   + https://reactjs.org/docs/conditional-rendering.html
+  + https://stackoverflow.com/questions/38892672/react-why-child-component-doesnt-update-when-prop-changes/48434525#48434525
 
 ## React Bootstrap
 
@@ -112,6 +113,7 @@ npm install react-router-bootstrap react-router-dom --save
 ## Tools
 
   + https://awsm-tools.com/code/coffee2js
+  + https://jsonlint.com/
 
 
 ## Plotly React
@@ -188,13 +190,17 @@ npm install react-gauge-chart
 
 ## Victory Charts
 
-FTW
+FTW AMAZING
 
   + https://github.com/FormidableLabs/victory
   + https://formidable.com/open-source/victory/gallery/
   + https://formidable.com/open-source/victory/docs/victory-bar
   + https://codesandbox.io/s/laughing-resonance-772ee?file=/src/index.js:297-303
   + https://formidable.com/open-source/victory/docs/faq#containers-and-behaviors
+
+BUT SOMEWHAT DISAPPOINTING
+
+  + https://github.com/FormidableLabs/victory/issues/1718
 
 ## Color Scales
 
@@ -225,3 +231,11 @@ RC Slider:
 
   + https://github.com/react-component/slider
   + http://react-component.github.io/slider/?path=/story/rc-slider--range
+
+### URL Params
+
+```sh
+npm install query-string --save
+```
+
+  + https://github.com/sindresorhus/query-string
