@@ -1,37 +1,40 @@
+
 import React, { PureComponent } from 'react'
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
+import queryString from 'query-string'
 
-const data = [
-    {"community_id": 1, "retweet_count": 9223, "retweeted_user_screen_name": "REALDONALDTRUMP", "retweeter_count": 110 },
-    {"community_id": 1, "retweet_count": 3602, "retweeted_user_screen_name": "CHARLIEKIRK11", "retweeter_count": 104 },
-    {"community_id": 1, "retweet_count": 2194, "retweeted_user_screen_name": "MARKLEVINSHOW", "retweeter_count": 105 },
-    {"community_id": 1, "retweet_count": 2137, "retweeted_user_screen_name": "DBONGINO", "retweeter_count": 102 },
-    {"community_id": 1, "retweet_count": 1454, "retweeted_user_screen_name": "RUDYGIULIANI", "retweeter_count": 107 },
-    {"community_id": 0, "retweet_count": 27236, "retweeted_user_screen_name": "TRIBELAW", "retweeter_count": 567 },
-    {"community_id": 0, "retweet_count": 19708, "retweeted_user_screen_name": "JOYCEWHITEVANCE", "retweeter_count": 563 },
-    {"community_id": 0, "retweet_count": 16831, "retweeted_user_screen_name": "KYLEGRIFFIN1", "retweeter_count": 563 },
-    {"community_id": 0, "retweet_count": 11871, "retweeted_user_screen_name": "NEAL_KATYAL", "retweeter_count": 560 },
-    {"community_id": 0, "retweet_count": 5824, "retweeted_user_screen_name": "REPADAMSCHIFF", "retweeter_count": 567 }
-]
+import NewChart from './NewChart'
 
-export default class TopUsersChart extends PureComponent {
+import './NewDashboard.css'
+
+export default class MyBarChart extends PureComponent {
+    constructor(props) {
+        super(props)
+
+        let params = queryString.parse(window.location.search)
+        var metric = params["metric"] || "avg_score_lr"
+        var sort = params["sort"] || "DESC"
+        var opinionMin = parseInt(params["opinionMin"]) || 0
+        var opinionMax = parseInt(params["opinionMax"]) || 100
+        var tweetMin = parseInt(params["tweetMin"]) || 5
+        var categories = parseInt(params["categories"]) || ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT", "MAJOR-MEDIA-OUTLET", "MEDIA-OUTLET"]
+
+        this.state = {metric: metric, sort: sort, opinionMin: opinionMin, opinionMax: opinionMax, tweetMin: tweetMin, categories: categories}
+    }
 
     render() {
         return (
-            <BarChart
-                width={600}
-                height={350}
-                data={data}
-                layout="vertical"
-                margin={{ top: 5, right: 30, left: 80, bottom: 5 }}
-            >
-                <XAxis type="number" dataKey="retweet_count"  />
-                <YAxis type="category" dataKey="retweeted_user_screen_name" />
-                <CartesianGrid strokeDasharray="1 1" />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="retweet_count" fill="#0f419a" />
-            </BarChart>
-        );
+            <span>
+                <NewChart/>
+            </span>
+        )
     }
+
+    componentDidMount(){
+        console.log("BAR CHART DID MOUNT")
+    }
+
+    componentDidUpdate(prevProps) {
+        console.log("BAR CHART DID UPDATE")
+    }
+
 }
