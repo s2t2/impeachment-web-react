@@ -12,7 +12,10 @@ import RangeSlider from 'react-bootstrap-range-slider'
 //import { Range } from 'rc-slider'
 import Slider from 'rc-slider'
 
+import RangeSliderTooltipHandle from './SliderToolTip'
+
 import './VBarChart.css'
+import "rc-slider/assets/index.css"
 
 const { createSliderWithTooltip } = Slider
 const Range = createSliderWithTooltip(Slider.Range)
@@ -31,7 +34,6 @@ const allCategories = [
     {"name":"CELEBRITY",                "label": "Celebrity"},
     {"name":"OTHER",                    "label": "Other"}
 ]
-
 var allCategoryNames = allCategories.map(function(category){ return category["name"] })
 var polCategoryNames = ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT"]
 var mediaCategoryNames = ["MAJOR-MEDIA-OUTLET", "MEDIA-OUTLET", "NEWS-SHOW"] // "POLITICAL-COMMENTATOR"
@@ -399,12 +401,15 @@ export default class MyBarChart extends Component {
                                 onChange={this.handleOpinionRangeChange}
                                 allowCross={false}
                                 //pushable={10}
-                                tooltip="auto"
-                                tipFormatter={value => `${value}%` }
-                                tipProps={{
-                                    visible: true,
-                                    placement: "top" // "top" "bottom"
-                                }}
+
+                                handle={RangeSliderTooltipHandle}
+                                //tooltip="auto"
+                                //tipFormatter={value => `${value}%` }
+                                //tipProps={{
+                                //    visible: true,
+                                //    placement: "top" // "top" "bottom"
+                                //}}
+
                             />
                         </Col>
 
