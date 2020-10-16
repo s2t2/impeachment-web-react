@@ -47,7 +47,10 @@ export default class MyBarChart extends Component {
             tweetMin: 5,
             opinionRange: [0, 100],
             userCategories: allCategoryNames, //["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY", "OTHER"],
-            opinionModel: "lr"
+            opinionModel: "lr",
+            sortBy: "follower-count-desc", // "status_count", "follower_count", "avg_score_lr", "avg_score_nb", "avg_score_bert"
+            //sortMetric: "follower_count", // "status_count", "follower_count", "avg_score_lr", "avg_score_nb", "avg_score_bert"
+            //sortOrder: "desc"
         } // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
         this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
         this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
@@ -55,6 +58,7 @@ export default class MyBarChart extends Component {
         //this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
         this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
         this.handleModelSelect = this.handleModelSelect.bind(this)
+        this.handleSortSelect = this.handleSortSelect.bind(this)
 
         // SHOW ME (STATE MANIPULATION SHORTCUTS)
 
@@ -106,6 +110,12 @@ export default class MyBarChart extends Component {
         var model = changeEvent.target.value
         console.log("SELECT MODEL:", model)
         this.setState({"opinionModel": model})
+    }
+
+    handleSortSelect(changeEvent){
+        var sortBy = changeEvent.target.value
+        console.log("SORT BY:", sortBy)
+        this.setState({"sortBy": sortBy})
     }
 
     // ALL USERS
@@ -187,6 +197,11 @@ export default class MyBarChart extends Component {
         var userCategories = this.state.userCategories
         var opinionModel = this.state.opinionModel
         var opinionMetric = `avg_score_${opinionModel}`
+
+        var sortBy = this.state.sortBy
+        //var sortOrder = this.state.sortOrder
+        //var sortMetric = this.state.sortMetric
+
         var barCount = this.props.barCount || 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
         var handleCategoryCheck = this.handleCategoryCheck
 
@@ -358,6 +373,47 @@ export default class MyBarChart extends Component {
                 </VictoryChart>
 
                 <Form style={{marginTop: -50}}>
+
+                    <Form.Group as={Row}>
+                        <Col xs="5">
+                        </Col>
+
+                        <Col xs="1">
+                        </Col>
+
+                        <Col xs="5">
+                            <Form.Label>Sort By</Form.Label>
+
+                            <div key="inline-radios-sort" className="mb-3">
+                                <Form.Check inline label="Most Followed" value="follower-count-desc" type="radio"
+                                    checked={sortBy === "follower-count-desc"}
+                                    onChange={this.handleSortSelect}
+                                />
+                                <Form.Check inline label="Most Active" value="status-count-desc" type="radio"
+                                    checked={sortBy === "status-count-desc"}
+                                    onChange={this.handleSortSelect}
+                                />
+                                <Form.Check inline label="Most Pro-Trump" value="opinion-desc" type="radio"
+                                    checked={sortBy === "opinion-desc"}
+                                    onChange={this.handleSortSelect}
+                                />
+                                <Form.Check inline label="Most Pro-Impeachment" value="opinion-asc" type="radio"
+                                    checked={sortBy === "opinion-asc"}
+                                    onChange={this.handleSortSelect}
+                                />
+                                {/*
+                                <Form.Check inline label="Most Neutral" value="opinion-neutral" type="radio" id="radio-sort-opinion-neutral"
+                                    checked={opinionModel === "opinion-neutral"}
+                                    onChange={this.handleSortSelect}
+                                />
+                                */}
+                            </div>
+                        </Col>
+                    </Form.Group>
+
+
+
+
                     <Form.Group as={Row}>
                         <Col xs="5">
                             <Form.Label>Minimum Tweet Count</Form.Label>
