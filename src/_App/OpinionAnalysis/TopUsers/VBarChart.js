@@ -43,7 +43,7 @@ const FILTER_CATEGORIES = {
 
 }
 const SORT_METRICS = {
-    "most-followed": {"metric": "follower_count", "order": "desc", "label": "Follower Count"},
+    "most-followed": {"metric": "follower_count", "order": "desc", "label": "Follower Count (in our dataset)"},
     "most-active": {"metric": "status_count", "order": "desc", "label": "Tweet Count"},
     "most-pro-trump": {"metric": "opinion_score", "order": "desc", "label": "Mean Opinion Score"},
     "most-pro-impeachment": {"metric": "opinion_score", "order": "asc", "label": "Mean Opinion Score"},
@@ -60,10 +60,9 @@ export default class MyBarChart extends Component {
         super(props)
         this.state = { // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
 
-            //sortMetric: "most-followed",
-            sortMetric: "follower_count", // can be "follower_count", "status_count", "opinion_score" (needs differentiation)
-            sortOrder: "desc", // "desc", "asc"
-            sortLabel: "Follower Count", // "desc", "asc"
+            sortMetric: SORT_METRICS["most-followed"]["metric"], // can be "follower_count", "status_count", "opinion_score" (needs differentiation)
+            sortOrder:  SORT_METRICS["most-followed"]["order"], // "desc", "asc"
+            sortLabel:  SORT_METRICS["most-followed"]["label"], // "desc", "asc"
 
             tweetMin: 5,
             followerMin: 10000,
