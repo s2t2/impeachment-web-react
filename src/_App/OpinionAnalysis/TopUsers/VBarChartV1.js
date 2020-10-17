@@ -257,6 +257,12 @@ export default class MyBarChart extends Component {
                 <p className="app-center chart-title-p" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
                 <h4 className="app-center chart-title-h4" style={{marginTop:10, marginBottom:0}}>{chartTitle}</h4>
 
+                {/*
+
+                <VictoryLabel text={chartTitle} textAnchor="center"/>
+
+                */}
+
                 <VictoryLegend height={15}
                     //title="Opinion Score" centerTitle
                     orientation="horizontal"
@@ -278,6 +284,7 @@ export default class MyBarChart extends Component {
                         labels: {fontSize: 10},
                     }}
                 />
+
 
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
                     { /*
@@ -352,33 +359,6 @@ export default class MyBarChart extends Component {
                 </VictoryChart>
 
                 <Form style={{marginTop: -50}}>
-                    <Form.Group as={Row}>
-                        <Col xs="5">
-                            <Form.Label>Show Me</Form.Label>
-                            <Form.Control as="select" size="lg" custom>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </Form.Control>
-                        </Col>
-
-                        <Col xs="1">
-                        </Col>
-
-                        <Col xs="5">
-                            <Form.Label>&nbsp;</Form.Label>
-                            <Form.Control as="select" size="lg" custom>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </Form.Control>
-                        </Col>
-                    </Form.Group>
-
                     <Form.Group as={Row}>
                         <Col xs="5">
                             <Form.Label>Minimum Tweet Count</Form.Label>
