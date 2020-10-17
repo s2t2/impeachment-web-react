@@ -213,7 +213,7 @@ export default class MyBarChart extends Component {
                 <Form style={{marginTop: -75}}>
                     <Form.Group as={Row}>
                         <Col xs="6">
-                            <Form.Label>Filter By:</Form.Label>
+                            <Form.Label>User Category:</Form.Label>
                             <Form.Control as="select" size="lg" custom onChange={this.handleCategorySelect}>
                                 <option value="all">All Users</option>
                                 <option value="media">Media</option>
@@ -324,7 +324,7 @@ export default class MyBarChart extends Component {
 
 
 
-
+                    {/*
                     <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
                             <Form.Label>User Category:</Form.Label>
@@ -342,6 +342,8 @@ export default class MyBarChart extends Component {
                         <Col xs="5">
                         </Col>
                     </Form.Group>
+
+                    */}
                 </Form>
             </span>
         )
