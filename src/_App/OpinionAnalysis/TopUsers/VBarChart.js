@@ -54,8 +54,11 @@ export default class MyBarChart extends Component {
     constructor(props) {
         super(props)
         this.state = { // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
+
+            //sortMetric: "most-followed",
             sortMetric: "follower_count", // can be "follower_count", "status_count", "opinion_score" (needs differentiation)
             sortOrder: "desc", // "desc", "asc"
+            sortLabel: "Follower Count", // "desc", "asc"
 
             tweetMin: 5,
             followerMin: 10000,
@@ -89,6 +92,7 @@ export default class MyBarChart extends Component {
             sortMetric = opinionMetric
         }
         var sortOrder = this.state.sortOrder
+        var sortLabel = this.state.sortLabel
 
         // FILTER AND SORT USERS
 
@@ -129,17 +133,9 @@ export default class MyBarChart extends Component {
 
         // CHART OPTIONS
 
-
-        var metricLabel = "Follower Count"
-
-
         var chartTitle = "Users Tweeting about Trump Impeachment" // TODO: dynamic
         var chartPadding = { left: 175, top: 15, right: 50, bottom: 130 } // spacing for axis labels (screen names)
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
-
-
-
-
 
         return (
             <span>
@@ -201,7 +197,7 @@ export default class MyBarChart extends Component {
                     <VictoryAxis dependentAxis
                         //tickFormat={(tick) => `${tick}%`}
                         tickFormat={formatBigNumber}
-                        label={metricLabel}
+                        label={sortLabel}
                         style={{
                             //axis: {stroke: "#756f6a"},
                             axisLabel: {fontSize: 10, padding:25},
@@ -238,7 +234,7 @@ export default class MyBarChart extends Component {
 
                     <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
-                            <Form.Label>Minimum Follower Count</Form.Label>
+                            <Form.Label>Minimum Followers:</Form.Label>
 
                             <RangeSlider min={10000} max={1000000} step={10000}
                                 value={followerMin}
@@ -254,7 +250,7 @@ export default class MyBarChart extends Component {
                         </Col>
 
                         <Col xs="5">
-                            <Form.Label>Mean Opinion Score</Form.Label>
+                            <Form.Label>Mean Opinion Score:</Form.Label>
 
                             <Range min={0} max={100} step={1}
                                 defaultValue={[0, 100]}
@@ -287,7 +283,7 @@ export default class MyBarChart extends Component {
 
                     <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
-                            <Form.Label>Minimum Tweet Count</Form.Label>
+                            <Form.Label>Minimum Tweet Count:</Form.Label>
 
                             <RangeSlider min={3} max={200}
                                 value={tweetMin}
@@ -299,31 +295,11 @@ export default class MyBarChart extends Component {
                             />
                         </Col>
 
-                        <Col xs="7">
-                        </Col>
-                    </Form.Group>
-
-
-
-
-
-
-                    <Form.Group as={Row} style={{marginTop: 35}}>
-                        <Col xs="5">
-                            <Form.Label>User Category</Form.Label>
-
-                            <div key="inline-checkbox" className="mb-3">
-                                {categoryChecks}
-                            </div>
-
-                            <p>NOTE: categories are subjective</p>
-                        </Col>
-
                         <Col xs="1">
                         </Col>
 
                         <Col xs="5">
-                            <Form.Label>Opinion Model</Form.Label>
+                            <Form.Label>Opinion Model:</Form.Label>
 
                             <div key="inline-radios" className="mb-3">
                                 <Form.Check inline label="Logistic Regression" value="lr" type="radio" id="radio-lr"
@@ -339,6 +315,29 @@ export default class MyBarChart extends Component {
                                     onChange={this.handleModelSelect}
                                 />
                             </div>
+                        </Col>
+                    </Form.Group>
+
+
+
+
+
+
+                    <Form.Group as={Row} style={{marginTop: 35}}>
+                        <Col xs="5">
+                            <Form.Label>User Category:</Form.Label>
+
+                            <div key="inline-checkbox" className="mb-3">
+                                {categoryChecks}
+                            </div>
+
+                            <p>NOTE: categories are subjective</p>
+                        </Col>
+
+                        <Col xs="1">
+                        </Col>
+
+                        <Col xs="5">
                         </Col>
                     </Form.Group>
                 </Form>
@@ -398,7 +397,11 @@ export default class MyBarChart extends Component {
     handleMetricSelect(changeEvent){
         var val = changeEvent.target.value
         console.log("SORT BY METRIC:", val)
-        this.setState({sortMetric: SORT_METRICS[val]["metric"], sortOrder: SORT_METRICS[val]["order"]})
+        this.setState({
+            sortMetric: SORT_METRICS[val]["metric"],
+            sortOrder: SORT_METRICS[val]["order"],
+            sortLabel: SORT_METRICS[val]["label"]
+        })
     }
 
 }
