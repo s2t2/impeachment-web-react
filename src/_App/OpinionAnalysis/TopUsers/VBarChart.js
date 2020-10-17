@@ -11,6 +11,7 @@ import {scaleSequential, interpolateRdBu} from 'd3'
 import RangeSlider from 'react-bootstrap-range-slider'
 //import { Range } from 'rc-slider'
 import Slider from 'rc-slider'
+import ReactGA from 'react-ga'
 
 import './VBarChart.css'
 
@@ -327,14 +328,39 @@ export default class MyBarChart extends Component {
     }
 
     handleTweetMinChange(changeEvent){
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Change Tweet Min",
+            value: changeEvent.target.value
+        })
         this.setState({tweetMin: changeEvent.target.value})
     }
 
     handleFollowerMinChange(changeEvent){
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Change Follower Min",
+            value: changeEvent.target.value
+        })
         this.setState({followerMin: changeEvent.target.value})
     }
 
     handleOpinionRangeChange(newRange){
+        //ReactGA.event({
+        //    category: "Top Users Chart Interaction",
+        //    action: "Change Opinion Min",
+        //    value: newRange[0]
+        //})
+        //ReactGA.event({
+        //    category: "Top Users Chart Interaction",
+        //    action: "Change Opinion Max",
+        //    value: newRange[1]
+        //})
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Change Opinion Range",
+            label: newRange.join(", ")
+        })
         console.log("CHANGE OPINION RANGE", newRange)
         this.setState({opinionRange: newRange})
     }
@@ -352,24 +378,44 @@ export default class MyBarChart extends Component {
         }
 
         console.log("CATEGORIES:", userCategories)
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Change Opinion Min",
+            label: userCategories.join(", ")
+        })
         this.setState({userCategories: userCategories})
     }
 
     handleModelSelect(changeEvent){
         var model = changeEvent.target.value
         console.log("SELECT MODEL:", model)
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Select Opinion Model",
+            label: model
+        })
         this.setState({"opinionModel": model})
     }
 
     handleCategorySelect(changeEvent){
         var val = changeEvent.target.value
         console.log("FILTER BY CATEGORY:", val)
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Select User Category",
+            label: val
+        })
         this.setState({userCategories: FILTER_CATEGORIES[val]})
     }
 
     handleMetricSelect(changeEvent){
         var val = changeEvent.target.value
         console.log("SORT BY METRIC:", val)
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Select Sort Metric",
+            label: val
+        })
         this.setState({
             sortMetric: SORT_METRICS[val]["metric"],
             sortOrder: SORT_METRICS[val]["order"],
