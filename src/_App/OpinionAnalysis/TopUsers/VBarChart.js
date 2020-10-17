@@ -70,8 +70,7 @@ export default class MyBarChart extends Component {
             opinionRange: [0, 100],
             userCategories: ALL_CATEGORY_NAMES,
 
-            opinionModel: "lr",
-            //opinionModel: "avg_score_lr",
+            opinionMetric: "avg_score_lr",
         }
         this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
         this.handleFollowerMinChange = this.handleFollowerMinChange.bind(this)
@@ -91,8 +90,7 @@ export default class MyBarChart extends Component {
         var followerMin = this.state.followerMin
         var opinionRange = this.state.opinionRange
         var userCategories = this.state.userCategories
-        var opinionModel = this.state.opinionModel
-        var opinionMetric = `avg_score_${opinionModel}` // this.state.opinionMetric
+        var opinionMetric = this.state.opinionMetric
         var barLabel = this.barLabel
         //var barSize = this.barSize
 
@@ -300,16 +298,16 @@ export default class MyBarChart extends Component {
                             <Form.Label>Opinion Model:</Form.Label>
 
                             <div key="inline-radios" className="mb-3">
-                                <Form.Check inline label="Logistic Regression" value="lr" type="radio" id="radio-lr"
-                                    checked={opinionModel === "lr"}
+                                <Form.Check inline label="Logistic Regression" value="avg_score_lr" type="radio"
+                                    checked={opinionMetric === "avg_score_lr"}
                                     onChange={this.handleModelSelect}
                                 />
-                                <Form.Check inline label="Naive Bayes" value="nb" type="radio" id="radio-nb"
-                                    checked={opinionModel === "nb"}
+                                <Form.Check inline label="Naive Bayes" value="avg_score_nb" type="radio"
+                                    checked={opinionMetric === "avg_score_nb"}
                                     onChange={this.handleModelSelect}
                                 />
-                                <Form.Check inline label="BERT Transformer" value="bert" type="radio" id="radio-bert"
-                                    checked={opinionModel === "bert"}
+                                <Form.Check inline label="BERT Transformer" value="avg_score_bert" type="radio"
+                                    checked={opinionMetric === "avg_score_bert"}
                                     onChange={this.handleModelSelect}
                                 />
                             </div>
@@ -388,14 +386,14 @@ export default class MyBarChart extends Component {
     }
 
     handleModelSelect(changeEvent){
-        var model = changeEvent.target.value
-        console.log("SELECT MODEL:", model)
+        var opinionMetric = changeEvent.target.value
+        console.log("SELECT OPINION METRIC:", opinionMetric)
         ReactGA.event({
             category: "Top Users Chart Interaction",
             action: "Select Opinion Model",
-            label: model
+            label: opinionMetric
         })
-        this.setState({"opinionModel": model})
+        this.setState({"opinionMetric": opinionMetric})
     }
 
     handleCategorySelect(changeEvent){
