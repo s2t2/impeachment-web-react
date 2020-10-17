@@ -75,6 +75,7 @@ export default class MyBarChart extends Component {
 
         this.handleCategorySelect = this.handleCategorySelect.bind(this)
         this.handleMetricSelect = this.handleMetricSelect.bind(this)
+        this.barLabel = this.barLabel.bind(this)
 
     }
 
@@ -86,6 +87,7 @@ export default class MyBarChart extends Component {
         var opinionModel = this.state.opinionModel
         var opinionMetric = `avg_score_${opinionModel}`
         var handleCategoryCheck = this.handleCategoryCheck
+        var barLabel = this.barLabel
 
         var sortMetric = this.state.sortMetric
         if(sortMetric === "opinion_score"){
@@ -173,7 +175,7 @@ export default class MyBarChart extends Component {
                         barRatio={0.87}
                         //alignment="middle"
 
-                        labels={({ datum }) => datum["scorePct"]}
+                        labels={({ datum }) => barLabel(datum)}
                         //labelComponent={<VictoryLabel dx={-30}/>}
                         style={{
                             //parent: { border: "1px solid #ccc" }
@@ -223,10 +225,10 @@ export default class MyBarChart extends Component {
                         <Col xs="6">
                             <Form.Label>Sort By:</Form.Label>
                             <Form.Control as="select" size="lg" custom onChange={this.handleMetricSelect}>
-                                <option value="most-followed">Most Followed</option>
-                                <option value="most-active">Most Active</option>
-                                <option value="most-pro-trump">Most Pro-Trump</option>
-                                <option value="most-pro-impeachment">Most Pro-Impeachment</option>
+                                <option value="most-followed">Follower Count</option>
+                                <option value="most-active">Tweet Count</option>
+                                <option value="most-pro-trump">Pro-Trump Score</option>
+                                <option value="most-pro-impeachment">Pro-Impeachment Score</option>
                                 {/* <option value="most-neutral">Most Neutral</option> */}
                             </Form.Control>
                         </Col>
@@ -404,4 +406,13 @@ export default class MyBarChart extends Component {
         })
     }
 
+    barLabel(datum){
+        var metric = this.state.sortMetric
+        if (metric == "opinion_score"){
+            return datum["scorePct"]
+        } else {
+            return formatBigNumber(datum[metric])
+        }
+
+    }
 }
