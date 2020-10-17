@@ -48,7 +48,7 @@ const SORT_METRICS = {
     "most-pro-trump": {"metric": "opinion_score", "order": "desc", "label": "Mean Opinion Score"},
     "most-pro-impeachment": {"metric": "opinion_score", "order": "asc", "label": "Mean Opinion Score"},
 }
-const DEFAULT_METRIC = "most-pro-impeachment" // "most-pro-trump" // "most-followed"
+const DEFAULT_METRIC = "most-pro-trump" // "most-pro-trump" // "most-followed"
 var BAR_COUNT = 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
 
 function formatBigNumber(num) {
@@ -229,11 +229,11 @@ export default class MyBarChart extends Component {
 
                         <Col xs="6">
                             <Form.Label>Sort By:</Form.Label>
-                            <Form.Control as="select" size="lg" custom onChange={this.handleMetricSelect}>
-                                <option value="most-followed" selected={sortVal === "most-followed"}>Follower Count</option>
-                                <option value="most-active" selected={sortVal === "most-active"}>Tweet Count</option>
-                                <option value="most-pro-trump" selected={sortVal === "most-pro-trump"}>Pro-Trump Score</option>
-                                <option value="most-pro-impeachment" selected={sortVal === "most-pro-impeachment"}>Pro-Impeachment Score</option>
+                            <Form.Control as="select" size="lg" custom value={sortVal} onChange={this.handleMetricSelect}>
+                                <option value="most-followed">Follower Count</option>
+                                <option value="most-active">Tweet Count</option>
+                                <option value="most-pro-trump">Pro-Trump Score</option>
+                                <option value="most-pro-impeachment">Pro-Impeachment Score</option>
                                 {/* <option value="most-neutral">Most Neutral</option> */}
                             </Form.Control>
                         </Col>
