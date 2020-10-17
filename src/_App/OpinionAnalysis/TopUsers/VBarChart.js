@@ -44,7 +44,6 @@ const SORT_METRICS = {
     "most-pro-impeachment": {"metric": "opinion_score", "order": "asc"},
 }
 var BAR_COUNT = 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
-var SLICE = {"asc": BAR_COUNT, "desc": -BAR_COUNT} // negative number takes last X users (which is actually the top X users)
 
 function formatBigNumber(num) {
     // h/t: https://stackoverflow.com/a/9461657
@@ -55,8 +54,8 @@ export default class MyBarChart extends Component {
     constructor(props) {
         super(props)
         this.state = { // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
-            sortMetric: "follower_count", // can be "follower_count", "status_count", "opinion_metric" (needs differentiation)
-            sortOrder: "desc",
+            sortMetric: "opinion_score", // can be "follower_count", "status_count", "opinion_score" (needs differentiation)
+            sortOrder: "asc", // "desc", "asc"
 
             tweetMin: 5,
             opinionRange: [0, 100],
@@ -103,9 +102,14 @@ export default class MyBarChart extends Component {
                 return user
             })
             .sort(function(a, b){
-                return a[sortMetric] - b[sortMetric] // chart wants this order
+                // chart wants this order
+                if(sortOrder === "desc"){
+                    return a[sortMetric] - b[sortMetric]
+                } else if (sortOrder === "asc"){
+                    return b[sortMetric] - a[sortMetric]
+                }
             }) // sort before slice
-            .slice(SLICE[sortOrder])
+            .slice(-BAR_COUNT) // negative number takes last X users (which is actually the top X users)
 
         // CHART CONTROLS
 
