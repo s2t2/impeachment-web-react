@@ -214,7 +214,7 @@ export default class MyBarChart extends Component {
                     />
                 </VictoryChart>
 
-                <Form style={{marginTop: -75}}>
+                <Form className="below-chart">
                     <Form.Group as={Row}>
                         <Col xs="6">
                             <Form.Label>User Category:</Form.Label>
