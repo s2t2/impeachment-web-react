@@ -43,12 +43,12 @@ const FILTER_CATEGORIES = {
 
 }
 const SORT_METRICS = {
-    "most-followed": {"metric": "follower_count", "order": "desc", "label": "Follower Count (in our dataset)"},
-    "most-active": {"metric": "status_count", "order": "desc", "label": "Tweet Count (in our dataset)"},
+    "most-followed": {"metric": "follower_count", "order": "desc", "label": "Follower Count"},
+    "most-active": {"metric": "status_count", "order": "desc", "label": "Tweet Count"},
     "most-pro-trump": {"metric": "opinion_score", "order": "desc", "label": "Mean Opinion Score"},
     "most-pro-impeachment": {"metric": "opinion_score", "order": "asc", "label": "Mean Opinion Score"},
 }
-const DEFAULT_METRIC = "most-pro-trump" // "most-pro-trump" // "most-followed"
+const DEFAULT_METRIC = "most-pro-impeachment" // "most-pro-trump" // "most-followed"
 var BAR_COUNT = 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
 
 function formatBigNumber(num) {
@@ -84,6 +84,7 @@ export default class MyBarChart extends Component {
         this.handleMetricSelect = this.handleMetricSelect.bind(this)
         this.barLabel = this.barLabel.bind(this)
         this.barSizeMetric = this.barSizeMetric.bind(this)
+        this.axisTick = this.axisTick.bind(this)
     }
 
     render() {
@@ -93,9 +94,6 @@ export default class MyBarChart extends Component {
         var userCategories = this.state.userCategories
         var opinionMetric = this.state.opinionMetric
 
-        var barLabel = this.barLabel
-        var barSizeMetric = this.barSizeMetric
-
         var sortVal = this.state.sortVal
         var sortMetric = this.state.sortMetric
         if(sortMetric === "opinion_score"){
@@ -103,6 +101,10 @@ export default class MyBarChart extends Component {
         }
         var sortOrder = this.state.sortOrder
         var sortLabel = this.state.sortLabel
+
+        var barLabel = this.barLabel
+        var barSizeMetric = this.barSizeMetric
+        var axisTick = this.axisTick
 
         // FILTER AND SORT USERS
 
@@ -193,8 +195,9 @@ export default class MyBarChart extends Component {
                         //tickFormat={["a", "b", "c", "d", "e"]}
                     />
                     <VictoryAxis dependentAxis
-                        //tickFormat={(tick) => `${tick}%`}
-                        tickFormat={formatBigNumber}
+                        //tickFormat={(tick) => `${1-tick}%`}
+                        //tickFormat={formatBigNumber}
+                        tickFormat={axisTick}
                         label={sortLabel}
                         style={{
                             //axis: {stroke: "#756f6a"},
@@ -440,14 +443,28 @@ export default class MyBarChart extends Component {
         var sortMetric = this.state.sortMetric
         var sortOrder = this.state.sortOrder
         var opinionMetric = this.state.opinionMetric
-        console.log("BAR SIZE", sortMetric, sortOrder, opinionMetric)
 
-        if (sortMetric == "opinion_score" && sortOrder == "asc"){
+        if (sortMetric == "opinion_score" && sortOrder === "asc"){
             return "inverse_score"
-        } else if(sortMetric == "opinion_score" && sortOrder == "desc") {
+        } else if(sortMetric === "opinion_score" && sortOrder === "desc") {
             return opinionMetric
         } else {
             return sortMetric
         }
+    }
+
+    axisTick(datum){
+        var sortMetric = this.state.sortMetric
+        var sortOrder = this.state.sortOrder
+        // REVERSE THE AXIS NUMBERS WHEN BAR SIZES ARE INVERSED
+        if (sortMetric === "opinion_score" && sortOrder === "asc"){
+            // var d = (0.199999999999999999996 * .9999999)
+            // d.toFixed(1) //> 0.2
+            return formatBigNumber((1-datum).toFixed(1))
+        } else {
+            return formatBigNumber(datum)
+        }
+
+
     }
 }
