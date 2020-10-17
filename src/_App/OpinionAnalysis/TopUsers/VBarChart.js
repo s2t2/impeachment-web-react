@@ -139,6 +139,14 @@ export default class MyBarChart extends Component {
         var chartPadding = { left: 175, top: 15, right: 50, bottom: 130 } // spacing for axis labels (screen names)
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
 
+        var legendData = [
+            { name: "Pro-Impeachment (0%)", symbol: { fill: colorScale(0.15), type: "circle" } },
+            { name: "Pro-Trump (100%)",     symbol: { fill: colorScale(0.85), type: "circle"} },
+        ]
+        if (sortVal === "most-pro-impeachment"){
+            legendData.reverse() // mutating
+        }
+
         return (
             <span>
                 <p className="app-center chart-title-p" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
@@ -147,10 +155,7 @@ export default class MyBarChart extends Component {
                 <VictoryLegend height={17}
                     //title="Opinion Score" centerTitle
                     orientation="horizontal"
-                    data={[
-                        { name: "Pro-Impeachment (0%)", symbol: { fill: colorScale(0.15), type: "circle" } },
-                        { name: "Pro-Trump (100%)",     symbol: { fill: colorScale(0.85), type: "circle"} },
-                    ]}
+                    data={legendData}
                     gutter={15} // number of pixels between legend columns
                     x={120}
                     y={0}
@@ -440,13 +445,13 @@ export default class MyBarChart extends Component {
     }
 
     barSizeMetric(){
+        var sortVal = this.state.sortVal
         var sortMetric = this.state.sortMetric
-        var sortOrder = this.state.sortOrder
         var opinionMetric = this.state.opinionMetric
 
-        if (sortMetric == "opinion_score" && sortOrder === "asc"){
+        if (sortVal === "most-pro-impeachment"){
             return "inverse_score"
-        } else if(sortMetric === "opinion_score" && sortOrder === "desc") {
+        } else if(sortVal === "most-pro-trump") {
             return opinionMetric
         } else {
             return sortMetric
@@ -454,17 +459,15 @@ export default class MyBarChart extends Component {
     }
 
     axisTick(datum){
-        var sortMetric = this.state.sortMetric
-        var sortOrder = this.state.sortOrder
         // REVERSE THE AXIS NUMBERS WHEN BAR SIZES ARE INVERSED
-        if (sortMetric === "opinion_score" && sortOrder === "asc"){
+        var sortVal = this.state.sortVal
+
+        if (sortVal === "most-pro-impeachment"){
             // var d = (0.199999999999999999996 * .9999999)
             // d.toFixed(1) //> 0.2
             return formatBigNumber((1-datum).toFixed(1))
         } else {
             return formatBigNumber(datum)
         }
-
-
     }
 }
