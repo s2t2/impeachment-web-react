@@ -37,6 +37,15 @@ const FILTER_CATEGORIES = {
     "media": ["MAJOR-MEDIA-OUTLET", "MEDIA-OUTLET", "NEWS-SHOW"],
     "politician": ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT"],
 }
+const SORT_METRICS = {
+    "most-followed": {"metric": "follower_count", "order": "desc"},
+    "most-active": {"metric": "status_count", "order": "desc"},
+    "most-pro-trump": {"metric": "opinion_score", "order": "desc"},
+    "most-pro-impeachment": {"metric": "opinion_score", "order": "asc"},
+}
+var BAR_COUNT = 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
+var SLICE = {"asc": BAR_COUNT, "desc": -BAR_COUNT} // negative number takes last X users (which is actually the top X users)
+
 function formatBigNumber(num) {
     // h/t: https://stackoverflow.com/a/9461657
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
@@ -45,14 +54,18 @@ function formatBigNumber(num) {
 export default class MyBarChart extends Component {
     constructor(props) {
         super(props)
-        this.state = {
+        this.state = { // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
+            sortMetric: "follower_count", // can be "follower_count", "status_count", "opinion_metric" (needs differentiation)
+            sortOrder: "desc",
+
             tweetMin: 5,
             opinionRange: [0, 100],
             userCategories: ALL_CATEGORY_NAMES,
             opinionModel: "lr",
-        } // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
+        }
         this.handleCategorySelect = this.handleCategorySelect.bind(this)
         this.handleMetricSelect = this.handleMetricSelect.bind(this)
+
         this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
         this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
         this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
@@ -60,25 +73,21 @@ export default class MyBarChart extends Component {
     }
 
     render() {
+        var sortMetric = this.state.sortMetric
+        var sortOrder = this.state.sortOrder
+
+
+
         var tweetMin = this.state.tweetMin
         var opinionRange = this.state.opinionRange
         var userCategories = this.state.userCategories
         var opinionModel = this.state.opinionModel
         var opinionMetric = `avg_score_${opinionModel}`
-        var barCount = this.props.barCount || 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
+
         var handleCategoryCheck = this.handleCategoryCheck
 
-        // RADIO BUTTONS FOR EACH CATEGORY
-        var categoryChecks = ALL_CATEGORIES.map(function(category){
-            return (
-                <Form.Check inline type="checkbox" key={category["name"]} value={category["name"]} label={category["label"]}
-                    checked={userCategories.includes(category["name"])}
-                    onChange={handleCategoryCheck}
-                />
-            )
-        })
-
         // FILTER AND SORT USERS
+
         var users = this.props.users
             .filter(function(user){
                 return (
@@ -93,9 +102,22 @@ export default class MyBarChart extends Component {
                 return user
             })
             .sort(function(a, b){
-                return a["follower_count"] - b["follower_count"] // chart wants this order
+                return a[sortMetric] - b[sortMetric] // chart wants this order
             }) // sort before slice
-            .slice(-barCount) // negative number takes last X users (which is actually the top X users)
+            .slice(SLICE[sortOrder])
+
+        // CHART CONTROLS
+
+        var categoryChecks = ALL_CATEGORIES.map(function(category){
+            return (
+                <Form.Check inline type="checkbox" key={category["name"]} value={category["name"]} label={category["label"]}
+                    checked={userCategories.includes(category["name"])}
+                    onChange={handleCategoryCheck}
+                />
+            )
+        })
+
+        // CHART OPTIONS
 
         var chartTitle = "Users Tweeting about Trump Impeachment" // TODO: dynamic
         var chartPadding = { left: 175, top: 15, right: 50, bottom: 130 } // spacing for axis labels (screen names)
@@ -366,7 +388,7 @@ export default class MyBarChart extends Component {
     handleMetricSelect(changeEvent){
         var val = changeEvent.target.value
         console.log("SORT BY METRIC:", val)
-        this.setState({sortMetric: val})
+        this.setState({sortMetric: SORT_METRICS[val]["metric"], sortOrder: SORT_METRICS[val]["order"]})
     }
 
 }
