@@ -26,7 +26,7 @@ export default function Section() {
                     <Card.Title><h3>Collection Topics</h3></Card.Title>
 
                     <Card.Text>
-                        We collected any tweets mentioning any of the impeachment-related topics below. We periodically added new topics to reflect conversation trends about current events.
+                        We collected tweets mentioning any of the impeachment-related topics below. We periodically added new topics to reflect conversation trends about current events.
                     </Card.Text>
 
                     {/*
