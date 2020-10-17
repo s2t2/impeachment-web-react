@@ -48,7 +48,7 @@ const SORT_METRICS = {
     "most-pro-trump": {"metric": "opinion_score", "order": "desc", "label": "Mean Opinion Score"},
     "most-pro-impeachment": {"metric": "opinion_score", "order": "asc", "label": "Mean Opinion Score"},
 }
-const DEFAULT_METRIC = "most-pro-trump" // "most-followed"
+const DEFAULT_METRIC = "most-pro-impeachment" // "most-pro-trump" // "most-followed"
 var BAR_COUNT = 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
 
 function formatBigNumber(num) {
@@ -113,7 +113,8 @@ export default class MyBarChart extends Component {
             )})
             .map(function(user){
                 user["handle"] = `@${user['screen_name']}`
-                user["scorePct"] = (user[opinionMetric] * 100.0).toFixed(1) + "%"
+                user["score_pct"] = (user[opinionMetric] * 100.0).toFixed(1) + "%"
+                user["inverse_score"] = (1 - user[opinionMetric]) // hack for reversing pro-impeachment bar sizes from 0.05 to 0.95
                 return user
             })
             .sort(function(a, b){
@@ -160,7 +161,7 @@ export default class MyBarChart extends Component {
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
 
                     <VictoryBar horizontal
-                        data={users} x="handle" y={sortMetric}
+                        data={users} x="handle" y={"inverse_score"} // sortMetric or barSize
                         animate={true}
                         //barWidth={12}
                         barRatio={0.87}
@@ -423,10 +424,20 @@ export default class MyBarChart extends Component {
     barLabel(datum){
         var metric = this.state.sortMetric
         if (metric == "opinion_score"){
-            return datum["scorePct"]
+            return datum["score_pct"]
         } else {
             return formatBigNumber(datum[metric])
         }
+
+    }
+
+    barSize(datum){
+        var metric = this.state.sortMetric
+        //if (metric == "opinion_score"){
+        //    return datum["scorePct"]
+        //} else {
+        //    return formatBigNumber(datum[metric])
+        //}
 
     }
 }
