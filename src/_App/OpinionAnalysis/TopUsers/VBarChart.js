@@ -69,7 +69,9 @@ export default class MyBarChart extends Component {
             tweetMin: 30,
             opinionRange: [0, 100],
             userCategories: ALL_CATEGORY_NAMES,
+
             opinionModel: "lr",
+            //opinionModel: "avg_score_lr",
         }
         this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
         this.handleFollowerMinChange = this.handleFollowerMinChange.bind(this)
@@ -81,7 +83,7 @@ export default class MyBarChart extends Component {
         this.handleCategorySelect = this.handleCategorySelect.bind(this)
         this.handleMetricSelect = this.handleMetricSelect.bind(this)
         this.barLabel = this.barLabel.bind(this)
-
+        //this.barSize = this.barSize.bind(this)
     }
 
     render() {
@@ -90,8 +92,9 @@ export default class MyBarChart extends Component {
         var opinionRange = this.state.opinionRange
         var userCategories = this.state.userCategories
         var opinionModel = this.state.opinionModel
-        var opinionMetric = `avg_score_${opinionModel}`
+        var opinionMetric = `avg_score_${opinionModel}` // this.state.opinionMetric
         var barLabel = this.barLabel
+        //var barSize = this.barSize
 
         var sortMetric = this.state.sortMetric
         if(sortMetric === "opinion_score"){
@@ -138,7 +141,7 @@ export default class MyBarChart extends Component {
                 <p className="app-center chart-title-p" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
                 <h4 className="app-center chart-title-h4" style={{marginTop:10, marginBottom:0}}>{chartTitle}</h4>
 
-                <VictoryLegend height={15}
+                <VictoryLegend height={17}
                     //title="Opinion Score" centerTitle
                     orientation="horizontal"
                     data={[
@@ -147,7 +150,7 @@ export default class MyBarChart extends Component {
                     ]}
                     gutter={15} // number of pixels between legend columns
                     x={120}
-                    y={-3}
+                    y={0}
                     //width={20}
                     style={{
                         //parent: {},
@@ -161,7 +164,7 @@ export default class MyBarChart extends Component {
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
 
                     <VictoryBar horizontal
-                        data={users} x="handle" y={"inverse_score"} // sortMetric or barSize
+                        data={users} x="handle" y={sortMetric} // barSize() sortMetric or "inverse_score"
                         animate={true}
                         //barWidth={12}
                         barRatio={0.87}
@@ -431,13 +434,17 @@ export default class MyBarChart extends Component {
 
     }
 
-    barSize(datum){
-        var metric = this.state.sortMetric
-        //if (metric == "opinion_score"){
-        //    return datum["scorePct"]
-        //} else {
-        //    return formatBigNumber(datum[metric])
-        //}
-
-    }
+    //barSize(){
+    //    var sortMetric = this.state.sortMetric
+    //    var sortOrder = this.state.sortOrder
+    //    var opinionMetric = this.state.opinionMetric
+    //    console.log("BAR SIZE", sortMetric, sortOrder, opinionMetric)
+//
+    //    //debugger;
+    //    if (sortMetric == "opinion_score" && sortOrder == "asc"){
+    //        return "inverse_score"
+    //    } else {
+    //        return opinionMetric //sortMetric
+    //    }
+    //}
 }
