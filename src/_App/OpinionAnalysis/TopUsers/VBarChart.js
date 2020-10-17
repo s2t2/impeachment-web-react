@@ -44,11 +44,11 @@ const FILTER_CATEGORIES = {
 }
 const SORT_METRICS = {
     "most-followed": {"metric": "follower_count", "order": "desc", "label": "Follower Count (in our dataset)"},
-    "most-active": {"metric": "status_count", "order": "desc", "label": "Tweet Count"},
+    "most-active": {"metric": "status_count", "order": "desc", "label": "Tweet Count (in our dataset)"},
     "most-pro-trump": {"metric": "opinion_score", "order": "desc", "label": "Mean Opinion Score"},
     "most-pro-impeachment": {"metric": "opinion_score", "order": "asc", "label": "Mean Opinion Score"},
 }
-const DEFAULT_METRIC = "most-pro-impeachment" // "most-pro-trump" // "most-followed"
+const DEFAULT_METRIC = "most-pro-trump" // "most-pro-trump" // "most-followed"
 var BAR_COUNT = 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
 
 function formatBigNumber(num) {
@@ -61,6 +61,7 @@ export default class MyBarChart extends Component {
         super(props)
         this.state = { // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
 
+            sortVal: DEFAULT_METRIC,
             sortMetric: SORT_METRICS[DEFAULT_METRIC]["metric"], // can be "follower_count", "status_count", "opinion_score" (needs differentiation)
             sortOrder:  SORT_METRICS[DEFAULT_METRIC]["order"], // "desc", "asc"
             sortLabel:  SORT_METRICS[DEFAULT_METRIC]["label"], // "desc", "asc"
@@ -95,6 +96,7 @@ export default class MyBarChart extends Component {
         var barLabel = this.barLabel
         var barSizeMetric = this.barSizeMetric
 
+        var sortVal = this.state.sortVal
         var sortMetric = this.state.sortMetric
         if(sortMetric === "opinion_score"){
             sortMetric = opinionMetric
@@ -220,10 +222,10 @@ export default class MyBarChart extends Component {
                         <Col xs="6">
                             <Form.Label>Sort By:</Form.Label>
                             <Form.Control as="select" size="lg" custom onChange={this.handleMetricSelect}>
-                                <option value="most-followed">Follower Count</option>
-                                <option value="most-active">Tweet Count</option>
-                                <option value="most-pro-trump">Pro-Trump Score</option>
-                                <option value="most-pro-impeachment">Pro-Impeachment Score</option>
+                                <option value="most-followed" selected={sortVal === "most-followed"}>Follower Count</option>
+                                <option value="most-active" selected={sortVal === "most-active"}>Tweet Count</option>
+                                <option value="most-pro-trump" selected={sortVal === "most-pro-trump"}>Pro-Trump Score</option>
+                                <option value="most-pro-impeachment" selected={sortVal === "most-pro-impeachment"}>Pro-Impeachment Score</option>
                                 {/* <option value="most-neutral">Most Neutral</option> */}
                             </Form.Control>
                         </Col>
@@ -417,6 +419,7 @@ export default class MyBarChart extends Component {
             label: val
         })
         this.setState({
+            sortVal: val,
             sortMetric: SORT_METRICS[val]["metric"],
             sortOrder: SORT_METRICS[val]["order"],
             sortLabel: SORT_METRICS[val]["label"]
