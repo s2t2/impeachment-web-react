@@ -82,7 +82,7 @@ export default class MyBarChart extends Component {
         this.handleCategorySelect = this.handleCategorySelect.bind(this)
         this.handleMetricSelect = this.handleMetricSelect.bind(this)
         this.barLabel = this.barLabel.bind(this)
-        //this.barSize = this.barSize.bind(this)
+        this.barSizeMetric = this.barSizeMetric.bind(this)
     }
 
     render() {
@@ -91,8 +91,9 @@ export default class MyBarChart extends Component {
         var opinionRange = this.state.opinionRange
         var userCategories = this.state.userCategories
         var opinionMetric = this.state.opinionMetric
+
         var barLabel = this.barLabel
-        //var barSize = this.barSize
+        var barSizeMetric = this.barSizeMetric
 
         var sortMetric = this.state.sortMetric
         if(sortMetric === "opinion_score"){
@@ -162,7 +163,7 @@ export default class MyBarChart extends Component {
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
 
                     <VictoryBar horizontal
-                        data={users} x="handle" y={sortMetric} // barSize() sortMetric or "inverse_score"
+                        data={users} x="handle" y={barSizeMetric()} // barSize() sortMetric or "inverse_score"
                         animate={true}
                         //barWidth={12}
                         barRatio={0.87}
@@ -432,17 +433,18 @@ export default class MyBarChart extends Component {
 
     }
 
-    //barSize(){
-    //    var sortMetric = this.state.sortMetric
-    //    var sortOrder = this.state.sortOrder
-    //    var opinionMetric = this.state.opinionMetric
-    //    console.log("BAR SIZE", sortMetric, sortOrder, opinionMetric)
-//
-    //    //debugger;
-    //    if (sortMetric == "opinion_score" && sortOrder == "asc"){
-    //        return "inverse_score"
-    //    } else {
-    //        return opinionMetric //sortMetric
-    //    }
-    //}
+    barSizeMetric(){
+        var sortMetric = this.state.sortMetric
+        var sortOrder = this.state.sortOrder
+        var opinionMetric = this.state.opinionMetric
+        console.log("BAR SIZE", sortMetric, sortOrder, opinionMetric)
+
+        if (sortMetric == "opinion_score" && sortOrder == "asc"){
+            return "inverse_score"
+        } else if(sortMetric == "opinion_score" && sortOrder == "desc") {
+            return opinionMetric
+        } else {
+            return sortMetric
+        }
+    }
 }
