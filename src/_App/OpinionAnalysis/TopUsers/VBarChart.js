@@ -36,6 +36,10 @@ const FILTER_CATEGORIES = {
     "all": ALL_CATEGORY_NAMES,
     "media": ["MAJOR-MEDIA-OUTLET", "MEDIA-OUTLET", "NEWS-SHOW"],
     "politician": ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT"],
+    "commentator": ["POLITICAL-COMMENTATOR", "LEGAL-SCHOLAR"],
+    "celebrity": ["CELEBRITY"],
+
+
 }
 const SORT_METRICS = {
     "most-followed": {"metric": "follower_count", "order": "desc", "label": "Follower Count"},
@@ -218,7 +222,8 @@ export default class MyBarChart extends Component {
                                 <option value="all">All Users</option>
                                 <option value="media">Media</option>
                                 <option value="politician">Politicians</option>
-                                {/* <option value="comment">Commentators</option> */}
+                                <option value="commentator">Commentators</option>
+                                <option value="celebrity">Celebrities</option>
                             </Form.Control>
                         </Col>
 
@@ -285,7 +290,7 @@ export default class MyBarChart extends Component {
 
                     <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
-                            <Form.Label>Minimum Tweet Count:</Form.Label>
+                            <Form.Label>Minimum Tweets:</Form.Label>
 
                             <RangeSlider min={3} max={200}
                                 value={tweetMin}
