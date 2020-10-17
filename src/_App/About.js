@@ -35,8 +35,8 @@ export default function About() {
                     <ol type="I">
                         <li>Tweet Collection
                             <ol>
-                                <li><a href="/collection-topics">Collection Topics</a></li>
                                 <li><a href="/collection-timeline">Collection Timeline</a></li>
+                                <li><a href="/collection-topics">Collection Topics</a></li>
                                 <li><a href="/collection-results">Collection Results</a></li>
                             </ol>
                         </li>
