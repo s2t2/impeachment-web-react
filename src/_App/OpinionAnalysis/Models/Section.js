@@ -91,11 +91,11 @@ export default function SentimentAnalysis() {
                     <h4>Model Predictions</h4>
                     <Card.Text>
                         We used each binary classifier to assign an opinion score to all tweets in our dataset.
-                        {" "}And we used the BERT Transformer to assign an opinion score to all tweets created between 12/20 and 2/15.
+                        {" "}And we used the BERT Transformer to assign an opinion score to all tweets created between 12/20 and 2/15 (our primary collection period).
                     </Card.Text>
 
                     <Card.Text>
-                        The overall distribution of mean opinion scores for users with the most followers is below.
+                        The charts below show the overall distribution of mean opinion scores for the top thousand users who have the most followers in our dataset.
                         {" "} Use the <a href="/user-opinions">User Opinions</a> and <a href="top-user-opinions">Top User Opinions</a> dashboards to explore further.
                     </Card.Text>
 
