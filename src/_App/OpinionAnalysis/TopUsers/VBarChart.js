@@ -126,17 +126,6 @@ export default class MyBarChart extends Component {
             }) // sort before slice
             .slice(-BAR_COUNT) // negative number takes last X users (which is actually the top X users)
 
-        // CHART CONTROLS
-
-        var categoryChecks = ALL_CATEGORIES.map(function(category){
-            return (
-                <Form.Check inline type="checkbox" key={category["name"]} value={category["name"]} label={category["label"]}
-                    checked={userCategories.includes(category["name"])}
-                    onChange={handleCategoryCheck}
-                />
-            )
-        })
-
         // CHART OPTIONS
 
         var chartTitle = "Users Tweeting about Trump Impeachment" // TODO: dynamic
@@ -324,31 +313,6 @@ export default class MyBarChart extends Component {
                             </div>
                         </Col>
                     </Form.Group>
-
-
-
-
-
-                    {/*
-                    <Form.Group as={Row} style={{marginTop: 35}}>
-                        <Col xs="5">
-                            <Form.Label>User Category:</Form.Label>
-
-                            <div key="inline-checkbox" className="mb-3">
-                                {categoryChecks}
-                            </div>
-
-                            <p>NOTE: categories are subjective</p>
-                        </Col>
-
-                        <Col xs="1">
-                        </Col>
-
-                        <Col xs="5">
-                        </Col>
-                    </Form.Group>
-
-                    */}
                 </Form>
             </span>
         )
