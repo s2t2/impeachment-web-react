@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form'
 //import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Dropdown from 'react-bootstrap/Dropdown'
+//import Dropdown from 'react-bootstrap/Dropdown'
 //import Button from 'react-bootstrap/Button'
 import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend} from 'victory' // VictoryTheme, VictoryLabel
 //import { orderBy } from 'lodash'
@@ -55,26 +55,8 @@ export default class MyBarChart extends Component {
         //this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
         this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
         this.handleModelSelect = this.handleModelSelect.bind(this)
-
-        // SHOW ME (STATE MANIPULATION SHORTCUTS)
-
-        this.showUsersMostFollowed = this.showUsersMostFollowed.bind(this)
-        this.showUsersMostActive = this.showUsersMostActive.bind(this)
-        this.showUsersMostLeftLeaning = this.showUsersMostLeftLeaning.bind(this)
-        this.showUsersMostRightLeaning = this.showUsersMostRightLeaning.bind(this)
-        this.showUsersMostNeutral = this.showUsersMostNeutral.bind(this)
-
-        this.showMediaMostFollowed = this.showMediaMostFollowed.bind(this)
-        this.showMediaMostActive = this.showMediaMostActive.bind(this)
-        this.showMediaMostLeftLeaning = this.showMediaMostLeftLeaning.bind(this)
-        this.showMediaMostRightLeaning = this.showMediaMostRightLeaning.bind(this)
-        this.showMediaMostNeutral = this.showMediaMostNeutral.bind(this)
-
-        this.showPolsMostFollowed = this.showPolsMostFollowed.bind(this)
-        this.showPolsMostActive = this.showPolsMostActive.bind(this)
-        this.showPolsMostLeftLeaning = this.showPolsMostLeftLeaning.bind(this)
-        this.showPolsMostRightLeaning = this.showPolsMostRightLeaning.bind(this)
-        this.showPolsMostNeutral = this.showPolsMostNeutral.bind(this)
+        this.handleCategorySelect = this.handleCategorySelect.bind(this)
+        this.handleMetricSelect = this.handleMetricSelect.bind(this)
     }
 
     handleTweetMinChange(changeEvent){
@@ -108,78 +90,17 @@ export default class MyBarChart extends Component {
         this.setState({"opinionModel": model})
     }
 
-    // ALL USERS
-
-    showUsersMostFollowed(){
-        console.log("SHOW ME: USERS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
-        //var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
-        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: allCategoryNames, opinionModel: "lr"})
-    }
-    showUsersMostActive(){
-        console.log("SHOW ME: USERS MOST ACTIVE")
-        this.setState({tweetMin: 200, opinionRange: [0, 100], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showUsersMostLeftLeaning(){
-        console.log("SHOW ME: USERS MOST LEFT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [0, 10], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showUsersMostRightLeaning(){
-        console.log("SHOW ME: USERS MOST RIGHT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showUsersMostNeutral(){
-        console.log("SHOW ME: USERS MOST NEUTRAL")
-        this.setState({tweetMin: 3, opinionRange: [45, 55], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
+    handleCategorySelect(changeEvent){
+        var val = changeEvent.target.value
+        console.log("SHOW ME CATEGORY:", val)
+        //this.setState({"opinionModel": model})
     }
 
-    // MEDIA
-
-    showMediaMostFollowed(){
-        console.log("SHOW ME: MEDIA MOST FOLLOWED") // currently sorted to users most followed, so just open all params
-        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: mediaCategoryNames, opinionModel: "lr"})
+    handleMetricSelect(changeEvent){
+        var val = changeEvent.target.value
+        console.log("SHOW ME METRIC:", val)
+        //this.setState({"opinionModel": model})
     }
-    showMediaMostActive(){
-        console.log("SHOW ME: MEDIA MOST ACTIVE")
-        this.setState({tweetMin: 200, opinionRange: [0, 100], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showMediaMostLeftLeaning(){
-        console.log("SHOW ME: MEDIA MOST LEFT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [0, 20], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showMediaMostRightLeaning(){
-        console.log("SHOW ME: MEDIA MOST RIGHT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [70, 100], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showMediaMostNeutral(){
-        console.log("SHOW ME: MEDIA MOST NEUTRAL")
-        this.setState({tweetMin: 3, opinionRange: [30, 70], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-
-    // POLITICIANS
-
-    showPolsMostFollowed(){
-        console.log("SHOW ME: POLITICIANS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
-        //var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
-        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: polCategoryNames, opinionModel: "lr"})
-    }
-    showPolsMostActive(){
-        console.log("SHOW ME: POLITICIANS MOST ACTIVE")
-        this.setState({tweetMin: 75, opinionRange: [0, 100], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showPolsMostLeftLeaning(){
-        console.log("SHOW ME: POLITICIANS MOST LEFT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [0, 5], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showPolsMostRightLeaning(){
-        console.log("SHOW ME: POLITICIANS MOST RIGHT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showPolsMostNeutral(){
-        console.log("SHOW ME: POLITICIANS MOST NEUTRAL")
-        this.setState({tweetMin: 3, opinionRange: [35, 65], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-
-
 
     render() {
         var tweetMin = this.state.tweetMin
@@ -225,6 +146,7 @@ export default class MyBarChart extends Component {
         return (
             <span>
 
+                { /*
                 <Dropdown>
                     <Dropdown.Toggle variant="light" id="dropdown-basic">
                         Show Me
@@ -254,6 +176,7 @@ export default class MyBarChart extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
 
+                */}
                 <p className="app-center chart-title-p" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
                 <h4 className="app-center chart-title-h4" style={{marginTop:10, marginBottom:0}}>{chartTitle}</h4>
 
@@ -351,35 +274,31 @@ export default class MyBarChart extends Component {
                     />
                 </VictoryChart>
 
-                <Form style={{marginTop: -50}}>
+                <Form style={{marginTop: -75}}>
                     <Form.Group as={Row}>
-                        <Col xs="5">
-                            <Form.Label>Show Me</Form.Label>
-                            <Form.Control as="select" size="lg" custom>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                        <Col xs="6">
+                            <Form.Label>Show Me:</Form.Label>
+                            <Form.Control as="select" size="lg" custom onChange={this.handleCategorySelect}>
+                                <option value="all">All Users</option>
+                                <option value="media">Media</option>
+                                <option value="pol">Politicians</option>
+                                {/* <option value="comment">Commentators</option> */}
                             </Form.Control>
                         </Col>
 
-                        <Col xs="1">
-                        </Col>
-
-                        <Col xs="5">
+                        <Col xs="6">
                             <Form.Label>&nbsp;</Form.Label>
-                            <Form.Control as="select" size="lg" custom>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <Form.Control as="select" size="lg" custom onChange={this.handleMetricSelect}>
+                                <option value="most-followed">Most Followed</option>
+                                <option value="most-active">Most Active</option>
+                                <option value="most-pro-trump">Most Pro-Trump</option>
+                                <option value="most-pro-impeachment">Most Pro-Impeachment</option>
+                                {/* <option value="most-neutral">Most Neutral</option> */}
                             </Form.Control>
                         </Col>
                     </Form.Group>
 
-                    <Form.Group as={Row}>
+                    <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
                             <Form.Label>Minimum Tweet Count</Form.Label>
 
@@ -436,7 +355,7 @@ export default class MyBarChart extends Component {
                         </Col>  */}
                     </Form.Group>
 
-                    <Form.Group as={Row}>
+                    <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
                             <Form.Label>User Category</Form.Label>
 
