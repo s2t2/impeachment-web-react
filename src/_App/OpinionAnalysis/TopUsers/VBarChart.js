@@ -144,7 +144,7 @@ export default class MyBarChart extends Component {
                         { name: "Pro-Impeachment (0%)", symbol: { fill: colorScale(0.15), type: "circle" } },
                         { name: "Pro-Trump (100%)",     symbol: { fill: colorScale(0.85), type: "circle"} },
                     ]}
-                    //gutter={20}
+                    gutter={15} // number of pixels between legend columns
                     x={120}
                     y={-3}
                     //width={20}
