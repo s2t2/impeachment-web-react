@@ -63,28 +63,29 @@ export default class MyBarChart extends Component {
             userCategories: ALL_CATEGORY_NAMES,
             opinionModel: "lr",
         }
-        this.handleCategorySelect = this.handleCategorySelect.bind(this)
-        this.handleMetricSelect = this.handleMetricSelect.bind(this)
-
         this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
         this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
         this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
         this.handleModelSelect = this.handleModelSelect.bind(this)
+
+        this.handleCategorySelect = this.handleCategorySelect.bind(this)
+        this.handleMetricSelect = this.handleMetricSelect.bind(this)
+
     }
 
     render() {
-        var sortMetric = this.state.sortMetric
-        var sortOrder = this.state.sortOrder
-
-
-
         var tweetMin = this.state.tweetMin
         var opinionRange = this.state.opinionRange
         var userCategories = this.state.userCategories
         var opinionModel = this.state.opinionModel
         var opinionMetric = `avg_score_${opinionModel}`
-
         var handleCategoryCheck = this.handleCategoryCheck
+
+        var sortMetric = this.state.sortMetric
+        if(sortMetric === "opinion_score"){
+            sortMetric = opinionMetric
+        }
+        var sortOrder = this.state.sortOrder
 
         // FILTER AND SORT USERS
 
