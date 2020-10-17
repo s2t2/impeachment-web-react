@@ -19,7 +19,7 @@ const Range = createSliderWithTooltip(Slider.Range)
 
 const colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
 
-const allCategories = [
+const ALL_CATEGORIES = [
     {"name":"GOVERNMENT",               "label": "Government"},
     {"name":"PARTY",                    "label": "Political Party"},
     {"name":"ELECTED-OFFICIAL",         "label": "Elected Official"},
@@ -31,14 +31,16 @@ const allCategories = [
     {"name":"CELEBRITY",                "label": "Celebrity"},
     {"name":"OTHER",                    "label": "Other"}
 ]
-
-var allCategoryNames = allCategories.map(function(category){ return category["name"] })
-var polCategoryNames = ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT"]
-var mediaCategoryNames = ["MAJOR-MEDIA-OUTLET", "MEDIA-OUTLET", "NEWS-SHOW"] // "POLITICAL-COMMENTATOR"
-
+const ALL_CATEGORY_NAMES = ALL_CATEGORIES.map(function(category){ return category["name"] })
+const FILTER_CATEGORIES = {
+    "all": ALL_CATEGORY_NAMES,
+    "media": ["MAJOR-MEDIA-OUTLET", "MEDIA-OUTLET", "NEWS-SHOW"],
+    "politician": ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT"],
+}
 function formatBigNumber(num) {
+    // h/t: https://stackoverflow.com/a/9461657
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
-} // h/t: https://stackoverflow.com/a/9461657
+}
 
 export default class MyBarChart extends Component {
     constructor(props) {
@@ -46,60 +48,15 @@ export default class MyBarChart extends Component {
         this.state = {
             tweetMin: 5,
             opinionRange: [0, 100],
-            userCategories: allCategoryNames, //["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY", "OTHER"],
-            opinionModel: "lr"
+            userCategories: ALL_CATEGORY_NAMES,
+            opinionModel: "lr",
         } // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
-        this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
-        this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
-        //this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
-        //this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
-        this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
-        this.handleModelSelect = this.handleModelSelect.bind(this)
         this.handleCategorySelect = this.handleCategorySelect.bind(this)
         this.handleMetricSelect = this.handleMetricSelect.bind(this)
-    }
-
-    handleTweetMinChange(changeEvent){
-        this.setState({tweetMin: changeEvent.target.value})
-    }
-
-    handleOpinionRangeChange(newRange){
-        console.log("CHANGE OPINION RANGE", newRange)
-        this.setState({opinionRange: newRange})
-    }
-
-    handleCategoryCheck(changeEvent){
-        var category = changeEvent.target.value
-        console.log("CHECK CATEGORY:", category)
-
-        var userCategories = this.state.userCategories
-        var categoryIndex = userCategories.indexOf(category) // will be -1 if item not in array
-        if (categoryIndex >= 0 ) {
-            userCategories.splice(categoryIndex, 1) // remove 1 item from array at the given position
-        } else {
-            userCategories.push(category)
-        }
-
-        console.log("CATEGORIES:", userCategories)
-        this.setState({userCategories: userCategories}) // this is updating state but why not triggering a re-render?
-    }
-
-    handleModelSelect(changeEvent){
-        var model = changeEvent.target.value
-        console.log("SELECT MODEL:", model)
-        this.setState({"opinionModel": model})
-    }
-
-    handleCategorySelect(changeEvent){
-        var val = changeEvent.target.value
-        console.log("SHOW ME CATEGORY:", val)
-        //this.setState({"opinionModel": model})
-    }
-
-    handleMetricSelect(changeEvent){
-        var val = changeEvent.target.value
-        console.log("SHOW ME METRIC:", val)
-        //this.setState({"opinionModel": model})
+        this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
+        this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
+        this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
+        this.handleModelSelect = this.handleModelSelect.bind(this)
     }
 
     render() {
@@ -112,7 +69,7 @@ export default class MyBarChart extends Component {
         var handleCategoryCheck = this.handleCategoryCheck
 
         // RADIO BUTTONS FOR EACH CATEGORY
-        var categoryChecks = allCategories.map(function(category){
+        var categoryChecks = ALL_CATEGORIES.map(function(category){
             return (
                 <Form.Check inline type="checkbox" key={category["name"]} value={category["name"]} label={category["label"]}
                     checked={userCategories.includes(category["name"])}
@@ -145,38 +102,6 @@ export default class MyBarChart extends Component {
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
         return (
             <span>
-
-                { /*
-                <Dropdown>
-                    <Dropdown.Toggle variant="light" id="dropdown-basic">
-                        Show Me
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                        <Dropdown.Item onSelect={this.showUsersMostFollowed}>Users most followed</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showUsersMostActive}>Users most active</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showUsersMostLeftLeaning}>Users most left-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showUsersMostRightLeaning}>Users most right-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showUsersMostNeutral}>Users most neutral</Dropdown.Item>
-
-                        <Dropdown.Divider />
-                        <Dropdown.Item onSelect={this.showMediaMostFollowed}>Media most followed</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showMediaMostActive}>Media most active</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showMediaMostLeftLeaning}>Media most left-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showMediaMostRightLeaning}>Media most right-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showMediaMostNeutral}>Media most neutral</Dropdown.Item>
-
-                        <Dropdown.Divider />
-                        <Dropdown.Item onSelect={this.showPolsMostFollowed}>Politicians most followed</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showPolsMostActive}>Politicians most active</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showPolsMostLeftLeaning}>Politicians most left-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showPolsMostRightLeaning}>Politicians most right-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showPolsMostNeutral}>Politicians most neutral</Dropdown.Item>
-
-                    </Dropdown.Menu>
-                </Dropdown>
-
-                */}
                 <p className="app-center chart-title-p" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
                 <h4 className="app-center chart-title-h4" style={{marginTop:10, marginBottom:0}}>{chartTitle}</h4>
 
@@ -277,17 +202,17 @@ export default class MyBarChart extends Component {
                 <Form style={{marginTop: -75}}>
                     <Form.Group as={Row}>
                         <Col xs="6">
-                            <Form.Label>Show Me:</Form.Label>
+                            <Form.Label>Filter By:</Form.Label>
                             <Form.Control as="select" size="lg" custom onChange={this.handleCategorySelect}>
                                 <option value="all">All Users</option>
                                 <option value="media">Media</option>
-                                <option value="pol">Politicians</option>
+                                <option value="politician">Politicians</option>
                                 {/* <option value="comment">Commentators</option> */}
                             </Form.Control>
                         </Col>
 
                         <Col xs="6">
-                            <Form.Label>&nbsp;</Form.Label>
+                            <Form.Label>Sort By:</Form.Label>
                             <Form.Control as="select" size="lg" custom onChange={this.handleMetricSelect}>
                                 <option value="most-followed">Most Followed</option>
                                 <option value="most-active">Most Active</option>
@@ -399,6 +324,49 @@ export default class MyBarChart extends Component {
 
     componentDidUpdate(prevProps) {
         console.log("BAR CHART DID UPDATE")
+    }
+
+    handleTweetMinChange(changeEvent){
+        this.setState({tweetMin: changeEvent.target.value})
+    }
+
+    handleOpinionRangeChange(newRange){
+        console.log("CHANGE OPINION RANGE", newRange)
+        this.setState({opinionRange: newRange})
+    }
+
+    handleCategoryCheck(changeEvent){
+        var category = changeEvent.target.value
+        console.log("CHECK CATEGORY:", category)
+
+        var userCategories = this.state.userCategories
+        var categoryIndex = userCategories.indexOf(category) // will be -1 if item not in array
+        if (categoryIndex >= 0 ) {
+            userCategories.splice(categoryIndex, 1) // remove 1 item from array at the given position
+        } else {
+            userCategories.push(category)
+        }
+
+        console.log("CATEGORIES:", userCategories)
+        this.setState({userCategories: userCategories})
+    }
+
+    handleModelSelect(changeEvent){
+        var model = changeEvent.target.value
+        console.log("SELECT MODEL:", model)
+        this.setState({"opinionModel": model})
+    }
+
+    handleCategorySelect(changeEvent){
+        var val = changeEvent.target.value
+        console.log("FILTER BY CATEGORY:", val)
+        this.setState({userCategories: FILTER_CATEGORIES[val]})
+    }
+
+    handleMetricSelect(changeEvent){
+        var val = changeEvent.target.value
+        console.log("SORT BY METRIC:", val)
+        this.setState({sortMetric: val})
     }
 
 }
