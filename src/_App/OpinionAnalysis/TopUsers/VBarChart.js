@@ -48,6 +48,7 @@ const SORT_METRICS = {
     "most-pro-trump": {"metric": "opinion_score", "order": "desc", "label": "Mean Opinion Score"},
     "most-pro-impeachment": {"metric": "opinion_score", "order": "asc", "label": "Mean Opinion Score"},
 }
+const DEFAULT_METRIC = "most-pro-trump" // "most-followed"
 var BAR_COUNT = 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
 
 function formatBigNumber(num) {
@@ -60,12 +61,12 @@ export default class MyBarChart extends Component {
         super(props)
         this.state = { // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
 
-            sortMetric: SORT_METRICS["most-followed"]["metric"], // can be "follower_count", "status_count", "opinion_score" (needs differentiation)
-            sortOrder:  SORT_METRICS["most-followed"]["order"], // "desc", "asc"
-            sortLabel:  SORT_METRICS["most-followed"]["label"], // "desc", "asc"
+            sortMetric: SORT_METRICS[DEFAULT_METRIC]["metric"], // can be "follower_count", "status_count", "opinion_score" (needs differentiation)
+            sortOrder:  SORT_METRICS[DEFAULT_METRIC]["order"], // "desc", "asc"
+            sortLabel:  SORT_METRICS[DEFAULT_METRIC]["label"], // "desc", "asc"
 
-            tweetMin: 5,
-            followerMin: 10000,
+            followerMin: 412_000,
+            tweetMin: 30,
             opinionRange: [0, 100],
             userCategories: ALL_CATEGORY_NAMES,
             opinionModel: "lr",
@@ -90,7 +91,6 @@ export default class MyBarChart extends Component {
         var userCategories = this.state.userCategories
         var opinionModel = this.state.opinionModel
         var opinionMetric = `avg_score_${opinionModel}`
-        var handleCategoryCheck = this.handleCategoryCheck
         var barLabel = this.barLabel
 
         var sortMetric = this.state.sortMetric
@@ -146,10 +146,8 @@ export default class MyBarChart extends Component {
                     ]}
                     //gutter={20}
                     x={120}
-                    y={0}
+                    y={-3}
                     //width={20}
-                    //height={10}
-                    //padding={{ top: 1000, bottom: 1000 }}
                     style={{
                         //parent: {},
                         //border: {stroke: "black"},
