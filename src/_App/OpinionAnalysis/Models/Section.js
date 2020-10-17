@@ -74,17 +74,18 @@ export default function SentimentAnalysis() {
                         {" "} To train the BERT transformer, we tokenized tweet text using the <a href="https://huggingface.co/transformers/pretrained_models.html">"bert-base-cased" tokenizer</a>.
                     </Card.Text>
 
-                    <Card.Text>
-                        The fully-trained Logistic Regression is 9 MB, the Naive Bayes is 36 MB, and the BERT Transformer is 413 MB.
-                    </Card.Text>
-
                     <h4>Model Evaluation</h4>
+
                     <Card.Text>
                         <ul>
                             <li>The Logistic Regression scored 88.9% accuracy on the training data and 87.7% accuracy on the test data.</li>
                             <li>The Naive Bayes scored 90.7% accuracy on the training data and 88.2% accuracy on the test data.</li>
-                            <li>The BERT Transformer scored X% accuracy on the training data and Y% accuracy on the test data.</li>
+                            <li>The BERT Transformer's generalization error on the test data was 96.3%.</li>
                         </ul>
+                    </Card.Text>
+
+                    <Card.Text>
+                        The fully-trained Logistic Regression is 9 MB, the Naive Bayes is 36 MB, and the BERT Transformer is 413 MB.
                     </Card.Text>
 
                     <h4>Model Predictions</h4>
@@ -96,7 +97,6 @@ export default function SentimentAnalysis() {
                     <Card.Text>
                         The overall distribution of mean opinion scores for users with the most followers is below.
                         {" "} Use the <a href="/user-opinions">User Opinions</a> and <a href="top-user-opinions">Top User Opinions</a> dashboards to explore further.
-                        {" "} NOTE: tweets by '@FOXNEWS' only include URLs in the text, so they're not able to be scored.
                     </Card.Text>
 
                     <img src={meanOpinionsLR} className="img-fluid" style={{height:450, marginTop:15, marginBottom:10}} alt="a histogram of mean opinion scores for the Logistic Regression model"/>

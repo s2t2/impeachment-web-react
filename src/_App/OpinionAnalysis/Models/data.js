@@ -171,4 +171,6 @@ var communityTags = [
 //    }
 //}
 
+// 'The testing error ("generalization error") is 0.9626403922367205'
+
 export default communityTags
