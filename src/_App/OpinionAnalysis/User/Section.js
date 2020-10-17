@@ -10,6 +10,7 @@ import Form from 'react-bootstrap/Form'
 //import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button'
 import queryString from 'query-string'
+import ReactGA from 'react-ga'
 
 import UserOpinionDashboard from "./Dashboard"
 
@@ -27,6 +28,11 @@ export default class UserOpinionSection extends PureComponent {
         event.preventDefault() // prevent page reload
         var screenName = document.getElementById("inputScreenName").value
         console.log("YOU CLICKED ME!", screenName)
+        ReactGA.event({
+            category: "User Chart Interaction",
+            action: "Input Screen Name",
+            value: screenName
+        })
         this.setState({screenName: screenName})
     }
 

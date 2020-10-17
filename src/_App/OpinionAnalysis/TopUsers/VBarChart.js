@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form'
 //import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Dropdown from 'react-bootstrap/Dropdown'
+//import Dropdown from 'react-bootstrap/Dropdown'
 //import Button from 'react-bootstrap/Button'
 import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend} from 'victory' // VictoryTheme, VictoryLabel
 //import { orderBy } from 'lodash'
@@ -11,6 +11,7 @@ import {scaleSequential, interpolateRdBu} from 'd3'
 import RangeSlider from 'react-bootstrap-range-slider'
 //import { Range } from 'rc-slider'
 import Slider from 'rc-slider'
+import ReactGA from 'react-ga'
 
 import './VBarChart.css'
 
@@ -19,7 +20,7 @@ const Range = createSliderWithTooltip(Slider.Range)
 
 const colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
 
-const allCategories = [
+const ALL_CATEGORIES = [
     {"name":"GOVERNMENT",               "label": "Government"},
     {"name":"PARTY",                    "label": "Political Party"},
     {"name":"ELECTED-OFFICIAL",         "label": "Elected Official"},
@@ -31,180 +32,81 @@ const allCategories = [
     {"name":"CELEBRITY",                "label": "Celebrity"},
     {"name":"OTHER",                    "label": "Other"}
 ]
+const ALL_CATEGORY_NAMES = ALL_CATEGORIES.map(function(category){ return category["name"] })
+const FILTER_CATEGORIES = {
+    "all": ALL_CATEGORY_NAMES,
+    "media": ["MAJOR-MEDIA-OUTLET", "MEDIA-OUTLET", "NEWS-SHOW"],
+    "politician": ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT"],
+    "commentator": ["POLITICAL-COMMENTATOR", "LEGAL-SCHOLAR"],
+    "celebrity": ["CELEBRITY"],
 
-var allCategoryNames = allCategories.map(function(category){ return category["name"] })
-var polCategoryNames = ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT"]
-var mediaCategoryNames = ["MAJOR-MEDIA-OUTLET", "MEDIA-OUTLET", "NEWS-SHOW"] // "POLITICAL-COMMENTATOR"
+
+}
+const SORT_METRICS = {
+    "most-followed": {"metric": "follower_count", "order": "desc", "label": "Follower Count (in our dataset)"},
+    "most-active": {"metric": "status_count", "order": "desc", "label": "Tweet Count"},
+    "most-pro-trump": {"metric": "opinion_score", "order": "desc", "label": "Mean Opinion Score"},
+    "most-pro-impeachment": {"metric": "opinion_score", "order": "asc", "label": "Mean Opinion Score"},
+}
+var BAR_COUNT = 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
 
 function formatBigNumber(num) {
+    // h/t: https://stackoverflow.com/a/9461657
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
-} // h/t: https://stackoverflow.com/a/9461657
+}
 
 export default class MyBarChart extends Component {
     constructor(props) {
         super(props)
-        this.state = {
+        this.state = { // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
+
+            sortMetric: SORT_METRICS["most-followed"]["metric"], // can be "follower_count", "status_count", "opinion_score" (needs differentiation)
+            sortOrder:  SORT_METRICS["most-followed"]["order"], // "desc", "asc"
+            sortLabel:  SORT_METRICS["most-followed"]["label"], // "desc", "asc"
+
             tweetMin: 5,
+            followerMin: 10000,
             opinionRange: [0, 100],
-            userCategories: allCategoryNames, //["MAJOR-MEDIA-OUTLET","ELECTED-OFFICIAL","PARTY", "OTHER"],
-            opinionModel: "lr"
-        } // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
+            userCategories: ALL_CATEGORY_NAMES,
+            opinionModel: "lr",
+        }
         this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
+        this.handleFollowerMinChange = this.handleFollowerMinChange.bind(this)
+
         this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
-        //this.handleOpinionMinChange = this.handleOpinionMinChange.bind(this)
-        //this.handleOpinionMaxChange = this.handleOpinionMaxChange.bind(this)
         this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
         this.handleModelSelect = this.handleModelSelect.bind(this)
 
-        // SHOW ME (STATE MANIPULATION SHORTCUTS)
+        this.handleCategorySelect = this.handleCategorySelect.bind(this)
+        this.handleMetricSelect = this.handleMetricSelect.bind(this)
+        this.barLabel = this.barLabel.bind(this)
 
-        this.showUsersMostFollowed = this.showUsersMostFollowed.bind(this)
-        this.showUsersMostActive = this.showUsersMostActive.bind(this)
-        this.showUsersMostLeftLeaning = this.showUsersMostLeftLeaning.bind(this)
-        this.showUsersMostRightLeaning = this.showUsersMostRightLeaning.bind(this)
-        this.showUsersMostNeutral = this.showUsersMostNeutral.bind(this)
-
-        this.showMediaMostFollowed = this.showMediaMostFollowed.bind(this)
-        this.showMediaMostActive = this.showMediaMostActive.bind(this)
-        this.showMediaMostLeftLeaning = this.showMediaMostLeftLeaning.bind(this)
-        this.showMediaMostRightLeaning = this.showMediaMostRightLeaning.bind(this)
-        this.showMediaMostNeutral = this.showMediaMostNeutral.bind(this)
-
-        this.showPolsMostFollowed = this.showPolsMostFollowed.bind(this)
-        this.showPolsMostActive = this.showPolsMostActive.bind(this)
-        this.showPolsMostLeftLeaning = this.showPolsMostLeftLeaning.bind(this)
-        this.showPolsMostRightLeaning = this.showPolsMostRightLeaning.bind(this)
-        this.showPolsMostNeutral = this.showPolsMostNeutral.bind(this)
     }
-
-    handleTweetMinChange(changeEvent){
-        this.setState({tweetMin: changeEvent.target.value})
-    }
-
-    handleOpinionRangeChange(newRange){
-        console.log("CHANGE OPINION RANGE", newRange)
-        this.setState({opinionRange: newRange})
-    }
-
-    handleCategoryCheck(changeEvent){
-        var category = changeEvent.target.value
-        console.log("CHECK CATEGORY:", category)
-
-        var userCategories = this.state.userCategories
-        var categoryIndex = userCategories.indexOf(category) // will be -1 if item not in array
-        if (categoryIndex >= 0 ) {
-            userCategories.splice(categoryIndex, 1) // remove 1 item from array at the given position
-        } else {
-            userCategories.push(category)
-        }
-
-        console.log("CATEGORIES:", userCategories)
-        this.setState({userCategories: userCategories}) // this is updating state but why not triggering a re-render?
-    }
-
-    handleModelSelect(changeEvent){
-        var model = changeEvent.target.value
-        console.log("SELECT MODEL:", model)
-        this.setState({"opinionModel": model})
-    }
-
-    // ALL USERS
-
-    showUsersMostFollowed(){
-        console.log("SHOW ME: USERS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
-        //var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
-        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: allCategoryNames, opinionModel: "lr"})
-    }
-    showUsersMostActive(){
-        console.log("SHOW ME: USERS MOST ACTIVE")
-        this.setState({tweetMin: 200, opinionRange: [0, 100], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showUsersMostLeftLeaning(){
-        console.log("SHOW ME: USERS MOST LEFT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [0, 10], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showUsersMostRightLeaning(){
-        console.log("SHOW ME: USERS MOST RIGHT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showUsersMostNeutral(){
-        console.log("SHOW ME: USERS MOST NEUTRAL")
-        this.setState({tweetMin: 3, opinionRange: [45, 55], userCategories: allCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-
-    // MEDIA
-
-    showMediaMostFollowed(){
-        console.log("SHOW ME: MEDIA MOST FOLLOWED") // currently sorted to users most followed, so just open all params
-        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: mediaCategoryNames, opinionModel: "lr"})
-    }
-    showMediaMostActive(){
-        console.log("SHOW ME: MEDIA MOST ACTIVE")
-        this.setState({tweetMin: 200, opinionRange: [0, 100], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showMediaMostLeftLeaning(){
-        console.log("SHOW ME: MEDIA MOST LEFT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [0, 20], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showMediaMostRightLeaning(){
-        console.log("SHOW ME: MEDIA MOST RIGHT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [70, 100], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showMediaMostNeutral(){
-        console.log("SHOW ME: MEDIA MOST NEUTRAL")
-        this.setState({tweetMin: 3, opinionRange: [30, 70], userCategories: mediaCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-
-    // POLITICIANS
-
-    showPolsMostFollowed(){
-        console.log("SHOW ME: POLITICIANS MOST FOLLOWED") // currently sorted to users most followed, so just open all params
-        //var currentModel = this.state.opinionModel //TODO: use currently-selected opinionModel
-        this.setState({tweetMin: 3, opinionRange: [0, 100], userCategories: polCategoryNames, opinionModel: "lr"})
-    }
-    showPolsMostActive(){
-        console.log("SHOW ME: POLITICIANS MOST ACTIVE")
-        this.setState({tweetMin: 75, opinionRange: [0, 100], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showPolsMostLeftLeaning(){
-        console.log("SHOW ME: POLITICIANS MOST LEFT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [0, 5], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showPolsMostRightLeaning(){
-        console.log("SHOW ME: POLITICIANS MOST RIGHT-LEANING")
-        this.setState({tweetMin: 3, opinionRange: [90, 100], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-    showPolsMostNeutral(){
-        console.log("SHOW ME: POLITICIANS MOST NEUTRAL")
-        this.setState({tweetMin: 3, opinionRange: [35, 65], userCategories: polCategoryNames, opinionModel: "lr"}) // TODO: use currently-selected opinionModel
-    }
-
-
 
     render() {
         var tweetMin = this.state.tweetMin
+        var followerMin = this.state.followerMin
         var opinionRange = this.state.opinionRange
         var userCategories = this.state.userCategories
         var opinionModel = this.state.opinionModel
         var opinionMetric = `avg_score_${opinionModel}`
-        var barCount = this.props.barCount || 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
         var handleCategoryCheck = this.handleCategoryCheck
+        var barLabel = this.barLabel
 
-        // RADIO BUTTONS FOR EACH CATEGORY
-        var categoryChecks = allCategories.map(function(category){
-            return (
-                <Form.Check inline type="checkbox" key={category["name"]} value={category["name"]} label={category["label"]}
-                    checked={userCategories.includes(category["name"])}
-                    onChange={handleCategoryCheck}
-                />
-            )
-        })
+        var sortMetric = this.state.sortMetric
+        if(sortMetric === "opinion_score"){
+            sortMetric = opinionMetric
+        }
+        var sortOrder = this.state.sortOrder
+        var sortLabel = this.state.sortLabel
 
         // FILTER AND SORT USERS
+
         var users = this.props.users
             .filter(function(user){
                 return (
                     user["status_count"] >= tweetMin &&
+                    user["follower_count"] >= followerMin &&
                     user[opinionMetric] * 100.0 >= opinionRange[0] &&
                     user[opinionMetric] * 100.0 <= opinionRange[1] &&
                     userCategories.includes(user["category"])
@@ -215,53 +117,25 @@ export default class MyBarChart extends Component {
                 return user
             })
             .sort(function(a, b){
-                return a["follower_count"] - b["follower_count"] // chart wants this order
+                // chart wants this order
+                if(sortOrder === "asc"){
+                    return b[sortMetric] - a[sortMetric]
+                } else {
+                    return a[sortMetric] - b[sortMetric]
+                }
             }) // sort before slice
-            .slice(-barCount) // negative number takes last X users (which is actually the top X users)
+            .slice(-BAR_COUNT) // negative number takes last X users (which is actually the top X users)
+
+        // CHART OPTIONS
 
         var chartTitle = "Users Tweeting about Trump Impeachment" // TODO: dynamic
         var chartPadding = { left: 175, top: 15, right: 50, bottom: 130 } // spacing for axis labels (screen names)
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
+
         return (
             <span>
-
-                <Dropdown>
-                    <Dropdown.Toggle variant="light" id="dropdown-basic">
-                        Show Me
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                        <Dropdown.Item onSelect={this.showUsersMostFollowed}>Users most followed</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showUsersMostActive}>Users most active</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showUsersMostLeftLeaning}>Users most left-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showUsersMostRightLeaning}>Users most right-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showUsersMostNeutral}>Users most neutral</Dropdown.Item>
-
-                        <Dropdown.Divider />
-                        <Dropdown.Item onSelect={this.showMediaMostFollowed}>Media most followed</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showMediaMostActive}>Media most active</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showMediaMostLeftLeaning}>Media most left-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showMediaMostRightLeaning}>Media most right-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showMediaMostNeutral}>Media most neutral</Dropdown.Item>
-
-                        <Dropdown.Divider />
-                        <Dropdown.Item onSelect={this.showPolsMostFollowed}>Politicians most followed</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showPolsMostActive}>Politicians most active</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showPolsMostLeftLeaning}>Politicians most left-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showPolsMostRightLeaning}>Politicians most right-leaning</Dropdown.Item>
-                        <Dropdown.Item onSelect={this.showPolsMostNeutral}>Politicians most neutral</Dropdown.Item>
-
-                    </Dropdown.Menu>
-                </Dropdown>
-
                 <p className="app-center chart-title-p" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
                 <h4 className="app-center chart-title-h4" style={{marginTop:10, marginBottom:0}}>{chartTitle}</h4>
-
-                {/*
-
-                <VictoryLabel text={chartTitle} textAnchor="center"/>
-
-                */}
 
                 <VictoryLegend height={15}
                     //title="Opinion Score" centerTitle
@@ -285,45 +159,16 @@ export default class MyBarChart extends Component {
                     }}
                 />
 
-
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
-                    { /*
-                    <VictoryLabel text="Chart Title"
-                        x={225} y={10}
-                        textAnchor="middle"
-                    />
 
-                    <VictoryLegend
-                        height={15}
-                        //title="Opinion Score" centerTitle
-                        orientation="horizontal"
-                        data={[
-                            { name: "Pro-Impeachment (0%)", symbol: { fill: colorScale(0.15), type: "circle" } },
-                            { name: "Pro-Trump (100%)",     symbol: { fill: colorScale(0.85), type: "circle"} },
-                        ]}
-                        //gutter={20}
-                        x={200}
-                        y={20}
-                        //width={20}
-                        //height={10}
-                        //padding={{ top: 1000, bottom: 1000 }}
-                        style={{
-                            //parent: {},
-                            //border: {stroke: "black"},
-                            title: {fontSize: 10},
-                            data: {fontSize: 10},
-                            labels: {fontSize: 10},
-                        }}
-                    />
-                    */}
-
-                    <VictoryBar horizontal data={users} x="handle" y="follower_count"
+                    <VictoryBar horizontal
+                        data={users} x="handle" y={sortMetric}
                         animate={true}
                         //barWidth={12}
                         barRatio={0.87}
                         //alignment="middle"
 
-                        labels={({ datum }) => datum["scorePct"]}
+                        labels={({ datum }) => barLabel(datum)}
                         //labelComponent={<VictoryLabel dx={-30}/>}
                         style={{
                             //parent: { border: "1px solid #ccc" }
@@ -347,7 +192,7 @@ export default class MyBarChart extends Component {
                     <VictoryAxis dependentAxis
                         //tickFormat={(tick) => `${tick}%`}
                         tickFormat={formatBigNumber}
-                        label="Follower Count"
+                        label={sortLabel}
                         style={{
                             //axis: {stroke: "#756f6a"},
                             axisLabel: {fontSize: 10, padding:25},
@@ -358,29 +203,50 @@ export default class MyBarChart extends Component {
                     />
                 </VictoryChart>
 
-                <Form style={{marginTop: -50}}>
+                <Form className="below-chart">
                     <Form.Group as={Row}>
-                        <Col xs="5">
-                            <Form.Label>Minimum Tweet Count</Form.Label>
+                        <Col xs="6">
+                            <Form.Label>User Category:</Form.Label>
+                            <Form.Control as="select" size="lg" custom onChange={this.handleCategorySelect}>
+                                <option value="all">All Users</option>
+                                <option value="media">Media</option>
+                                <option value="politician">Politicians</option>
+                                <option value="commentator">Commentators</option>
+                                <option value="celebrity">Celebrities</option>
+                            </Form.Control>
+                        </Col>
 
-                            <RangeSlider min={3} max={200}
-                                value={tweetMin}
-                                onChange={this.handleTweetMinChange}
+                        <Col xs="6">
+                            <Form.Label>Sort By:</Form.Label>
+                            <Form.Control as="select" size="lg" custom onChange={this.handleMetricSelect}>
+                                <option value="most-followed">Follower Count</option>
+                                <option value="most-active">Tweet Count</option>
+                                <option value="most-pro-trump">Pro-Trump Score</option>
+                                <option value="most-pro-impeachment">Pro-Impeachment Score</option>
+                                {/* <option value="most-neutral">Most Neutral</option> */}
+                            </Form.Control>
+                        </Col>
+                    </Form.Group>
+
+                    <Form.Group as={Row} style={{marginTop: 35}}>
+                        <Col xs="5">
+                            <Form.Label>Minimum Followers:</Form.Label>
+
+                            <RangeSlider min={10000} max={1000000} step={10000}
+                                value={followerMin}
+                                onChange={this.handleFollowerMinChange}
                                 tooltip="on" // "on" //"auto"
                                 tooltipPlacement="bottom"
                                 //tooltipLabel=
                                 //variant="dark"
                             />
-                        </Col> {/*}
-                        <Col xs="2" style={{"paddingTop":"1.9em"}}>
-                            <Form.Control type="number" min={3} max={200} value={tweetMin} onChange={this.handleTweetMinChange}/>
-                        </Col> */}
+                        </Col>
 
                         <Col xs="1">
                         </Col>
 
                         <Col xs="5">
-                            <Form.Label>Mean Opinion Score</Form.Label>
+                            <Form.Label>Mean Opinion Score:</Form.Label>
 
                             <Range min={0} max={100} step={1}
                                 defaultValue={[0, 100]}
@@ -408,30 +274,28 @@ export default class MyBarChart extends Component {
                                 }}
                             />
                         </Col>
-
-                        {/*}
-                        <Col xs="2" style={{"paddingTop":"1em"}}>
-                            <Form.Control type="number" min={0} max={99} value={opinionRange[0]} onChange={this.handleOpinionMinChange}/>
-                            <Form.Control type="number" min={1} max={100} value={opinionRange[1]} onChange={this.handleOpinionMaxChange}/>
-                        </Col>  */}
                     </Form.Group>
 
-                    <Form.Group as={Row}>
+
+                    <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
-                            <Form.Label>User Category</Form.Label>
+                            <Form.Label>Minimum Tweets:</Form.Label>
 
-                            <div key="inline-checkbox" className="mb-3">
-                                {categoryChecks}
-                            </div>
-
-                            <p>NOTE: categories are subjective</p>
+                            <RangeSlider min={3} max={200}
+                                value={tweetMin}
+                                onChange={this.handleTweetMinChange}
+                                tooltip="on" // "on" //"auto"
+                                tooltipPlacement="bottom"
+                                //tooltipLabel=
+                                //variant="dark"
+                            />
                         </Col>
 
                         <Col xs="1">
                         </Col>
 
                         <Col xs="5">
-                            <Form.Label>Opinion Model</Form.Label>
+                            <Form.Label>Opinion Model:</Form.Label>
 
                             <div key="inline-radios" className="mb-3">
                                 <Form.Check inline label="Logistic Regression" value="lr" type="radio" id="radio-lr"
@@ -462,4 +326,109 @@ export default class MyBarChart extends Component {
         console.log("BAR CHART DID UPDATE")
     }
 
+    handleTweetMinChange(changeEvent){
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Change Tweet Min",
+            value: changeEvent.target.value
+        })
+        this.setState({tweetMin: changeEvent.target.value})
+    }
+
+    handleFollowerMinChange(changeEvent){
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Change Follower Min",
+            value: changeEvent.target.value
+        })
+        this.setState({followerMin: changeEvent.target.value})
+    }
+
+    handleOpinionRangeChange(newRange){
+        //ReactGA.event({
+        //    category: "Top Users Chart Interaction",
+        //    action: "Change Opinion Min",
+        //    value: newRange[0]
+        //})
+        //ReactGA.event({
+        //    category: "Top Users Chart Interaction",
+        //    action: "Change Opinion Max",
+        //    value: newRange[1]
+        //})
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Change Opinion Range",
+            label: newRange.join(", ")
+        })
+        console.log("CHANGE OPINION RANGE", newRange)
+        this.setState({opinionRange: newRange})
+    }
+
+    handleCategoryCheck(changeEvent){
+        var category = changeEvent.target.value
+        console.log("CHECK CATEGORY:", category)
+
+        var userCategories = this.state.userCategories
+        var categoryIndex = userCategories.indexOf(category) // will be -1 if item not in array
+        if (categoryIndex >= 0 ) {
+            userCategories.splice(categoryIndex, 1) // remove 1 item from array at the given position
+        } else {
+            userCategories.push(category)
+        }
+
+        console.log("CATEGORIES:", userCategories)
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Change Opinion Min",
+            label: userCategories.join(", ")
+        })
+        this.setState({userCategories: userCategories})
+    }
+
+    handleModelSelect(changeEvent){
+        var model = changeEvent.target.value
+        console.log("SELECT MODEL:", model)
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Select Opinion Model",
+            label: model
+        })
+        this.setState({"opinionModel": model})
+    }
+
+    handleCategorySelect(changeEvent){
+        var val = changeEvent.target.value
+        console.log("FILTER BY CATEGORY:", val)
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Select User Category",
+            label: val
+        })
+        this.setState({userCategories: FILTER_CATEGORIES[val]})
+    }
+
+    handleMetricSelect(changeEvent){
+        var val = changeEvent.target.value
+        console.log("SORT BY METRIC:", val)
+        ReactGA.event({
+            category: "Top Users Chart Interaction",
+            action: "Select Sort Metric",
+            label: val
+        })
+        this.setState({
+            sortMetric: SORT_METRICS[val]["metric"],
+            sortOrder: SORT_METRICS[val]["order"],
+            sortLabel: SORT_METRICS[val]["label"]
+        })
+    }
+
+    barLabel(datum){
+        var metric = this.state.sortMetric
+        if (metric == "opinion_score"){
+            return datum["scorePct"]
+        } else {
+            return formatBigNumber(datum[metric])
+        }
+
+    }
 }

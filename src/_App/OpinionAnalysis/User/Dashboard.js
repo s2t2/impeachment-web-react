@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form'
 //import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import ReactGA from 'react-ga'
 
 import Spinner from '../../Spinner'
 import UserStatusesTable from './UserStatusesTable.js'
@@ -24,6 +25,11 @@ export default class Dashboard extends PureComponent {
     handleModelSelect(changeEvent){
         var metric = changeEvent.target.value
         console.log("SELECT METRIC:", metric)
+        ReactGA.event({
+            category: "User Chart Interaction",
+            action: "Select Opinion Model",
+            value: metric
+        })
         this.setState({"metric": metric})
     }
 
