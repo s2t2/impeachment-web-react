@@ -38,10 +38,10 @@ const FILTER_CATEGORIES = {
     "politician": ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT"],
 }
 const SORT_METRICS = {
-    "most-followed": {"metric": "follower_count", "order": "desc"},
-    "most-active": {"metric": "status_count", "order": "desc"},
-    "most-pro-trump": {"metric": "opinion_score", "order": "desc"},
-    "most-pro-impeachment": {"metric": "opinion_score", "order": "asc"},
+    "most-followed": {"metric": "follower_count", "order": "desc", "label": "Follower Count"},
+    "most-active": {"metric": "status_count", "order": "desc", "label": "Tweet Count"},
+    "most-pro-trump": {"metric": "opinion_score", "order": "desc", "label": "Mean Opinion Score"},
+    "most-pro-impeachment": {"metric": "opinion_score", "order": "asc", "label": "Mean Opinion Score"},
 }
 var BAR_COUNT = 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
 
@@ -54,15 +54,18 @@ export default class MyBarChart extends Component {
     constructor(props) {
         super(props)
         this.state = { // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
-            sortMetric: "opinion_score", // can be "follower_count", "status_count", "opinion_score" (needs differentiation)
-            sortOrder: "asc", // "desc", "asc"
+            sortMetric: "follower_count", // can be "follower_count", "status_count", "opinion_score" (needs differentiation)
+            sortOrder: "desc", // "desc", "asc"
 
             tweetMin: 5,
+            followerMin: 10000,
             opinionRange: [0, 100],
             userCategories: ALL_CATEGORY_NAMES,
             opinionModel: "lr",
         }
         this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
+        this.handleFollowerMinChange = this.handleFollowerMinChange.bind(this)
+
         this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
         this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
         this.handleModelSelect = this.handleModelSelect.bind(this)
@@ -74,6 +77,7 @@ export default class MyBarChart extends Component {
 
     render() {
         var tweetMin = this.state.tweetMin
+        var followerMin = this.state.followerMin
         var opinionRange = this.state.opinionRange
         var userCategories = this.state.userCategories
         var opinionModel = this.state.opinionModel
@@ -92,6 +96,7 @@ export default class MyBarChart extends Component {
             .filter(function(user){
                 return (
                     user["status_count"] >= tweetMin &&
+                    user["follower_count"] >= followerMin &&
                     user[opinionMetric] * 100.0 >= opinionRange[0] &&
                     user[opinionMetric] * 100.0 <= opinionRange[1] &&
                     userCategories.includes(user["category"])
@@ -103,10 +108,10 @@ export default class MyBarChart extends Component {
             })
             .sort(function(a, b){
                 // chart wants this order
-                if(sortOrder === "desc"){
-                    return a[sortMetric] - b[sortMetric]
-                } else if (sortOrder === "asc"){
+                if(sortOrder === "asc"){
                     return b[sortMetric] - a[sortMetric]
+                } else {
+                    return a[sortMetric] - b[sortMetric]
                 }
             }) // sort before slice
             .slice(-BAR_COUNT) // negative number takes last X users (which is actually the top X users)
@@ -124,9 +129,18 @@ export default class MyBarChart extends Component {
 
         // CHART OPTIONS
 
+
+        var metricLabel = "Follower Count"
+
+
         var chartTitle = "Users Tweeting about Trump Impeachment" // TODO: dynamic
         var chartPadding = { left: 175, top: 15, right: 50, bottom: 130 } // spacing for axis labels (screen names)
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
+
+
+
+
+
         return (
             <span>
                 <p className="app-center chart-title-p" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
@@ -155,37 +169,9 @@ export default class MyBarChart extends Component {
                 />
 
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
-                    { /*
-                    <VictoryLabel text="Chart Title"
-                        x={225} y={10}
-                        textAnchor="middle"
-                    />
 
-                    <VictoryLegend
-                        height={15}
-                        //title="Opinion Score" centerTitle
-                        orientation="horizontal"
-                        data={[
-                            { name: "Pro-Impeachment (0%)", symbol: { fill: colorScale(0.15), type: "circle" } },
-                            { name: "Pro-Trump (100%)",     symbol: { fill: colorScale(0.85), type: "circle"} },
-                        ]}
-                        //gutter={20}
-                        x={200}
-                        y={20}
-                        //width={20}
-                        //height={10}
-                        //padding={{ top: 1000, bottom: 1000 }}
-                        style={{
-                            //parent: {},
-                            //border: {stroke: "black"},
-                            title: {fontSize: 10},
-                            data: {fontSize: 10},
-                            labels: {fontSize: 10},
-                        }}
-                    />
-                    */}
-
-                    <VictoryBar horizontal data={users} x="handle" y="follower_count"
+                    <VictoryBar horizontal
+                        data={users} x="handle" y={sortMetric}
                         animate={true}
                         //barWidth={12}
                         barRatio={0.87}
@@ -215,7 +201,7 @@ export default class MyBarChart extends Component {
                     <VictoryAxis dependentAxis
                         //tickFormat={(tick) => `${tick}%`}
                         tickFormat={formatBigNumber}
-                        label="Follower Count"
+                        label={metricLabel}
                         style={{
                             //axis: {stroke: "#756f6a"},
                             axisLabel: {fontSize: 10, padding:25},
@@ -252,20 +238,17 @@ export default class MyBarChart extends Component {
 
                     <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
-                            <Form.Label>Minimum Tweet Count</Form.Label>
+                            <Form.Label>Minimum Follower Count</Form.Label>
 
-                            <RangeSlider min={3} max={200}
-                                value={tweetMin}
-                                onChange={this.handleTweetMinChange}
+                            <RangeSlider min={10000} max={1000000} step={10000}
+                                value={followerMin}
+                                onChange={this.handleFollowerMinChange}
                                 tooltip="on" // "on" //"auto"
                                 tooltipPlacement="bottom"
                                 //tooltipLabel=
                                 //variant="dark"
                             />
-                        </Col> {/*}
-                        <Col xs="2" style={{"paddingTop":"1.9em"}}>
-                            <Form.Control type="number" min={3} max={200} value={tweetMin} onChange={this.handleTweetMinChange}/>
-                        </Col> */}
+                        </Col>
 
                         <Col xs="1">
                         </Col>
@@ -299,13 +282,31 @@ export default class MyBarChart extends Component {
                                 }}
                             />
                         </Col>
-
-                        {/*}
-                        <Col xs="2" style={{"paddingTop":"1em"}}>
-                            <Form.Control type="number" min={0} max={99} value={opinionRange[0]} onChange={this.handleOpinionMinChange}/>
-                            <Form.Control type="number" min={1} max={100} value={opinionRange[1]} onChange={this.handleOpinionMaxChange}/>
-                        </Col>  */}
                     </Form.Group>
+
+
+                    <Form.Group as={Row} style={{marginTop: 35}}>
+                        <Col xs="5">
+                            <Form.Label>Minimum Tweet Count</Form.Label>
+
+                            <RangeSlider min={3} max={200}
+                                value={tweetMin}
+                                onChange={this.handleTweetMinChange}
+                                tooltip="on" // "on" //"auto"
+                                tooltipPlacement="bottom"
+                                //tooltipLabel=
+                                //variant="dark"
+                            />
+                        </Col>
+
+                        <Col xs="7">
+                        </Col>
+                    </Form.Group>
+
+
+
+
+
 
                     <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
@@ -355,6 +356,10 @@ export default class MyBarChart extends Component {
 
     handleTweetMinChange(changeEvent){
         this.setState({tweetMin: changeEvent.target.value})
+    }
+
+    handleFollowerMinChange(changeEvent){
+        this.setState({followerMin: changeEvent.target.value})
     }
 
     handleOpinionRangeChange(newRange){
