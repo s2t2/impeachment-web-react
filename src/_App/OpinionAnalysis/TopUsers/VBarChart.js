@@ -17,7 +17,6 @@ import './VBarChart.css'
 
 const { createSliderWithTooltip } = Slider
 const Range = createSliderWithTooltip(Slider.Range)
-
 const colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
 
 const ALL_CATEGORIES = [
@@ -42,69 +41,70 @@ const FILTER_CATEGORIES = {
 
 
 }
-const SORT_METRICS = {
-    "most-followed": {"metric": "follower_count", "order": "desc", "label": "Follower Count"},
-    "most-active": {"metric": "status_count", "order": "desc", "label": "Tweet Count"},
-    "most-pro-trump": {"metric": "opinion_score", "order": "desc", "label": "Mean Opinion Score"},
-    "most-pro-impeachment": {"metric": "opinion_score", "order": "asc", "label": "Mean Opinion Score"},
-}
-const DEFAULT_METRIC = "most-pro-trump" // "most-pro-trump" // "most-followed"
+
 var BAR_COUNT = 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
+const SORT_BY = {
+    "follower_count": {"metric": "follower_count", "label": "Follower Count"},
+    "status_count": {"metric": "status_count", "label": "Tweet Count"},
+    "opinion_score": {"metric": "opinion_score", "label": "Mean Opinion Score (Pro-Trump)"},
+    "inverse_opinion_score": {"metric": "inverse_opinion_score", "label": "Mean Opinion Score (Pro-Impeachment)"},
+}
+
 
 function formatBigNumber(num) {
     // h/t: https://stackoverflow.com/a/9461657
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
 }
 
+function formatPct(num) {
+    // formats 0.3444444 as "34.4%"
+    return (num * 100.0).toFixed(1) + "%"
+}
+
 export default class MyBarChart extends Component {
     constructor(props) {
         super(props)
         this.state = { // TODO: get URL params from router, so we can make custom charts and link people to them, like ?opinionMin=40&opinionMax=60&tweetMin=10
-
-            sortVal: DEFAULT_METRIC,
-            sortMetric: SORT_METRICS[DEFAULT_METRIC]["metric"], // can be "follower_count", "status_count", "opinion_score" (needs differentiation)
-            sortOrder:  SORT_METRICS[DEFAULT_METRIC]["order"], // "desc", "asc"
-            sortLabel:  SORT_METRICS[DEFAULT_METRIC]["label"], // "desc", "asc"
-
+            userCategories: ALL_CATEGORY_NAMES,
+            sort: SORT_BY["follower_count"],
+            opinionMetric: "avg_score_lr",
+            opinionRange: [0, 100],
             followerMin: 412_000,
             tweetMin: 30,
-            opinionRange: [0, 100],
-            userCategories: ALL_CATEGORY_NAMES,
-
-            opinionMetric: "avg_score_lr",
         }
-        this.handleTweetMinChange = this.handleTweetMinChange.bind(this)
-        this.handleFollowerMinChange = this.handleFollowerMinChange.bind(this)
 
-        this.handleOpinionRangeChange = this.handleOpinionRangeChange.bind(this)
-        this.handleCategoryCheck = this.handleCategoryCheck.bind(this)
-        this.handleModelSelect = this.handleModelSelect.bind(this)
+        this.selectUserCategories = this.selectUserCategories.bind(this)
+        this.selectSortMetric = this.selectSortMetric.bind(this)
+        this.selectOpinionMetric = this.selectOpinionMetric.bind(this)
+        this.slideOpinionRange = this.slideOpinionRange.bind(this)
+        this.slideFollowerMin = this.slideFollowerMin.bind(this)
+        this.slideTweetMin = this.slideTweetMin.bind(this)
 
-        this.handleCategorySelect = this.handleCategorySelect.bind(this)
-        this.handleMetricSelect = this.handleMetricSelect.bind(this)
-        this.barLabel = this.barLabel.bind(this)
-        this.barSizeMetric = this.barSizeMetric.bind(this)
         this.axisTick = this.axisTick.bind(this)
+        this.barLabel = this.barLabel.bind(this)
     }
 
     render() {
+        var sort = this.state.sort
+
+        var userCategories = this.state.userCategories
         var tweetMin = this.state.tweetMin
         var followerMin = this.state.followerMin
         var opinionRange = this.state.opinionRange
-        var userCategories = this.state.userCategories
         var opinionMetric = this.state.opinionMetric
 
-        var sortVal = this.state.sortVal
-        var sortMetric = this.state.sortMetric
-        if(sortMetric === "opinion_score"){
-            sortMetric = opinionMetric
-        }
-        var sortOrder = this.state.sortOrder
-        var sortLabel = this.state.sortLabel
-
-        var barLabel = this.barLabel
-        var barSizeMetric = this.barSizeMetric
         var axisTick = this.axisTick
+        var barLabel = this.barLabel
+
+        //debugger;
+        var barMetric = sort.metric
+        //if (sort.metric === "inverse_opinion_score"){
+        //    barMetric = ""
+        //} else {
+        //    barMetric = ""
+        //}
+
+
 
         // FILTER AND SORT USERS
 
@@ -119,17 +119,12 @@ export default class MyBarChart extends Component {
             )})
             .map(function(user){
                 user["handle"] = `@${user['screen_name']}`
-                user["score_pct"] = (user[opinionMetric] * 100.0).toFixed(1) + "%"
-                user["inverse_score"] = (1 - user[opinionMetric]) // hack for reversing pro-impeachment bar sizes from 0.05 to 0.95
+                //user["score_pct"] = (user[opinionMetric] * 100.0).toFixed(1) + "%"
+                //user["inverse_score"] = (1 - user[opinionMetric]) // hack for reversing pro-impeachment bar sizes from 0.05 to 0.95
                 return user
             })
             .sort(function(a, b){
-                // chart wants this order
-                if(sortOrder === "asc"){
-                    return b[sortMetric] - a[sortMetric]
-                } else {
-                    return a[sortMetric] - b[sortMetric]
-                }
+                return a[sort.metric] - b[sort.metric] // chart wants this order
             }) // sort before slice
             .slice(-BAR_COUNT) // negative number takes last X users (which is actually the top X users)
 
@@ -138,13 +133,18 @@ export default class MyBarChart extends Component {
         var chartTitle = "Users Tweeting about Trump Impeachment" // TODO: dynamic
         var chartPadding = { left: 175, top: 15, right: 50, bottom: 130 } // spacing for axis labels (screen names)
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
-
-        var legendData = [
-            { name: "Pro-Impeachment (0%)", symbol: { fill: colorScale(0.15), type: "circle" } },
-            { name: "Pro-Trump (100%)",     symbol: { fill: colorScale(0.85), type: "circle"} },
-        ]
-        if (sortVal === "most-pro-impeachment"){
-            legendData.reverse() // mutating
+        var legendData
+        if (sort.metric === "inverse_opinion_score"){
+            //legendData.reverse() // mutating
+            legendData = [
+                { name: "Pro-Trump (0%)",         symbol: { fill: colorScale(0.85), type: "circle"} },
+                { name: "Pro-Impeachment (100%)", symbol: { fill: colorScale(0.15), type: "circle" } },
+            ]
+        } else {
+            legendData = [
+                { name: "Pro-Impeachment (0%)",  symbol: { fill: colorScale(0.15), type: "circle" } },
+                { name: "Pro-Trump (100%)",      symbol: { fill: colorScale(0.85), type: "circle"} },
+            ]
         }
 
         return (
@@ -172,7 +172,7 @@ export default class MyBarChart extends Component {
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
 
                     <VictoryBar horizontal
-                        data={users} x="handle" y={barSizeMetric()} // barSize() sortMetric or "inverse_score"
+                        data={users} x="handle" y={barMetric}
                         animate={true}
                         //barWidth={12}
                         barRatio={0.87}
@@ -203,7 +203,7 @@ export default class MyBarChart extends Component {
                         //tickFormat={(tick) => `${1-tick}%`}
                         //tickFormat={formatBigNumber}
                         tickFormat={axisTick}
-                        label={sortLabel}
+                        label={sort.label}
                         style={{
                             //axis: {stroke: "#756f6a"},
                             axisLabel: {fontSize: 10, padding:25},
@@ -218,7 +218,7 @@ export default class MyBarChart extends Component {
                     <Form.Group as={Row}>
                         <Col xs="6">
                             <Form.Label>User Category:</Form.Label>
-                            <Form.Control as="select" size="lg" custom onChange={this.handleCategorySelect}>
+                            <Form.Control as="select" size="lg" custom onChange={this.selectUserCategories}>
                                 <option value="all">All Users</option>
                                 <option value="media">Media</option>
                                 <option value="politician">Politicians</option>
@@ -229,12 +229,11 @@ export default class MyBarChart extends Component {
 
                         <Col xs="6">
                             <Form.Label>Sort By:</Form.Label>
-                            <Form.Control as="select" size="lg" custom value={sortVal} onChange={this.handleMetricSelect}>
-                                <option value="most-followed">Follower Count</option>
-                                <option value="most-active">Tweet Count</option>
-                                <option value="most-pro-trump">Pro-Trump Score</option>
-                                <option value="most-pro-impeachment">Pro-Impeachment Score</option>
-                                {/* <option value="most-neutral">Most Neutral</option> */}
+                            <Form.Control as="select" size="lg" custom value={sort.metric} onChange={this.selectSortMetric}>
+                                <option value="follower_count">Follower Count</option>
+                                <option value="tweet_count">Tweet Count</option>
+                                <option value="opinion_score">Pro-Trump Score</option>
+                                <option value="inverse_opinion_score">Pro-Impeachment Score</option>
                             </Form.Control>
                         </Col>
                     </Form.Group>
@@ -245,7 +244,7 @@ export default class MyBarChart extends Component {
 
                             <RangeSlider min={10000} max={1000000} step={10000}
                                 value={followerMin}
-                                onChange={this.handleFollowerMinChange}
+                                onChange={this.slideFollowerMin}
                                 tooltip="on" // "on" //"auto"
                                 tooltipPlacement="bottom"
                                 //tooltipLabel=
@@ -274,7 +273,7 @@ export default class MyBarChart extends Component {
                                     80: "",
                                     90: "",
                                     100: "Pro-Trump"}}
-                                onChange={this.handleOpinionRangeChange}
+                                onChange={this.slideOpinionRange}
                                 allowCross={false}
                                 //pushable={10}
                                 tooltip="auto"
@@ -294,7 +293,7 @@ export default class MyBarChart extends Component {
 
                             <RangeSlider min={3} max={200}
                                 value={tweetMin}
-                                onChange={this.handleTweetMinChange}
+                                onChange={this.slideTweetMin}
                                 tooltip="on" // "on" //"auto"
                                 tooltipPlacement="bottom"
                                 //tooltipLabel=
@@ -311,15 +310,15 @@ export default class MyBarChart extends Component {
                             <div key="inline-radios" className="mb-3">
                                 <Form.Check inline label="Logistic Regression" value="avg_score_lr" type="radio"
                                     checked={opinionMetric === "avg_score_lr"}
-                                    onChange={this.handleModelSelect}
+                                    onChange={this.selectOpinionMetric}
                                 />
                                 <Form.Check inline label="Naive Bayes" value="avg_score_nb" type="radio"
                                     checked={opinionMetric === "avg_score_nb"}
-                                    onChange={this.handleModelSelect}
+                                    onChange={this.selectOpinionMetric}
                                 />
                                 <Form.Check inline label="BERT Transformer" value="avg_score_bert" type="radio"
                                     checked={opinionMetric === "avg_score_bert"}
-                                    onChange={this.handleModelSelect}
+                                    onChange={this.selectOpinionMetric}
                                 />
                             </div>
                         </Col>
@@ -329,145 +328,67 @@ export default class MyBarChart extends Component {
         )
     }
 
-    componentDidMount(){
-        console.log("BAR CHART DID MOUNT")
-    }
+    componentDidMount(){ console.log("BAR CHART DID MOUNT") }
+    componentDidUpdate(prevProps) { console.log("BAR CHART DID UPDATE") }
 
-    componentDidUpdate(prevProps) {
-        console.log("BAR CHART DID UPDATE")
-    }
-
-    handleTweetMinChange(changeEvent){
-        ReactGA.event({
-            category: "Top Users Chart Interaction",
-            action: "Change Tweet Min",
-            value: changeEvent.target.value
-        })
-        this.setState({tweetMin: changeEvent.target.value})
-    }
-
-    handleFollowerMinChange(changeEvent){
-        ReactGA.event({
-            category: "Top Users Chart Interaction",
-            action: "Change Follower Min",
-            value: changeEvent.target.value
-        })
-        this.setState({followerMin: changeEvent.target.value})
-    }
-
-    handleOpinionRangeChange(newRange){
-        //ReactGA.event({
-        //    category: "Top Users Chart Interaction",
-        //    action: "Change Opinion Min",
-        //    value: newRange[0]
-        //})
-        //ReactGA.event({
-        //    category: "Top Users Chart Interaction",
-        //    action: "Change Opinion Max",
-        //    value: newRange[1]
-        //})
-        ReactGA.event({
-            category: "Top Users Chart Interaction",
-            action: "Change Opinion Range",
-            label: newRange.join(", ")
-        })
-        console.log("CHANGE OPINION RANGE", newRange)
-        this.setState({opinionRange: newRange})
-    }
-
-    handleCategoryCheck(changeEvent){
-        var category = changeEvent.target.value
-        console.log("CHECK CATEGORY:", category)
-
-        var userCategories = this.state.userCategories
-        var categoryIndex = userCategories.indexOf(category) // will be -1 if item not in array
-        if (categoryIndex >= 0 ) {
-            userCategories.splice(categoryIndex, 1) // remove 1 item from array at the given position
+    axisTick(val){
+        if (this.state.sort.metric === "opinion_score"){
+            return formatPct(val)
         } else {
-            userCategories.push(category)
+            return formatBigNumber(val)
         }
-
-        console.log("CATEGORIES:", userCategories)
-        ReactGA.event({
-            category: "Top Users Chart Interaction",
-            action: "Change Opinion Min",
-            label: userCategories.join(", ")
-        })
-        this.setState({userCategories: userCategories})
-    }
-
-    handleModelSelect(changeEvent){
-        var opinionMetric = changeEvent.target.value
-        console.log("SELECT OPINION METRIC:", opinionMetric)
-        ReactGA.event({
-            category: "Top Users Chart Interaction",
-            action: "Select Opinion Model",
-            label: opinionMetric
-        })
-        this.setState({"opinionMetric": opinionMetric})
-    }
-
-    handleCategorySelect(changeEvent){
-        var val = changeEvent.target.value
-        console.log("FILTER BY CATEGORY:", val)
-        ReactGA.event({
-            category: "Top Users Chart Interaction",
-            action: "Select User Category",
-            label: val
-        })
-        this.setState({userCategories: FILTER_CATEGORIES[val]})
-    }
-
-    handleMetricSelect(changeEvent){
-        var val = changeEvent.target.value
-        console.log("SORT BY METRIC:", val)
-        ReactGA.event({
-            category: "Top Users Chart Interaction",
-            action: "Select Sort Metric",
-            label: val
-        })
-        this.setState({
-            sortVal: val,
-            sortMetric: SORT_METRICS[val]["metric"],
-            sortOrder: SORT_METRICS[val]["order"],
-            sortLabel: SORT_METRICS[val]["label"]
-        })
     }
 
     barLabel(datum){
-        var metric = this.state.sortMetric
-        if (metric === "opinion_score"){
-            return datum["score_pct"]
-        } else {
-            return formatBigNumber(datum[metric])
-        }
-
-    }
-
-    barSizeMetric(){
-        var sortVal = this.state.sortVal
-        var sortMetric = this.state.sortMetric
+        var sortMetric = this.state.sort.metric
         var opinionMetric = this.state.opinionMetric
-
-        if (sortVal === "most-pro-impeachment"){
-            return "inverse_score"
-        } else if(sortVal === "most-pro-trump") {
-            return opinionMetric
+        if (sortMetric === "opinion_score"){
+            return formatPct(datum[opinionMetric])
         } else {
-            return sortMetric
+            return formatBigNumber(datum[sortMetric])
         }
     }
 
-    axisTick(datum){
-        // REVERSE THE AXIS NUMBERS WHEN BAR SIZES ARE INVERSED
-        var sortVal = this.state.sortVal
-
-        if (sortVal === "most-pro-impeachment"){
-            // var d = (0.199999999999999999996 * .9999999)
-            // d.toFixed(1) //> 0.2
-            return formatBigNumber((1-datum).toFixed(1))
-        } else {
-            return formatBigNumber(datum)
-        }
+    selectUserCategories(changeEvent){
+        var val = changeEvent.target.value
+        console.log("SELECT USER CATEGORIES:", val)
+        ReactGA.event({category: "Top Users Chart", action: "Select User Categories", label: val})
+        this.setState({userCategories: FILTER_CATEGORIES[val]})
     }
+
+    selectSortMetric(changeEvent){
+        var val = changeEvent.target.value
+        console.log("SORT BY:", val)
+        ReactGA.event({category: "Top Users Chart", action: "Select Sort Metric", label: val})
+        debugger;
+        this.setState({sort: SORT_BY[val]})
+    }
+
+    selectOpinionMetric(changeEvent){
+        var val = changeEvent.target.value
+        console.log("SELECT OPINION METRIC:", val)
+        ReactGA.event({category: "Top Users Chart", action: "Select Opinion Metric", label: val})
+        this.setState({"opinionMetric": val})
+    }
+
+    slideTweetMin(changeEvent){
+        var val = changeEvent.target.value
+        //console.log("SLIDE TWEET MIN:", val)
+        ReactGA.event({category: "Top Users Chart", action: "Slide Tweet Min", value: val})
+        this.setState({tweetMin: val})
+    }
+
+    slideFollowerMin(changeEvent){
+        var val = changeEvent.target.value
+        //console.log("SLIDE FOLLOWER MIN:", val)
+        ReactGA.event({category: "Top Users Chart", action: "Slide Follower Min", value: val})
+        this.setState({followerMin: val})
+    }
+
+    slideOpinionRange(newRange){
+        //console.log("CHANGE OPINION RANGE", newRange)
+        ReactGA.event({category: "Top Users Chart", action: "Slide Opinion Range", label: newRange.join(", ")})
+        this.setState({opinionRange: newRange})
+    }
+
 }
