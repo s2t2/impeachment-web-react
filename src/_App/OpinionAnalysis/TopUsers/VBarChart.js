@@ -370,15 +370,15 @@ export default class MyBarChart extends Component {
     slideTweetMin(changeEvent){
         var val = changeEvent.target.value
         //console.log("SLIDE TWEET MIN:", val)
-        ReactGA.event({category: "Top Users Chart", action: "Slide Tweet Min", value: val})
-        this.setState({tweetMin: val})
+        ReactGA.event({category: "Top Users Chart", action: "Slide Tweet Min", value: parseInt(val)})
+        this.setState({tweetMin: parseInt(val)})
     }
 
     slideFollowerMin(changeEvent){
         var val = changeEvent.target.value
         //console.log("SLIDE FOLLOWER MIN:", val)
-        ReactGA.event({category: "Top Users Chart", action: "Slide Follower Min", value: val})
-        this.setState({followerMin: val})
+        ReactGA.event({category: "Top Users Chart", action: "Slide Follower Min", value: parseInt(val)})
+        this.setState({followerMin: parseInt(val)})
     }
 
     slideOpinionRange(newRange){
