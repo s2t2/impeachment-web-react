@@ -336,9 +336,8 @@ export default class MyBarChart extends Component {
 
     barLabel(datum){
         var sortMetric = this.state.sortMetric
-        var opinionMetric = this.state.opinionMetric
         if (sortMetric.includes("opinion_score")){
-            return formatPct(datum[opinionMetric])
+            return formatPct(datum[sortMetric])
         } else {
             return formatBigNumber(datum[sortMetric])
         }
