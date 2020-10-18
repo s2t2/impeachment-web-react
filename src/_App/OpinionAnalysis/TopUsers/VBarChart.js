@@ -99,9 +99,9 @@ export default class MyBarChart extends Component {
         var barLabel = this.barLabel
 
         var barMetric = sortMetric
-        if (sortMetric.includes("opinion_score")){
-            barMetric = opinionMetric
-        }
+        //if (sortMetric.includes("opinion_score")){
+        //    barMetric = opinionMetric
+        //}
 
         // FILTER AND SORT USERS
 
@@ -117,7 +117,8 @@ export default class MyBarChart extends Component {
             .map(function(user){
                 user["handle"] = `@${user['screen_name']}`
                 //user["score_pct"] = (user[opinionMetric] * 100.0).toFixed(1) + "%"
-                //user["inverse_score"] = (1 - user[opinionMetric]) // hack for reversing pro-impeachment bar sizes from 0.05 to 0.95
+                user["opinion_score"] = user[opinionMetric]
+                user["inverse_opinion_score"] = (1 - user[opinionMetric])
                 return user
             })
             .sort(function(a, b){
@@ -353,7 +354,7 @@ export default class MyBarChart extends Component {
     selectSortMetric(changeEvent){
         var val = changeEvent.target.value
         console.log("SORT BY:", val, SORT_BY[val])
-        ReactGA.event({category: "Top Users Chart", action: "Select Sort Metric", label: val})
+        ReactGA.event({category: "Top Users Chart", action: "Select Sort Metric", label: SORT_BY[val]["label"]})
         this.setState({
             sortMetric: SORT_BY[val]["metric"],
             sortLabel: SORT_BY[val]["label"],
@@ -364,7 +365,7 @@ export default class MyBarChart extends Component {
         var val = changeEvent.target.value
         console.log("SELECT OPINION METRIC:", val)
         ReactGA.event({category: "Top Users Chart", action: "Select Opinion Metric", label: val})
-        this.setState({"opinionMetric": val})
+        this.setState({opinionMetric: val})
     }
 
     slideTweetMin(changeEvent){
