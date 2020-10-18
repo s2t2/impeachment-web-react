@@ -98,11 +98,6 @@ export default class MyBarChart extends Component {
         var axisTick = this.axisTick
         var barLabel = this.barLabel
 
-        var barMetric = sortMetric
-        //if (sortMetric.includes("opinion_score")){
-        //    barMetric = opinionMetric
-        //}
-
         // FILTER AND SORT USERS
 
         var users = this.props.users
@@ -122,7 +117,7 @@ export default class MyBarChart extends Component {
                 return user
             })
             .sort(function(a, b){
-                return a[barMetric] - b[barMetric] // chart wants this order
+                return a[sortMetric] - b[sortMetric] // chart wants this order
             }) // sort before slice
             .slice(-BAR_COUNT) // negative number takes last X users (which is actually the top X users)
 
@@ -170,7 +165,7 @@ export default class MyBarChart extends Component {
                 <VictoryChart padding={chartPadding} domainPadding={domainPadding} >
 
                     <VictoryBar horizontal
-                        data={users} x="handle" y={barMetric}
+                        data={users} x="handle" y={sortMetric}
                         animate={true}
                         //barWidth={12}
                         barRatio={0.87}
