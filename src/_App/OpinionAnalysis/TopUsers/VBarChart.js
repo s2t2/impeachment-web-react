@@ -126,19 +126,35 @@ export default class MyBarChart extends Component {
         var chartTitle = "Users Tweeting about Trump Impeachment" // TODO: dynamic
         var chartPadding = { left: 175, top: 15, right: 50, bottom: 130 } // spacing for axis labels (screen names)
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
-        var legendData
+
+        var legendData = [
+            {name: "Pro-Impeachment (0%)",      symbol: { fill: colorScale(0.15), type: "circle" } },
+            {name: "Pro-Trump (100%)",          symbol: { fill: colorScale(0.85), type: "circle"} },
+        ]
+        var opinionRangeMarks = {
+            0: "Pro-Impeachment",
+            10: "", 20: "", 30: "", 40: "",
+            50: "",
+            60: "", 70: "", 80: "", 90: "",
+            100: "Pro-Trump"
+        }
         if (sortMetric === "inverse_opinion_score"){
             //legendData.reverse() // mutating
             legendData = [
                 { name: "Pro-Trump (0%)",         symbol: { fill: colorScale(0.85), type: "circle"} },
                 { name: "Pro-Impeachment (100%)", symbol: { fill: colorScale(0.15), type: "circle" } },
             ]
-        } else {
-            legendData = [
-                { name: "Pro-Impeachment (0%)",  symbol: { fill: colorScale(0.15), type: "circle" } },
-                { name: "Pro-Trump (100%)",      symbol: { fill: colorScale(0.85), type: "circle"} },
-            ]
+            opinionRangeMarks = {
+                0: "Pro-Trump",
+                10: "", 20: "", 30: "", 40: "",
+                50: "",
+                60: "", 70: "", 80: "", 90: "",
+                100: "Pro-Impeachment"
+            }
         }
+
+
+
 
         return (
             <span>
@@ -251,18 +267,7 @@ export default class MyBarChart extends Component {
                             <Range min={0} max={100} step={1}
                                 defaultValue={[0, 100]}
                                 value={opinionRange}
-                                marks={{
-                                    0: "Pro-Impeachment",
-                                    10: "",
-                                    20: "",
-                                    30: "",
-                                    40: "",
-                                    50: "Neutral",
-                                    60: "",
-                                    70: "",
-                                    80: "",
-                                    90: "",
-                                    100: "Pro-Trump"}}
+                                marks={opinionRangeMarks}
                                 onChange={this.slideOpinionRange}
                                 allowCross={false}
                                 //pushable={10}
