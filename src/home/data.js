@@ -1,4 +1,4 @@
-var users = [{
+var languages = [{
 	"avg_score_lr": 0.877,
 	"avg_score_nb": 0.8155,
 	"category": "ELECTED-OFFICIAL",

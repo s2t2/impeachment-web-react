@@ -13,6 +13,11 @@ import queryString from 'query-string'
 
 import UserOpinionDashboard from "./Dashboard"
 
+import TypeAheadSearchForm from './TypeAheadSearchForm';
+
+//import List from './List.js'
+import cachedData from './data.js'
+
 export default class UserOpinionSection extends PureComponent {
 
     constructor(props) {
@@ -26,12 +31,17 @@ export default class UserOpinionSection extends PureComponent {
     handleSubmit(event){
         event.preventDefault() // prevent page reload
         var screenName = document.getElementById("inputScreenName").value
+       
         console.log("YOU CLICKED ME!", screenName)
         this.setState({screenName: screenName})
     }
 
     render() {
         var screenName = this.state.screenName
+
+        var myScreenName = this.props.selectedSuggestionCustom; 
+
+        alert(myScreenName);
 
         return (
             <Container>
@@ -50,6 +60,7 @@ export default class UserOpinionSection extends PureComponent {
                         <Form style={{marginBottom:10}}>
                             <Form.Row>
                                 <Form.Label>Change User:</Form.Label>
+                                <TypeAheadSearchForm/>
                             </Form.Row>
 
                             <Form.Row className="align-items-center">
@@ -65,23 +76,7 @@ export default class UserOpinionSection extends PureComponent {
 
                         {/*
 
-                        <Form inline style={{marginBottom:10}}>
-                            <Form.Row className="align-items-center">
-                                <Col xs="auto">
-                                    <Form.Label htmlFor="inputScreenName">Change User:</Form.Label>
-                                </Col>
-                                <Col xs="auto">
-                                    <InputGroup.Prepend><InputGroup.Text>@</InputGroup.Text></InputGroup.Prepend>
-                                    <Form.Control className="mb-2" id="inputScreenName" placeholder="POLITICO"/>
-                                </Col>
-
-
-
-                                <Col xs="auto">
-                                    <Button type="submit" className="mb-2" variant="secondary">Submit</Button>
-                                </Col>
-                            </Form.Row>
-                        </Form>
+                      
 
                         */}
 

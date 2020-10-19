@@ -10,13 +10,15 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 //import Card from 'react-bootstrap/Card'
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
 import Home from './Home.js'
 import About from './About.js'
 import sidebar from './sidebar.js'
+import AboutSticky from './AboutSticky'
+
+
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
 
@@ -76,6 +78,7 @@ export default function App() {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
                                 <Nav.Link href="/about">About</Nav.Link>
+                                <Nav.Link href="/aboutsticky">About</Nav.Link>
                           </Nav>
                         </Navbar.Collapse>
                     </Navbar>
@@ -118,6 +121,7 @@ export default function App() {
                             <Switch>
                                 <Route path="/" exact component={Home} />
                                 <Route path="/about" component={About} />
+                                <Route path="/aboutsticky" component={AboutSticky} />
                                 {sidebarRoutes}
                             </Switch>
                         </Col>
