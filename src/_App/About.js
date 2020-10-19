@@ -68,7 +68,7 @@ export default function About() {
 
                     <ul>
                         <li><a href="https://www.zlisto.com/">Prof. Tauhid Zaman</a> (Yale University)</li>
-                        <li><a href="http://data-creative.info/team/">Michael J Rossetti</a> (Georgetown University, New York University)</li>
+                        <li><a href="https://prof-rossetti.herokuapp.com/">Michael Rossetti</a> (Georgetown University, New York University)</li>
                         <li>Special thanks to <a href="https://scholar.google.com/citations?hl=en&user=Xw7yaiUAAAAJ">Mohammad Samiul Islam</a> for front-end development and data visualization contributions!</li>
                     </ul>
                 </Card.Body>
