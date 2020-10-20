@@ -233,10 +233,45 @@ RC Slider:
   + https://github.com/react-component/slider
   + http://react-component.github.io/slider/?path=/story/rc-slider--range
 
-### URL Params
+## URL Params
 
 ```sh
 npm install query-string --save
 ```
 
   + https://github.com/sindresorhus/query-string
+
+## Package Version Management
+
+Security vulnerabilities whaa?
+  + https://www.npmjs.com/advisories/1573
+  + https://github.com/facebook/create-react-app/pull/9841
+
+```sh
+# doesn't work...
+#npm update object-path
+#npm install object-path@0.11.5
+```
+
+
+Peer dependencies whaa?
+
+```sh
+npm install _________
+#> npm WARN bootstrap@4.5.2 requires a peer of jquery@1.9.1 - 3 but none is installed. You must install peer dependencies yourself.
+#> npm WARN bootstrap@4.5.2 requires a peer of popper.js@^1.16.1 but none is installed. You must install peer dependencies yourself.
+#> npm WARN tsutils@3.17.1 requires a peer of typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta but none is installed. You must install peer dependencies yourself.
+
+npm install jquery @popperjs/core --save
+# npm uninstall  jquery @popperjs/core
+
+```
+
+## Icons
+
+```sh
+npm install @primer/octicons-react --save
+```
+
+  + https://primer.style/octicons/question-16
+  + https://primer.style/octicons/packages/react

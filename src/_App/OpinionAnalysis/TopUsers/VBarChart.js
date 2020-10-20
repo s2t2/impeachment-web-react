@@ -15,6 +15,9 @@ import ReactGA from 'react-ga'
 
 import './VBarChart.css'
 
+//import { ReactComponent as QuestionIcon } from './question-mark.svg'
+import {QuestionIcon} from '@primer/octicons-react'
+
 const { createSliderWithTooltip } = Slider
 const Range = createSliderWithTooltip(Slider.Range)
 const colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
@@ -223,7 +226,15 @@ export default class MyBarChart extends Component {
                 <Form className="below-chart">
                     <Form.Group as={Row}>
                         <Col xs="6">
-                            <Form.Label>User Category:</Form.Label>
+
+
+
+                            <Form.Label>User Category:
+                                <QuestionIcon  verticalAlign="text-top"/>
+                            </Form.Label>
+
+
+
                             <Form.Control as="select" size="lg" custom onChange={this.selectUserCategories}>
                                 <option value="all">All Users</option>
                                 <option value="media">Media</option>
