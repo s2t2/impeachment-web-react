@@ -68,6 +68,14 @@ function formatPct(num) {
     return (num * 100.0).toFixed(1) + "%"
 }
 
+function formLabelTooltip (props){
+    return (
+        <Tooltip id="tooltip-top">
+            Tooltip on <strong>top</strong>.
+        </Tooltip>
+    )
+}
+
 export default class MyBarChart extends Component {
     constructor(props) {
         super(props)
@@ -160,17 +168,9 @@ export default class MyBarChart extends Component {
         }
 
 
-
-        //const tooltip1 = <Tooltip>
-        //    Simple tooltip
-        //</Tooltip>
-
-        const renderTooltip = (props) => (
-            <Tooltip id="button-tooltip" {...props}>
-                Simple tooltip
-            </Tooltip>
-        )
-
+        var categoriesTooltip = <Tooltip id="user-category-label-tooltip">
+            Filter to include users in the selected category. NOTE: these categories were subjectively assigned.
+        </Tooltip>
 
         return (
             <span>
@@ -243,37 +243,12 @@ export default class MyBarChart extends Component {
                             <Form.Label>
                                 User Category:
                                 {" "}
-                                <OverlayTrigger placement="right" overlay={renderTooltip} delay={{ show: 250, hide: 400 }} >
-                                    <QuestionIcon verticalAlign="text-top"/>
+                                <OverlayTrigger key="user-category-label-tooltip" placement="top" overlay={categoriesTooltip}>
+                                    <span><QuestionIcon verticalAlign="text-top"/></span>
                                 </OverlayTrigger>
                             </Form.Label>
 
 
-
-                                <OverlayTrigger
-                                    key="top"
-                                    placement="top"
-                                    overlay={
-                                        <Tooltip id="tooltip-top">
-                                            Tooltip on <strong>top</strong>.
-                                        </Tooltip>
-                                    }
-                                    >
-                                    <Button variant="secondary">Tooltip on top</Button>
-                                </OverlayTrigger>
-
-
-                                <OverlayTrigger
-                                    key="top"
-                                    placement="top"
-                                    overlay={
-                                        <Tooltip id="tooltip-top">
-                                            Tooltip on <strong>top</strong>.
-                                        </Tooltip>
-                                    }
-                                    >
-                                    <span><QuestionIcon verticalAlign="text-top"/></span>
-                                </OverlayTrigger>
 
 
 
