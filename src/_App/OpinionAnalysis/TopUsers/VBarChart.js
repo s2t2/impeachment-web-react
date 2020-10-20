@@ -19,7 +19,7 @@ import ReactGA from 'react-ga'
 import './VBarChart.css'
 
 //import { ReactComponent as QuestionIcon } from './question-mark.svg'
-import {QuestionIcon} from '@primer/octicons-react'
+import {InfoIcon as QuestionIcon} from '@primer/octicons-react'
 
 const { createSliderWithTooltip } = Slider
 const Range = createSliderWithTooltip(Slider.Range)
