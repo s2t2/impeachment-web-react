@@ -4,7 +4,10 @@ import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 //import Dropdown from 'react-bootstrap/Dropdown'
-//import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip'
+
 import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend} from 'victory' // VictoryTheme, VictoryLabel
 //import { orderBy } from 'lodash'
 import {scaleSequential, interpolateRdBu} from 'd3'
@@ -158,6 +161,16 @@ export default class MyBarChart extends Component {
 
 
 
+        //const tooltip1 = <Tooltip>
+        //    Simple tooltip
+        //</Tooltip>
+
+        const renderTooltip = (props) => (
+            <Tooltip id="button-tooltip" {...props}>
+                Simple tooltip
+            </Tooltip>
+        )
+
 
         return (
             <span>
@@ -227,11 +240,43 @@ export default class MyBarChart extends Component {
                     <Form.Group as={Row}>
                         <Col xs="6">
 
-
-
-                            <Form.Label>User Category:
-                                <QuestionIcon  verticalAlign="text-top"/>
+                            <Form.Label>
+                                User Category:
+                                {" "}
+                                <OverlayTrigger placement="right" overlay={renderTooltip} delay={{ show: 250, hide: 400 }} >
+                                    <QuestionIcon verticalAlign="text-top"/>
+                                </OverlayTrigger>
                             </Form.Label>
+
+
+
+                                <OverlayTrigger
+                                    key="top"
+                                    placement="top"
+                                    overlay={
+                                        <Tooltip id="tooltip-top">
+                                            Tooltip on <strong>top</strong>.
+                                        </Tooltip>
+                                    }
+                                    >
+                                    <Button variant="secondary">Tooltip on top</Button>
+                                </OverlayTrigger>
+
+
+                                <OverlayTrigger
+                                    key="top"
+                                    placement="top"
+                                    overlay={
+                                        <Tooltip id="tooltip-top">
+                                            Tooltip on <strong>top</strong>.
+                                        </Tooltip>
+                                    }
+                                    >
+                                    <span><QuestionIcon verticalAlign="text-top"/></span>
+                                </OverlayTrigger>
+
+
+
 
 
 
