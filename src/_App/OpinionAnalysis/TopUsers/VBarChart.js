@@ -5,6 +5,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 //import Dropdown from 'react-bootstrap/Dropdown'
 //import Button from 'react-bootstrap/Button'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip'
+
 import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend} from 'victory' // VictoryTheme, VictoryLabel
 //import { orderBy } from 'lodash'
 import {scaleSequential, interpolateRdBu} from 'd3'
@@ -14,6 +17,9 @@ import Slider from 'rc-slider'
 import ReactGA from 'react-ga'
 
 import './VBarChart.css'
+
+//import { ReactComponent as QuestionIcon } from './question-mark.svg'
+import {QuestionIcon} from '@primer/octicons-react'
 
 const { createSliderWithTooltip } = Slider
 const Range = createSliderWithTooltip(Slider.Range)
@@ -61,6 +67,30 @@ function formatPct(num) {
     // formats 0.3444444 as "34.4%"
     return (num * 100.0).toFixed(1) + "%"
 }
+
+const categorySelectTooltip = <Tooltip id="category-select-tooltip">
+    Filter the bars to include users in the selected category.
+</Tooltip>
+
+const sortSelectTooltip = <Tooltip id="sort-select-tooltip">
+    Sort the bars by the selected metric.
+</Tooltip>
+
+const tweetSliderTooltip = <Tooltip id="tweet-slider-tooltip">
+    Filter the bars to include users who tweeted at least this many times about Trump Impeachment.
+</Tooltip>
+
+const followerSliderTooltip = <Tooltip id="follower-slider-tooltip">
+    Filter the bars to include users who have at least this many followers (who are also tweeting about Trump Impeachment).
+</Tooltip>
+
+const opinionSliderTooltip = <Tooltip id="opinion-slider-tooltip">
+    Filter the bars to include users who have a mean opinion score within the selected range.
+</Tooltip>
+
+const modelSelectTooltip = <Tooltip id="model-select-tooltip">
+    Label and color the bars based on opinion scores assigned by the selected Impeachment opinion model.
+</Tooltip>
 
 export default class MyBarChart extends Component {
     constructor(props) {
@@ -153,9 +183,6 @@ export default class MyBarChart extends Component {
             }
         }
 
-
-
-
         return (
             <span>
                 <p className="app-center chart-title-p" style={{marginTop:10, marginBottom:0}}>{chartTitle}</p>
@@ -223,7 +250,12 @@ export default class MyBarChart extends Component {
                 <Form className="below-chart">
                     <Form.Group as={Row}>
                         <Col xs="6">
-                            <Form.Label>User Category:</Form.Label>
+                            <Form.Label>User Category: {" "}
+                                <OverlayTrigger placement="top" overlay={categorySelectTooltip}>
+                                    <span><QuestionIcon verticalAlign="text-top"/></span>
+                                </OverlayTrigger>
+                            </Form.Label>
+
                             <Form.Control as="select" size="lg" custom onChange={this.selectUserCategories}>
                                 <option value="all">All Users</option>
                                 <option value="media">Media</option>
@@ -234,7 +266,12 @@ export default class MyBarChart extends Component {
                         </Col>
 
                         <Col xs="6">
-                            <Form.Label>Sort By:</Form.Label>
+                            <Form.Label>Sort By: {" "}
+                                <OverlayTrigger placement="top" overlay={sortSelectTooltip}>
+                                    <span><QuestionIcon verticalAlign="text-top"/></span>
+                                </OverlayTrigger>
+                            </Form.Label>
+
                             <Form.Control as="select" size="lg" custom value={sortMetric} onChange={this.selectSortMetric}>
                                 <option value="follower_count">Follower Count</option>
                                 <option value="status_count">Tweet Count</option>
@@ -246,7 +283,11 @@ export default class MyBarChart extends Component {
 
                     <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
-                            <Form.Label>Minimum Followers:</Form.Label>
+                            <Form.Label>Minimum Followers: {" "}
+                                <OverlayTrigger placement="top" overlay={followerSliderTooltip}>
+                                    <span><QuestionIcon verticalAlign="text-top"/></span>
+                                </OverlayTrigger>
+                            </Form.Label>
 
                             <RangeSlider min={10000} max={1000000} step={10000}
                                 value={followerMin}
@@ -262,7 +303,11 @@ export default class MyBarChart extends Component {
                         </Col>
 
                         <Col xs="5">
-                            <Form.Label>Mean Opinion Score:</Form.Label>
+                            <Form.Label>Mean Opinion Score: {" "}
+                                <OverlayTrigger placement="top" overlay={opinionSliderTooltip}>
+                                    <span><QuestionIcon verticalAlign="text-top"/></span>
+                                </OverlayTrigger>
+                            </Form.Label>
 
                             <Range min={0} max={100} step={1}
                                 defaultValue={[0, 100]}
@@ -284,7 +329,11 @@ export default class MyBarChart extends Component {
 
                     <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
-                            <Form.Label>Minimum Tweets:</Form.Label>
+                            <Form.Label>Minimum Tweets: {" "}
+                                <OverlayTrigger placement="top" overlay={tweetSliderTooltip}>
+                                    <span><QuestionIcon verticalAlign="text-top"/></span>
+                                </OverlayTrigger>
+                            </Form.Label>
 
                             <RangeSlider min={3} max={200}
                                 value={tweetMin}
@@ -300,7 +349,11 @@ export default class MyBarChart extends Component {
                         </Col>
 
                         <Col xs="5">
-                            <Form.Label>Opinion Model:</Form.Label>
+                            <Form.Label>Opinion Model: {" "}
+                                <OverlayTrigger placement="top" overlay={modelSelectTooltip}>
+                                    <span><QuestionIcon verticalAlign="text-top"/></span>
+                                </OverlayTrigger>
+                            </Form.Label>
 
                             <div key="inline-radios" className="mb-3">
                                 <Form.Check inline label="Logistic Regression" value="avg_score_lr" type="radio"
