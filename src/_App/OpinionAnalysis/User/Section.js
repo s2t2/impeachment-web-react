@@ -26,22 +26,27 @@ export default class UserOpinionSection extends PureComponent {
         var screenName = params["sn"] || "POLITICO" // append ?sn=BERNIESANDERS to the URL to customize via URL params!!!
         this.state = {screenName: screenName}
         this.handleSubmit = this.handleSubmit.bind(this)
+
+    
     }
 
     handleSubmit(event){
         event.preventDefault() // prevent page reload
         var screenName = document.getElementById("inputScreenName").value
-       
+
+        
         console.log("YOU CLICKED ME!", screenName)
-        this.setState({screenName: screenName})
+        
+        this.setState({ screenName: screenName })
+        
+        
+        
     }
 
     render() {
         var screenName = this.state.screenName
-
-        var myScreenName = this.props.selectedSuggestionCustom; 
-
-        alert(myScreenName);
+        
+        
 
         return (
             <Container>
@@ -60,7 +65,7 @@ export default class UserOpinionSection extends PureComponent {
                         <Form style={{marginBottom:10}}>
                             <Form.Row>
                                 <Form.Label>Change User:</Form.Label>
-                                <TypeAheadSearchForm/>
+                                <TypeAheadSearchForm  />
                             </Form.Row>
 
                             <Form.Row className="align-items-center">

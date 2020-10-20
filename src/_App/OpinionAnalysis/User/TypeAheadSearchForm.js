@@ -7,7 +7,6 @@ import AutosuggestHighlightParse from 'autosuggest-highlight/parse';
 import cachedData from './data.js'
 
 
-
 // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
 function escapeRegexCharacters(str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -41,8 +40,7 @@ class TypeAheadSearchForm extends React.Component {
 
         this.state = {
             value: '',
-            suggestions: [],
-            selectedSuggestionCustom:'',
+            suggestions: []
         };
     }
 
@@ -66,18 +64,22 @@ class TypeAheadSearchForm extends React.Component {
 
     onSuggestionSelected = (event, { suggestion, suggestionValue, index, method }) => {
         event.preventDefault();
-        this.setState({ selectedSuggestionCustom: suggestion.screen_name})
         console.log('Selected Value ', suggestion.screen_name)
-       
+    
+        
     }
+
+   
     
 
     render() {
+
         const { value, suggestions } = this.state;
         const inputProps = {
-            placeholder: "Type 'c'",
+            placeholder: "Type Twitter User Name",
             value,
-            onChange: this.onChange
+            onChange: this.onChange,
+            name: 'textboxvalue', textboxvalue: this.state.value
         };
 
         return (
@@ -89,9 +91,7 @@ class TypeAheadSearchForm extends React.Component {
                 renderSuggestion={renderSuggestion}
                 onSuggestionSelected={this.onSuggestionSelected}
                 inputProps={inputProps}
-
-                myProp={this.state.selectedSuggestionCustom}
-            
+                
             />
         );
     }
