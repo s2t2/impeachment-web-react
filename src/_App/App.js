@@ -64,6 +64,31 @@ export default function App() {
         )
     })
 
+
+
+
+    var newSidebar = [
+        var pageLink = <NavLink key={page["key"]} to={`/${page['key']}`} activeClassName="active">{page["title"]}</NavLink>
+        pageLinks.push(pageLink)
+
+        var sectionLinks = page["sections"].map(function(section){
+            var sectionLink = <NavLink key={section["key"]} to={`/${section['key']}`} activeClassName="active">{section["title"]}</NavLink>
+            //sidebarLinks.push(sectionLink)
+            return sectionLink
+        })
+        return (
+            <span key={page["key"]}>
+                <h6 className="mobile-dasbhoard-menu-title">{page["title"]}</h6>
+
+                <div className="mobile-dasbhoard-menu">
+                    {sectionLinks}
+                </div>
+            </span>
+        )
+    ]
+
+
+
     return (
         <Router>
             <div className="App">
@@ -107,7 +132,7 @@ export default function App() {
                                 <div className="sidebar d-none d-md-block d-sm-none">
                                     <Nav sticky="top" defaultActiveKey="/" className="flex-column">
                                         <div className="sidebarWrapper">
-                                            {pageLinks} {/* {sidebarSections} {sidebarLinks} {pageLinks} */}
+                                            {newSidebar} {/* {sidebarSections} {sidebarLinks} {pageLinks} */}
                                         </div>
                                     </Nav>
                                 </div>
