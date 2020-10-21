@@ -51,8 +51,8 @@ export default class UserOpinionSection extends PureComponent {
                         <Card.Text>
                             We then calculated the mean impeachment opinion score for all users in our dataset.
                             {" "}The dashboard below shows how our models scored tweets by any given user.
-                            {" "} NOTE: tweets by <i>FOXNEWS</i> are not scored because the text contains only URLs.
                             {" "} HINT: try <i>REALDONALDTRUMP</i>, <i>SPEAKERPELOSI</i>, <i>SENATEMAJLDR</i>, <i>NYTIMES</i>, <i>WSJ</i>, or <i>POLITICO</i> to get started.
+                            {" "} NOTE: tweets by <i>FOXNEWS</i> contain only URLs and are not scored.
                         </Card.Text>
 
                         <Form style={{marginBottom:10}}>
