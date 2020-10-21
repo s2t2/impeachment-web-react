@@ -22,7 +22,7 @@ export default function SentimentAnalysis() {
                         {" "}It starts with labeling users, then labeling their tweets, and using those labeled tweets for model training.
                     </Card.Text>
 
-                    <h4>Labeling Users</h4>
+                    <h4 id="labeling-users">Labeling Users</h4>
                     <Card.Text>
                         For each community we chose a mutually exclusive list of the top <a href="/bot-language">bot profile hashtags</a>, excluding shared topics like <i>'#Impeachment'</i> and <i>'#FactsMatter'</i>, which were used by both communities.
                         {" "} These community hashtags are listed below.
@@ -36,7 +36,7 @@ export default function SentimentAnalysis() {
                         {" "}This resulted in a mutually exclusive list of 60 thousand left-leaning and 78 thousand right-leaning users who represent each bot community.
                     </Card.Text>
 
-                    <h4>Labeling Tweets</h4>
+                    <h4 id="labeling-tweets">Labeling Tweets</h4>
                     <Card.Text>
                         For each of these labeled users, we labeled all of their tweets with their respective community label (<code>0</code> or <code>1</code>).
                         {" "} Of these 14 million labeled tweets, 5.6 million were left-leaning and 8.4 million were right-leaning.
@@ -49,7 +49,7 @@ export default function SentimentAnalysis() {
                     </Card.Text>
 
 
-                    <h4>Model Training</h4>
+                    <h4 id="model-training">Model Training</h4>
                     <Card.Text>
                         We chose to train three different opinion models and compare their results.
                         {" "}The first two were <a href="https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression">Logistic Regression</a>
@@ -74,8 +74,7 @@ export default function SentimentAnalysis() {
                         {" "} To train the BERT transformer, we tokenized tweet text using the <a href="https://huggingface.co/transformers/pretrained_models.html">"bert-base-cased" tokenizer</a>.
                     </Card.Text>
 
-                    <h4>Model Evaluation</h4>
-
+                    <h4 id="model-evaluation">Model Evaluation</h4>
                     <Card.Text>
                         <ul>
                             <li>The Logistic Regression scored 88.9% accuracy on the training data and 87.7% accuracy on the test data.</li>
@@ -88,7 +87,7 @@ export default function SentimentAnalysis() {
                         The fully-trained Logistic Regression is 9 MB, the Naive Bayes is 36 MB, and the BERT Transformer is 413 MB.
                     </Card.Text>
 
-                    <h4>Model Predictions</h4>
+                    <h4 id="model-predictions">Model Predictions</h4>
                     <Card.Text>
                         We used each binary classifier to assign an opinion score to all tweets in our dataset.
                         {" "}And we used the BERT Transformer to assign an opinion score to all tweets created between 12/20 and 2/15 (our primary collection period).
