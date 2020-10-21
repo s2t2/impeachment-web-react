@@ -8,11 +8,30 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ReactGA from 'react-ga'
 
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip'
+import {QuestionIcon} from '@primer/octicons-react'
+
 import Spinner from '../../Spinner'
 import UserStatusesTable from './UserStatusesTable.js'
 import { ReactComponent as UpArrow } from './arrow-upright.svg'
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
+
+function formatPct(num) {
+    // formats 0.3444444 as "34.4%"
+    return (num * 100.0).toFixed(1) + "%"
+} // refactor me into shared utils file
+
+const helperMessage = "The user's average Pro-Trump opinion score, as calculated by the selected opinion model. 0% means Pro-Impachment, while 100% means Pro-Trump."
+
+const opinionScoreTooltip = <Tooltip id="opinion-score-tooltip">
+    {helperMessage}
+</Tooltip>
+
+const modelSelectTooltip = <Tooltip id="model-select-tooltip">
+    See opinion scores from different Impeachment opinion models.
+</Tooltip>
 
 export default class Dashboard extends PureComponent {
     constructor(props) {
@@ -57,13 +76,32 @@ export default class Dashboard extends PureComponent {
                             <a href={profileUrl}><UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/></a>
                         </h4>
 
-                        <p className="lead">Mean Opinion Score: <code>{meanOpinionScore.toFixed(2)}</code></p>
+                        <p className="lead" style={{marginBottom:0}}>Mean Opinion Score: <code>{formatPct(meanOpinionScore)}</code>
+                            {/*
+                            {" "}
+                            <OverlayTrigger placement="top" overlay={opinionScoreTooltip}>
+                                <span><QuestionIcon verticalAlign="text-top"/></span>
+                            </OverlayTrigger>
+                            */}
+                        </p>
+                       {/*
+                        <small>The user's average Pro-Trump opinion score, as calculated by the selected opinion model.</small>
+                        <br/>
+                        <small>0% means Pro-Impeachment (blue), while 100% means Pro-Trump (red).</small>
+                       */}
+                       <small>{helperMessage}</small>
                     </Col>
 
 
                     <Col sm={12} md={12} lg={4}>
                         <Form style={{paddingTop:8}}>
-                            <Form.Label>Opinion Model:</Form.Label>
+                            <Form.Label>
+                                Opinion Model:
+                                {" "}
+                                <OverlayTrigger placement="top" overlay={modelSelectTooltip}>
+                                    <span><QuestionIcon verticalAlign="text-top"/></span>
+                                </OverlayTrigger>
+                            </Form.Label>
 
                             <div key="inline-radios" className="mb-3">
                                 <Form.Check inline label="Logistic Regression" value="score_lr" type="radio" id="radio-lr"

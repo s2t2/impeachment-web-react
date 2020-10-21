@@ -18,7 +18,7 @@ export default function SentimentAnalysis() {
                 <Card.Body>
                     <Card.Title><h3>Opinion Models</h3></Card.Title>
                     <Card.Text>
-                        For training our Impeachment opinion models, we used an automated approach suggested by the previous bot-detection research.
+                        For training our Impeachment opinion models, we used an automated approach suggested by the <a href="/about">previous bot-detection research</a>.
                         {" "}It starts with labeling users, then labeling their tweets, and using those labeled tweets for model training.
                     </Card.Text>
 

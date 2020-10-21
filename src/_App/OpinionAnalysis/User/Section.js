@@ -19,7 +19,7 @@ export default class UserOpinionSection extends PureComponent {
     constructor(props) {
         super(props)
         let params = queryString.parse(window.location.search)
-        var screenName = params["sn"] || "POLITICO" // append ?sn=BERNIESANDERS to the URL to customize via URL params!!!
+        var screenName = props["screen_name"] || params["sn"] || "POLITICO" // append ?sn=BERNIESANDERS to the URL to customize via URL params!!!
         this.state = {screenName: screenName}
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -51,7 +51,8 @@ export default class UserOpinionSection extends PureComponent {
                         <Card.Text>
                             We then calculated the mean impeachment opinion score for all users in our dataset.
                             {" "}The dashboard below shows how our models scored tweets by any given user.
-                            {" "} NOTE: tweets by 'FOXNEWS' contain only URLs, which are not scored.
+                            {" "} NOTE: tweets by <i>FOXNEWS</i> are not scored because the text contains only URLs.
+                            {" "} HINT: try <i>REALDONALDTRUMP</i>, <i>SPEAKERPELOSI</i>, <i>SENATEMAJLDR</i>, <i>NYTIMES</i>, <i>WSJ</i>, or <i>POLITICO</i> to get started.
                         </Card.Text>
 
                         <Form style={{marginBottom:10}}>
