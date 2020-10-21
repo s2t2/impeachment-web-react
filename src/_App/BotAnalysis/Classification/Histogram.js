@@ -46,17 +46,17 @@ export default class DailyBotProbabilitiesHistogram extends Component {
             // OK https://github.com/FormidableLabs/victory/blob/a2067b3cdb27a64314a1951d21e79bcde028c0dd/docs/src/partials/markdown/scope-map.js
             var sampleHistogramData = [
                 {x: 0 },
-                {x: 1 },
-                {x: 1 },
-                {x: 1 },
-                {x: 1 },
-                {x: 2 },
-                {x: 2 },
-                {x: 3 },
-                {x: 4 },
-                {x: 7 },
-                {x: 7 },
-                {x: 10 }
+                {x: .1 },
+                {x: .1 },
+                {x: .1 },
+                {x: .1 },
+                {x: .2 },
+                {x: .2 },
+                {x: .3 },
+                {x: .4 },
+                {x: .7 },
+                {x: .7 },
+                {x: 1 }
             ]
             //debugger;
 
@@ -66,10 +66,20 @@ export default class DailyBotProbabilitiesHistogram extends Component {
 
                     <VictoryHistogram
                         data={sampleHistogramData}
-                        bins={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-                        style={{data: { fill: "#ccc" }}}
+                        bins={[0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}
                         animate={true}
                         //binSpacing={10}
+                        //height={100} // not working?
+                        labels={({ datum }) => datum.y > 0 ? datum.y : ""} // don't show zeros
+                        //labels={({ datum }) => datum.y}
+                        labelComponent={<VictoryLabel dy={-5}/>}
+                        style={{
+                            data: { fill: "#ccc" },
+                            labels: {
+                                //fill: "white"
+                                fontSize: 10
+                            }
+                        }}
                     />
                 </VictoryChart>
             )
