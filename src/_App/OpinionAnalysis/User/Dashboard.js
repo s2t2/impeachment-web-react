@@ -25,9 +25,9 @@ function formatPct(num) {
 
 const helperMessage = "The user's average Pro-Trump opinion score, as calculated by the selected opinion model. 0% means Pro-Impachment, while 100% means Pro-Trump."
 
-const opinionScoreTooltip = <Tooltip id="opinion-score-tooltip">
-    {helperMessage}
-</Tooltip>
+//const opinionScoreTooltip = <Tooltip id="opinion-score-tooltip">
+//    {helperMessage}
+//</Tooltip>
 
 const modelSelectTooltip = <Tooltip id="model-select-tooltip">
     See opinion scores from different Impeachment opinion models.
