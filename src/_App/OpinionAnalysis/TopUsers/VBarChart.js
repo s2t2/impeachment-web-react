@@ -69,27 +69,27 @@ function formatPct(num) {
 }
 
 const categorySelectTooltip = <Tooltip id="category-select-tooltip">
-    Filter the bars to include users in the selected category.
+    Include users in the selected category. NOTE: categories are subjective.
 </Tooltip>
 
 const sortSelectTooltip = <Tooltip id="sort-select-tooltip">
-    Sort the bars by the selected metric.
+    Show at most the top ten users ranked in descending order by the selected metric.
 </Tooltip>
 
 const tweetSliderTooltip = <Tooltip id="tweet-slider-tooltip">
-    Filter the bars to include users who tweeted at least this many times about Trump Impeachment.
+    Include users who tweeted about Trump Impeachment at least this many times.
 </Tooltip>
 
 const followerSliderTooltip = <Tooltip id="follower-slider-tooltip">
-    Filter the bars to include users who have at least this many followers (who are also tweeting about Trump Impeachment).
+    Include users with at least this many followers who also tweeted about Trump Impeachment.
 </Tooltip>
 
 const opinionSliderTooltip = <Tooltip id="opinion-slider-tooltip">
-    Filter the bars to include users who have a mean opinion score within the selected range.
+    Include users who have a mean opinion score within the selected range.
 </Tooltip>
 
 const modelSelectTooltip = <Tooltip id="model-select-tooltip">
-    Label and color the bars based on opinion scores assigned by the selected Impeachment opinion model.
+    See opinion scores from different Impeachment opinion models.
 </Tooltip>
 
 export default class MyBarChart extends Component {
