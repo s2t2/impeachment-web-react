@@ -6,14 +6,14 @@ import CollectionTimeline from './TweetCollection/Timeline/Page'
 import CollectionTopics from './TweetCollection/Topics/Page'
 import CollectionResults from './TweetCollection/Results/Page'
 
-//import BotAnalysis from './BotAnalysis/Page' // SectionIndex
+import BotAnalysis from './BotAnalysis/Page' // SectionIndex
 import BotClassification from './BotAnalysis/Classification/Page'
 import BotCommunities from "./BotAnalysis/Communities/Page"
 import BotActivity from './BotAnalysis/Activity/Page'
 import BotLanguage from './BotAnalysis/Language/Page'
 import BotImpact from './BotAnalysis/Impact/Page'
 
-//import OpinionAnalysis from './OpinionAnalysis/Page' // SectionIndex
+import OpinionAnalysis from './OpinionAnalysis/Page' // SectionIndex
 import OpinionModels from './OpinionAnalysis/Models/Page'
 import UserOpinions from './OpinionAnalysis/User/Page'
 import TopUserOpinions from './OpinionAnalysis/TopUsers/Page'
@@ -22,7 +22,7 @@ var sidebar = [
     {
         "key": "opinion-analysis",
         "title": "Opinion Analysis",
-        "component": TopUserOpinions,
+        "component": OpinionAnalysis,
         "sections": [
             {"key": "top-user-opinions",    "title": "Top User Opinions",  "component": TopUserOpinions},
             {"key": "user-opinions",        "title": "User Opinions",  "component": UserOpinions},
@@ -32,7 +32,7 @@ var sidebar = [
     {
         "key": "bot-analysis",
         "title": "Bot Analysis",
-        "component": BotActivity,
+        "component": BotAnalysis,
         "sections": [
             {"key": "bot-activity",         "title": "Bot Activity",  "component": BotActivity},
             {"key": "bot-language",         "title": "Bot Language",  "component": BotLanguage},

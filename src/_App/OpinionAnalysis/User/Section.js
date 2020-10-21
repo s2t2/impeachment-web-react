@@ -19,7 +19,7 @@ export default class UserOpinionSection extends PureComponent {
     constructor(props) {
         super(props)
         let params = queryString.parse(window.location.search)
-        var screenName = params["sn"] || "POLITICO" // append ?sn=BERNIESANDERS to the URL to customize via URL params!!!
+        var screenName = props["screen_name"] || params["sn"] || "POLITICO" // append ?sn=BERNIESANDERS to the URL to customize via URL params!!!
         this.state = {screenName: screenName}
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -45,13 +45,16 @@ export default class UserOpinionSection extends PureComponent {
                     <Card.Body>
                         <Card.Title><h2>User Opinions</h2></Card.Title>
                         <Card.Text>
-                            After <a href="/opinion-models">training opinion models</a> to detect which bot community language any given tweet most closely resembles, we used the models to predict impeachment opinion scores for the remaining tweets in our dataset. A score of <code>0</code> means the tweet more closely resembles language used by Community 0 (left-leaning bots), while a score of <code>1</code> means the tweet more closely resembles language used by Community 1 (right-leaning bots).
+                            After <a href="/opinion-models">training opinion models</a> to detect which <a href="/bot-language">bot community language</a>
+                            {" "} any given tweet most closely resembles, we used the models to predict impeachment opinion scores for the remaining tweets in our dataset.
+                            {" "} A score of <code>0</code> means the tweet more closely resembles language used by Community 0 (Left-leaning Pro-Impeachment bots), while a score of <code>1</code> means the tweet more closely resembles language used by Community 1 (Right-leaning Pro-Trump bots).
                         </Card.Text>
 
                         <Card.Text>
                             We then calculated the mean impeachment opinion score for all users in our dataset.
                             {" "}The dashboard below shows how our models scored tweets by any given user.
-                            {" "} NOTE: tweets by 'FOXNEWS' contain only URLs, which are not scored.
+                            {" "} HINT: try <i>REALDONALDTRUMP</i>, <i>SPEAKERPELOSI</i>, <i>SENATEMAJLDR</i>, <i>NYTIMES</i>, <i>WSJ</i>, or <i>POLITICO</i> to get started.
+                            {" "} NOTE: tweets by <i>FOXNEWS</i> contain only URLs and are not scored.
                         </Card.Text>
 
                         <Form style={{marginBottom:10}}>

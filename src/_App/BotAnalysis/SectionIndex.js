@@ -22,7 +22,7 @@ export default function SectionIndex() {
         <Container fluid>
             <Card>
                 <Card.Body>
-                    <Card.Title><h2>{page["title"]}</h2></Card.Title>
+                    <Card.Title><h2><a href={`/${page["key"]}`}>{page["title"]}</a></h2></Card.Title>
 
                     <ul>
                         {listItems}
