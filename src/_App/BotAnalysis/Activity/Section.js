@@ -8,7 +8,7 @@ import Card from 'react-bootstrap/Card'
 
 import UsersMostRetweeted from "./UsersMostRetweeted"
 import StatusesMostRetweeted from "./StatusesMostRetweeted"
-import communityRetweetsOverTime from "./daily-rts-by-community.png"
+//import communityRetweetsOverTime from "./daily-rts-by-community.png"
 
 export default function BotActivitySection() {
 
@@ -27,12 +27,13 @@ export default function BotActivitySection() {
                     </Card.Text>
                     <UsersMostRetweeted/>
 
+                    {/*
                     <h4>Retweet Volume</h4>
                     <Card.Text>
                         In general, left-leaning bots outnumber right-leaning bots 571 to 110, and generate a greater volume of tweets than right-leaning bots.
                     </Card.Text>
                     <img src={communityRetweetsOverTime} alt="a histogram depicting bot probabilities" style={{marginTop:20, marginBottom:20}} class="img-fluid"/>
-
+                    */}
 
                     <h4>Statuses Most Retweeted by Bot Community</h4>
                     <StatusesMostRetweeted/>
