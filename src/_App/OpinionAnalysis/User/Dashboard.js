@@ -70,7 +70,7 @@ export default class Dashboard extends PureComponent {
 
             spinIntoStuff = <span>
                 <Row>
-                    <Col sm={12} md={12} lg={8}>
+                    <Col sm={12} md={12} lg={5}>
                         <h4>
                             {handle}
                             <a href={profileUrl}><UpArrow style={{font: "14px sans-serif", marginLeft: "4px"}}/></a>
@@ -92,6 +92,8 @@ export default class Dashboard extends PureComponent {
                        <small>{helperMessage}</small>
                     </Col>
 
+                    <Col sm={12} md={12} lg={3}>
+                    </Col>
 
                     <Col sm={12} md={12} lg={4}>
                         <Form style={{paddingTop:8}}>
