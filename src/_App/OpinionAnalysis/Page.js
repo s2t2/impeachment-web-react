@@ -12,7 +12,7 @@ export default function TweetCollectionPage() {
             <SectionIndex/>
 
             <TopUserSection/>
-            <UserSection screen_name="SPEAKERPELOSI" />
+            <UserSection screen_name="SENATEMAJLDR" />
             <ModelsSection/>
         </span>
     )
