@@ -18,7 +18,9 @@ export default function BotActivitySection() {
                 <Card.Body>
                     <Card.Title><h3>Bot Activity</h3></Card.Title>
                     <Card.Text>
-                        By examining the retweet activity of each <a href="/bot-communities">bot community</a>, we observe Community 0 represents left-leaning bots (pro-Impeachment), while Community 1 represents right-leaning bots (pro-Trump).
+                        By examining the retweet activity of each <a href="/bot-communities">bot community</a>, we observe
+                        {" "} Community 0 represents Left-leaning (Pro-Impeachment) bots,
+                        {" "} while Community 1 represents Right-leaning (Pro-Trump) bots.
                     </Card.Text>
 
                     <h4>Users Most Retweeted by Bot Community</h4>
