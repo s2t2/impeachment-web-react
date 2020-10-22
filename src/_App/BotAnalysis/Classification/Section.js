@@ -9,7 +9,7 @@ import Table from 'react-bootstrap/Table'
 import {formatNumber, formatPct} from '../../Utils/Decorators'
 import bots from './data.js'
 //import exampleDailyBotProbabilities from '../../../_Dashboards/About/bot_probabilities_histogram_20200201.png' // TODO
-import BotProbabilitiesHistogram from './Histogram'
+import BotProbabilitiesHistogram from './Bar' // './VBar' './VHistogram'
 
 export default function BotClassificationSection() {
 

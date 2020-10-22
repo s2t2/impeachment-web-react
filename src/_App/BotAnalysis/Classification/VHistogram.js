@@ -42,9 +42,8 @@ export default class DailyBotProbabilitiesHistogram extends Component {
             const chartTitle = `Distribution of Bot Probability Scores on ${this.state.date}`
             const parsedResponse = this.state.parsedResponse
 
-
             // OK https://github.com/FormidableLabs/victory/blob/a2067b3cdb27a64314a1951d21e79bcde028c0dd/docs/src/partials/markdown/scope-map.js
-            var bins = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+            //var bins = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
             var data = [{x:0}, {x:.1 }, {x: .1 }, {x: .1 }, {x: .1 }, {x: .2 }, {x: .2 }, {x: .3 }, {x: .4 }, {x: .7 }, {x: .7 }, {x: 1 }]
 
             //debugger;
@@ -52,6 +51,12 @@ export default class DailyBotProbabilitiesHistogram extends Component {
             //var data = parsedResponse["hist"].map(function(val){
             //    return {x: val}
             //}) // why isn't this working?
+
+            var bins = [0, 0.5, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1]
+
+
+
+
 
             console.log("BINS", bins)
             console.log("DATA", data)
