@@ -39,8 +39,8 @@ export default function BotClustering() {
                         Only after examining the <a href="/bot-activity">activity</a>
                         {" "} and <a href="/bot-language">language</a>
                         {" "} patterns of each community do we observe
-                        {" "} Community 0 represents Left-leaning (Pro-Impeachment) Bots, and
-                        {" "} Community 1 represents Right-leaning (Pro-Trump) Bots.
+                        {" "} Community 0 represents Left-leaning (Pro-Impeachment) bots, and
+                        {" "} Community 1 represents Right-leaning (Pro-Trump) bots.
                     </Card.Text>
                 </Card.Body>
             </Card>
