@@ -43,12 +43,13 @@ export default class DailyBotProbabilities extends PureComponent {
 
                     <div style={{width: "100%", height: 350}}>
                         <ResponsiveContainer>
-                            <BarChart data={data} layout="horizontal" margin={{top: 0, right: 5, left: 5, bottom: 20}}
+                            <BarChart data={data} layout="horizontal"
+                                margin={{top: 0, right: 5, left: 5, bottom: 20}}
                                 barSize={150}
                                 barCategoryGap={10}
                                 >
 
-                                <YAxis type="number" dataKey="bot_count">
+                                <YAxis type="number" dataKey="bot_count" domain={[0, 700]}>
                                     <Label value="Bot Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
                                 <XAxis type="category" dataKey="name" tick={{fontSize: 14}}>
@@ -64,10 +65,8 @@ export default class DailyBotProbabilities extends PureComponent {
                                     formatter={this.tooltipFormatter}
                                 />
                                 <Bar dataKey="bot_count" fill={barFill} onClick={this.handleBarClick}
-                                    label={{position: 'insideTop', offset: 15}}
-                                    //label={{
-                                    //    position: 'top'
-                                    //}}
+                                    //label={{position: "insideTop", offset: 15}}
+                                    label={{position: "top", offset:10}}
                                     //label={<BarLabel/>}
                                 />
                             </BarChart>
@@ -106,7 +105,7 @@ export default class DailyBotProbabilities extends PureComponent {
 
     tooltipFormatter(value, name, props){
         //console.log("FORMATTER", value, name, props)
-        return [formatNumber(value), "Users"]
+        return [formatNumber(value), "Bots"]
     }
 
 
