@@ -42,22 +42,10 @@ export default class ProfileHashtags extends React.Component {
                             <ResponsiveContainer>
                                 <BarChart data={data} layout="horizontal" margin={{top: 0, right: 5, left: 5, bottom: 20}} barCategoryGap={2}>
                                     <YAxis type="number" dataKey="frequency">
-                                        <Label
-                                            value="User Count"
-                                            position="insideLeft"
-                                            angle={-90}
-                                            offset={0}
-                                            style={{ textAnchor: 'middle' }}
-                                        />
+                                        <Label value="User Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                     </YAxis>
                                     <XAxis type="category" dataKey="category" scale="band" tick={{fontSize: 14}}>
-                                        <Label
-                                            value="Bot Probability (binned)"
-                                            position="insideBottom"
-                                            offset={-15}
-                                            //angle={-90}
-                                            //style={{ textAnchor: 'center' }}
-                                        />
+                                        <Label value="Bot Probability (binned)" position="insideBottom" offset={-15}/>
                                     </XAxis>
                                     <CartesianGrid strokeDasharray="1 1"/>
 
