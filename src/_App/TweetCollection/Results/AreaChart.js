@@ -1,17 +1,11 @@
 import React from 'react'
-//import Container from 'react-bootstrap/Container'
-//import Row from 'react-bootstrap/Row'
-//import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import {AreaChart, Area, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label ,Tooltip //, Legend,
 } from 'recharts'
-//import {orderBy} from 'lodash'
 
 import Spinner from "../../Spinner"
 import {numberLabel, formatNumber} from "../../Utils/Decorators"
 import cachedData from './data'
-
-//var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
 export default class ProfileHashtags extends React.Component {
     constructor(props) {

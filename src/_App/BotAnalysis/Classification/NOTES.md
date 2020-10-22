@@ -22,7 +22,7 @@ ORDER BY 1 DESC
 
 ```
 
-So in bigquery only the users with bot probabilities above 0.5 have been saved.
+So in BigQuery only the users with bot probabilities above 0.5 have been saved.
 
 Need to dig into the google cloud storage bucket for the full CSV file.
 

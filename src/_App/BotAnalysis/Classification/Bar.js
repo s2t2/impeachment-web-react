@@ -1,17 +1,11 @@
 import React from 'react'
-//import Container from 'react-bootstrap/Container'
-//import Row from 'react-bootstrap/Row'
-//import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip //, Legend,
 } from 'recharts'
-//import {orderBy} from 'lodash'
 
 import {formatNumber, decimalPrecision} from "../../Utils/Decorators"
 import Spinner from "../../Spinner"
 import cachedData from './bot_probabilities_histogram_20200201'
-
-//var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
 export default class DailyBotProbabilities extends React.Component {
     constructor(props) {
