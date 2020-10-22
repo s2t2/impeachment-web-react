@@ -7,8 +7,10 @@ const results = [
     {'date': '2019-12-15', 'status_count': 1544645, 'user_count': 362342, 'retweet_count': 1326744, 'retweeter_count': 297648},
     {'date': '2019-12-16', 'status_count': 975811, 'user_count': 256905, 'retweet_count': 847816, 'retweeter_count': 212919},
     {'date': '2019-12-17', 'status_count': 1375460, 'user_count': 333553, 'retweet_count': 1156336, 'retweeter_count': 259160},
+
     {'date': '2019-12-18', 'status_count': 521527, 'user_count': 158361, 'retweet_count': 440258, 'retweeter_count': 123212},
     {'date': '2019-12-19', 'status_count': 119835, 'user_count': 70208, 'retweet_count': 98982, 'retweeter_count': 56430},
+
     {'date': '2019-12-20', 'status_count': 1597653, 'user_count': 581882, 'retweet_count': 1305285, 'retweeter_count': 469664},
     {'date': '2019-12-21', 'status_count': 1284565, 'user_count': 409392, 'retweet_count': 1055120, 'retweeter_count': 324718},
     {'date': '2019-12-22', 'status_count': 1097591, 'user_count': 403273, 'retweet_count': 911429, 'retweeter_count': 331340},

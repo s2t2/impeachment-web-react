@@ -12,7 +12,7 @@ export default function Section() {
 
     var topicRows = topics.map(function(topic){
         return (
-            <tr>
+            <tr key={topic["topic"]}>
                 <td><i>{topic["topic"]}</i></td>
                 <td style={{"whiteSpace": "nowrap"}}>{topic["date"]}</td>
             </tr>
