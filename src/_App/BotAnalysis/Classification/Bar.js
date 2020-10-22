@@ -3,7 +3,7 @@ import React from 'react'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label //,Tooltip, Legend,
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label //, Tooltip //, Legend,
 } from 'recharts'
 //import {orderBy} from 'lodash'
 
@@ -26,9 +26,6 @@ export default class ProfileHashtags extends React.Component {
 
         if(this.state.parsedResponse){
             var data = this.state.parsedResponse
-                //.filter(function(bar){
-                //    return bar["category"] !== 0.5 // filter out because scale is so different
-                //})
             var barFill = "#ccc"
             console.log("DATA", data, "FILL", barFill)
 
@@ -50,11 +47,24 @@ export default class ProfileHashtags extends React.Component {
                                     <Label value="Bot Probability (binned)" position="insideBottom" offset={-15}/>
                                 </XAxis>
                                 <CartesianGrid strokeDasharray="1 1"/>
+
+
                                 {/*
-                                    <Tooltip/>
-                                    <Legend/>
+
+                                <Tooltip
+                                    //content={this.tooltipContent}
+                                    cursor={{fill: 'transparent', stroke:'#000'}}
+                                    //cursor={false}
+                                    //position={{ y:-5 }}
+                                    //labelFormatter={this.labelFormatter}
+
+                                    formatter={this.tooltipFormatter}
+                                    />
+
+                                <Legend/>
+
                                 */}
-                                <Bar dataKey="frequency" fill={barFill}/>
+                                <Bar dataKey="frequency" fill={barFill} onClick={this.handleBarClick}/>
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
@@ -80,21 +90,20 @@ export default class ProfileHashtags extends React.Component {
         }.bind(this), 1000) // let you see the spinner
     }
 
-    //fetchData() {
-    //    var requestUrl = `${API_URL}/api/v1/daily_binned_bot_probabilities/${date}`
-    //    console.log("REQUEST URL:", requestUrl)
-    //    fetch(requestUrl).then(function (response) {
-    //        // console.log("RAW RESPONSE", "STATUS", response.status, response.statusText,
-    //        // response.ok, "HEADERS", response.headers, response.url)
-    //        return response.json()
-    //    })
-    //    .then(function (json) {
-    //        console.log("FETCHED", json.length, "ITEMS")
-    //        this.setState({parsedResponse: json})
-    //    }.bind(this))
-    //    .catch(function (err) {
-    //        console.error("FETCH ERR", err)
-    //    })
+    handleBarClick(bar){
+        console.log("BAR CLICK", bar)
+    }
+
+    //tooltipLabelFormatter(value, name, props){
+    //    console.log("LABEL FORMATTER", value, name, props)
+    //    return [value, "Bot Probability Bin"]
     //}
+    //
+    //tooltipFormatter(value, name, props){
+    //    //console.log("FORMATTER", value, name, props)
+    //    return [value, "User Count"]
+    //}
+
+
 
 }
