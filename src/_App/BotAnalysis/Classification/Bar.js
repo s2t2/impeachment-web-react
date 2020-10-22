@@ -3,7 +3,7 @@ import React from 'react'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts'
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label} from 'recharts'
 //import {orderBy} from 'lodash'
 
 //import Spinner from "../../Spinner"
@@ -21,9 +21,10 @@ export default class ProfileHashtags extends React.Component {
     render() {
         const chartTitle = `Distribution of Bot Probability Scores on ${this.state.date}`
 
-        var data = this.state.parsedResponse.filter(function(bar){
-            return bar["category"] !== 0.5 // filter out because scale is so different
-        })
+        var data = this.state.parsedResponse
+            //.filter(function(bar){
+            //    return bar["category"] !== 0.5 // filter out because scale is so different
+            //})
         var barFill = "#ccc"
         console.log("DATA", data, "FILL", barFill)
 
@@ -39,16 +40,44 @@ export default class ProfileHashtags extends React.Component {
 
                         <div style={{width: "100%", height: 350}}>
                             <ResponsiveContainer>
-                                <BarChart data={data} layout="horizontal" margin={{top: 5, right: 30, left: 150, bottom: 5}} barCategoryGap={5}>
-                                    <YAxis type="number" dataKey="frequency" />
-                                    <XAxis type="category" dataKey="category" scale="band" tick={{fontSize: 14}} />
+                                <BarChart data={data} layout="horizontal" margin={{top: 0, right: 5, left: 5, bottom: 20}} barCategoryGap={2}>
+                                    <YAxis type="number" dataKey="frequency">
+                                        <Label
+                                            value="User Count"
+                                            position="insideLeft"
+                                            angle={-90}
+                                            offset={0}
+                                            style={{ textAnchor: 'middle' }}
+                                        />
+                                    </YAxis>
+                                    <XAxis type="category" dataKey="category" scale="band" tick={{fontSize: 14}}>
+                                        <Label
+                                            value="Bot Probability (binned)"
+                                            position="insideBottom"
+                                            offset={-15}
+                                            //angle={-90}
+                                            //style={{ textAnchor: 'center' }}
+                                        />
+                                    </XAxis>
                                     <CartesianGrid strokeDasharray="1 1"/>
-                                    <Tooltip/>
-                                    <Legend/>
+
+                                    {/*
+                                        <Tooltip/>
+                                        <Legend/>
+                                    */}
                                     <Bar dataKey="frequency" fill={barFill}/>
                                 </BarChart>
                             </ResponsiveContainer>
                         </div>
+
+                       {/*
+
+                        <Card.Text className="app-center">
+                            <small>Excludes the vast majority of users with default score of 0.5</small>
+                        </Card.Text>
+
+                       */}
+
                     </Card.Body>
                 </Card>
             </span>
