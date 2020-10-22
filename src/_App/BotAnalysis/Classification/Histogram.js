@@ -59,8 +59,8 @@ export default class DailyBotProbabilitiesHistogram extends Component {
                 <VictoryChart domainPadding={{x:20}} padding={50}>
                     <VictoryLabel
                         text={chartTitle}
-                        x={60}
-                        y={15}
+                        x={70}
+                        y={10}
                         //textAnchor="center"
                         //style={}
                     />
