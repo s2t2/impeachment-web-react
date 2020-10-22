@@ -26,4 +26,4 @@ So in bigquery only the users with bot probabilities above 0.5 have been saved.
 
 Need to dig into the google cloud storage bucket for the full CSV file.
 
-See API Prep in tweet analyzer repo. Copy JSON into this dir.
+See [API Prep](https://github.com/s2t2/tweet-analyzer-py/pull/65/files) and run the script to generate the JSON file. Then copy the JSON file into this dir.
