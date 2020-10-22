@@ -34,10 +34,10 @@ export default class ProfileHashtags extends React.Component {
             spinIntoChart = (
                 <span>
                     <Card.Text className="app-center">
-                            {chartTitle}
-                            <br/>
-                            <small>Excludes the vast majority of users with default score of 0.5</small>
-                        </Card.Text>
+                        {chartTitle}
+                        <br/>
+                        <small>Excludes the vast majority of users with default score of 0.5</small>
+                    </Card.Text>
 
                     <div style={{width: "100%", height: 350}}>
                         <ResponsiveContainer>
@@ -80,7 +80,7 @@ export default class ProfileHashtags extends React.Component {
     }
 
     //fetchData() {
-    //    var requestUrl = `${API_URL}/api/v0/top_profile_tags?limit=20`
+    //    var requestUrl = `${API_URL}/api/v1/daily_binned_bot_probabilities/${date}`
     //    console.log("REQUEST URL:", requestUrl)
     //    fetch(requestUrl).then(function (response) {
     //        // console.log("RAW RESPONSE", "STATUS", response.status, response.statusText,
