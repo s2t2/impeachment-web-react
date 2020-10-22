@@ -34,6 +34,14 @@ export default function BotClustering() {
                     {/*
                     <img src={botCommunityAssignments} alt="a chart depicting the number of bots in each community" class="img-fluid"/>
                     */}
+
+                    <Card.Text>
+                        Only after examining the <a href="/bot-activity">activity</a>
+                        {" "} and <a href="/bot-language">language</a>
+                        {" "} patterns of each community do we observe
+                        {" "} Community 0 represents Left-leaning (Pro-Impeachment) Bots, and
+                        {" "} Community 1 represents Right-leaning (Pro-Trump) Bots.
+                    </Card.Text>
                 </Card.Body>
             </Card>
         </Container>
