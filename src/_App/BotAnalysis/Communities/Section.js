@@ -6,7 +6,8 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import botCommunityAssignments from "../../../_Dashboards/About/community-assignments.png" // TODO
+//import botCommunityAssignments from "./community-assignments.png" // TODO
+import CommunityAssignmentsChart from "./Chart" // TODO
 
 export default function BotClustering() {
     return (
@@ -29,8 +30,18 @@ export default function BotClustering() {
                     <Card.Text>
                         Overall, 681 bots had similarity scores appropriate for assignment in one of these two communities. The first community (Community 0) includes 571 bots, while the second community (Community 1) includes 110 bots.
                     </Card.Text>
-
+                    <CommunityAssignmentsChart/>
+                    {/*
                     <img src={botCommunityAssignments} alt="a chart depicting the number of bots in each community" class="img-fluid"/>
+                    */}
+
+                    <Card.Text>
+                        Only after examining the <a href="/bot-activity">activity</a>
+                        {" "} and <a href="/bot-language">language</a>
+                        {" "} patterns of each community do we observe
+                        {" "} Community 0 represents Left-leaning (Pro-Impeachment) bots, and
+                        {" "} Community 1 represents Right-leaning (Pro-Trump) bots.
+                    </Card.Text>
                 </Card.Body>
             </Card>
         </Container>
