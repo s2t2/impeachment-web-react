@@ -19,6 +19,7 @@ import {
 
 import cachedData from './bot_probabilities_histogram_20200201'
 import Spinner from '../../Spinner'
+//import { parse } from 'date-fns'
 
 //import {QuestionIcon} from '@primer/octicons-react'
 
@@ -39,40 +40,38 @@ export default class DailyBotProbabilitiesHistogram extends Component {
         var spinIntoStuff = <Spinner/>
         if (this.state.parsedResponse) {
             const chartTitle = `Distribution of Bot Probability Scores on ${this.state.date}`
-
-            //var parsedResponse = this.state.parsedResponse
-
+            const parsedResponse = this.state.parsedResponse
 
             // OK https://github.com/FormidableLabs/victory/blob/a2067b3cdb27a64314a1951d21e79bcde028c0dd/docs/src/partials/markdown/scope-map.js
-            var sampleHistogramData = [
-                {x: 0 },
-                {x: .1 },
-                {x: .1 },
-                {x: .1 },
-                {x: .1 },
-                {x: .2 },
-                {x: .2 },
-                {x: .3 },
-                {x: .4 },
-                {x: .7 },
-                {x: .7 },
-                {x: 1 }
-            ]
-            //debugger;
+            var bins = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+            var data = [{x:0}, {x:.1 }, {x: .1 }, {x: .1 }, {x: .1 }, {x: .2 }, {x: .2 }, {x: .3 }, {x: .4 }, {x: .7 }, {x: .7 }, {x: 1 }]
+
+            debugger;
+            //var bins = parsedResponse["bin_edges"]
+            //var data = parsedResponse["hist"].map(function(val){
+            //    return {x: val}
+            //}) // why isn't this working?
+
+            console.log("BINS", bins)
+            console.log("DATA", data)
 
             spinIntoStuff = (
-                <VictoryChart domainPadding={{x:20}}>
-                    <VictoryLabel text={chartTitle}/>
+                <VictoryChart domainPadding={{x:20}} padding={50}>
+                    <VictoryLabel
+                        text={chartTitle}
+                        x={60}
+                        y={15}
+                        //textAnchor="center"
+                        //style={}
+                    />
 
-                    <VictoryHistogram
-                        data={sampleHistogramData}
-                        bins={[0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}
+                    <VictoryHistogram data={data} bins={bins}
                         animate={true}
-                        //binSpacing={10}
-                        //height={100} // not working?
+                        //binSpacing={10} // not a bar chart, so no thanks.
+                        //height={100} // not working? probably due to nesting inside a VictoryChart
                         labels={({ datum }) => datum.y > 0 ? datum.y : ""} // don't show zeros
                         //labels={({ datum }) => datum.y}
-                        labelComponent={<VictoryLabel dy={-5}/>}
+                        labelComponent={<VictoryLabel dy={-5}/>} // label bars a bit above the bar
                         style={{
                             data: { fill: "#ccc" },
                             labels: {
@@ -99,3 +98,14 @@ export default class DailyBotProbabilitiesHistogram extends Component {
     }
     componentDidUpdate(prevProps) { console.log("HISTOGRAM DID UPDATE") }
 }
+
+
+
+
+
+
+
+
+// The best practice for any dataviz is to have a chart title. The default placement of a chart title is usually in the top middle. But currently the default nesting of `VictoryLabel` inside `VictoryChart` places the title out of frame / not visible.
+//
+// I think the problem is I'm a little rusty on styling `svg` and `g` elements so if we could add some example chart title positioning to the docs using the existing API, I think that would help. like do we have to transform translate the
