@@ -23,10 +23,15 @@ function numberLabel(num){
     return label
 }
 
+function decimalPrecision(num, precision=2) {
+    // formats 0.3444444 as "34.4%"
+    return (num * 100.0).toFixed(precision) / 100
+}
+
 // todo: add these assertions to the test suite!
 //debugger;
 //console.log(formatNumber(11300123) === '11,300,123')
 //console.log(formatBigNumber(11300123) === '11300.1K') // hey can we do intelligent millions labels? let's use a package maybe.
 //console.log(formatPct(0.3444444) === '34.4%')
 
-export {formatPct, formatNumber, numberLabel}
+export {formatPct, formatNumber, numberLabel, decimalPrecision}

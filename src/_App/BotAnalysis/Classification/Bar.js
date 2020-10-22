@@ -3,20 +3,20 @@ import React from 'react'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label //, Tooltip //, Legend,
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip //, Legend,
 } from 'recharts'
 //import {orderBy} from 'lodash'
 
+import {formatNumber, decimalPrecision} from "../../Utils/Decorators"
 import Spinner from "../../Spinner"
 import cachedData from './bot_probabilities_histogram_20200201'
 
 //var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
-export default class ProfileHashtags extends React.Component {
+export default class DailyBotProbabilities extends React.Component {
     constructor(props) {
         super(props)
         this.state = {date: props["date"], parsedResponse: null}
-        //this.fetchData = this.fetchData.bind(this)
     }
 
     render() {
@@ -39,30 +39,26 @@ export default class ProfileHashtags extends React.Component {
 
                     <div style={{width: "100%", height: 350}}>
                         <ResponsiveContainer>
-                            <BarChart data={data} layout="horizontal" margin={{top: 0, right: 5, left: 5, bottom: 20}} barCategoryGap={2}>
+                            <BarChart data={data} layout="horizontal" margin={{top: 0, right: 5, left: 5, bottom: 20}} barCategoryGap={1}>
                                 <YAxis type="number" dataKey="frequency">
                                     <Label value="User Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
-                                <XAxis type="category" dataKey="category" scale="band" tick={{fontSize: 14}}>
+                                <XAxis type="category" dataKey="category"
+                                    tick={{fontSize: 14}} // scale="band"
+                                    >
                                     <Label value="Bot Probability (binned)" position="insideBottom" offset={-15}/>
                                 </XAxis>
                                 <CartesianGrid strokeDasharray="1 1"/>
-
-
-                                {/*
-
                                 <Tooltip
                                     //content={this.tooltipContent}
                                     cursor={{fill: 'transparent', stroke:'#000'}}
                                     //cursor={false}
                                     //position={{ y:-5 }}
-                                    //labelFormatter={this.labelFormatter}
-
+                                    labelFormatter={this.tooltipLabelFormatter}
                                     formatter={this.tooltipFormatter}
-                                    />
-
+                                />
+                                {/*
                                 <Legend/>
-
                                 */}
                                 <Bar dataKey="frequency" fill={barFill} onClick={this.handleBarClick}/>
                             </BarChart>
@@ -94,15 +90,16 @@ export default class ProfileHashtags extends React.Component {
         console.log("BAR CLICK", bar)
     }
 
-    //tooltipLabelFormatter(value, name, props){
-    //    console.log("LABEL FORMATTER", value, name, props)
-    //    return [value, "Bot Probability Bin"]
-    //}
-    //
-    //tooltipFormatter(value, name, props){
-    //    //console.log("FORMATTER", value, name, props)
-    //    return [value, "User Count"]
-    //}
+    tooltipLabelFormatter(value){
+        //console.log("LABEL FORMATTER", value)
+        //return `${value} - ${decimalPrecision(value + 0.05, 2)}`
+        return `Bot Probability (${value} to ${decimalPrecision(value + 0.05, 2)})`
+    }
+
+    tooltipFormatter(value, name, props){
+        //console.log("FORMATTER", value, name, props)
+        return [formatNumber(value), "Users"]
+    }
 
 
 
