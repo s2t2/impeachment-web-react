@@ -8,7 +8,7 @@ import {AreaChart, Area, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label
 //import {orderBy} from 'lodash'
 
 import Spinner from "../../Spinner"
-import {numberLabel} from "../../Utils/Decorators"
+import {numberLabel, formatNumber} from "../../Utils/Decorators"
 import cachedData from './data'
 
 //var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
@@ -48,7 +48,14 @@ export default class ProfileHashtags extends React.Component {
                                 {/*
                                 <Legend/>
                                 */}
-                                <Tooltip/>
+                                <Tooltip
+                                    //content={this.tooltipContent}
+                                    cursor={{fill: 'transparent', stroke:'#000'}}
+                                    //cursor={false}
+                                    //position={{ y:-5 }}
+                                    labelFormatter={this.tooltipLabelFormatter}
+                                    formatter={this.tooltipFormatter}
+                                />
 
                                 <Area dataKey="status_count" stroke="#000" fill="#ccc" />
                             </AreaChart>
@@ -76,21 +83,15 @@ export default class ProfileHashtags extends React.Component {
         }.bind(this), 1000) // let you see the spinner
     }
 
-    //fetchData() {
-    //    var requestUrl = `${API_URL}/api/v1/daily_collection_results/${date}`
-    //    console.log("REQUEST URL:", requestUrl)
-    //    fetch(requestUrl).then(function (response) {
-    //        // console.log("RAW RESPONSE", "STATUS", response.status, response.statusText,
-    //        // response.ok, "HEADERS", response.headers, response.url)
-    //        return response.json()
-    //    })
-    //    .then(function (json) {
-    //        console.log("FETCHED", json.length, "ITEMS")
-    //        this.setState({parsedResponse: json})
-    //    }.bind(this))
-    //    .catch(function (err) {
-    //        console.error("FETCH ERR", err)
-    //    })
-    //}
+    tooltipLabelFormatter(value){
+        //console.log("LABEL FORMATTER", value)
+        //return `${value} - ${decimalPrecision(value + 0.05, 2)}`
+        return `Date : ${value}`
+    }
+
+    tooltipFormatter(value, name, props){
+        //console.log("FORMATTER", value, name, props)
+        return [formatNumber(value), "Tweet Count"]
+    }
 
 }
