@@ -12,7 +12,7 @@ export default function Section() {
 
     var timelineRows = timeline.map(function(event){
         return (
-            <tr>
+            <tr key={event["title"]}>
                 <td>{event["title"]}</td>
                 <td style={{"whiteSpace": "nowrap"}}>{event["date"]}</td>
             </tr>
