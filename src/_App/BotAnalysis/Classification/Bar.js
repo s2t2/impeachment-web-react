@@ -29,18 +29,19 @@ export default class ProfileHashtags extends React.Component {
 
         return (
             <span>
-                <h4 className="app-center">{chartTitle}</h4>
                 <Card>
                     <Card.Body>
                         <Card.Text className="app-center">
                             {chartTitle}
+                            <br/>
+                            <small>Excludes the vast majority of users with default score of 0.5</small>
                         </Card.Text>
 
-                        <div style={{width: "100%", height: 650}}>
+                        <div style={{width: "100%", height: 350}}>
                             <ResponsiveContainer>
-                                <BarChart data={data} layout="vertical" margin={{top: 5, right: 30, left: 150, bottom: 5}}>
-                                    <XAxis type="number" dataKey="frequency" />
-                                    <YAxis type="category" dataKey="category" tick={{fontSize: 14}} />
+                                <BarChart data={data} layout="horizontal" margin={{top: 5, right: 30, left: 150, bottom: 5}} barCategoryGap={5}>
+                                    <YAxis type="number" dataKey="frequency" />
+                                    <XAxis type="category" dataKey="category" scale="band" tick={{fontSize: 14}} />
                                     <CartesianGrid strokeDasharray="1 1"/>
                                     <Tooltip/>
                                     <Legend/>
