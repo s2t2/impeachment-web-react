@@ -1,5 +1,8 @@
 import React from 'react'
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip} from 'recharts'
+import {groupBy, orderBy //values, chain, uniqBy
+} from "lodash"
+
 import Card from 'react-bootstrap/Card'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
@@ -22,35 +25,87 @@ const modelSelectTooltip = <BootstrapTooltip className="model-select-tooltip-mea
     See opinion scores from different Impeachment opinion models.
 </BootstrapTooltip>
 
+function binnedScore(number){
+    // bins scores by 0.5
+    // adapted from: https://stackoverflow.com/a/10413602/670433
+    return (Math.floor(number*20)/20).toFixed(2)
+}
+
 export default class DailyBotProbabilities extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             metric: props["metric"] || "avg_score_lr",
-            parsedResponse: null}
+            parsedResponse: null
+        }
         this.handleModelSelect = this.handleModelSelect.bind(this)
     }
 
     render() {
         const metric = this.state.metric
-        const chartTitle = `Distribution of Mean Pro-Trump Opinion Scores (for Users Most Followed)`
-        const chartSubtitle = `Opinion Model: ${MODEL_LABELS[metric]}`
 
         var spinIntoChart = <Spinner/>
 
         if(this.state.parsedResponse){
             var data = this.state.parsedResponse
-            var barFill = "#ccc" // TODO: bar-specific
-            console.log("DATA", data, "FILL", barFill)
+            console.log("DATA", data)
+            const barFill = "#ccc" // TODO: bar-specific
 
-            // GOAL:
+            // TRANSFORM DATA:
             // const bars = [
             //     {"category": 0.0, "frequency": 634},
             //     {"category": 0.05, "frequency": 42}
             // ]
 
-            debugger;
+            data = data.map(function(user){
+                return {"screen_name": user["screen_name"], "opinion_score": user[metric], "binned_score": binnedScore(user[metric])}
+            })
+            console.log("DATA 2", data)
 
+            //debugger;
+
+            //const bars = [
+            //    {"category": 0.0, "frequency": 634},
+            //    {"category": 0.05, "frequency": 42}
+            //]
+
+            //data = groupBy(data, "binned_score")
+                //.map(function(users, key){
+                //    return {
+                //        "category": key,
+                //        "frequency": 0.33
+                //        //"Zone Count": uniqBy(users, ["screen_name"]).length,
+                //        //"Value Sum": sumBy(users, 'Value')
+                //    }
+                //})
+            //console.log("DATA 3", data)
+
+            //data = groupBy(data, "binned_score")
+                //.map(function(binnedScore, users){
+                //    return {"category": binnedScore, "frequency": users.length}
+                //})
+                //.value()
+                //.all()
+            //debugger;
+
+
+            data = groupBy(data, "binned_score") //> a dictionary with keys as the categories and a list of values
+            console.log(data)
+
+            data = Object.entries(data).map(function([binnedScore, users]){
+                return {"category": binnedScore, "frequency": users.length}
+            })
+            console.log(data)
+
+            data = orderBy(data, "category")
+            console.log(data)
+
+
+
+
+
+            const chartTitle = `Distribution of Mean Pro-Trump Opinion Scores (for Users Most Followed)`
+            const chartSubtitle = `Opinion Model: ${MODEL_LABELS[metric]}`
 
             spinIntoChart = (
                 <span>
@@ -60,6 +115,7 @@ export default class DailyBotProbabilities extends React.Component {
                         <small>{chartSubtitle}</small>
                     </Card.Text>
 
+                    {/* */}
                     <div style={{width: "100%", height: 350}}>
                         <ResponsiveContainer>
                             <BarChart data={data} layout="horizontal" margin={{top: 0, right: 25, left: 5, bottom: 20}} barCategoryGap={1}>
@@ -84,6 +140,7 @@ export default class DailyBotProbabilities extends React.Component {
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
+
                 </span>
             )
         }
