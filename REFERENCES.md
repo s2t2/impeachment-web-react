@@ -165,6 +165,7 @@ It works to show you the variable values. To interact with them, must set a `deb
 ## Node.js
 
   + https://stackoverflow.com/questions/39282253/how-can-i-alias-a-default-import-in-javascript
+  + https://medium.com/dailyjs/using-import-aliases-in-javascript-a0b46237601c
 
 ## Lodash
 

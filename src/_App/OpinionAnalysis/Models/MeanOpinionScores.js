@@ -1,24 +1,26 @@
 import React from 'react'
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip} from 'recharts'
 import Card from 'react-bootstrap/Card'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
-//import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip} from 'recharts'
-//import {QuestionIcon} from '@primer/octicons-react'
+import BootstrapTooltip from 'react-bootstrap/Tooltip'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import {QuestionIcon} from '@primer/octicons-react'
 
 import {formatNumber, decimalPrecision} from "../../Utils/Decorators"
 import Spinner from "../../Spinner"
-import cachedData from './meanOpinionScoresData'
+import cachedData from '../TopUsers/data' // './meanOpinionScoresData'
 
 const MODEL_LABELS = {
     "avg_score_lr": "Logistic Regression",
     "avg_score_nb": "Naive Bayes",
     "avg_score_bert": "BERT Transformer",
 }
-//const modelSelectTooltip = <Tooltip className="model-select-tooltip-mean-opinion-scores">
-//    See opinion scores from different Impeachment opinion models.
-//</Tooltip>
+
+const modelSelectTooltip = <BootstrapTooltip className="model-select-tooltip-mean-opinion-scores">
+    See opinion scores from different Impeachment opinion models.
+</BootstrapTooltip>
 
 export default class DailyBotProbabilities extends React.Component {
     constructor(props) {
@@ -31,33 +33,43 @@ export default class DailyBotProbabilities extends React.Component {
 
     render() {
         const metric = this.state.metric
-        const chartTitle = `Distribution of Mean Pro-Trump Opinion Scores (${MODEL_LABELS[metric]})`
+        const chartTitle = `Distribution of Mean Pro-Trump Opinion Scores (for Users Most Followed)`
+        const chartSubtitle = `Opinion Model: ${MODEL_LABELS[metric]}`
 
         var spinIntoChart = <Spinner/>
 
         if(this.state.parsedResponse){
             var data = this.state.parsedResponse
             var barFill = "#ccc" // TODO: bar-specific
-            //console.log("DATA", data, "FILL", barFill)
+            console.log("DATA", data, "FILL", barFill)
+
+            // GOAL:
+            // const bars = [
+            //     {"category": 0.0, "frequency": 634},
+            //     {"category": 0.05, "frequency": 42}
+            // ]
+
+            debugger;
+
 
             spinIntoChart = (
                 <span>
                     <Card.Text className="app-center">
                         {chartTitle}
                         <br/>
-                        <small>(for users most followed)</small>
+                        <small>{chartSubtitle}</small>
                     </Card.Text>
 
                     <div style={{width: "100%", height: 350}}>
                         <ResponsiveContainer>
                             <BarChart data={data} layout="horizontal" margin={{top: 0, right: 25, left: 5, bottom: 20}} barCategoryGap={1}>
                                 <YAxis type="number" dataKey="frequency">
-                                    <Label value="User Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
+                                    <Label value="Percentage of Top Users" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
                                 <XAxis type="category" dataKey="category"
                                     tick={{fontSize: 14}} // scale="band"
                                     >
-                                    <Label value="Bot Probability (binned)" position="insideBottom" offset={-15}/>
+                                    <Label value="Mean Pro-Trump Opinion Score (binned)" position="insideBottom" offset={-15}/>
                                 </XAxis>
                                 <CartesianGrid strokeDasharray="1 1"/>
                                 <Tooltip
@@ -85,10 +97,10 @@ export default class DailyBotProbabilities extends React.Component {
                             <Form.Label>
                                 Opinion Model:
                                 {/*
+                                */}
                                 <OverlayTrigger placement="top" overlay={modelSelectTooltip}>
                                     <span><QuestionIcon verticalAlign="text-top"/></span>
                                 </OverlayTrigger>
-                                */}
                             </Form.Label>
 
                             <div key="inline-radios" className="mb-3">
@@ -138,7 +150,7 @@ export default class DailyBotProbabilities extends React.Component {
 
     tooltipFormatter(value, name, props){
         //console.log("FORMATTER", value, name, props)
-        return [formatNumber(value), "Users"]
+        return [formatNumber(value), "Percentage of Top Users"] // TODO divide by 1000
     }
 
 
