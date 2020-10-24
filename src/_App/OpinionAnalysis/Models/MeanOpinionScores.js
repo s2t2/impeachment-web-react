@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip, Cell} from 'recharts'
 import {groupBy, orderBy //values, chain, uniqBy
 } from "lodash"
@@ -38,7 +38,7 @@ function binnedScore(number){
     }
 }
 
-export default class DailyBotProbabilities extends React.Component {
+export default class DailyBotProbabilities extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
@@ -63,7 +63,7 @@ export default class DailyBotProbabilities extends React.Component {
                 return {"category": binnedScore, "frequency": users.length / 1000.0} // divide by 1000 to get percentage of top 1000 users
             })
             data = orderBy(data, "category")
-            console.log(data)
+            //console.log(data)
 
             const chartTitle = `Distribution of Mean Pro-Trump Opinion Scores`
             const chartSubtitle = `Opinion Model: ${MODEL_LABELS[metric]}`
@@ -101,7 +101,7 @@ export default class DailyBotProbabilities extends React.Component {
                                             //console.log("ENTRY", entry)
                                             //<Cell fill="steelblue"/>
                                             //<Cell fill={this.barFill(data[index])}/>
-                                            <Cell fill={this.barFill(entry)}/>
+                                            <Cell key={entry.category} fill={this.barFill(entry)}/>
                                         ))
                                     }
                                 </Bar>
