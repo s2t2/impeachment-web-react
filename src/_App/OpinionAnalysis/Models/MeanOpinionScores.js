@@ -1,5 +1,5 @@
 import React from 'react'
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip} from 'recharts'
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip, Cell} from 'recharts'
 import {groupBy, orderBy //values, chain, uniqBy
 } from "lodash"
 
@@ -12,6 +12,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import {QuestionIcon} from '@primer/octicons-react'
 
 import {formatNumber, decimalPrecision} from "../../Utils/Decorators"
+import {colorScale} from "../../Utils/Colors"
 import Spinner from "../../Spinner"
 import cachedData from '../TopUsers/data' // './meanOpinionScoresData'
 
@@ -38,6 +39,7 @@ export default class DailyBotProbabilities extends React.Component {
             metric: props["metric"] || "avg_score_lr",
             parsedResponse: null
         }
+        this.barFill = this.barFill.bind(this)
         this.handleModelSelect = this.handleModelSelect.bind(this)
     }
 
@@ -48,61 +50,14 @@ export default class DailyBotProbabilities extends React.Component {
 
         if(this.state.parsedResponse){
             var data = this.state.parsedResponse
-            console.log("DATA", data)
-            const barFill = "#ccc" // TODO: bar-specific
-
-            // TRANSFORM DATA:
-            // const bars = [
-            //     {"category": 0.0, "frequency": 634},
-            //     {"category": 0.05, "frequency": 42}
-            // ]
-
-            data = data.map(function(user){
-                return {"screen_name": user["screen_name"], "opinion_score": user[metric], "binned_score": binnedScore(user[metric])}
-            })
-            console.log("DATA 2", data)
-
-            //debugger;
-
-            //const bars = [
-            //    {"category": 0.0, "frequency": 634},
-            //    {"category": 0.05, "frequency": 42}
-            //]
-
-            //data = groupBy(data, "binned_score")
-                //.map(function(users, key){
-                //    return {
-                //        "category": key,
-                //        "frequency": 0.33
-                //        //"Zone Count": uniqBy(users, ["screen_name"]).length,
-                //        //"Value Sum": sumBy(users, 'Value')
-                //    }
-                //})
-            //console.log("DATA 3", data)
-
-            //data = groupBy(data, "binned_score")
-                //.map(function(binnedScore, users){
-                //    return {"category": binnedScore, "frequency": users.length}
-                //})
-                //.value()
-                //.all()
-            //debugger;
-
-
+            //console.log("DATA", data)
+            data = data.map(function(user){ return {"screen_name": user["screen_name"], "binned_score": binnedScore(user[metric])} })
             data = groupBy(data, "binned_score") //> a dictionary with keys as the categories and a list of values
-            console.log(data)
-
             data = Object.entries(data).map(function([binnedScore, users]){
-                return {"category": binnedScore, "frequency": users.length / 1000} // divide by 1000 to get percentage of top 1000 users
+                return {"category": binnedScore, "frequency": users.length / 1000.0} // divide by 1000 to get percentage of top 1000 users
             })
-            console.log(data)
-
             data = orderBy(data, "category")
             console.log(data)
-
-
-
-
 
             const chartTitle = `Distribution of Mean Pro-Trump Opinion Scores (for Users Most Followed)`
             const chartSubtitle = `Opinion Model: ${MODEL_LABELS[metric]}`
@@ -122,9 +77,7 @@ export default class DailyBotProbabilities extends React.Component {
                                 <YAxis type="number" dataKey="frequency">
                                     <Label value="Percentage of Top Users" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
-                                <XAxis type="category" dataKey="category"
-                                    tick={{fontSize: 14}} // scale="band"
-                                    >
+                                <XAxis type="category" dataKey="category" tick={{fontSize: 14}}>
                                     <Label value="Mean Pro-Trump Opinion Score (binned)" position="insideBottom" offset={-15}/>
                                 </XAxis>
                                 <CartesianGrid strokeDasharray="1 1"/>
@@ -136,14 +89,23 @@ export default class DailyBotProbabilities extends React.Component {
                                     labelFormatter={this.tooltipLabelFormatter}
                                     formatter={this.tooltipFormatter}
                                 />
-                                <Bar dataKey="frequency" fill={barFill} onClick={this.handleBarClick}/>
+                                <Bar dataKey="frequency" fill="#ccc" onClick={this.handleBarClick}>
+                                    {
+                                        data.map((entry, index) => (
+                                            //console.log("ENTRY", entry)
+                                            //<Cell fill="steelblue"/>
+                                            //<Cell fill={this.barFill(data[index])}/>
+                                            <Cell fill={this.barFill(entry)}/>
+                                        ))
+                                    }
+                                </Bar>
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
-
                 </span>
             )
         }
+
         return (
             <span>
                 <Card style={{marginBottom:0}}>
@@ -152,24 +114,28 @@ export default class DailyBotProbabilities extends React.Component {
 
                         <Form style={{paddingTop:20}}>
                             <Form.Label>
-                                Opinion Model:
-                                {/*
-                                */}
+                                Opinion Model: {" "}
                                 <OverlayTrigger placement="top" overlay={modelSelectTooltip}>
                                     <span><QuestionIcon verticalAlign="text-top"/></span>
                                 </OverlayTrigger>
                             </Form.Label>
 
                             <div key="inline-radios" className="mb-3">
-                                <Form.Check inline label="Logistic Regression" value="avg_score_lr" type="radio"
+                                <Form.Check inline type="radio"
+                                    label="Logistic Regression"
+                                    value="avg_score_lr"
                                     checked={metric === "avg_score_lr"}
                                     onChange={this.handleModelSelect}
                                 />
-                                <Form.Check inline label="Naive Bayes" value="avg_score_nb" type="radio"
+                                <Form.Check inline type="radio"
+                                    label="Naive Bayes"
+                                    value="avg_score_nb"
                                     checked={metric === "avg_score_nb"}
                                     onChange={this.handleModelSelect}
                                 />
-                                <Form.Check inline label="BERT Transformer" value="avg_score_bert" type="radio"
+                                <Form.Check inline type="radio"
+                                    label="BERT Transformer"
+                                    value="avg_score_bert"
                                     checked={metric === "avg_score_bert"}
                                     onChange={this.handleModelSelect}
                                 />
@@ -199,10 +165,23 @@ export default class DailyBotProbabilities extends React.Component {
         console.log("BAR CLICK", bar)
     }
 
+    barFill(bar){
+        console.log("BAR FILL", bar)
+        //return "steelblue"
+        return colorScale(parseFloat(bar.category))
+    }
+
     tooltipLabelFormatter(value){
         //console.log("LABEL FORMATTER", value)
         //return `${value} - ${decimalPrecision(value + 0.05, 2)}`
-        return `Mean Pro-Trump Opinion Score (${value} to ${decimalPrecision(value + 0.05, 2)})`
+        var val = parseFloat(value)
+        var label
+        if(val === 1){
+            label = `Mean Pro-Trump Opinion Score (${value})`
+        } else {
+            label = `Mean Pro-Trump Opinion Score (${value} to ${decimalPrecision(val + 0.04, 2)})`
+        }
+        return label
     }
 
     tooltipFormatter(value, name, props){

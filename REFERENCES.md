@@ -190,6 +190,10 @@ npm install lodash --save
 npm install react-gauge-chart
 ```
 
+## Recharts
+
+  + bar fill hack: https://github.com/recharts/recharts/issues/280#issuecomment-390861880
+
 ## Victory Charts
 
 FTW AMAZING
