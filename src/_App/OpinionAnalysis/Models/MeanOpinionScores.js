@@ -93,7 +93,7 @@ export default class DailyBotProbabilities extends React.Component {
             console.log(data)
 
             data = Object.entries(data).map(function([binnedScore, users]){
-                return {"category": binnedScore, "frequency": users.length}
+                return {"category": binnedScore, "frequency": users.length / 1000} // divide by 1000 to get percentage of top 1000 users
             })
             console.log(data)
 
