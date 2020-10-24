@@ -7,6 +7,7 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveC
 import {orderBy} from 'lodash'
 
 import Spinner from "../../Spinner"
+import {legendBlue, legendRed} from "../../Utils/Colors"
 
 var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
@@ -58,7 +59,7 @@ export default class ProfileHashtags extends React.Component {
                                     Top Hashtags in Left-leaning Bot Profiles
                                 </Card.Text>
 
-                                 <HashtagsBarChart data={community0} barFill="#002868" />
+                                 <HashtagsBarChart data={community0} barFill={legendBlue} />
                             </Card.Body>
                         </Card>
                     </Col>
@@ -70,7 +71,7 @@ export default class ProfileHashtags extends React.Component {
                                     Top Hashtags in Right-leaning Bot Profiles
                                 </Card.Text>
 
-                                <HashtagsBarChart data={community1} barFill="#bf0a30" />
+                                <HashtagsBarChart data={community1} barFill={legendRed} />
                             </Card.Body>
                         </Card>
                     </Col>

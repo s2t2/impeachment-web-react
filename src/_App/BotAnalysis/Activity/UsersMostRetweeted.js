@@ -7,6 +7,7 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveC
 import {orderBy} from 'lodash'
 
 import Spinner from "../../Spinner"
+import {legendBlue, legendRed} from "../../Utils/Colors"
 
 var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
@@ -59,7 +60,7 @@ export default class UsersMostRetweeted extends React.Component {
                                 <Card.Text className="app-center">
                                     Users Most Retweeted by Left-leaning Bots
                                 </Card.Text>
-                                <UsersBarChart data={community0} barFill="#002868"/>
+                                <UsersBarChart data={community0} barFill={legendBlue}/>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -70,7 +71,7 @@ export default class UsersMostRetweeted extends React.Component {
                                 <Card.Text className="app-center">
                                     Users Most Retweeted by Right-leaning Bots
                                 </Card.Text>
-                                <UsersBarChart data={community1} barFill="#bf0a30"/>
+                                <UsersBarChart data={community1} barFill={legendRed}/>
                             </Card.Body>
                         </Card>
                     </Col>
