@@ -5,7 +5,7 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, 
 
 import {formatNumber, decimalPrecision} from "../../Utils/Decorators"
 import Spinner from "../../Spinner"
-import cachedData from './bot_probabilities_histogram_20200201'
+import cachedData from './bot_probabilities_20200201'
 
 export default class DailyBotProbabilities extends React.Component {
     constructor(props) {
@@ -28,13 +28,13 @@ export default class DailyBotProbabilities extends React.Component {
                     <Card.Text className="app-center">
                         {chartTitle}
                         <br/>
-                        <small>Excludes the vast majority of users with default score of 0.5</small>
+                        <small>(axis capped to focus on tails)</small>
                     </Card.Text>
 
                     <div style={{width: "100%", height: 350}}>
                         <ResponsiveContainer>
                             <BarChart data={data} layout="horizontal" margin={{top: 0, right: 5, left: 5, bottom: 20}} barCategoryGap={1}>
-                                <YAxis type="number" dataKey="frequency">
+                                <YAxis type="number" dataKey="frequency" domain={[0,15000]} allowDataOverflow={true}>
                                     <Label value="User Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
                                 <XAxis type="category" dataKey="category"
