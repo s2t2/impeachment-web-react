@@ -10,7 +10,7 @@ export default function StatusesTable(props) {
     var tableRows = data.map(function(status) {
         rank = rank + 1
         return (
-            <tr>
+            <tr key={rank}>
                 <td>{rank}</td>
                 <td><i>{status["status_text"]}</i></td>
                 <td>{status["retweeter_count"]}</td>
