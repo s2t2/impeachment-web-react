@@ -11,7 +11,7 @@ import BootstrapTooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import {QuestionIcon} from '@primer/octicons-react'
 
-import {formatNumber, decimalPrecision} from "../../Utils/Decorators"
+import {decimalPrecision, formatPct} from "../../Utils/Decorators"
 import {colorScale} from "../../Utils/Colors"
 import Spinner from "../../Spinner"
 import cachedData from '../TopUsers/data' // './meanOpinionScoresData'
@@ -29,7 +29,13 @@ const modelSelectTooltip = <BootstrapTooltip className="model-select-tooltip-mea
 function binnedScore(number){
     // bins scores by 0.5
     // adapted from: https://stackoverflow.com/a/10413602/670433
-    return (Math.floor(number*20)/20).toFixed(2)
+    //return (Math.floor(number*20)/20).toFixed(2)
+    // bins 1.0 with 0.95
+    if(number === 1){
+        return 0.95
+    } else {
+        return (Math.floor(number*20)/20).toFixed(2)
+    }
 }
 
 export default class DailyBotProbabilities extends React.Component {
@@ -59,7 +65,7 @@ export default class DailyBotProbabilities extends React.Component {
             data = orderBy(data, "category")
             console.log(data)
 
-            const chartTitle = `Distribution of Mean Pro-Trump Opinion Scores (for Users Most Followed)`
+            const chartTitle = `Distribution of Mean Pro-Trump Opinion Scores`
             const chartSubtitle = `Opinion Model: ${MODEL_LABELS[metric]}`
 
             spinIntoChart = (
@@ -166,7 +172,7 @@ export default class DailyBotProbabilities extends React.Component {
     }
 
     barFill(bar){
-        console.log("BAR FILL", bar)
+        //console.log("BAR FILL", bar)
         //return "steelblue"
         return colorScale(parseFloat(bar.category))
     }
@@ -174,19 +180,24 @@ export default class DailyBotProbabilities extends React.Component {
     tooltipLabelFormatter(value){
         //console.log("LABEL FORMATTER", value)
         //return `${value} - ${decimalPrecision(value + 0.05, 2)}`
-        var val = parseFloat(value)
-        var label
-        if(val === 1){
-            label = `Mean Pro-Trump Opinion Score (${value})`
-        } else {
-            label = `Mean Pro-Trump Opinion Score (${value} to ${decimalPrecision(val + 0.04, 2)})`
-        }
-        return label
+        //var val = parseFloat(value)
+
+        //if(val >= 0.95){
+        //    val + 0.04
+        //    label = `Mean Pro-Trump Opinion Score (${val} to 1.00)`
+        //} else {
+        //    label = `Mean Pro-Trump Opinion Score (${val} to ${decimalPrecision(val + 0.04, 2)})`
+        //}
+
+        //var upperBound = (val >= 0.95 ? val + 0.05 : val + 0.04)
+        //var label = `Mean Pro-Trump Opinion Score (${val} to ${decimalPrecision(upperBound, 2)})`
+
+        return `Mean Pro-Trump Opinion Score (${value} to ${decimalPrecision(parseFloat(value) + 0.05, 2)})`
     }
 
     tooltipFormatter(value, name, props){
         //console.log("FORMATTER", value, name, props)
-        return [formatNumber(value), "Percentage of Top Users"] // TODO divide by 1000
+        return [formatPct(value), "Percentage of Top Users"] // TODO divide by 1000
     }
 
 
