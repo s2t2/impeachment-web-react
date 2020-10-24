@@ -32,13 +32,13 @@ export default function BotImpact() {
                         {" "} The chart below shows the shift in opinion scores by day.
                         {" "} The highest daily shift towards right-leaning bot opinions was 2.8% on 12/28, and the highest daily shift towards left-leaning bot opinions was 6.3% on 1/8.
                     </Card.Text>
-                    <img src={dailyShift} alt="a bar graph of daily opinion shift by bot community" style={{marginTop:20, marginBottom:20}} class="img-fluid"/>
+                    <img src={dailyShift} alt="a bar graph of daily opinion shift by bot community" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
 
                     <h4>Retweet Volume</h4>
                     <Card.Text>
                         In general, left-leaning bots outnumber right-leaning bots 571 to 110, and generate a greater volume of tweets than right-leaning bots.
                     </Card.Text>
-                    <img src={communityRetweetsOverTime} alt="a histogram depicting bot probabilities" style={{marginTop:20, marginBottom:20}} class="img-fluid"/>
+                    <img src={communityRetweetsOverTime} alt="a histogram depicting bot probabilities" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
 
 
                 </Card.Body>
