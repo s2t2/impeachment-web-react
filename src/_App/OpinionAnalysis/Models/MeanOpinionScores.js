@@ -79,7 +79,7 @@ export default class DailyBotProbabilities extends PureComponent {
                     {/* */}
                     <div style={{width: "100%", height: 350}}>
                         <ResponsiveContainer>
-                            <BarChart data={data} layout="horizontal" margin={{top: 0, right: 25, left: 5, bottom: 20}} barCategoryGap={1}>
+                            <BarChart data={data} layout="horizontal" margin={{top: 0, bottom: 20, left: 5, right: 30}} barCategoryGap={1}>
                                 <YAxis type="number" dataKey="frequency">
                                     <Label value="Percentage of Top Users" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
