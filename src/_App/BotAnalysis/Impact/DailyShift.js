@@ -43,14 +43,16 @@ export default class DailyOpinionShift extends PureComponent {
             //console.log(data)
 
             const chartTitle = `Bot-Induced Daily Opinion Shift`
-            const chartSubtitle = `Opinion Model: BERT Transformer`
+            //const chartSubtitle = `Opinion Model: BERT Transformer`
 
             spinIntoChart = (
                 <span>
                     <Card.Text className="app-center">
                         {chartTitle}
+                        {/*
                         <br/>
                         <small>{chartSubtitle}</small>
+                        */}
                     </Card.Text>
 
                     {/*
