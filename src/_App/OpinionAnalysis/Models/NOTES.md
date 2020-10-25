@@ -12,8 +12,3 @@ GROUP BY 1
 SELECT count(distinct status_text) as text_count
 FROM impeachment_production.2_community_labeled_status_texts
 ```
-
-## Scores Distribution by Model
-
-```sql
-```
