@@ -6,7 +6,6 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import communityRetweetsOverTime from "../Activity/daily-rts-by-community.png"
 //import dailyEquilibrium from "./daily-opinion-equilibrium-tableau.png"
 //import dailyShift from "./daily-opinion-shift-tableau.png"
 import DailyShift from "./DailyShift"
@@ -35,15 +34,6 @@ export default function BotImpact() {
                     <img src={dailyShift} alt="a bar graph of daily opinion shift by bot community" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
                     */}
                     <DailyShift/>
-
-
-
-                    <h4>Retweet Volume</h4>
-                    <Card.Text>
-                        In general, left-leaning bots outnumber right-leaning bots 571 to 110, and generate a greater volume of tweets than right-leaning bots.
-                    </Card.Text>
-                    <img src={communityRetweetsOverTime} alt="a histogram depicting bot probabilities" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
-
 
                 </Card.Body>
             </Card>

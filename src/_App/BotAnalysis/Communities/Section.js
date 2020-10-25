@@ -36,9 +36,9 @@ export default function BotClustering() {
                     */}
 
                     <Card.Text>
-                        Only after examining the <a href="/bot-activity">activity</a>
-                        {" "} and <a href="/bot-language">language</a>
-                        {" "} patterns of each community do we observe
+                        Only after examining the <a href="/bot-beneficiaries">beneficiaries</a>
+                        {" "} and <a href="/bot-language">language patterns</a>
+                        {" "} of each bot community do we observe
                         {" "} Community 0 represents Left-leaning (Pro-Impeachment) bots, and
                         {" "} Community 1 represents Right-leaning (Pro-Trump) bots.
                     </Card.Text>

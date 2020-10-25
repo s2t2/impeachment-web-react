@@ -10,6 +10,7 @@ import BotAnalysis from './BotAnalysis/Page' // SectionIndex
 import BotClassification from './BotAnalysis/Classification/Page'
 import BotCommunities from "./BotAnalysis/Communities/Page"
 import BotActivity from './BotAnalysis/Activity/Page'
+import BotBeneficiaries from './BotAnalysis/Beneficiaries/Page'
 import BotLanguage from './BotAnalysis/Language/Page'
 import BotImpact from './BotAnalysis/Impact/Page'
 
@@ -24,9 +25,9 @@ var sidebar = [
         "title": "Opinion Analysis",
         "component": OpinionAnalysis,
         "sections": [
-            {"key": "top-user-opinions",    "title": "Top User Opinions",  "component": TopUserOpinions},
-            {"key": "user-opinions",        "title": "User Opinions",  "component": UserOpinions},
-            {"key": "opinion-models",       "title": "Opinion Models",  "component": OpinionModels},
+            {"key": "top-user-opinions",    "title": "Top User Opinions",   "component": TopUserOpinions},
+            {"key": "user-opinions",        "title": "User Opinions",       "component": UserOpinions},
+            {"key": "opinion-models",       "title": "Opinion Models",      "component": OpinionModels},
         ]
     },
     {
@@ -34,10 +35,11 @@ var sidebar = [
         "title": "Bot Analysis",
         "component": BotAnalysis,
         "sections": [
-            {"key": "bot-activity",         "title": "Bot Activity",  "component": BotActivity},
-            {"key": "bot-language",         "title": "Bot Language",  "component": BotLanguage},
-            {"key": "bot-impact",           "title": "Bot Impact",  "component": BotImpact},
-            {"key": "bot-communities",       "title": "Bot Communities",  "component": BotCommunities},
+            {"key": "bot-activity",         "title": "Bot Activity",        "component": BotActivity},
+            {"key": "bot-beneficiaries",    "title": "Bot Beneficiaries",  "component": BotBeneficiaries},
+            {"key": "bot-language",         "title": "Bot Language",        "component": BotLanguage},
+            {"key": "bot-impact",           "title": "Bot Impact",          "component": BotImpact},
+            {"key": "bot-communities",       "title": "Bot Communities",    "component": BotCommunities},
             {"key": "bot-classification",    "title": "Bot Classification",  "component": BotClassification}
         ]
     },
