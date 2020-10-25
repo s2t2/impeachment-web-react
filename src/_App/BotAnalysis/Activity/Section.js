@@ -6,7 +6,8 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import communityRetweetsOverTime from "./daily-rts-by-community.png"
+//import communityRetweetsOverTime from "./daily-rts-by-community.png"
+import DailyRetweets from './DailyRetweets'
 
 export default function BotActivitySection() {
 
@@ -21,8 +22,10 @@ export default function BotActivitySection() {
                         Left-leaning bots generate a greater volume of retweets than Right-leaning bots.
                         {" "} This is perhaps due to there being <a href="/bot-communities">at least five times as many Left-leaning bots than Right-leaning bots</a>.
                     </Card.Text>
+                    {/*
                     <img src={communityRetweetsOverTime} alt="a histogram depicting bot probabilities" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
-
+                    */}
+                    <DailyRetweets/>
 
                     <Card.Text>
                         NOTE: only after examining the <a href="/bot-beneficiaries">beneficiaries</a>
