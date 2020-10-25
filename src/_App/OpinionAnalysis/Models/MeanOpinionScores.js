@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip, Cell} from 'recharts'
 import {groupBy, orderBy //values, chain, uniqBy
 } from "lodash"
+import ReactGA from 'react-ga'
 
 import Card from 'react-bootstrap/Card'
 //import Row from 'react-bootstrap/Row'
@@ -167,6 +168,7 @@ export default class DailyBotProbabilities extends PureComponent {
     handleModelSelect(changeEvent){
         var val = changeEvent.target.value
         console.log("SELECT MODEL / METRIC:", val)
+        ReactGA.event({category: "Top User Opinion Scores Histogram", action: "Select Opinion Metric", label: val})
         this.setState({metric: val})
     }
 
