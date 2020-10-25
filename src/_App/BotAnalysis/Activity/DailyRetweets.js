@@ -3,29 +3,30 @@
 import React, { PureComponent } from 'react'
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
 
+import {legendBlue, legendRed} from '../../Utils/Colors'
+
 const data = [
-    {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
-    {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
-    {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
-    {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-    {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-    {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-    {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
+    {"date": '2020-01-01', "community_0": 40000, "community_1": 2400},
+    {"date": '2020-01-02', "community_0": 30000, "community_1": 1398},
+    {"date": '2020-01-03', "community_0": 20000, "community_1": 9800},
+    {"date": '2020-01-04', "community_0": 27800, "community_1": 3908},
+    {"date": '2020-01-05', "community_0": 18900, "community_1": 4800},
+    {"date": '2020-01-06', "community_0": 23900, "community_1": 3800},
+    {"date": '2020-01-07', "community_0": 34900, "community_1": 4300},
 ]
 
 export default class DailyRetweets extends PureComponent {
-    static jsfiddleUrl = 'https://jsfiddle.net/alidingling/90v76x08/'
 
     render() {
         return (
             <BarChart width={500} height={300} data={data} margin={{top: 20, right: 30, left: 20, bottom: 5}}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
+                <XAxis dataKey="date" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="pv" stackId="a" fill="#8884d8" />
-                <Bar dataKey="uv" stackId="a" fill="#82ca9d" />
+                <Bar dataKey="community_1" stackId="a" fill={legendRed} />
+                <Bar dataKey="community_0" stackId="a" fill={legendBlue} />
             </BarChart>
         )
     }

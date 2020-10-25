@@ -20,7 +20,7 @@ export default function BotActivitySection() {
                     <h4>Retweet Volume</h4>
                     <Card.Text>
                         Left-leaning bots generate a greater volume of retweets than Right-leaning bots.
-                        {" "} This is perhaps due to there being <a href="/bot-communities">at least five times as many Left-leaning bots than Right-leaning bots</a>.
+                        {" "} This is perhaps because Left-leaning bots <a href="/bot-communities">outnumber</a> Right-leaning bots five to one.
                     </Card.Text>
                     {/*
                     <img src={communityRetweetsOverTime} alt="a histogram depicting bot probabilities" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
