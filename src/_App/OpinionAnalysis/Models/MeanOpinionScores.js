@@ -31,11 +31,14 @@ function binnedScore(number){
     // adapted from: https://stackoverflow.com/a/10413602/670433
     //return (Math.floor(number*20)/20).toFixed(2)
     // bins 1.0 with 0.95
-    if(number === 1){
-        return 0.95
-    } else {
-        return (Math.floor(number*20)/20).toFixed(2)
-    }
+    //if(number === 1){
+    //    return 0.95
+    //} else if (number === 0){
+    //    return 0.05
+    //} else {
+    //    return (Math.floor(number*20)/20).toFixed(2)
+    //}
+    return Math.round(number * 20, 2) / 20
 }
 
 export default class DailyBotProbabilities extends PureComponent {
@@ -192,7 +195,9 @@ export default class DailyBotProbabilities extends PureComponent {
         //var upperBound = (val >= 0.95 ? val + 0.05 : val + 0.04)
         //var label = `Mean Pro-Trump Opinion Score (${val} to ${decimalPrecision(upperBound, 2)})`
 
-        return `Mean Pro-Trump Opinion Score (${value} to ${decimalPrecision(parseFloat(value) + 0.05, 2)})`
+        //return `Mean Pro-Trump Opinion Score (${value} to ${decimalPrecision(parseFloat(value) + 0.05, 2)})`
+
+        return `Mean Pro-Trump Opinion Score (binned) : ${value}`
     }
 
     tooltipFormatter(value, name, props){
