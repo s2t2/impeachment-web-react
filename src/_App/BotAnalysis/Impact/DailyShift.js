@@ -23,24 +23,13 @@ export default class DailyOpinionShift extends PureComponent {
 
         if(this.state.parsedResponse){
             var data = this.state.parsedResponse
-            console.log("DAILY OPINION SHIFT DATA", data)
-
-
-            // debugger;
+            //console.log("DAILY OPINION SHIFT DATA", data)
 
             data = data.map(function(daily){
                 daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
                 return daily
             })
-            console.log("DAILY OPINION SHIFT DATA 2", data)
-
-
-            //data = groupBy(data, "binned_score") //> a dictionary with keys as the categories and a list of values
-            //data = Object.entries(data).map(function([binnedScore, users]){
-            //    return {"category": binnedScore, "frequency": users.length / 1000.0} // divide by 1000 to get percentage of top 1000 users
-            //})
-            //data = orderBy(data, "category")
-            //console.log(data)
+            //console.log("DAILY OPINION SHIFT DATA 2", data)
 
             const chartTitle = `Bot-Induced Daily Opinion Shift`
             const chartSubtitle = `Opinion Model: BERT Transformer`
@@ -80,10 +69,7 @@ export default class DailyOpinionShift extends PureComponent {
                                 <Bar dataKey="mean_opinion_shift" fill="#ccc" onClick={this.handleBarClick}>
                                     {
                                         data.map((entry, index) => (
-                                            //console.log("ENTRY", entry)
-                                            //<Cell fill="steelblue"/>
-                                            //<Cell fill={this.barFill(data[index])}/>
-                                            <Cell key={entry["date"]} fill={this.barFill(entry)}/>
+                                            <Cell key={entry["date"]} fill={this.barFill(entry["mean_opinion_shift"])}/>
                                         ))
                                     }
                                 </Bar>
@@ -115,10 +101,9 @@ export default class DailyOpinionShift extends PureComponent {
         console.log("BAR CLICK", bar)
     }
 
-    barFill(bar){
-        //console.log("BAR FILL", bar)
+    barFill(val){
         //return "steelblue"
-        return colorScale(parseFloat(bar["mean_opinion_shift"]))
+        return colorScale(parseFloat(val))
     }
 
     tooltipLabelFormatter(value){
