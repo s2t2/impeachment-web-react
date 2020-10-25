@@ -20,7 +20,9 @@ export default function BotImpact() {
 
                     <h4>Opinion Shift</h4>
                     <Card.Text>
-                        For each day in our primary collection period, we calculated the average opinion scores for all users, with vs. without bots, to assess the impact the bots were having on the conversation.
+                        For each day in our <a href="/collection-timeline">primary tweet collection period</a>,
+                        {" "} we used our BERT Transformer <a href="/opinion-models">opinion model</a>
+                        {" "} to calculate the average opinion scores for all users, with vs. without bots, to assess the impact the bots were having on the conversation.
                         {" "} We observe the average daily bot-induced opinion shift is 1.4% towards left-leaning opinions.
                         {" "} The chart below shows the shift in opinion scores by day.
                         {" "} The highest daily shift towards right-leaning bot opinions was 2.8% on 12/28, and the highest daily shift towards left-leaning bot opinions was 6.3% on 1/8.
