@@ -8,7 +8,7 @@ export default function CommunityTagsTable(props) {
 
     var tableRows = data.map(function(tag) {
         return (
-            <tr>
+            <tr key={tag["tag"]}>
                 <td><i>{tag["tag"]}</i></td>
                 <td>{tag["description"]}</td>
             </tr>

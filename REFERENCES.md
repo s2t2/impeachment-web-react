@@ -165,6 +165,7 @@ It works to show you the variable values. To interact with them, must set a `deb
 ## Node.js
 
   + https://stackoverflow.com/questions/39282253/how-can-i-alias-a-default-import-in-javascript
+  + https://medium.com/dailyjs/using-import-aliases-in-javascript-a0b46237601c
 
 ## Lodash
 
@@ -188,6 +189,10 @@ npm install lodash --save
 ```sh
 npm install react-gauge-chart
 ```
+
+## Recharts
+
+  + bar fill hack: https://github.com/recharts/recharts/issues/280#issuecomment-390861880
 
 ## Victory Charts
 
