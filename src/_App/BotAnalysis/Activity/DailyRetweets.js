@@ -9,6 +9,7 @@ import Card from 'react-bootstrap/Card'
 //import Col from 'react-bootstrap/Col'
 
 //import {formatPct} from '../../Utils/Decorators'
+import {numberLabel, bigNumberLabel} from "../../Utils/Decorators"
 import {legendBlue, legendRed} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
 //import cachedData from './data'
@@ -59,7 +60,7 @@ export default class DailyRetweets extends PureComponent {
 
                             <Legend verticalAlign="top" align="center" iconType="circle" wrapperStyle={{top:-10, left:40}}/>
 
-                            <YAxis>
+                            <YAxis tickFormatter={bigNumberLabel}>
                                 <Label value="Retweet Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: "middle"}}/>
                             </YAxis>
                             <XAxis type="category" dataKey="date" tick={{fontSize: 14}}>
@@ -75,7 +76,7 @@ export default class DailyRetweets extends PureComponent {
                                 //cursor={false}
                                 //position={{ y:-5 }}
                                 labelFormatter={this.tooltipLabelFormatter}
-                                //formatter={this.tooltipFormatter}
+                                formatter={this.tooltipFormatter}
                             />
                         </BarChart>
                     </ResponsiveContainer>
@@ -109,8 +110,8 @@ export default class DailyRetweets extends PureComponent {
         return `Date : ${value}`
     }
 
-    //tooltipFormatter(value, name, props){
-    //    //console.log("FORMATTER", value, name, props)
-    //    return [formatPct(value), "Mean Pro-Trump Opinion Shift"]
-    //}
+    tooltipFormatter(value, name, props){
+        //console.log("FORMATTER", value, name, props)
+        return [numberLabel(value), name] // TODO: COMMUNITIES[name]["title"]
+    }
 }
