@@ -17,7 +17,7 @@ export default function BotBeneficiariesSection() {
                 <Card.Body>
                     <Card.Title><h3>Bot Beneficiaries</h3></Card.Title>
                     <Card.Text>
-                        By examining the beneficiaries of retweets by each <a href="/bot-communities">bot community</a>, we observe
+                        By examining the retweet beneficiaries of each <a href="/bot-communities">bot community</a>, we observe
                         {" "} Community 0 represents Left-leaning (Pro-Impeachment) bots
                         {" "} and Community 1 represents Right-leaning (Pro-Trump) bots.
                     </Card.Text>
