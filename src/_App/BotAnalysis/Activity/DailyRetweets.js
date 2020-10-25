@@ -37,6 +37,14 @@ export default class DailyRetweets extends PureComponent {
             var data = this.state.parsedResponse
             console.log("DAILY RT VOLUME", data)
 
+            data = data.map(function(daily){
+                daily["Community 0"] = daily["community_0"]
+                daily["Community 1"] = daily["community_1"]
+                return daily
+            })
+            console.log("DAILY", data)
+
+
             const chartTitle = `Daily Retweets by Bot Community`
 
             spinIntoChart = <span>
@@ -44,9 +52,9 @@ export default class DailyRetweets extends PureComponent {
                     {chartTitle}
                 </Card.Text>
 
-                <div style={{width: "100%", height: 500}}>
+                <div style={{width: "100%", height: 400}}>
                     <ResponsiveContainer>
-                         <BarChart width={500} height={300} data={data} margin={{top: 5, right: 40, left: 20, bottom: 20}}>
+                         <BarChart data={data} margin={{top: 5, right: 40, left: 20, bottom: 20}}>
                             <CartesianGrid strokeDasharray="3 3" />
 
                             <Legend verticalAlign="top" align="center" iconType="circle" wrapperStyle={{top:-10, left:40}}/>
@@ -58,8 +66,8 @@ export default class DailyRetweets extends PureComponent {
                                 <Label value="Date" position="insideBottom" offset={-15}/>
                             </XAxis>
 
-                            <Bar dataKey="community_1" stackId="a" fill={legendRed} />
-                            <Bar dataKey="community_0" stackId="a" fill={legendBlue} />
+                            <Bar dataKey="Community 1" stackId="a" fill={legendRed}  onClick={this.handleBarClick}/>
+                            <Bar dataKey="Community 0" stackId="a" fill={legendBlue} onClick={this.handleBarClick}/>
 
                             <Tooltip
                                 //content={this.tooltipContent}
@@ -91,6 +99,10 @@ export default class DailyRetweets extends PureComponent {
         setTimeout(function(){
             this.setState({parsedResponse: cachedData})
         }.bind(this), 1000) // let you see the spinner
+    }
+
+    handleBarClick(bar){
+        console.log("BAR CLICK", bar)
     }
 
     tooltipLabelFormatter(value){
