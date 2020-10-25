@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-//import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip, Cell} from 'recharts'
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip, Cell} from 'recharts'
 //import {groupBy, orderBy} from "lodash"
 //import ReactGA from 'react-ga'
 import Card from 'react-bootstrap/Card'
@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card'
 //import Col from 'react-bootstrap/Col'
 
 import {formatPct} from '../../Utils/Decorators'
-import {opinionScale as colorScale} from '../../Utils/Colors'
+import {opinionShiftScale as colorScale} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
 import cachedData from './data'
 
@@ -32,6 +32,7 @@ export default class DailyOpinionShift extends PureComponent {
                 daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
                 return daily
             })
+            console.log("DAILY OPINION SHIFT DATA 2", data)
 
 
             //data = groupBy(data, "binned_score") //> a dictionary with keys as the categories and a list of values
@@ -53,14 +54,16 @@ export default class DailyOpinionShift extends PureComponent {
                     </Card.Text>
 
                     {/*
-                    <div style={{width: "100%", height: 350}}>
+                    */}
+
+                    <div style={{width: "100%", height: 500}}>
                         <ResponsiveContainer>
-                            <BarChart data={data} layout="horizontal" margin={{top: 0, bottom: 20, left: 5, right: 30}} barCategoryGap={1}>
-                                <YAxis type="number" dataKey="frequency">
-                                    <Label value="Percentage of Top Users" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
+                            <BarChart data={data} layout="horizontal" margin={{top: 0, bottom: 20, left: 5, right: 30}} barCategoryGap={0}>
+                                <YAxis type="number" dataKey="mean_opinion_shift" domain={[-0.07, 0.04]}>
+                                    <Label value="Mean Pro-Trump Opinion Shift" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
-                                <XAxis type="category" dataKey="category" tick={{fontSize: 14}}>
-                                    <Label value="Mean Pro-Trump Opinion Score (binned)" position="insideBottom" offset={-15}/>
+                                <XAxis type="category" dataKey="date" tick={{fontSize: 14}}>
+                                    <Label value="Date" position="insideBottom" offset={-15}/>
                                 </XAxis>
                                 <CartesianGrid strokeDasharray="1 1"/>
                                 <Tooltip
@@ -71,22 +74,19 @@ export default class DailyOpinionShift extends PureComponent {
                                     labelFormatter={this.tooltipLabelFormatter}
                                     formatter={this.tooltipFormatter}
                                 />
-                                <Bar dataKey="frequency" fill="#ccc" onClick={this.handleBarClick}>
+                                <Bar dataKey="mean_opinion_shift" fill="#ccc" onClick={this.handleBarClick}>
                                     {
                                         data.map((entry, index) => (
                                             //console.log("ENTRY", entry)
                                             //<Cell fill="steelblue"/>
                                             //<Cell fill={this.barFill(data[index])}/>
-                                            <Cell key={entry.category} fill={this.barFill(entry)}/>
+                                            <Cell key={entry["date"]} fill={this.barFill(entry)}/>
                                         ))
                                     }
                                 </Bar>
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
-
-                    */}
-
                 </span>
             )
         }
@@ -114,8 +114,8 @@ export default class DailyOpinionShift extends PureComponent {
 
     barFill(bar){
         //console.log("BAR FILL", bar)
-        return "steelblue"
-        //return colorScale(parseFloat(bar["mean_opinion_shift"]))
+        //return "steelblue"
+        return colorScale(parseFloat(bar["mean_opinion_shift"]))
     }
 
     tooltipLabelFormatter(value){
