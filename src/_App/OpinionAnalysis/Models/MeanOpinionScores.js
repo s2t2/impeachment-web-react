@@ -12,10 +12,10 @@ import BootstrapTooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import {QuestionIcon} from '@primer/octicons-react'
 
-import {decimalPrecision, formatPct} from "../../Utils/Decorators"
+import {formatPct} from "../../Utils/Decorators" // decimalPrecision
 import {colorScale} from "../../Utils/Colors"
 import Spinner from "../../Spinner"
-import cachedData from '../TopUsers/data' // './meanOpinionScoresData'
+import cachedData from '../TopUsers/data'
 
 const MODEL_LABELS = {
     "avg_score_lr": "Logistic Regression",
