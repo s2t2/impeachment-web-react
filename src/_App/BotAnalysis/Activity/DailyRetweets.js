@@ -33,7 +33,6 @@ export default class DailyRetweets extends PureComponent {
     render() {
         var spinIntoChart = <Spinner/>
 
-
         if(this.state.parsedResponse){
             var data = this.state.parsedResponse
             console.log("DAILY RT VOLUME", data)
@@ -41,20 +40,35 @@ export default class DailyRetweets extends PureComponent {
             const chartTitle = `Daily Retweets by Bot Community`
 
             spinIntoChart = <span>
-                <Card.Text className="app-center">
+                <Card.Text className="app-center" style={{marginBottom:0}}>
                     {chartTitle}
                 </Card.Text>
 
                 <div style={{width: "100%", height: 500}}>
                     <ResponsiveContainer>
-                         <BarChart width={500} height={300} data={data} margin={{top: 20, right: 30, left: 20, bottom: 5}}>
+                         <BarChart width={500} height={300} data={data} margin={{top: 5, right: 40, left: 20, bottom: 20}}>
                             <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="date" />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend />
+
+                            <Legend verticalAlign="top" align="center" iconType="circle" wrapperStyle={{top:-10, left:40}}/>
+
+                            <YAxis>
+                                <Label value="Retweet Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: "middle"}}/>
+                            </YAxis>
+                            <XAxis type="category" dataKey="date" tick={{fontSize: 14}}>
+                                <Label value="Date" position="insideBottom" offset={-15}/>
+                            </XAxis>
+
                             <Bar dataKey="community_1" stackId="a" fill={legendRed} />
                             <Bar dataKey="community_0" stackId="a" fill={legendBlue} />
+
+                            <Tooltip
+                                //content={this.tooltipContent}
+                                cursor={{fill: 'transparent', stroke:'#000'}}
+                                //cursor={false}
+                                //position={{ y:-5 }}
+                                labelFormatter={this.tooltipLabelFormatter}
+                                //formatter={this.tooltipFormatter}
+                            />
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
@@ -63,7 +77,7 @@ export default class DailyRetweets extends PureComponent {
         }
 
         return (
-            <Card>
+            <Card style={{marginBottom:0}}>
                 <Card.Body>
                     {spinIntoChart}
                 </Card.Body>
@@ -78,4 +92,13 @@ export default class DailyRetweets extends PureComponent {
             this.setState({parsedResponse: cachedData})
         }.bind(this), 1000) // let you see the spinner
     }
+
+    tooltipLabelFormatter(value){
+        return `Date : ${value}`
+    }
+
+    //tooltipFormatter(value, name, props){
+    //    //console.log("FORMATTER", value, name, props)
+    //    return [formatPct(value), "Mean Pro-Trump Opinion Shift"]
+    //}
 }
