@@ -13,7 +13,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import {QuestionIcon} from '@primer/octicons-react'
 
 import {formatPct} from "../../Utils/Decorators" // decimalPrecision
-import {colorScale} from "../../Utils/Colors"
+import {opinionScale as colorScale} from "../../Utils/Colors"
 import Spinner from "../../Spinner"
 import cachedData from '../TopUsers/data'
 
