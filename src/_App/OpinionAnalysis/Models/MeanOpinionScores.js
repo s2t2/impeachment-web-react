@@ -204,7 +204,7 @@ export default class DailyBotProbabilities extends PureComponent {
 
     tooltipFormatter(value, name, props){
         //console.log("FORMATTER", value, name, props)
-        return [formatPct(value), "Percentage of Top Users"] // TODO divide by 1000
+        return [formatPct(value), "Percentage of Top Users"]
     }
 
 
