@@ -36,7 +36,7 @@ export default function BotClustering() {
                     */}
 
                     <Card.Text>
-                        Only after examining the <a href="/bot-beneficiaries">beneficiaries</a>
+                        NOTE: only after examining the <a href="/bot-beneficiaries">beneficiaries</a>
                         {" "} and <a href="/bot-language">language patterns</a>
                         {" "} of each bot community do we observe
                         {" "} Community 0 represents Left-leaning (Pro-Impeachment) bots, and
