@@ -1,29 +1,20 @@
 import React, { Component } from 'react'
+import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend} from 'victory' // VictoryTheme, VictoryLabel
 import Form from 'react-bootstrap/Form'
-//import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-//import Dropdown from 'react-bootstrap/Dropdown'
-//import Button from 'react-bootstrap/Button'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
-
-import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend} from 'victory' // VictoryTheme, VictoryLabel
-//import { orderBy } from 'lodash'
-import {scaleSequential, interpolateRdBu} from 'd3'
 import RangeSlider from 'react-bootstrap-range-slider'
-//import { Range } from 'rc-slider'
 import Slider from 'rc-slider'
 import ReactGA from 'react-ga'
+import {QuestionIcon} from '@primer/octicons-react'
 
 import './VBarChart.css'
-
-//import { ReactComponent as QuestionIcon } from './question-mark.svg'
-import {QuestionIcon} from '@primer/octicons-react'
+import {opinionScale as colorScale} from '../../Utils/Colors'
 
 const { createSliderWithTooltip } = Slider
 const Range = createSliderWithTooltip(Slider.Range)
-const colorScale = scaleSequential(interpolateRdBu).domain([1, 0]) // reverse so 0:blue and 1:red
 
 var BAR_COUNT = 10 // would be nice to get 15 or 20 to work (with smaller bar labels)
 

@@ -8,7 +8,8 @@ import Card from 'react-bootstrap/Card'
 
 import communityRetweetsOverTime from "../Activity/daily-rts-by-community.png"
 //import dailyEquilibrium from "./daily-opinion-equilibrium-tableau.png"
-import dailyShift from "./daily-opinion-shift-tableau.png"
+//import dailyShift from "./daily-opinion-shift-tableau.png"
+import DailyShift from "./DailyShift"
 
 export default function BotImpact() {
     return (
@@ -17,22 +18,25 @@ export default function BotImpact() {
                 <Card.Body>
                     <Card.Title><h3>Bot Impact</h3></Card.Title>
 
-                    <h4>Bot Influence</h4>
+                    <h4>Opinion Shift</h4>
                     <Card.Text>
-                        For each day in our primary collection period, we calculated the average opinion scores for all users, with vs. without bots, to assess the impact the bots were having on the conversation.
-                        {/*
-                        {" "} We observe the mean daily opinion score without bots is 46.6%, while with bots is 45.2%.
-                        {" "} This suggests there is an average daily opinion shift of 1.4% towards left-leaning bot opinions.
-                    </Card.Text>
-                    <img src={dailyEquilibrium} alt="a line graph of daily opinion with bots vs without" style={{marginTop:20, marginBottom:20}} class="img-fluid"/>
+                        For each day in our <a href="/collection-timeline">primary tweet collection period</a>,
+                        {" "} we used our <a href="/opinion-models">Impeachment opinion model</a>
+                        {" "} to calculate the average opinion scores for all users, with vs. without <a href="/bot-classification">bots</a>,
+                        {" "} to assess the impact the bots were having on the conversation.
 
+                    </Card.Text>
                     <Card.Text>
-                        */}
                         {" "} We observe the average daily bot-induced opinion shift is 1.4% towards left-leaning opinions.
                         {" "} The chart below shows the shift in opinion scores by day.
                         {" "} The highest daily shift towards right-leaning bot opinions was 2.8% on 12/28, and the highest daily shift towards left-leaning bot opinions was 6.3% on 1/8.
                     </Card.Text>
+                    {/*
                     <img src={dailyShift} alt="a bar graph of daily opinion shift by bot community" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
+                    */}
+                    <DailyShift/>
+
+
 
                     <h4>Retweet Volume</h4>
                     <Card.Text>

@@ -13,7 +13,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import {QuestionIcon} from '@primer/octicons-react'
 
 import {formatPct} from "../../Utils/Decorators" // decimalPrecision
-import {colorScale} from "../../Utils/Colors"
+import {opinionScale as colorScale} from "../../Utils/Colors"
 import Spinner from "../../Spinner"
 import cachedData from '../TopUsers/data'
 
@@ -105,7 +105,7 @@ export default class DailyBotProbabilities extends PureComponent {
                                             //console.log("ENTRY", entry)
                                             //<Cell fill="steelblue"/>
                                             //<Cell fill={this.barFill(data[index])}/>
-                                            <Cell key={entry.category} fill={this.barFill(entry)}/>
+                                            <Cell key={entry["category"]} fill={this.barFill(entry["category"])}/>
                                         ))
                                     }
                                 </Bar>
@@ -176,10 +176,9 @@ export default class DailyBotProbabilities extends PureComponent {
         console.log("BAR CLICK", bar)
     }
 
-    barFill(bar){
-        //console.log("BAR FILL", bar)
+    barFill(val){
         //return "steelblue"
-        return colorScale(parseFloat(bar.category))
+        return colorScale(parseFloat(val))
     }
 
     tooltipLabelFormatter(value){

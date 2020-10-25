@@ -26,7 +26,9 @@ export default function Section() {
                     <Card.Title><h3>Collection Timeline</h3></Card.Title>
 
                     <Card.Text>
-                        For over ninety days, from 12/12/2019 to 03/24/2020, we collected <a href="/collection-topics">tweets about the Trump Impeachment proceedings</a>. This time period does not cover the entire proceedings in the House of Representatives, but does include the entire Senate Trial, which took place from 01/15 to 02/05. Most of our analysis focuses on the sixty-day period between 12/20 and 02/20.
+                        For over ninety days, from 12/12/2019 to 03/24/2020, we collected <a href="/collection-topics">tweets about the Trump Impeachment proceedings</a>.
+                        {" "} This time period does not cover the entire proceedings in the House of Representatives, but does include the entire Senate Trial, which took place from 01/15 to 02/05.
+                        {" "} Most of our analysis focuses on a sixty-day "primary collection period" between 12/20 and 02/20.
                     </Card.Text>
 
                     <div className="table-responsive">
