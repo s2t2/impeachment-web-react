@@ -31,7 +31,7 @@ export default class DailyOpinionShift extends PureComponent {
             })
             //console.log("DAILY OPINION SHIFT DATA 2", data)
 
-            const chartTitle = `Bot-Induced Daily Opinion Shift`
+            const chartTitle = `Daily Bot-Induced Opinion Shift`
             const chartSubtitle = `Opinion Model: BERT Transformer`
 
             spinIntoChart = (
