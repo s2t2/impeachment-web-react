@@ -5,8 +5,9 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, 
 //import {groupBy, orderBy} from "lodash"
 //import ReactGA from 'react-ga'
 import Card from 'react-bootstrap/Card'
-//import Row from 'react-bootstrap/Row'
-//import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 //import {formatPct} from '../../Utils/Decorators'
 import {numberLabel, bigNumberLabel} from "../../Utils/Decorators"
@@ -14,7 +15,11 @@ import {legendBlue, legendRed} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
 import cachedData from './data'
 
-
+const METRICS = {
+    "bot_count": {"title": "Active User"},
+    "tweet_count": {"title": "Tweet"},
+    "retweet_count": {"title": "Retweet"}
+}
 //const barData = [
 //    {"date": '2020-01-01', "community_0": 40000, "community_1": 2400},
 //    {"date": '2020-01-02', "community_0": 30000, "community_1": 1398},
@@ -29,6 +34,7 @@ export default class DailyRetweets extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {metric: "retweet_count", parsedResponse: null}
+        this.selectMetric = this.selectMetric.bind(this)
     }
 
     render() {
@@ -36,8 +42,9 @@ export default class DailyRetweets extends PureComponent {
 
         if(this.state.parsedResponse){
             var metric = this.state.metric
+
             var data = this.state.parsedResponse
-            console.log("DAILY BOT ACTIVITY", metric, data)
+            //console.log("DAILY BOT ACTIVITY", metric, data)
 
             data = data.map(function(daily){
                 daily["Community 0"] = parseFloat(daily[`${metric}_0`])
@@ -46,9 +53,12 @@ export default class DailyRetweets extends PureComponent {
             })
             console.log("DAILY BOT ACTIVITY", metric, data)
 
-            const metricTitle = "Retweets" // Tweets // Active Bots
-            const chartTitle = `Daily ${metricTitle} by Bot Community`
-            const yAxisLabel = "Retweet Count"
+            //const metricTitle = "Retweets" // Tweets // Active Bots
+            //const chartTitle = `Daily ${metricTitle} by Bot Community`
+            //const yAxisLabel = "Retweet Count"
+            const metricTitle = METRICS[metric]["title"]
+            const chartTitle = `Daily ${metricTitle}s by Bot Community`
+            const yAxisLabel = `${metricTitle} Count`
 
             spinIntoChart = <span>
                 <Card.Text className="app-center" style={{marginBottom:0}}>
@@ -57,7 +67,7 @@ export default class DailyRetweets extends PureComponent {
 
                 <div style={{width: "100%", height: 400}}>
                     <ResponsiveContainer>
-                         <BarChart data={data} margin={{top: 5, right: 40, left: 5, bottom: 20}}>
+                        <BarChart data={data} margin={{top: 5, right: 40, left: 5, bottom: 20}}>
                             <CartesianGrid strokeDasharray="3 3" />
 
                             <Legend verticalAlign="top" align="center" iconType="circle" wrapperStyle={{top:-10, left:32}}/>
@@ -73,10 +83,7 @@ export default class DailyRetweets extends PureComponent {
                             <Bar dataKey="Community 0" stackId="a" fill={legendBlue} onClick={this.handleBarClick}/>
 
                             <Tooltip
-                                //content={this.tooltipContent}
                                 cursor={{fill: 'transparent', stroke:'#000'}}
-                                //cursor={false}
-                                //position={{ y:-5 }}
                                 labelFormatter={this.tooltipLabelFormatter}
                                 formatter={this.tooltipFormatter}
                             />
@@ -84,6 +91,21 @@ export default class DailyRetweets extends PureComponent {
                     </ResponsiveContainer>
                 </div>
 
+                <Form>
+                    <Form.Group as={Row}>
+                        <Col xs="6">
+                            <Form.Label>Activity Metric:</Form.Label>
+
+                            <Form.Control as="select" size="lg" custom defaultValue={metric} onChange={this.selectMetric}>
+                                <option value="bot_count">Active Users</option>
+                                <option value="tweet_count">Tweets</option>
+                                <option value="retweet_count">Retweets</option>
+                            </Form.Control>
+                        </Col>
+                        <Col xs="6">
+                        </Col>
+                    </Form.Group>
+                </Form>
             </span>
         }
 
@@ -104,6 +126,13 @@ export default class DailyRetweets extends PureComponent {
         }.bind(this), 1000) // let you see the spinner
     }
 
+    selectMetric(changeEvent){
+        var val = changeEvent.target.value
+        console.log("SELECT METRIC:", val)
+        //ReactGA.event({category: "Daily Bot Activity Chart", action: "Select Metric", label: val})
+        this.setState({metric: val})
+    }
+
     handleBarClick(bar){
         console.log("BAR CLICK", bar)
     }
@@ -114,6 +143,11 @@ export default class DailyRetweets extends PureComponent {
 
     tooltipFormatter(value, name, props){
         //console.log("FORMATTER", value, name, props)
-        return [numberLabel(value), name] // TODO: COMMUNITIES[name]["title"]
+        //return [numberLabel(value), name]
+        //return [value, name]
+        return [bigNumberLabel(value), name]
     }
+
+
+
 }
