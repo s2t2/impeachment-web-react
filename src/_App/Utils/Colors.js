@@ -12,7 +12,10 @@ const legendBlue = "steelblue" // opinionScale(0.15) // "flag" blue: "#002868"
 const legendRed = "#D62021" // opinionScale(0.85) // "flag" red: "#bf0a30"
 const legendNeutral = "#ccc"
 
+//const barRed = opinionScale(0.8)
+
 export {
     opinionScale, opinionShiftScale,
-    legendBlue, legendRed, legendNeutral
+    legendBlue, legendRed, legendNeutral,
+    //barRed
 }

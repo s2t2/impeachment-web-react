@@ -57,10 +57,10 @@ export default class DailyRetweets extends PureComponent {
 
                 <div style={{width: "100%", height: 400}}>
                     <ResponsiveContainer>
-                         <BarChart data={data} margin={{top: 5, right: 40, left: 20, bottom: 20}}>
+                         <BarChart data={data} margin={{top: 5, right: 40, left: 5, bottom: 20}}>
                             <CartesianGrid strokeDasharray="3 3" />
 
-                            <Legend verticalAlign="top" align="center" iconType="circle" wrapperStyle={{top:-10, left:40}}/>
+                            <Legend verticalAlign="top" align="center" iconType="circle" wrapperStyle={{top:-10, left:32}}/>
 
                             <YAxis tickFormatter={bigNumberLabel}>
                                 <Label value={yAxisLabel} position="insideLeft" angle={-90} offset={0} style={{textAnchor: "middle"}}/>
