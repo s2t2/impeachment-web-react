@@ -12,41 +12,44 @@ import Card from 'react-bootstrap/Card'
 import {numberLabel, bigNumberLabel} from "../../Utils/Decorators"
 import {legendBlue, legendRed} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
-//import cachedData from './data'
+import cachedData from './data'
 
 
-const cachedData = [
-    {"date": '2020-01-01', "community_0": 40000, "community_1": 2400},
-    {"date": '2020-01-02', "community_0": 30000, "community_1": 1398},
-    {"date": '2020-01-03', "community_0": 20000, "community_1": 9800},
-    {"date": '2020-01-04', "community_0": 27800, "community_1": 3908},
-    {"date": '2020-01-05', "community_0": 18900, "community_1": 4800},
-    {"date": '2020-01-06', "community_0": 23900, "community_1": 3800},
-    {"date": '2020-01-07', "community_0": 34900, "community_1": 4300},
-]
+//const barData = [
+//    {"date": '2020-01-01', "community_0": 40000, "community_1": 2400},
+//    {"date": '2020-01-02', "community_0": 30000, "community_1": 1398},
+//    {"date": '2020-01-03', "community_0": 20000, "community_1": 9800},
+//    {"date": '2020-01-04', "community_0": 27800, "community_1": 3908},
+//    {"date": '2020-01-05', "community_0": 18900, "community_1": 4800},
+//    {"date": '2020-01-06', "community_0": 23900, "community_1": 3800},
+//    {"date": '2020-01-07', "community_0": 34900, "community_1": 4300},
+//]
 
 export default class DailyRetweets extends PureComponent {
     constructor(props) {
         super(props)
-        this.state = {parsedResponse: null}
+        this.state = {metric: "retweet_count", parsedResponse: null}
     }
 
     render() {
         var spinIntoChart = <Spinner/>
 
         if(this.state.parsedResponse){
+            var metric = this.state.metric
             var data = this.state.parsedResponse
-            console.log("DAILY RT VOLUME", data)
+            console.log("DAILY BOT ACTIVITY", metric, data)
 
             data = data.map(function(daily){
-                daily["Community 0"] = daily["community_0"]
-                daily["Community 1"] = daily["community_1"]
+                daily["Community 0"] = parseFloat(daily[`${metric}_0`])
+                daily["Community 1"] = parseFloat(daily[`${metric}_1`])
                 return daily
             })
-            console.log("DAILY", data)
+            console.log("DAILY BOT ACTIVITY", metric, data)
 
 
-            const chartTitle = `Daily Retweets by Bot Community`
+            const metricTitle = "Retweets" // Tweets // Active Bots
+            const chartTitle = `Daily ${metricTitle} by Bot Community`
+            const yAxisLabel = "Retweet Count"
 
             spinIntoChart = <span>
                 <Card.Text className="app-center" style={{marginBottom:0}}>
@@ -61,7 +64,7 @@ export default class DailyRetweets extends PureComponent {
                             <Legend verticalAlign="top" align="center" iconType="circle" wrapperStyle={{top:-10, left:40}}/>
 
                             <YAxis tickFormatter={bigNumberLabel}>
-                                <Label value="Retweet Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: "middle"}}/>
+                                <Label value={yAxisLabel} position="insideLeft" angle={-90} offset={0} style={{textAnchor: "middle"}}/>
                             </YAxis>
                             <XAxis type="category" dataKey="date" tick={{fontSize: 14}}>
                                 <Label value="Date" position="insideBottom" offset={-15}/>
