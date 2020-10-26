@@ -14,10 +14,10 @@ export default function TweetCollectionPage() {
         <span>
             <SectionIndex/>
 
+            <ImpactSection/>
             <ActivitySection/>
             <BeneficiariesSection/>
             <LanguageSection/>
-            <ImpactSection/>
             <CommunitiesSection/>
             <ClassificationSection/>
         </span>

@@ -35,10 +35,10 @@ var sidebar = [
         "title": "Bot Analysis",
         "component": BotAnalysis,
         "sections": [
+            {"key": "bot-impact",           "title": "Bot Impact",          "component": BotImpact},
             {"key": "bot-activity",         "title": "Bot Activity",        "component": BotActivity},
             {"key": "bot-beneficiaries",    "title": "Bot Beneficiaries",  "component": BotBeneficiaries},
             {"key": "bot-language",         "title": "Bot Language",        "component": BotLanguage},
-            {"key": "bot-impact",           "title": "Bot Impact",          "component": BotImpact},
             {"key": "bot-communities",       "title": "Bot Communities",    "component": BotCommunities},
             {"key": "bot-classification",    "title": "Bot Classification",  "component": BotClassification}
         ]

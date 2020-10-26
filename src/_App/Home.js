@@ -6,7 +6,7 @@ import React from 'react'
 //import Card from 'react-bootstrap/Card'
 
 //import HomePage from './OpinionAnalysis/Page'
-import HomePage from './BotAnalysis/Impact/Page'
+import HomePage from './BotAnalysis/Page'
 
 //import AboutCard from './About/Card'
 //import Section from './BotAnalysis/Impact/Section'
