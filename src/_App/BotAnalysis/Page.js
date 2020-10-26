@@ -9,7 +9,7 @@ import ImpactSection from './Impact/Section'
 import CommunitiesSection from './Communities/Section'
 import ClassificationSection from './Classification/Section'
 
-export default function TweetCollectionPage() {
+export default function BotAnalysisPage() {
     return (
         <span>
             <SectionIndex/>
