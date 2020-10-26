@@ -16,7 +16,7 @@ import Spinner from '../../Spinner'
 import cachedData from './data'
 
 const METRICS = {
-    "bot_count": {"title": "Daily Active Bots", "yAxisTitle": "User Count"},
+    "bot_count": {"title": "Daily Active Bots", "yAxisTitle": "Bot Count"},
     "tweet_count": {"title": "Daily Bot Tweets", "yAxisTitle": "Tweet Count"},
     "retweet_count": {"title": "Daily Bot Retweets", "yAxisTitle": "Retweet Count"}
 }
