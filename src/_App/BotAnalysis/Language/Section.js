@@ -19,10 +19,10 @@ export default function BotLanguageSection() {
                 <Card.Body>
                     <Card.Title><h3>Bot Language</h3></Card.Title>
 
+                    <h4>Top Hashtags in Bot Tweets</h4>
                     <Card.Text>
                         We analyzed the language patterns exhibited by each <a href="/bot-communities">bot community</a>,
                         {" "}to determine which terms and hashtags appeared most frequently in tweets by members of that community.
-                        We also analyzed which hashtags appeared most frequently in bot profiles.
                     </Card.Text>
                     <Card.Text>
                         It is interesting to observe Pro-Trump bots using hashtags like <i>'#QANON'</i>, <i>'#WWG1WGA'</i>, and <i>'#GREATAWAKENING'</i>,
@@ -32,6 +32,10 @@ export default function BotLanguageSection() {
                     <StatusHashtags/>
                     <StatusHashtagWordClouds/>
 
+                    <h4>Top Hashtags in Bot Profiles</h4>
+                    <Card.Text>
+                        We also analyzed which hashtags appeared most frequently in bot profiles. The results are below.
+                    </Card.Text>
                     <ProfileHashtags/>
                     <ProfileHashtagWordClouds/>
 
