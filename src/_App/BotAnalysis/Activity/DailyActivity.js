@@ -30,7 +30,7 @@ const METRICS = {
 //    {"date": '2020-01-07', "community_0": 34900, "community_1": 4300},
 //]
 
-export default class DailyRetweets extends PureComponent {
+export default class DailyActivity extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {metric: "retweet_count", parsedResponse: null}

@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
 //import communityRetweetsOverTime from "./daily-rts-by-community.png"
-import DailyBotActivity from './DailyRetweets'
+import DailyBotActivity from './DailyActivity'
 
 export default function BotActivitySection() {
 
