@@ -47,8 +47,8 @@ export default class DailyActivity extends PureComponent {
             //console.log("DAILY BOT ACTIVITY", metric, data)
 
             data = data.map(function(daily){
-                daily["Community 0"] = parseFloat(daily[`${metric}_0`])
-                daily["Community 1"] = parseFloat(daily[`${metric}_1`])
+                daily["Pro-Impeachment Bots"] = parseFloat(daily[`${metric}_0`])
+                daily["Pro-Trump Bots"] = parseFloat(daily[`${metric}_1`])
                 return daily
             })
             //console.log("DAILY BOT ACTIVITY", metric, data)
@@ -75,8 +75,8 @@ export default class DailyActivity extends PureComponent {
                                 <Label value="Date" position="insideBottom" offset={-15}/>
                             </XAxis>
 
-                            <Bar dataKey="Community 1" stackId="a" fill={legendRed}  onClick={this.handleBarClick}/>
-                            <Bar dataKey="Community 0" stackId="a" fill={legendBlue} onClick={this.handleBarClick}/>
+                            <Bar dataKey="Pro-Trump Bots" stackId="a" fill={legendRed}  onClick={this.handleBarClick}/>
+                            <Bar dataKey="Pro-Impeachment Bots" stackId="a" fill={legendBlue} onClick={this.handleBarClick}/>
 
                             <Tooltip
                                 cursor={{fill: 'transparent', stroke:'#000'}}

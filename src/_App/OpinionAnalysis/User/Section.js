@@ -47,7 +47,7 @@ export default class UserOpinionSection extends PureComponent {
                         <Card.Text>
                             After <a href="/opinion-models">training opinion models</a> to detect which <a href="/bot-language">bot community language</a>
                             {" "} any given tweet most closely resembles, we used the models to predict Impeachment opinion scores for the remaining tweets in our dataset.
-                            {" "} A score of <code>0</code> means the tweet more closely resembles language used by Community 0 (Left-leaning Pro-Impeachment bots), while a score of <code>1</code> means the tweet more closely resembles language used by Community 1 (Right-leaning Pro-Trump bots).
+                            {" "} A score of <code>0</code> means the tweet more closely resembles language used by Community 0 (left-leaning Pro-Impeachment bots), while a score of <code>1</code> means the tweet more closely resembles language used by Community 1 (right-leaning Pro-Trump bots).
                         </Card.Text>
 
                         <Card.Text>

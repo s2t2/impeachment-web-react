@@ -18,13 +18,13 @@ export default function BotBeneficiariesSection() {
                     <Card.Title><h3>Bot Beneficiaries</h3></Card.Title>
                     <Card.Text>
                         By examining the retweet beneficiaries of each <a href="/bot-communities">bot community</a>, we observe
-                        {" "} Community 0 represents Left-leaning (Pro-Impeachment) bots
-                        {" "} and Community 1 represents Right-leaning (Pro-Trump) bots.
+                        {" "} Community 0 represents left-leaning (Pro-Impeachment) bots
+                        {" "} and Community 1 represents right-leaning (Pro-Trump) bots.
                     </Card.Text>
 
                     <h4>Users Most Retweeted by Bot Community</h4>
                     <Card.Text>
-                        We observe Left-leaning bots retweet a greater variety of users, while Right-leaning bots retweet Trump significantly more than any other user.
+                        We observe left-leaning bots retweet a greater variety of users, while right-leaning bots retweet Trump significantly more than any other user.
                     </Card.Text>
                     <UsersMostRetweeted/>
 
