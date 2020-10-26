@@ -19,6 +19,13 @@ heroku buildpacks:remove heroku/nodejs
 heroku buildpacks:add mars/create-react-app
 ```
 
+Customizing the build:
+
+```sh
+heroku config:set NODE_MODULES_CACHE=false -r heroku-web
+heroku config:set NODE_MODULES_CACHE=false -r heroku-web-staging
+```
+
 Configuring env vars:
 
 ```sh
