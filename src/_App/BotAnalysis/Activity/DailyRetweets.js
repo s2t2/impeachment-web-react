@@ -10,7 +10,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 //import {formatPct} from '../../Utils/Decorators'
-import {numberLabel, bigNumberLabel} from "../../Utils/Decorators"
+import {bigNumberLabel} from "../../Utils/Decorators"
 import {legendBlue, legendRed} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
 import cachedData from './data'
