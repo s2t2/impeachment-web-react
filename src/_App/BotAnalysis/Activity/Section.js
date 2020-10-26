@@ -17,7 +17,7 @@ export default function BotActivitySection() {
                 <Card.Body>
                     <Card.Title><h3>Bot Activity</h3></Card.Title>
 
-                    <h4>Retweet Volume</h4>
+                    <h4>Daily Bot Activity</h4>
                     <Card.Text style={{marginBottom:0}}>
                         Left-leaning bots generate a greater volume of retweets than Right-leaning bots.
                         {" "} This is perhaps because Left-leaning bots <a href="/bot-communities">outnumber</a> Right-leaning bots five to one.

@@ -16,9 +16,9 @@ import Spinner from '../../Spinner'
 import cachedData from './data'
 
 const METRICS = {
-    "bot_count": {"title": "Active User"},
-    "tweet_count": {"title": "Tweet"},
-    "retweet_count": {"title": "Retweet"}
+    "bot_count": {"title": "Daily Active Bots", "yAxisTitle": "User Count"},
+    "tweet_count": {"title": "Daily Bot Tweets", "yAxisTitle": "Tweet Count"},
+    "retweet_count": {"title": "Daily Bot Retweets", "yAxisTitle": "Retweet Count"}
 }
 //const barData = [
 //    {"date": '2020-01-01', "community_0": 40000, "community_1": 2400},
@@ -51,14 +51,10 @@ export default class DailyRetweets extends PureComponent {
                 daily["Community 1"] = parseFloat(daily[`${metric}_1`])
                 return daily
             })
-            console.log("DAILY BOT ACTIVITY", metric, data)
+            //console.log("DAILY BOT ACTIVITY", metric, data)
 
-            //const metricTitle = "Retweets" // Tweets // Active Bots
-            //const chartTitle = `Daily ${metricTitle} by Bot Community`
-            //const yAxisLabel = "Retweet Count"
-            const metricTitle = METRICS[metric]["title"]
-            const chartTitle = `Daily ${metricTitle}s by Bot Community`
-            const yAxisLabel = `${metricTitle} Count`
+            const chartTitle = METRICS[metric]["title"]
+            const yAxisLabel = METRICS[metric]["yAxisLabel"]
 
             spinIntoChart = <span>
                 <Card.Text className="app-center" style={{marginBottom:0}}>
@@ -97,9 +93,9 @@ export default class DailyRetweets extends PureComponent {
                             <Form.Label>Activity Metric:</Form.Label>
 
                             <Form.Control as="select" size="lg" custom defaultValue={metric} onChange={this.selectMetric}>
-                                <option value="bot_count">Active Users</option>
-                                <option value="tweet_count">Tweets</option>
-                                <option value="retweet_count">Retweets</option>
+                                <option value="bot_count">Active Bots</option>
+                                <option value="tweet_count">Bot Tweets</option>
+                                <option value="retweet_count">Bot Retweets</option>
                             </Form.Control>
                         </Col>
                         <Col xs="6">
