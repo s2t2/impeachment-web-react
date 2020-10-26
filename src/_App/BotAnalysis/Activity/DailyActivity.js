@@ -54,7 +54,7 @@ export default class DailyActivity extends PureComponent {
             //console.log("DAILY BOT ACTIVITY", metric, data)
 
             const chartTitle = METRICS[metric]["title"]
-            const yAxisLabel = METRICS[metric]["yAxisLabel"]
+            const yAxisTitle = METRICS[metric]["yAxisTitle"]
 
             spinIntoChart = <span>
                 <Card.Text className="app-center" style={{marginBottom:0}}>
@@ -69,7 +69,7 @@ export default class DailyActivity extends PureComponent {
                             <Legend verticalAlign="top" align="center" iconType="circle" wrapperStyle={{top:-10, left:32}}/>
 
                             <YAxis tickFormatter={bigNumberLabel}>
-                                <Label value={yAxisLabel} position="insideLeft" angle={-90} offset={0} style={{textAnchor: "middle"}}/>
+                                <Label value={yAxisTitle} position="insideLeft" angle={-90} offset={0} style={{textAnchor: "middle"}}/>
                             </YAxis>
                             <XAxis type="category" dataKey="date" tick={{fontSize: 14}}>
                                 <Label value="Date" position="insideBottom" offset={-15}/>
