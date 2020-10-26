@@ -28,6 +28,10 @@ export default function BotActivitySection() {
                     <DailyRetweets/>
 
                     <Card.Text>
+                        NOTE: our tweet collector was down for maintenance on 12/18 and 12/19.
+                    </Card.Text>
+
+                    <Card.Text>
                         NOTE: only after examining the <a href="/bot-beneficiaries">beneficiaries</a>
                         {" "} and <a href="/bot-language">language patterns</a>
                         {" "} of each <a href="/bot-communities">bot community</a>, do we observe

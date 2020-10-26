@@ -25,7 +25,7 @@ export default function Section() {
                     <TweetsCollectedByDay/>
 
                     <Card.Text>
-                        NOTE: our collector was down for maintenance on 12/18 and 12/19.
+                        NOTE: our tweet collector was down for maintenance on 12/18 and 12/19.
                     </Card.Text>
 
                     <Card.Text>
