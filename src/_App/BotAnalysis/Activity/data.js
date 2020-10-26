@@ -1,77 +1,77 @@
 
 const dailyBotActivity = [
-  {
-    "date": "2019-12-12",
-    "bot_count_0": "510",
-    "bot_count_1": "98",
-    "tweet_count_0": "12895",
-    "tweet_count_1": "4898",
-    "retweet_count_0": "12414",
-    "retweet_count_1": "4773"
-  },
-  {
-    "date": "2019-12-13",
-    "bot_count_0": "534",
-    "bot_count_1": "99",
-    "tweet_count_0": "20776",
-    "tweet_count_1": "5166",
-    "retweet_count_0": "20117",
-    "retweet_count_1": "5074"
-  },
-  {
-    "date": "2019-12-14",
-    "bot_count_0": "528",
-    "bot_count_1": "98",
-    "tweet_count_0": "25261",
-    "tweet_count_1": "5606",
-    "retweet_count_0": "24519",
-    "retweet_count_1": "5488"
-  },
-  {
-    "date": "2019-12-15",
-    "bot_count_0": "533",
-    "bot_count_1": "96",
-    "tweet_count_0": "25290",
-    "tweet_count_1": "5288",
-    "retweet_count_0": "24522",
-    "retweet_count_1": "5164"
-  },
-  {
-    "date": "2019-12-16",
-    "bot_count_0": "522",
-    "bot_count_1": "94",
-    "tweet_count_0": "19166",
-    "tweet_count_1": "3122",
-    "retweet_count_0": "18598",
-    "retweet_count_1": "3069"
-  },
-  {
-    "date": "2019-12-17",
-    "bot_count_0": "539",
-    "bot_count_1": "95",
-    "tweet_count_0": "20838",
-    "tweet_count_1": "4880",
-    "retweet_count_0": "20230",
-    "retweet_count_1": "4747"
-  },
-  {
-    "date": "2019-12-18",
-    "bot_count_0": "374",
-    "bot_count_1": "68",
-    "tweet_count_0": "9724",
-    "tweet_count_1": "943",
-    "retweet_count_0": "9461",
-    "retweet_count_1": "924"
-  },
-  {
-    "date": "2019-12-19",
-    "bot_count_0": "109",
-    "bot_count_1": "20",
-    "tweet_count_0": "692",
-    "tweet_count_1": "215",
-    "retweet_count_0": "649",
-    "retweet_count_1": "212"
-  },
+  //{
+  //  "date": "2019-12-12",
+  //  "bot_count_0": "510",
+  //  "bot_count_1": "98",
+  //  "tweet_count_0": "12895",
+  //  "tweet_count_1": "4898",
+  //  "retweet_count_0": "12414",
+  //  "retweet_count_1": "4773"
+  //},
+  //{
+  //  "date": "2019-12-13",
+  //  "bot_count_0": "534",
+  //  "bot_count_1": "99",
+  //  "tweet_count_0": "20776",
+  //  "tweet_count_1": "5166",
+  //  "retweet_count_0": "20117",
+  //  "retweet_count_1": "5074"
+  //},
+  //{
+  //  "date": "2019-12-14",
+  //  "bot_count_0": "528",
+  //  "bot_count_1": "98",
+  //  "tweet_count_0": "25261",
+  //  "tweet_count_1": "5606",
+  //  "retweet_count_0": "24519",
+  //  "retweet_count_1": "5488"
+  //},
+  //{
+  //  "date": "2019-12-15",
+  //  "bot_count_0": "533",
+  //  "bot_count_1": "96",
+  //  "tweet_count_0": "25290",
+  //  "tweet_count_1": "5288",
+  //  "retweet_count_0": "24522",
+  //  "retweet_count_1": "5164"
+  //},
+  //{
+  //  "date": "2019-12-16",
+  //  "bot_count_0": "522",
+  //  "bot_count_1": "94",
+  //  "tweet_count_0": "19166",
+  //  "tweet_count_1": "3122",
+  //  "retweet_count_0": "18598",
+  //  "retweet_count_1": "3069"
+  //},
+  //{
+  //  "date": "2019-12-17",
+  //  "bot_count_0": "539",
+  //  "bot_count_1": "95",
+  //  "tweet_count_0": "20838",
+  //  "tweet_count_1": "4880",
+  //  "retweet_count_0": "20230",
+  //  "retweet_count_1": "4747"
+  //},
+  //{
+  //  "date": "2019-12-18",
+  //  "bot_count_0": "374",
+  //  "bot_count_1": "68",
+  //  "tweet_count_0": "9724",
+  //  "tweet_count_1": "943",
+  //  "retweet_count_0": "9461",
+  //  "retweet_count_1": "924"
+  //},
+  //{
+  //  "date": "2019-12-19",
+  //  "bot_count_0": "109",
+  //  "bot_count_1": "20",
+  //  "tweet_count_0": "692",
+  //  "tweet_count_1": "215",
+  //  "retweet_count_0": "649",
+  //  "retweet_count_1": "212"
+  //},
   {
     "date": "2019-12-20",
     "bot_count_0": "543",
@@ -594,348 +594,348 @@ const dailyBotActivity = [
     "retweet_count_0": "5218",
     "retweet_count_1": "620"
   },
-  {
-    "date": "2020-02-16",
-    "bot_count_0": "472",
-    "bot_count_1": "81",
-    "tweet_count_0": "3342",
-    "tweet_count_1": "647",
-    "retweet_count_0": "3206",
-    "retweet_count_1": "638"
-  },
-  {
-    "date": "2020-02-17",
-    "bot_count_0": "470",
-    "bot_count_1": "89",
-    "tweet_count_0": "2920",
-    "tweet_count_1": "888",
-    "retweet_count_0": "2736",
-    "retweet_count_1": "869"
-  },
-  {
-    "date": "2020-02-18",
-    "bot_count_0": "497",
-    "bot_count_1": "85",
-    "tweet_count_0": "3876",
-    "tweet_count_1": "816",
-    "retweet_count_0": "3726",
-    "retweet_count_1": "791"
-  },
-  {
-    "date": "2020-02-19",
-    "bot_count_0": "486",
-    "bot_count_1": "85",
-    "tweet_count_0": "3111",
-    "tweet_count_1": "625",
-    "retweet_count_0": "2960",
-    "retweet_count_1": "611"
-  },
-  {
-    "date": "2020-02-20",
-    "bot_count_0": "475",
-    "bot_count_1": "81",
-    "tweet_count_0": "3138",
-    "tweet_count_1": "621",
-    "retweet_count_0": "2983",
-    "retweet_count_1": "612"
-  },
-  {
-    "date": "2020-02-21",
-    "bot_count_0": "488",
-    "bot_count_1": "82",
-    "tweet_count_0": "3854",
-    "tweet_count_1": "709",
-    "retweet_count_0": "3657",
-    "retweet_count_1": "693"
-  },
-  {
-    "date": "2020-02-22",
-    "bot_count_0": "418",
-    "bot_count_1": "83",
-    "tweet_count_0": "1881",
-    "tweet_count_1": "556",
-    "retweet_count_0": "1781",
-    "retweet_count_1": "539"
-  },
-  {
-    "date": "2020-02-23",
-    "bot_count_0": "376",
-    "bot_count_1": "80",
-    "tweet_count_0": "1139",
-    "tweet_count_1": "447",
-    "retweet_count_0": "1044",
-    "retweet_count_1": "442"
-  },
-  {
-    "date": "2020-02-24",
-    "bot_count_0": "391",
-    "bot_count_1": "76",
-    "tweet_count_0": "1325",
-    "tweet_count_1": "320",
-    "retweet_count_0": "1242",
-    "retweet_count_1": "312"
-  },
-  {
-    "date": "2020-02-25",
-    "bot_count_0": "366",
-    "bot_count_1": "79",
-    "tweet_count_0": "1309",
-    "tweet_count_1": "369",
-    "retweet_count_0": "1219",
-    "retweet_count_1": "359"
-  },
-  {
-    "date": "2020-02-26",
-    "bot_count_0": "391",
-    "bot_count_1": "69",
-    "tweet_count_0": "1268",
-    "tweet_count_1": "315",
-    "retweet_count_0": "1177",
-    "retweet_count_1": "299"
-  },
-  {
-    "date": "2020-02-27",
-    "bot_count_0": "431",
-    "bot_count_1": "77",
-    "tweet_count_0": "1784",
-    "tweet_count_1": "479",
-    "retweet_count_0": "1692",
-    "retweet_count_1": "470"
-  },
-  {
-    "date": "2020-02-28",
-    "bot_count_0": "406",
-    "bot_count_1": "80",
-    "tweet_count_0": "1617",
-    "tweet_count_1": "474",
-    "retweet_count_0": "1531",
-    "retweet_count_1": "468"
-  },
-  {
-    "date": "2020-02-29",
-    "bot_count_0": "437",
-    "bot_count_1": "77",
-    "tweet_count_0": "1877",
-    "tweet_count_1": "417",
-    "retweet_count_0": "1796",
-    "retweet_count_1": "414"
-  },
-  {
-    "date": "2020-03-01",
-    "bot_count_0": "418",
-    "bot_count_1": "67",
-    "tweet_count_0": "1384",
-    "tweet_count_1": "302",
-    "retweet_count_0": "1311",
-    "retweet_count_1": "300"
-  },
-  {
-    "date": "2020-03-02",
-    "bot_count_0": "452",
-    "bot_count_1": "77",
-    "tweet_count_0": "1914",
-    "tweet_count_1": "383",
-    "retweet_count_0": "1846",
-    "retweet_count_1": "375"
-  },
-  {
-    "date": "2020-03-03",
-    "bot_count_0": "404",
-    "bot_count_1": "71",
-    "tweet_count_0": "1541",
-    "tweet_count_1": "239",
-    "retweet_count_0": "1434",
-    "retweet_count_1": "235"
-  },
-  {
-    "date": "2020-03-04",
-    "bot_count_0": "446",
-    "bot_count_1": "74",
-    "tweet_count_0": "2056",
-    "tweet_count_1": "268",
-    "retweet_count_0": "1942",
-    "retweet_count_1": "263"
-  },
-  {
-    "date": "2020-03-05",
-    "bot_count_0": "445",
-    "bot_count_1": "89",
-    "tweet_count_0": "2466",
-    "tweet_count_1": "614",
-    "retweet_count_0": "2294",
-    "retweet_count_1": "593"
-  },
-  {
-    "date": "2020-03-06",
-    "bot_count_0": "370",
-    "bot_count_1": "78",
-    "tweet_count_0": "1375",
-    "tweet_count_1": "367",
-    "retweet_count_0": "1260",
-    "retweet_count_1": "351"
-  },
-  {
-    "date": "2020-03-07",
-    "bot_count_0": "423",
-    "bot_count_1": "72",
-    "tweet_count_0": "1718",
-    "tweet_count_1": "281",
-    "retweet_count_0": "1644",
-    "retweet_count_1": "277"
-  },
-  {
-    "date": "2020-03-08",
-    "bot_count_0": "398",
-    "bot_count_1": "56",
-    "tweet_count_0": "1457",
-    "tweet_count_1": "184",
-    "retweet_count_0": "1383",
-    "retweet_count_1": "179"
-  },
-  {
-    "date": "2020-03-09",
-    "bot_count_0": "406",
-    "bot_count_1": "68",
-    "tweet_count_0": "1771",
-    "tweet_count_1": "385",
-    "retweet_count_0": "1619",
-    "retweet_count_1": "369"
-  },
-  {
-    "date": "2020-03-10",
-    "bot_count_0": "422",
-    "bot_count_1": "80",
-    "tweet_count_0": "1854",
-    "tweet_count_1": "451",
-    "retweet_count_0": "1753",
-    "retweet_count_1": "436"
-  },
-  {
-    "date": "2020-03-11",
-    "bot_count_0": "431",
-    "bot_count_1": "73",
-    "tweet_count_0": "2276",
-    "tweet_count_1": "325",
-    "retweet_count_0": "2122",
-    "retweet_count_1": "316"
-  },
-  {
-    "date": "2020-03-12",
-    "bot_count_0": "453",
-    "bot_count_1": "77",
-    "tweet_count_0": "2210",
-    "tweet_count_1": "598",
-    "retweet_count_0": "2076",
-    "retweet_count_1": "552"
-  },
-  {
-    "date": "2020-03-13",
-    "bot_count_0": "441",
-    "bot_count_1": "81",
-    "tweet_count_0": "2170",
-    "tweet_count_1": "717",
-    "retweet_count_0": "2061",
-    "retweet_count_1": "710"
-  },
-  {
-    "date": "2020-03-14",
-    "bot_count_0": "439",
-    "bot_count_1": "75",
-    "tweet_count_0": "2191",
-    "tweet_count_1": "393",
-    "retweet_count_0": "2057",
-    "retweet_count_1": "384"
-  },
-  {
-    "date": "2020-03-15",
-    "bot_count_0": "421",
-    "bot_count_1": "71",
-    "tweet_count_0": "1661",
-    "tweet_count_1": "329",
-    "retweet_count_0": "1588",
-    "retweet_count_1": "321"
-  },
-  {
-    "date": "2020-03-16",
-    "bot_count_0": "366",
-    "bot_count_1": "71",
-    "tweet_count_0": "1308",
-    "tweet_count_1": "304",
-    "retweet_count_0": "1173",
-    "retweet_count_1": "298"
-  },
-  {
-    "date": "2020-03-17",
-    "bot_count_0": "423",
-    "bot_count_1": "63",
-    "tweet_count_0": "1733",
-    "tweet_count_1": "200",
-    "retweet_count_0": "1553",
-    "retweet_count_1": "197"
-  },
-  {
-    "date": "2020-03-18",
-    "bot_count_0": "363",
-    "bot_count_1": "76",
-    "tweet_count_0": "1207",
-    "tweet_count_1": "243",
-    "retweet_count_0": "1120",
-    "retweet_count_1": "239"
-  },
-  {
-    "date": "2020-03-19",
-    "bot_count_0": "351",
-    "bot_count_1": "75",
-    "tweet_count_0": "1105",
-    "tweet_count_1": "323",
-    "retweet_count_0": "991",
-    "retweet_count_1": "317"
-  },
-  {
-    "date": "2020-03-20",
-    "bot_count_0": "365",
-    "bot_count_1": "71",
-    "tweet_count_0": "1042",
-    "tweet_count_1": "317",
-    "retweet_count_0": "922",
-    "retweet_count_1": "307"
-  },
-  {
-    "date": "2020-03-21",
-    "bot_count_0": "372",
-    "bot_count_1": "65",
-    "tweet_count_0": "1155",
-    "tweet_count_1": "330",
-    "retweet_count_0": "1020",
-    "retweet_count_1": "324"
-  },
-  {
-    "date": "2020-03-22",
-    "bot_count_0": "416",
-    "bot_count_1": "76",
-    "tweet_count_0": "1538",
-    "tweet_count_1": "411",
-    "retweet_count_0": "1434",
-    "retweet_count_1": "400"
-  },
-  {
-    "date": "2020-03-23",
-    "bot_count_0": "421",
-    "bot_count_1": "85",
-    "tweet_count_0": "1799",
-    "tweet_count_1": "725",
-    "retweet_count_0": "1648",
-    "retweet_count_1": "683"
-  },
-  {
-    "date": "2020-03-24",
-    "bot_count_0": "345",
-    "bot_count_1": "82",
-    "tweet_count_0": "882",
-    "tweet_count_1": "615",
-    "retweet_count_0": "819",
-    "retweet_count_1": "589"
-  }
+  //{
+  //  "date": "2020-02-16",
+  //  "bot_count_0": "472",
+  //  "bot_count_1": "81",
+  //  "tweet_count_0": "3342",
+  //  "tweet_count_1": "647",
+  //  "retweet_count_0": "3206",
+  //  "retweet_count_1": "638"
+  //},
+  //{
+  //  "date": "2020-02-17",
+  //  "bot_count_0": "470",
+  //  "bot_count_1": "89",
+  //  "tweet_count_0": "2920",
+  //  "tweet_count_1": "888",
+  //  "retweet_count_0": "2736",
+  //  "retweet_count_1": "869"
+  //},
+  //{
+  //  "date": "2020-02-18",
+  //  "bot_count_0": "497",
+  //  "bot_count_1": "85",
+  //  "tweet_count_0": "3876",
+  //  "tweet_count_1": "816",
+  //  "retweet_count_0": "3726",
+  //  "retweet_count_1": "791"
+  //},
+  //{
+  //  "date": "2020-02-19",
+  //  "bot_count_0": "486",
+  //  "bot_count_1": "85",
+  //  "tweet_count_0": "3111",
+  //  "tweet_count_1": "625",
+  //  "retweet_count_0": "2960",
+  //  "retweet_count_1": "611"
+  //},
+  //{
+  //  "date": "2020-02-20",
+  //  "bot_count_0": "475",
+  //  "bot_count_1": "81",
+  //  "tweet_count_0": "3138",
+  //  "tweet_count_1": "621",
+  //  "retweet_count_0": "2983",
+  //  "retweet_count_1": "612"
+  //},
+  //{
+  //  "date": "2020-02-21",
+  //  "bot_count_0": "488",
+  //  "bot_count_1": "82",
+  //  "tweet_count_0": "3854",
+  //  "tweet_count_1": "709",
+  //  "retweet_count_0": "3657",
+  //  "retweet_count_1": "693"
+  //},
+  //{
+  //  "date": "2020-02-22",
+  //  "bot_count_0": "418",
+  //  "bot_count_1": "83",
+  //  "tweet_count_0": "1881",
+  //  "tweet_count_1": "556",
+  //  "retweet_count_0": "1781",
+  //  "retweet_count_1": "539"
+  //},
+  //{
+  //  "date": "2020-02-23",
+  //  "bot_count_0": "376",
+  //  "bot_count_1": "80",
+  //  "tweet_count_0": "1139",
+  //  "tweet_count_1": "447",
+  //  "retweet_count_0": "1044",
+  //  "retweet_count_1": "442"
+  //},
+  //{
+  //  "date": "2020-02-24",
+  //  "bot_count_0": "391",
+  //  "bot_count_1": "76",
+  //  "tweet_count_0": "1325",
+  //  "tweet_count_1": "320",
+  //  "retweet_count_0": "1242",
+  //  "retweet_count_1": "312"
+  //},
+  //{
+  //  "date": "2020-02-25",
+  //  "bot_count_0": "366",
+  //  "bot_count_1": "79",
+  //  "tweet_count_0": "1309",
+  //  "tweet_count_1": "369",
+  //  "retweet_count_0": "1219",
+  //  "retweet_count_1": "359"
+  //},
+  //{
+  //  "date": "2020-02-26",
+  //  "bot_count_0": "391",
+  //  "bot_count_1": "69",
+  //  "tweet_count_0": "1268",
+  //  "tweet_count_1": "315",
+  //  "retweet_count_0": "1177",
+  //  "retweet_count_1": "299"
+  //},
+  //{
+  //  "date": "2020-02-27",
+  //  "bot_count_0": "431",
+  //  "bot_count_1": "77",
+  //  "tweet_count_0": "1784",
+  //  "tweet_count_1": "479",
+  //  "retweet_count_0": "1692",
+  //  "retweet_count_1": "470"
+  //},
+  //{
+  //  "date": "2020-02-28",
+  //  "bot_count_0": "406",
+  //  "bot_count_1": "80",
+  //  "tweet_count_0": "1617",
+  //  "tweet_count_1": "474",
+  //  "retweet_count_0": "1531",
+  //  "retweet_count_1": "468"
+  //},
+  //{
+  //  "date": "2020-02-29",
+  //  "bot_count_0": "437",
+  //  "bot_count_1": "77",
+  //  "tweet_count_0": "1877",
+  //  "tweet_count_1": "417",
+  //  "retweet_count_0": "1796",
+  //  "retweet_count_1": "414"
+  //},
+  //{
+  //  "date": "2020-03-01",
+  //  "bot_count_0": "418",
+  //  "bot_count_1": "67",
+  //  "tweet_count_0": "1384",
+  //  "tweet_count_1": "302",
+  //  "retweet_count_0": "1311",
+  //  "retweet_count_1": "300"
+  //},
+  //{
+  //  "date": "2020-03-02",
+  //  "bot_count_0": "452",
+  //  "bot_count_1": "77",
+  //  "tweet_count_0": "1914",
+  //  "tweet_count_1": "383",
+  //  "retweet_count_0": "1846",
+  //  "retweet_count_1": "375"
+  //},
+  //{
+  //  "date": "2020-03-03",
+  //  "bot_count_0": "404",
+  //  "bot_count_1": "71",
+  //  "tweet_count_0": "1541",
+  //  "tweet_count_1": "239",
+  //  "retweet_count_0": "1434",
+  //  "retweet_count_1": "235"
+  //},
+  //{
+  //  "date": "2020-03-04",
+  //  "bot_count_0": "446",
+  //  "bot_count_1": "74",
+  //  "tweet_count_0": "2056",
+  //  "tweet_count_1": "268",
+  //  "retweet_count_0": "1942",
+  //  "retweet_count_1": "263"
+  //},
+  //{
+  //  "date": "2020-03-05",
+  //  "bot_count_0": "445",
+  //  "bot_count_1": "89",
+  //  "tweet_count_0": "2466",
+  //  "tweet_count_1": "614",
+  //  "retweet_count_0": "2294",
+  //  "retweet_count_1": "593"
+  //},
+  //{
+  //  "date": "2020-03-06",
+  //  "bot_count_0": "370",
+  //  "bot_count_1": "78",
+  //  "tweet_count_0": "1375",
+  //  "tweet_count_1": "367",
+  //  "retweet_count_0": "1260",
+  //  "retweet_count_1": "351"
+  //},
+  //{
+  //  "date": "2020-03-07",
+  //  "bot_count_0": "423",
+  //  "bot_count_1": "72",
+  //  "tweet_count_0": "1718",
+  //  "tweet_count_1": "281",
+  //  "retweet_count_0": "1644",
+  //  "retweet_count_1": "277"
+  //},
+  //{
+  //  "date": "2020-03-08",
+  //  "bot_count_0": "398",
+  //  "bot_count_1": "56",
+  //  "tweet_count_0": "1457",
+  //  "tweet_count_1": "184",
+  //  "retweet_count_0": "1383",
+  //  "retweet_count_1": "179"
+  //},
+  //{
+  //  "date": "2020-03-09",
+  //  "bot_count_0": "406",
+  //  "bot_count_1": "68",
+  //  "tweet_count_0": "1771",
+  //  "tweet_count_1": "385",
+  //  "retweet_count_0": "1619",
+  //  "retweet_count_1": "369"
+  //},
+  //{
+  //  "date": "2020-03-10",
+  //  "bot_count_0": "422",
+  //  "bot_count_1": "80",
+  //  "tweet_count_0": "1854",
+  //  "tweet_count_1": "451",
+  //  "retweet_count_0": "1753",
+  //  "retweet_count_1": "436"
+  //},
+  //{
+  //  "date": "2020-03-11",
+  //  "bot_count_0": "431",
+  //  "bot_count_1": "73",
+  //  "tweet_count_0": "2276",
+  //  "tweet_count_1": "325",
+  //  "retweet_count_0": "2122",
+  //  "retweet_count_1": "316"
+  //},
+  //{
+  //  "date": "2020-03-12",
+  //  "bot_count_0": "453",
+  //  "bot_count_1": "77",
+  //  "tweet_count_0": "2210",
+  //  "tweet_count_1": "598",
+  //  "retweet_count_0": "2076",
+  //  "retweet_count_1": "552"
+  //},
+  //{
+  //  "date": "2020-03-13",
+  //  "bot_count_0": "441",
+  //  "bot_count_1": "81",
+  //  "tweet_count_0": "2170",
+  //  "tweet_count_1": "717",
+  //  "retweet_count_0": "2061",
+  //  "retweet_count_1": "710"
+  //},
+  //{
+  //  "date": "2020-03-14",
+  //  "bot_count_0": "439",
+  //  "bot_count_1": "75",
+  //  "tweet_count_0": "2191",
+  //  "tweet_count_1": "393",
+  //  "retweet_count_0": "2057",
+  //  "retweet_count_1": "384"
+  //},
+  //{
+  //  "date": "2020-03-15",
+  //  "bot_count_0": "421",
+  //  "bot_count_1": "71",
+  //  "tweet_count_0": "1661",
+  //  "tweet_count_1": "329",
+  //  "retweet_count_0": "1588",
+  //  "retweet_count_1": "321"
+  //},
+  //{
+  //  "date": "2020-03-16",
+  //  "bot_count_0": "366",
+  //  "bot_count_1": "71",
+  //  "tweet_count_0": "1308",
+  //  "tweet_count_1": "304",
+  //  "retweet_count_0": "1173",
+  //  "retweet_count_1": "298"
+  //},
+  //{
+  //  "date": "2020-03-17",
+  //  "bot_count_0": "423",
+  //  "bot_count_1": "63",
+  //  "tweet_count_0": "1733",
+  //  "tweet_count_1": "200",
+  //  "retweet_count_0": "1553",
+  //  "retweet_count_1": "197"
+  //},
+  //{
+  //  "date": "2020-03-18",
+  //  "bot_count_0": "363",
+  //  "bot_count_1": "76",
+  //  "tweet_count_0": "1207",
+  //  "tweet_count_1": "243",
+  //  "retweet_count_0": "1120",
+  //  "retweet_count_1": "239"
+  //},
+  //{
+  //  "date": "2020-03-19",
+  //  "bot_count_0": "351",
+  //  "bot_count_1": "75",
+  //  "tweet_count_0": "1105",
+  //  "tweet_count_1": "323",
+  //  "retweet_count_0": "991",
+  //  "retweet_count_1": "317"
+  //},
+  //{
+  //  "date": "2020-03-20",
+  //  "bot_count_0": "365",
+  //  "bot_count_1": "71",
+  //  "tweet_count_0": "1042",
+  //  "tweet_count_1": "317",
+  //  "retweet_count_0": "922",
+  //  "retweet_count_1": "307"
+  //},
+  //{
+  //  "date": "2020-03-21",
+  //  "bot_count_0": "372",
+  //  "bot_count_1": "65",
+  //  "tweet_count_0": "1155",
+  //  "tweet_count_1": "330",
+  //  "retweet_count_0": "1020",
+  //  "retweet_count_1": "324"
+  //},
+  //{
+  //  "date": "2020-03-22",
+  //  "bot_count_0": "416",
+  //  "bot_count_1": "76",
+  //  "tweet_count_0": "1538",
+  //  "tweet_count_1": "411",
+  //  "retweet_count_0": "1434",
+  //  "retweet_count_1": "400"
+  //},
+  //{
+  //  "date": "2020-03-23",
+  //  "bot_count_0": "421",
+  //  "bot_count_1": "85",
+  //  "tweet_count_0": "1799",
+  //  "tweet_count_1": "725",
+  //  "retweet_count_0": "1648",
+  //  "retweet_count_1": "683"
+  //},
+  //{
+  //  "date": "2020-03-24",
+  //  "bot_count_0": "345",
+  //  "bot_count_1": "82",
+  //  "tweet_count_0": "882",
+  //  "tweet_count_1": "615",
+  //  "retweet_count_0": "819",
+  //  "retweet_count_1": "589"
+  //}
 ]
 
 export default dailyBotActivity

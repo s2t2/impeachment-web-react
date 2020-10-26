@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
 //import communityRetweetsOverTime from "./daily-rts-by-community.png"
-import DailyRetweets from './DailyRetweets'
+import DailyBotActivity from './DailyRetweets'
 
 export default function BotActivitySection() {
 
@@ -25,11 +25,13 @@ export default function BotActivitySection() {
                     {/*
                     <img src={communityRetweetsOverTime} alt="a histogram depicting bot probabilities" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
                     */}
-                    <DailyRetweets/>
+                    <DailyBotActivity/>
 
+                    {/*
                     <Card.Text>
                         NOTE: our tweet collector was down for maintenance on 12/18 and 12/19.
                     </Card.Text>
+                    */}
 
                     <Card.Text>
                         NOTE: only after examining the <a href="/bot-beneficiaries">beneficiaries</a>

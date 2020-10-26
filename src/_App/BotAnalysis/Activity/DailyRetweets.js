@@ -46,7 +46,6 @@ export default class DailyRetweets extends PureComponent {
             })
             console.log("DAILY BOT ACTIVITY", metric, data)
 
-
             const metricTitle = "Retweets" // Tweets // Active Bots
             const chartTitle = `Daily ${metricTitle} by Bot Community`
             const yAxisLabel = "Retweet Count"
