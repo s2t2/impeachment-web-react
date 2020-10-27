@@ -42,6 +42,24 @@ Implementations w/ react.js:
   + https://github.com/mars/create-react-app-buildpack#user-content-environment-variables
 
 
+Clearing the slug, whaa?
+
+  + https://blog.saeloun.com/2020/05/04/how-to-reduce-heroku-slug-size.html
+  + https://help.heroku.com/KUFMEES1/my-slug-size-is-too-large-how-can-i-make-it-smaller
+
+```sh
+du -sh * | sort -hr
+du -sh node_modules/* | sort -hr
+du -sh node_modules/.cache #> 1.4G WOW
+```
+
+  + https://devcenter.heroku.com/articles/nodejs-support#cache-behavior
+
+
+```sh
+heroku config:set NODE_MODULES_CACHE=false -r heroku-web
+```
+
 ## Create React App
 
   + https://create-react-app.dev/docs/adding-a-stylesheet/

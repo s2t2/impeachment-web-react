@@ -50,7 +50,9 @@ export default class ProfileHashtags extends React.Component {
             var community1 = orderBy(tags.filter(function (t) {return t["community_id"] === 1}), "pct", "desc")
 
             spinIntoCharts = <Container fluid>
+                {/*
                 <h4 className='app-center'>Top Hashtags in Bot Profiles</h4>
+                */}
                 <Row>
                     <Col sm={12} md={12} lg={6}>
                         <Card>

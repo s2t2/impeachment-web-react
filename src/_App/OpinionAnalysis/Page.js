@@ -6,7 +6,7 @@ import ModelsSection from './Models/Section'
 import UserSection from './User/Section'
 import TopUserSection from './TopUsers/Section'
 
-export default function TweetCollectionPage() {
+export default function OpinionAnalysisPage() {
     return (
         <span>
             <SectionIndex/>

@@ -1,25 +1,18 @@
 import React, { PureComponent } from 'react'
 import Card from 'react-bootstrap/Card'
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip //, Legend,
-} from 'recharts'
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip, Cell} from 'recharts'
 
 import {formatNumber} from "../../Utils/Decorators"
 import Spinner from "../../Spinner"
+import {legendRed, legendBlue} from '../../Utils/Colors'
 
 //import cachedData from './data'
-const cachedData = [{"name": "Community 0", "bot_count": 571}, {"name": "Community 1", "bot_count": 110}]
+const cachedData = [
+    {"name": "Community 0", "bot_count": 571, "barFill": legendBlue},
+    {"name": "Community 1", "bot_count": 110, "barFill": legendRed}
+]
 
-//const BarLabel = function(props) {
-//    const {x, y, value} = props
-//    return (
-//        <text x={x} y={y} dx="1%" dy="4%" fontSize="16" fontWeight="bold" fill="#000" textAnchor="center">
-//            {value}
-//        </text>
-//    )
-//}
-
-
-export default class DailyBotProbabilities extends PureComponent {
+export default class BotCommunitiesHistogram extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {parsedResponse: null}
@@ -64,11 +57,22 @@ export default class DailyBotProbabilities extends PureComponent {
                                     labelFormatter={this.tooltipLabelFormatter}
                                     formatter={this.tooltipFormatter}
                                 />
+
+                                {/*
                                 <Bar dataKey="bot_count" fill={barFill} onClick={this.handleBarClick}
                                     //label={{position: "insideTop", offset: 15}}
                                     label={{position: "top", offset:10}}
                                     //label={<BarLabel/>}
                                 />
+                                */}
+                                <Bar dataKey="bot_count" fill="#ccc" onClick={this.handleBarClick} label={{position: "top", offset:10}}>
+                                    {
+                                        data.map((entry, index) => (
+                                            <Cell key={entry["bot_count"]} fill={entry["barFill"]}/>
+                                        ))
+                                    }
+                                </Bar>
+
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
