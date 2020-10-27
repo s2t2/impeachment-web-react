@@ -18,6 +18,7 @@ export default function BotImpact() {
                     <Card.Title><h3>Bot Impact</h3></Card.Title>
 
                     <h4>Opinion Shift</h4>
+                    <DailyShift/>
                     <Card.Text>
                         For each day in our <a href="/collection-timeline">primary tweet collection period</a>,
                         {" "} we used our <a href="/opinion-models">Impeachment opinion model</a>
@@ -33,7 +34,6 @@ export default function BotImpact() {
                     {/*
                     <img src={dailyShift} alt="a bar graph of daily opinion shift by bot community" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
                     */}
-                    <DailyShift/>
 
                 </Card.Body>
             </Card>
