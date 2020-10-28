@@ -70,7 +70,7 @@ export default function SentimentAnalysis() {
                     {/* <h5>Tokenization and Vectorization</h5> */}
                     <Card.Text>
                         To train the binary classifier models, we tokenized the tweet texts (without using stopword removal), producing 1.1 million features,
-                        {" "} and converted the tokens to vectors using a standard <a href="https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction">Term-Frequency / Inverse Document-Frequency</a> (TF/IDF) approach.
+                        {" "} and converted the tokens to vectors using a standard <a href="https://scikit-learn.org/stable/modules/feature_extraction.html#tfidf-term-weighting">Term-Frequency / Inverse Document-Frequency</a> (TF/IDF) approach.
 
                         {" "} To train the BERT transformer, we tokenized tweet text using the <a href="https://huggingface.co/transformers/pretrained_models.html">"bert-base-cased" tokenizer</a>.
                     </Card.Text>
