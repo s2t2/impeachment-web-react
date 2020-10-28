@@ -85,7 +85,7 @@ p.app-center.card-text {
 
 .sidebarWrapper {
   margin-top: 6vh;
-   margin-left: 1vw;
+  margin-left: 1vw;
   display: grid;
 }
 
@@ -104,7 +104,7 @@ p.app-center.card-text {
 .sidebarWrapper a.active {
   text-decoration: none;
   background: #76777d94;
-  transition: 1s all ease;
+  /* transition: 1s all ease; */
 }
 
 
@@ -112,6 +112,7 @@ p.app-center.card-text {
   text-align: left;
   color: #ded5d5;
 }
+
 
 
 .mobile-dasbhoard-menu-title{
@@ -222,4 +223,60 @@ p.app-center.card-text {
     margin-top: 20px;
   }
 
+}
+
+
+
+
+
+
+
+
+.new-sidebar {
+  position: fixed;
+  top: 3rem;
+  width: 17%;
+  z-index: 1000;
+  height: calc(100vh - 3rem);
+  border-right: 1px solid #ececec;
+  background-color: #343a40;
+}
+
+.new-sidebar-wrapper {
+  margin-top: 6vh;
+  margin-left: 1vw;
+  display: grid;
+}
+
+h6.new-sidebar-heading {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+li.new-sidebar-list-item {
+    list-style: none;
+    margin-left: -20px;
+    display: block;
+}
+
+.new-sidebar-list-item a {
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none!important;
+
+  display: block;
+
+}
+
+.new-sidebar-list-item a.active {
+  text-decoration: none;
+  background: rgba(118,119,125,.58);
+  transition: all 1s ease;
+  width: 100%;
+  display: block;
 }

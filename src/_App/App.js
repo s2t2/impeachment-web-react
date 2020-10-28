@@ -64,6 +64,27 @@ export default function App() {
         )
     })
 
+
+
+
+    var newSidebar = sidebar.map(function(page){
+        var sectionLinks = page["sections"].map(function(section){
+            var sectionLink = <li className="new-sidebar-list-item">
+                <NavLink key={section["key"]} to={`/${section['key']}`} activeClassName="active">{section["title"]}</NavLink>
+            </li>
+            return sectionLink
+        })
+        return (
+            <span key={page["key"]}>
+                <h6 className="new-sidebar-heading">{page["title"]}</h6>
+                <ul className="new-sidebar-list">
+                    {sectionLinks}
+                </ul>
+            </span>
+        )
+    })
+
+
     return (
         <Router>
             <div className="App">
@@ -103,11 +124,11 @@ export default function App() {
                 <Container fluid className="no-padding">
                     <Row>
                         <Col md={2}>
-                            <div className="sidebarWrapperRoot">
-                                <div className="sidebar d-none d-md-block d-sm-none">
+                            <div className="new-sidebar-wrapper-root">
+                                <div className="new-sidebar d-none d-md-block d-sm-none">
                                     <Nav sticky="top" defaultActiveKey="/" className="flex-column">
-                                        <div className="sidebarWrapper">
-                                            {pageLinks} {/* {sidebarSections} {sidebarLinks} {pageLinks} */}
+                                        <div className="new-sidebar-wrapper">
+                                            {newSidebar} {/* {sidebarSections} {sidebarLinks} {pageLinks} */}
                                         </div>
                                     </Nav>
                                 </div>
