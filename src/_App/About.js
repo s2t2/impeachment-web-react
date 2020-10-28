@@ -18,7 +18,7 @@ export default function About() {
                     <Card.Title><h3>Methodology</h3></Card.Title>
 
                     <Card.Text>
-                        Read about our methodology in chronological order by following the outline below:
+                        Read about our methodology in rough chronological order by following the outline below:
                     </Card.Text>
 
                     {/* todo: make this from the sidebar sitemap */}
@@ -33,8 +33,10 @@ export default function About() {
 
                         <li>Bot Analysis
                             <ol>
-                                <li><a href="/bot-classification">Bot Classification</a></li>
+                                <li><a href="/bot-detection">Bot Detection</a></li>
                                 <li><a href="/bot-communities">Bot Communities</a></li>
+                                <li><a href="/bot-activity">Bot Activity</a></li>
+                                <li><a href="/bot-beneficiaries">Bot Beneficiaries</a></li>
                                 <li><a href="/bot-language">Bot Language</a></li>
                                 <li><a href="/bot-impact">Bot Impact</a></li>
                             </ol>

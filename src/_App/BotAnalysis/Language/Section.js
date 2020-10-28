@@ -7,9 +7,9 @@ import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
 import ProfileHashtags from "./ProfileHashtags"
-import ProfileHashtagWordClouds from "./ProfileHashtagWordClouds"
 import StatusHashtags from "./StatusHashtags"
-import StatusHashtagWordClouds from "./StatusHashtagWordClouds"
+//import ProfileHashtagWordClouds from "./ProfileHashtagWordClouds"
+//import StatusHashtagWordClouds from "./StatusHashtagWordClouds"
 
 export default function BotLanguageSection() {
 
@@ -30,14 +30,14 @@ export default function BotLanguageSection() {
                     </Card.Text>
 
                     <StatusHashtags/>
-                    <StatusHashtagWordClouds/>
+                    {/* <StatusHashtagWordClouds/> */}
 
                     <h4>Top Hashtags in Bot Profiles</h4>
                     <Card.Text>
                         We also analyzed which hashtags appeared most frequently in bot profiles. The results are below.
                     </Card.Text>
                     <ProfileHashtags/>
-                    <ProfileHashtagWordClouds/>
+                    {/* <ProfileHashtagWordClouds/> */}
 
                 </Card.Body>
             </Card>
