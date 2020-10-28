@@ -18,7 +18,8 @@ import cachedData from './data'
 const METRICS = {
     "bot_count": {"title": "Daily Active Bots", "yAxisTitle": "Bot Count"},
     "tweet_count": {"title": "Daily Bot Tweets", "yAxisTitle": "Tweet Count"},
-    "retweet_count": {"title": "Daily Bot Retweets", "yAxisTitle": "Retweet Count"}
+    "retweet_count": {"title": "Daily Bot Retweets", "yAxisTitle": "Retweet Count"},
+    "non_rt_tweet_count": {"title": "Daily Bot Tweets (Excluding Retweets)", "yAxisTitle": "Non-Retweet Tweet Count"}
 }
 //const barData = [
 //    {"date": '2020-01-01', "community_0": 40000, "community_1": 2400},
@@ -47,8 +48,11 @@ export default class DailyActivity extends PureComponent {
             //console.log("DAILY BOT ACTIVITY", metric, data)
 
             data = data.map(function(daily){
-                daily["Pro-Impeachment Bots"] = parseFloat(daily[`${metric}_0`])
-                daily["Pro-Trump Bots"] = parseFloat(daily[`${metric}_1`])
+                daily["non_rt_tweet_count_0"] = parseInt(daily["tweet_count_0"]) - parseInt(daily["retweet_count_0"])
+                daily["non_rt_tweet_count_1"] = parseInt(daily["tweet_count_1"]) - parseInt(daily["retweet_count_1"])
+
+                daily["Pro-Impeachment Bots"] = parseInt(daily[`${metric}_0`])
+                daily["Pro-Trump Bots"] = parseInt(daily[`${metric}_1`])
                 return daily
             })
             //console.log("DAILY BOT ACTIVITY", metric, data)
@@ -94,8 +98,9 @@ export default class DailyActivity extends PureComponent {
 
                             <Form.Control as="select" size="lg" custom defaultValue={metric} onChange={this.selectMetric}>
                                 <option value="bot_count">Active Bots</option>
-                                <option value="tweet_count">Bot Tweets</option>
+                                <option value="tweet_count">Bot Tweets (All)</option>
                                 <option value="retweet_count">Bot Retweets</option>
+                                <option value="non_rt_tweet_count">Bot Tweets (Excluding Retweets)</option>
                             </Form.Control>
                         </Col>
                         <Col xs="6">
