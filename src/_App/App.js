@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, NavLink, Redirect} from 'react-router-dom'
 import ReactGA from 'react-ga'
 //import {groupBy, values} from "lodash"
 
@@ -119,6 +119,10 @@ export default function App() {
                                 <Route path="/" exact component={Home} />
                                 <Route path="/about" component={About} />
                                 {sidebarRoutes}
+
+                                <Route exact path="/bot-clustering"><Redirect to="/bot-communities" /></Route>
+                                <Route exact path="/bot-classification"><Redirect to="/bot-detection" /></Route>
+
                             </Switch>
                         </Col>
                     </Row>
