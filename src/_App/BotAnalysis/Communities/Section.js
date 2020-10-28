@@ -18,17 +18,20 @@ export default function BotClustering() {
 
                     <h4>Bot Similarity</h4>
                     <Card.Text>
-                        After <a href="/bot-classification">identifying the bots</a>, we re-examined their retweet behavior to discern who they were retweeting, and how often. Then for each pair of bots, we compared their retweet beneficiaries to produce a <a href="https://deepai.org/machine-learning-glossary-and-terms/jaccard-index">Jaccard coefficient</a> (similarity score) between each bot pair.
+                        After <a href="/bot-classification">identifying the bots</a>, we re-examined their retweet behavior to discern who they were retweeting, and how often.
+                        {" "}Then for each pair of bots, we compared their retweet beneficiaries to produce a <a href="https://deepai.org/machine-learning-glossary-and-terms/jaccard-index">Jaccard coefficient</a> (similarity score) between each bot pair.
                     </Card.Text>
 
                     <h4>Bot Clustering</h4>
                     <Card.Text>
-                        Based on how similar each bot's retweet behavior was to each other bot, we grouped the bots into a given number of like communities, using a <a href="https://en.wikipedia.org/wiki/Spectral_clustering">Spectral Clustering</a> method (similar to K-Means Clustering). We chose to separate the bots into two communities, to model the bipartisan nature of US politics.
+                        We filtered out bots whose behavior wasn't significantly similar to any others,
+                        {" "} and grouped the remaining 681 bots into a given number of like communities, using a <a href="https://en.wikipedia.org/wiki/Spectral_clustering">Spectral Clustering</a> method (similar to K-Means Clustering).
+                        {" "} We chose to separate the bots into two communities, to reflect the bipartisan nature of US politics.
                     </Card.Text>
 
                     <h4>Clustering Results</h4>
                     <Card.Text>
-                        Overall, 681 bots had similarity scores appropriate for assignment in one of these two communities. The first community (Community 0) includes 571 bots, while the second community (Community 1) includes 110 bots.
+                        The first community (Community 0) includes 571 bots, while the second community (Community 1) includes 110 bots.
                     </Card.Text>
                     <CommunityAssignmentsChart/>
                     {/*
