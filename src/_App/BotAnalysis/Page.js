@@ -15,9 +15,9 @@ export default function BotAnalysisPage() {
             <SectionIndex/>
 
             <ImpactSection/>
-            <ActivitySection/>
             <BeneficiariesSection/>
             <LanguageSection/>
+            <ActivitySection/>
             <CommunitiesSection/>
             <ClassificationSection/>
         </span>
