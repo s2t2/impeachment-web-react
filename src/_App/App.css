@@ -249,9 +249,28 @@ p.app-center.card-text {
 }
 
 h6.new-sidebar-heading {
+  margin-bottom:0;
+}
+
+h6.new-sidebar-heading a {
   color: #fff;
   font-size: 1.2rem;
   font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  display: block;
+}
+
+h6.new-sidebar-heading a:hover {
+  text-decoration: none;
+}
+
+h6.new-sidebar-heading a.active {
+  background: rgba(118,119,125,.58);
+  transition: all 1s ease;
+  width: 100%;
+  display: block;
 }
 
 li.new-sidebar-list-item {
@@ -268,7 +287,6 @@ li.new-sidebar-list-item {
   color: #fff;
   font-size: 1rem;
   text-decoration: none!important;
-
   display: block;
 
 }

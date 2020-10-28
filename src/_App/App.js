@@ -76,7 +76,9 @@ export default function App() {
         })
         return (
             <span key={page["key"]}>
-                <h6 className="new-sidebar-heading">{page["title"]}</h6>
+                <h6 className="new-sidebar-heading">
+                    <NavLink key={page["key"]} to={`/${page['key']}`} activeClassName="active">{page["title"]}</NavLink>
+                </h6>
                 <ul className="new-sidebar-list">
                     {sectionLinks}
                 </ul>
