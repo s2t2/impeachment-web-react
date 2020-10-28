@@ -1,5 +1,21 @@
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Daily Bot Probabilities Histogram
+
 ```sql
 
 /*
@@ -27,3 +43,11 @@ So in BigQuery only the users with bot probabilities above 0.5 have been saved.
 Need to dig into the google cloud storage bucket for the full CSV file.
 
 See [API Prep](https://github.com/s2t2/tweet-analyzer-py/pull/65/files) and run the script to generate the JSON file. Then copy the JSON file into this dir.
+
+
+
+
+## Bots Most Active
+
+```sql
+```

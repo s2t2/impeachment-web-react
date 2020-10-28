@@ -21,6 +21,19 @@ import TopUserOpinions from './OpinionAnalysis/TopUsers/Page'
 
 var sidebar = [
     {
+        "key": "bot-analysis",
+        "title": "Bot Analysis",
+        "component": BotAnalysis,
+        "sections": [
+            {"key": "bot-impact",           "title": "Bot Impact",          "component": BotImpact},
+            {"key": "bot-beneficiaries",    "title": "Bot Beneficiaries",   "component": BotBeneficiaries},
+            {"key": "bot-language",         "title": "Bot Language",        "component": BotLanguage},
+            {"key": "bot-activity",         "title": "Bot Activity",        "component": BotActivity},
+            {"key": "bot-communities",      "title": "Bot Communities",    "component": BotCommunities},
+            {"key": "bot-detection",        "title": "Bot Detection",      "component": BotClassification}
+        ]
+    },
+    {
         "key": "opinion-analysis",
         "title": "Opinion Analysis",
         "component": OpinionAnalysis,
@@ -28,19 +41,6 @@ var sidebar = [
             {"key": "top-user-opinions",    "title": "Top User Opinions",   "component": TopUserOpinions},
             {"key": "user-opinions",        "title": "User Opinions",       "component": UserOpinions},
             {"key": "opinion-models",       "title": "Opinion Models",      "component": OpinionModels},
-        ]
-    },
-    {
-        "key": "bot-analysis",
-        "title": "Bot Analysis",
-        "component": BotAnalysis,
-        "sections": [
-            {"key": "bot-impact",           "title": "Bot Impact",          "component": BotImpact},
-            {"key": "bot-activity",         "title": "Bot Activity",        "component": BotActivity},
-            {"key": "bot-beneficiaries",    "title": "Bot Beneficiaries",  "component": BotBeneficiaries},
-            {"key": "bot-language",         "title": "Bot Language",        "component": BotLanguage},
-            {"key": "bot-communities",       "title": "Bot Communities",    "component": BotCommunities},
-            {"key": "bot-classification",    "title": "Bot Classification",  "component": BotClassification}
         ]
     },
     {

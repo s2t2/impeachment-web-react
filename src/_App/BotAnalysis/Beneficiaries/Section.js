@@ -23,9 +23,6 @@ export default function BotBeneficiariesSection() {
                     </Card.Text>
 
                     <h4>Users Most Retweeted by Bot Community</h4>
-                    <Card.Text>
-                        We observe left-leaning bots retweet a greater variety of users, while right-leaning bots retweet Trump significantly more than any other user.
-                    </Card.Text>
                     <UsersMostRetweeted/>
 
                     <h4>Statuses Most Retweeted by Bot Community</h4>

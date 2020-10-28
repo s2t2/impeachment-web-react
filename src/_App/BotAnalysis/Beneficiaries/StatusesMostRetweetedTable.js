@@ -25,7 +25,7 @@ export default function StatusesTable(props) {
                     <tr>
                         <th scope="col">Rank</th>
                         <th scope="col">Status Text</th>
-                        <th scope="col">Retweeter Count</th>
+                        <th scope="col">Bot Count</th>
                     </tr>
                 </thead>
                 <tbody>
