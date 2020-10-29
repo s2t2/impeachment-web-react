@@ -78,6 +78,7 @@ npx create-react-app impeachment-web-prototype-react
   + https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
   + https://reactjs.org/docs/conditional-rendering.html
   + https://stackoverflow.com/questions/38892672/react-why-child-component-doesnt-update-when-prop-changes/48434525#48434525
+  + Joining elements with a separator: https://stackoverflow.com/a/40788571/670433
 
 ## React Bootstrap
 
