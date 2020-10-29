@@ -50,4 +50,8 @@ See [API Prep](https://github.com/s2t2/tweet-analyzer-py/pull/65/files) and run 
 ## Bots Most Active
 
 ```sql
+SELECT *
+FROM impeachment_production.bots_most_active
+ORDER BY status_count DESC
+LIMIT 100
 ```

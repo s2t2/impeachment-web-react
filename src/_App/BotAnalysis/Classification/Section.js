@@ -4,25 +4,11 @@ import Container from 'react-bootstrap/Container'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
-import Table from 'react-bootstrap/Table'
 
-import {formatNumber, formatPct} from '../../Utils/Decorators'
-import bots from './data.js'
-//import exampleDailyBotProbabilities from '../../../_Dashboards/About/bot_probabilities_histogram_20200201.png' // TODO
-import BotProbabilitiesHistogram from './Bar' // './VBar' './VHistogram'
+import BotProbabilitiesHistogram from './Bar'
+import BotsMostActiveTable from './BotsMostActive'
 
 export default function BotClassificationSection() {
-
-    const botRows = bots.slice(0,10).map(function(bot){
-        return (
-            <tr key={bot["screen_name"]}>
-                <td><a href={`http://twitter.com/${bot["screen_name"]}`}>@{bot["screen_name"]}</a> </td>
-                <td>{formatNumber(bot["rt_count"])}</td>
-                <td>{formatNumber(bot["status_count"])}</td>
-                <td>{formatPct(bot["rt_pct"])}</td>
-            </tr>
-        )
-    })
 
     return (
         <Container fluid>
@@ -55,24 +41,10 @@ export default function BotClassificationSection() {
 
                     <h4 id="most-active-bots">Most Active Bots</h4>
                     <Card.Text>
-                        The table below presents the top ten most active bots in our dataset.
+                        The table below presents the top fifteen most active bots in our dataset.
                     </Card.Text>
 
-                     <div className="table-responsive">
-                        <Table striped bordered hover size="sm">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Bot Screen Name</th>
-                                    <th scope="col">Retweet Count</th>
-                                    <th scope="col">Tweet Count</th>
-                                    <th scope="col">Retweet Percentage</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {botRows}
-                            </tbody>
-                        </Table>
-                    </div>
+                     <BotsMostActiveTable/>
 
                     <Card.Text>
                         NOTE: some of these accounts have since been deleted or suspended by Twitter.
