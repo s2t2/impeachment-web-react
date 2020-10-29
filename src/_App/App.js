@@ -69,7 +69,7 @@ export default function App() {
 
     var newSidebar = sidebar.map(function(page){
         var sectionLinks = page["sections"].map(function(section){
-            var sectionLink = <li className="new-sidebar-list-item">
+            var sectionLink = <li key={section["key"]} className="new-sidebar-list-item">
                 <NavLink key={section["key"]} to={`/${section['key']}`} activeClassName="active">{section["title"]}</NavLink>
             </li>
             return sectionLink
