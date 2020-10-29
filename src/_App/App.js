@@ -14,7 +14,7 @@ import Col from 'react-bootstrap/Col'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
-import Home from './Home.js'
+//import Home from './Home.js'
 import About from './About.js'
 import sidebar from './sidebar.js'
 
@@ -139,10 +139,11 @@ export default function App() {
 
                         <Col md={10} className="page">
                             <Switch>
-                                <Route path="/" exact component={Home} />
+                                {/* <Route path="/" exact component={Home} /> */}
                                 <Route path="/about" component={About} />
                                 {sidebarRoutes}
 
+                                <Route exact path="/"><Redirect to="/bot-impact" /></Route>
                                 <Route exact path="/bot-clustering"><Redirect to="/bot-communities" /></Route>
                                 <Route exact path="/bot-classification"><Redirect to="/bot-detection" /></Route>
 

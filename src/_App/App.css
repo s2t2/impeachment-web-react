@@ -273,6 +273,11 @@ h6.new-sidebar-heading a.active {
   display: block;
 }
 
+ul.new-sidebar-list {
+    /* margin-bottom: 5px; */
+
+}
+
 li.new-sidebar-list-item {
     list-style: none;
     margin-left: -20px;
@@ -284,6 +289,7 @@ li.new-sidebar-list-item {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
+  /* padding-right: 10px; */
   color: #fff;
   font-size: 1rem;
   text-decoration: none!important;
