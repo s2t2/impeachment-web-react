@@ -48,11 +48,11 @@ const ForceTree = ({ data }) => {
         nodeId="id"
         nodeVal="status_count"
         nodeLabel={(node) => `@${node["id"]}`}
-        nodeRelSize={1}
+        nodeRelSize={2}
 
         //dagMode="td"
         //dagLevelDistance={300}
-        linkColor={() => 'rgba(255,255,255,0.2)'}
+        linkColor={() => 'rgba(255,255,255,0.2)'} // todo: source opinion color
         linkDirectionalParticles={2}
         linkDirectionalParticleWidth={2}
         d3VelocityDecay={0.3}
