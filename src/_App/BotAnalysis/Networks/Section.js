@@ -19,7 +19,7 @@ export default function BotNetworks() {
 
                     <Card.Text>
                         The chart below shows the interconnections between bots in each <a href="/bot-communities">community</a>.
-                        {" "} Click any circle to view that bot's Impeachment Opinions in a new window.
+                        {" "} Click any bot to view their Impeachment Opinions in a new window.
                     </Card.Text>
 
 
