@@ -6,8 +6,9 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import NetworkGraph from "./Graph"
 import TreeGraph from "./Graph1"
+import NetworkGraph from "./Graph2"
+import NewGraph from "./Graph3"
 
 export default function BotNetworks() {
     return (
@@ -15,6 +16,11 @@ export default function BotNetworks() {
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Bot Networks</h3></Card.Title>
+
+                     <Card.Text>
+                        Bot Community Networks (tree view):
+                    </Card.Text>
+                    <NewGraph/>
 
                     <Card.Text>
                         Bot Community Networks:
