@@ -18,8 +18,11 @@ export default function BotNetworks() {
                     <Card.Title><h3>Bot Networks</h3></Card.Title>
 
                     <Card.Text>
-                        The chart below shows the interconnections between bots in each community.
+                        The chart below shows the interconnections between bots in each <a href="/bot-communities">community</a>.
+                        {" "} Click any circle to view that bot's Impeachment Opinions in a new window.
                     </Card.Text>
+
+
                     <NetworkGraph/>
 
                     {/*

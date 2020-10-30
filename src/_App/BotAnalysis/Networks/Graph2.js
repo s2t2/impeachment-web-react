@@ -12,6 +12,12 @@ import Card from 'react-bootstrap/Card'
 import Spinner from '../../Spinner'
 import cachedData from './data'
 
+function nodeClickHandler(node, event){
+    console.log("YOU CLICKED", node["id"])
+    //window.open(`https://twitter.com/${node["id"]}`, '_blank')
+    window.open(`/user-opinions?sn=${node["id"]}`, '_blank')
+}
+
 const ForceTree = ({ data }) => {
 
     data["nodes"] = data["nodes"].map(function(node){
@@ -51,6 +57,7 @@ const ForceTree = ({ data }) => {
         nodeVal={5}
         nodeLabel={(node) => `@${node["id"]}`}
         nodeRelSize={1}
+        onNodeClick={nodeClickHandler}
 
         //dagMode="td"
         //dagLevelDistance={300}
