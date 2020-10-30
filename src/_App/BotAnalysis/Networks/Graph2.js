@@ -57,7 +57,7 @@ const ForceTree = ({ data }) => {
         linkColor={() => 'rgba(255,255,255,0.2)'} // todo: source opinion color
         linkDirectionalParticles={2}
         linkDirectionalParticleWidth={2}
-        d3VelocityDecay={0.3}
+        d3VelocityDecay={0.6} // lower numbers push the nodes farther and faster from eachother (keep large to prevent red bots from flying off screen)
     />
 }
 
