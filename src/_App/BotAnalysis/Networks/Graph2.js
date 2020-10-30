@@ -8,12 +8,14 @@ import * as d3 from 'd3'
 import Card from 'react-bootstrap/Card'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
+import ReactGA from 'react-ga'
 
 import Spinner from '../../Spinner'
 import cachedData from './data'
 
 function nodeClickHandler(node, event){
     console.log("YOU CLICKED", node["id"])
+    ReactGA.event({category: "Bot Networks", action: "Click Node", label: node["id"]})
     //window.open(`https://twitter.com/${node["id"]}`, '_blank')
     window.open(`/user-opinions?sn=${node["id"]}`, '_blank')
 }
