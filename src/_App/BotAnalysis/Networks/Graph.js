@@ -1,6 +1,4 @@
-import React, { PureComponent,
-    //createRef, useState, useEffect, useRef
-} from 'react'
+import React, { PureComponent} from 'react' //createRef, useState, useEffect, useRef
 import * as d3 from 'd3'
 
 import Card from 'react-bootstrap/Card'
@@ -8,15 +6,15 @@ import Card from 'react-bootstrap/Card'
 //import Col from 'react-bootstrap/Col'
 
 import Spinner from '../../Spinner'
-import cachedData from './communitiesNetwork'
-//import {formatPct} from '../../Utils/Decorators'
-//import {opinionShiftScale as colorScale} from '../../Utils/Colors'
+import cachedData from './data'
 import ForceTree from './ForceTree'
+
+const MOCK_DATA_MODE = true
 
 export default class NetworkGraph extends PureComponent {
     constructor(props) {
         super(props)
-        this.state = {orientation: "td", parsedResponse: null}
+        this.state = {parsedResponse: null} // orientation: "td",
         //this.containerRef = createRef()
     }
 
@@ -57,10 +55,15 @@ export default class NetworkGraph extends PureComponent {
 
     componentDidMount() {
         console.log("DASHBOARD DID MOUNT")
-        this.fetchData()
-        //setTimeout(function(){
-        //    this.setState({parsedResponse: cachedData})
-        //}.bind(this), 1000) // let you see the spinner
+
+        if(MOCK_DATA_MODE){
+            this.fetchData()
+        } else {
+            this.setState({parsedResponse: cachedData})
+            //setTimeout(function(){
+            //    this.setState({parsedResponse: cachedData})
+            //}.bind(this), 1000) // let you see the spinner
+        }
     }
 
     fetchData() {
@@ -74,11 +77,11 @@ export default class NetworkGraph extends PureComponent {
             const nodes = [], links = []
 
             data.forEach(({ size, path }) => {
-                const levels = path.split('/'),
-                    level = levels.length - 1,
-                    module = level > 0 ? levels[1] : null,
-                    leaf = levels.pop(),
-                    parent = levels.join('/')
+                const levels = path.split('/')
+                const level = levels.length - 1
+                const module = level > 0 ? levels[1] : null
+                const leaf = levels.pop()
+                const parent = levels.join('/')
 
                 const node = {
                     path,
