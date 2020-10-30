@@ -1,6 +1,6 @@
 // source: https://github.com/vasturiano/react-force-graph/blob/master/example/tree/index.html
 
-import React, {useState, useEffect, useRef } from 'react'
+import React, {useEffect, useRef } from 'react' // useState
 import { ForceGraph2D } from 'react-force-graph'
 import * as d3 from 'd3'
 
