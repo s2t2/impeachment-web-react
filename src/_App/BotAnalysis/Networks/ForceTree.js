@@ -27,7 +27,8 @@ const ForceTree = ({ data }) => {
         fgRef.current.d3Force('collision', d3.forceCollide(node => Math.sqrt(100 / (node.level + 1))));
     }, [])
 
-    return <ForceGraph2D
+    console.log("GRAPH DATA", data)
+    return <ForceGraph2D width={900} height={550}
         ref={fgRef}
         graphData={data}
         dagMode="td" // dagMode={controls['DAG Orientation']}
