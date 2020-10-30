@@ -46,9 +46,11 @@ const ForceTree = ({ data }) => {
         graphData={data}
 
         nodeId="id"
-        nodeVal="status_count"
+        //nodeVal="status_count"
+        //nodeVal={node => Math.sqrt(node["status_count"])}
+        nodeVal={5}
         nodeLabel={(node) => `@${node["id"]}`}
-        nodeRelSize={2}
+        nodeRelSize={1}
 
         //dagMode="td"
         //dagLevelDistance={300}
