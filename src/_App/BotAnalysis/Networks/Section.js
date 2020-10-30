@@ -23,7 +23,7 @@ export default function BotNetworks() {
                     <NetworkGraph/>
 
                     <Card.Text>
-                        Prototype tree graph structure with levels:
+                        Prototype tree graph (for a uni-directional network with discrete "levels"):
                     </Card.Text>
                     <TreeGraph/>
                 </Card.Body>
