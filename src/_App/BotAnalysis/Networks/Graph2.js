@@ -1,6 +1,5 @@
 
 // adapted from source: https://github.com/vasturiano/react-force-graph/blob/master/example/tree/index.html
-// https://github.com/vasturiano/react-force-graph#data-input
 
 import React, { PureComponent, useEffect, useRef} from 'react'
 import { ForceGraph2D } from 'react-force-graph'
@@ -13,26 +12,6 @@ import Spinner from '../../Spinner'
 import cachedData from './data'
 
 const ForceTree = ({ data }) => {
-
-    data["nodes"] = data["nodes"].map(function(node){
-        return {
-            "id": node["id"], // NODE ID
-            "mean_opinion": node["opinion"],
-            "status_count": node["Rate"],
-            "color": node["color"],
-            //"x": node["xcoord"],
-            //"y": node["ycoord"],
-        }
-    })
-
-    data["links"] = data["links"].map(function(link){
-        return {
-            "source": link["source"], // SOURCE NODE ID
-            "target": link["target"], // TARGET NODE ID
-            //"weight": link["weight"],
-        }
-    })
-
     const containerRef = useRef()
     useEffect(() => {
         // add collision force
@@ -42,18 +21,18 @@ const ForceTree = ({ data }) => {
     }, [])
     //console.log("GRAPH DATA", data)
 
-    return <ForceGraph2D ref={containerRef} width={900} height={500} backgroundColor="#101020"
-
+    return <ForceGraph2D ref={containerRef} width={900} height={550}
         graphData={data}
         nodeId="id"
         nodeVal={node => Math.sqrt(50)}
         nodeLabel="Name"
         nodeAutoColorBy="color"
-        nodeRelSize={1}
 
-        //dagMode="td"
-        //dagLevelDistance={300}
+        dagMode="td"
+        dagLevelDistance={300}
+        backgroundColor="#101020"
         linkColor={() => 'rgba(255,255,255,0.2)'}
+        nodeRelSize={1}
         linkDirectionalParticles={2}
         linkDirectionalParticleWidth={2}
         d3VelocityDecay={0.3}
@@ -81,11 +60,10 @@ export default class NetworkGraph extends PureComponent {
 
     componentDidMount() {
         console.log("DASHBOARD DID MOUNT")
-        //this.fetchData() // temporary for dev
-        //setTimeout(function(){
-        //    this.setState({parsedResponse: cachedData})
-        //}.bind(this), 800) // let you see the spinner
-        this.setState({parsedResponse: cachedData})
+        this.fetchData() // temporary for dev
+        setTimeout(function(){
+            this.setState({parsedResponse: cachedData})
+        }.bind(this), 800) // let you see the spinner
     }
 
     fetchData() {
