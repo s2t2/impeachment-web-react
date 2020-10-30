@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import TreeGraph from "./Graph1"
+//import TreeGraph from "./Graph1"
 import NetworkGraph from "./Graph2"
 //import NewGraph from "./Graph3"
 
@@ -22,10 +22,13 @@ export default function BotNetworks() {
                     </Card.Text>
                     <NetworkGraph/>
 
+                    {/*
                     <Card.Text>
                         Prototype tree graph (for a uni-directional network with discrete "levels"):
                     </Card.Text>
                     <TreeGraph/>
+
+                    */}
                 </Card.Body>
             </Card>
         </Container>
