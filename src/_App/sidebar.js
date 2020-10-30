@@ -2,22 +2,22 @@
 //import React from 'react'
 
 import TweetCollection from './TweetCollection/Page'
-import CollectionTimeline from './TweetCollection/Timeline/Page'
-import CollectionTopics from './TweetCollection/Topics/Page'
-import CollectionResults from './TweetCollection/Results/Page'
+import CollectionTimeline from './TweetCollection/Timeline/Section'
+import CollectionTopics from './TweetCollection/Topics/Section'
+import CollectionResults from './TweetCollection/Results/Section'
 
 import BotAnalysis from './BotAnalysis/Page' // SectionIndex
-import BotClassification from './BotAnalysis/Classification/Page'
-import BotCommunities from "./BotAnalysis/Communities/Page"
-import BotActivity from './BotAnalysis/Activity/Page'
-import BotBeneficiaries from './BotAnalysis/Beneficiaries/Page'
-import BotLanguage from './BotAnalysis/Language/Page'
-import BotImpact from './BotAnalysis/Impact/Page'
+import BotClassification from './BotAnalysis/Classification/Section'
+import BotCommunities from "./BotAnalysis/Communities/Section"
+import BotActivity from './BotAnalysis/Activity/Section'
+import BotBeneficiaries from './BotAnalysis/Beneficiaries/Section'
+import BotLanguage from './BotAnalysis/Language/Section'
+import BotImpact from './BotAnalysis/Impact/Section'
 
 import OpinionAnalysis from './OpinionAnalysis/Page' // SectionIndex
-import OpinionModels from './OpinionAnalysis/Models/Page'
-import UserOpinions from './OpinionAnalysis/User/Page'
-import TopUserOpinions from './OpinionAnalysis/TopUsers/Page'
+import OpinionModels from './OpinionAnalysis/Models/Section'
+import UserOpinions from './OpinionAnalysis/User/Section'
+import TopUserOpinions from './OpinionAnalysis/TopUsers/Section'
 
 var sidebar = [
     {

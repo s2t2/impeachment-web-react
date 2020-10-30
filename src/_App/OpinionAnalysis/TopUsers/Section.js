@@ -14,7 +14,7 @@ export default function TopUserOpinion() {
         <Container fluid>
             <Card>
                 <Card.Body>
-                    <Card.Title><h2>Top User Opinions</h2></Card.Title>
+                    <Card.Title><h3>Top User Opinions</h3></Card.Title>
                     <Card.Text>
                         After <a href="/user-opinions">calculating mean opinion scores</a> for all users in our dataset, we are able to compare the user's scores relative to each other to see which are more pro-Impeachment vs. which are more pro-Trump.
                     </Card.Text>

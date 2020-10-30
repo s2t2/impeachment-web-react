@@ -14,7 +14,7 @@ import Col from 'react-bootstrap/Col'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
-import Home from './Home.js'
+//import Home from './Home.js'
 import About from './About.js'
 import sidebar from './sidebar.js'
 
@@ -64,6 +64,29 @@ export default function App() {
         )
     })
 
+
+
+
+    var newSidebar = sidebar.map(function(page){
+        var sectionLinks = page["sections"].map(function(section){
+            var sectionLink = <li key={section["key"]} className="new-sidebar-list-item">
+                <NavLink key={section["key"]} to={`/${section['key']}`} activeClassName="active">{section["title"]}</NavLink>
+            </li>
+            return sectionLink
+        })
+        return (
+            <span key={page["key"]}>
+                <h6 className="new-sidebar-heading">
+                    <NavLink key={page["key"]} to={`/${page['key']}`} activeClassName="active">{page["title"]}</NavLink>
+                </h6>
+                <ul className="new-sidebar-list">
+                    {sectionLinks}
+                </ul>
+            </span>
+        )
+    })
+
+
     return (
         <Router>
             <div className="App">
@@ -103,11 +126,11 @@ export default function App() {
                 <Container fluid className="no-padding">
                     <Row>
                         <Col md={2}>
-                            <div className="sidebarWrapperRoot">
-                                <div className="sidebar d-none d-md-block d-sm-none">
+                            <div className="new-sidebar-wrapper-root">
+                                <div className="new-sidebar d-none d-md-block d-sm-none">
                                     <Nav sticky="top" defaultActiveKey="/" className="flex-column">
-                                        <div className="sidebarWrapper">
-                                            {pageLinks} {/* {sidebarSections} {sidebarLinks} {pageLinks} */}
+                                        <div className="new-sidebar-wrapper">
+                                            {newSidebar} {/* {sidebarSections} {sidebarLinks} {pageLinks} */}
                                         </div>
                                     </Nav>
                                 </div>
@@ -116,10 +139,11 @@ export default function App() {
 
                         <Col md={10} className="page">
                             <Switch>
-                                <Route path="/" exact component={Home} />
+                                {/* <Route path="/" exact component={Home} /> */}
                                 <Route path="/about" component={About} />
                                 {sidebarRoutes}
 
+                                <Route exact path="/"><Redirect to="/bot-impact" /></Route>
                                 <Route exact path="/bot-clustering"><Redirect to="/bot-communities" /></Route>
                                 <Route exact path="/bot-classification"><Redirect to="/bot-detection" /></Route>
 

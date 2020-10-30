@@ -43,7 +43,7 @@ export default class UserOpinionSection extends PureComponent {
             <Container fluid>
                 <Card>
                     <Card.Body>
-                        <Card.Title><h2>User Opinions</h2></Card.Title>
+                        <Card.Title><h3>User Opinions</h3></Card.Title>
                         <Card.Text>
                             After <a href="/opinion-models">training opinion models</a> to detect which <a href="/bot-language">bot community language</a>
                             {" "} any given tweet most closely resembles, we used the models to predict Impeachment opinion scores for the remaining tweets in our dataset.
