@@ -18,7 +18,7 @@ export default function BotNetworks() {
                     <Card.Title><h3>Bot Networks</h3></Card.Title>
 
                     <Card.Text>
-                        Bot Community Networks:
+                        The chart below shows the interconnections between bots in each community.
                     </Card.Text>
                     <NetworkGraph/>
 
