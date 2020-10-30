@@ -44,6 +44,11 @@ export default class NetworkGraph extends PureComponent {
                         ///>
                         //<ForceTree data={{ nodes, links }}/>
                         <ForceTree data={this.state.parsedResponse}/>
+                        //<Row>
+                        //    <Col md={12}>
+                        //        <ForceTree data={this.state.parsedResponse}/>
+                        //    </Col>
+                        //</Row>
                     }
                 </Card.Body>
             </Card>
@@ -59,20 +64,9 @@ export default class NetworkGraph extends PureComponent {
     }
 
     fetchData() {
+        // https://github.com/vasturiano/react-force-graph/blob/master/example/tree/index.html
         const requestUrl = "https://raw.githubusercontent.com/vasturiano/react-force-graph/master/example/datasets/d3-dependencies.csv"
         console.log("REQUEST URL:", requestUrl)
-        //fetch(requestUrl).then(function (response) {
-        //    // console.log("RAW RESPONSE", "STATUS", response.status, response.statusText,
-        //    // response.ok, "HEADERS", response.headers, response.url)
-        //    return response.json()
-        //})
-        //.then(function (json) {
-        //    console.log("FETCHED", json.length, "ITEMS")
-        //    this.setState({parsedResponse: json})
-        //}.bind(this))
-        //.catch(function (err) {
-        //    console.error("FETCH ERR", err)
-        //})
         fetch(requestUrl)
         .then(r => r.text())
         .then(d3.csvParse)
@@ -94,10 +88,12 @@ export default class NetworkGraph extends PureComponent {
                     level
                 };
 
-                nodes.push(node);
+                nodes.push(node)
 
                 if (parent) {
-                    links.push({source: parent, target: path, targetNode: node});
+                    links.push({source: parent, target: path,
+                    //targetNode: node
+                    })
                 }
             })
 
