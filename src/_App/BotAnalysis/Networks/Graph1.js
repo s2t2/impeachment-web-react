@@ -1,48 +1,21 @@
-
-// adapted from source: https://github.com/vasturiano/react-force-graph/blob/master/example/tree/index.html
-
-import React, { PureComponent, useEffect, useRef} from 'react'
-import { ForceGraph2D } from 'react-force-graph'
+import React, { PureComponent} from 'react' //createRef, useState, useEffect, useRef
 import * as d3 from 'd3'
+
 import Card from 'react-bootstrap/Card'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 
 import Spinner from '../../Spinner'
 import cachedData from './data'
+import ForceTree from './ForceTree1'
 
-const ForceTree = ({ data }) => {
-    const containerRef = useRef()
-    useEffect(() => {
-        // add collision force
-        //containerRef.current.d3Force('collision', d3.forceCollide(node => Math.sqrt(100 / (node.level + 1))));
-        //containerRef.current.d3Force('collision', d3.forceCollide(node => Math.sqrt(node["Rate"])));
-        containerRef.current.d3Force('collision', d3.forceCollide(node => Math.sqrt(50)));
-    }, [])
-    //console.log("GRAPH DATA", data)
-
-    return <ForceGraph2D ref={containerRef} width={900} height={550}
-        graphData={data}
-        nodeId="id"
-        nodeVal={node => Math.sqrt(50)}
-        nodeLabel="Name"
-        nodeAutoColorBy="color"
-
-        dagMode="td"
-        dagLevelDistance={300}
-        backgroundColor="#101020"
-        linkColor={() => 'rgba(255,255,255,0.2)'}
-        nodeRelSize={1}
-        linkDirectionalParticles={2}
-        linkDirectionalParticleWidth={2}
-        d3VelocityDecay={0.3}
-    />
-}
+const MOCK_DATA_MODE = true
 
 export default class NetworkGraph extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {parsedResponse: null} // orientation: "td",
+        //this.containerRef = createRef()
     }
 
     render() {
@@ -51,7 +24,29 @@ export default class NetworkGraph extends PureComponent {
                 <Card.Body>
                     {!this.state.parsedResponse ?
                         <Spinner/> :
+                        //<ForceGraph2D
+                        //    ref={this.containerRef}
+                        //    graphData={this.state.parsedResponse}
+                        //    dagMode={this.state.orientation}
+                        //    dagLevelDistance={300}
+                        //    backgroundColor="#fff" //"#101020"
+                        //    linkColor={() => 'rgba(255,255,255,0.2)'}
+                        //    nodeRelSize={1}
+                        //    nodeId="path"
+                        //    nodeVal={node => 100 / (node.level + 1)}
+                        //    nodeLabel="path"
+                        //    nodeAutoColorBy="module"
+                        //    linkDirectionalParticles={2}
+                        //    linkDirectionalParticleWidth={2}
+                        //    d3VelocityDecay={0.3}
+                        ///>
+                        //<ForceTree data={{ nodes, links }}/>
                         <ForceTree data={this.state.parsedResponse}/>
+                        //<Row>
+                        //    <Col md={12}>
+                        //        <ForceTree data={this.state.parsedResponse}/>
+                        //    </Col>
+                        //</Row>
                     }
                 </Card.Body>
             </Card>
@@ -60,10 +55,15 @@ export default class NetworkGraph extends PureComponent {
 
     componentDidMount() {
         console.log("DASHBOARD DID MOUNT")
-        this.fetchData() // temporary for dev
-        setTimeout(function(){
+
+        if(MOCK_DATA_MODE){
+            this.fetchData()
+        } else {
             this.setState({parsedResponse: cachedData})
-        }.bind(this), 800) // let you see the spinner
+            //setTimeout(function(){
+            //    this.setState({parsedResponse: cachedData})
+            //}.bind(this), 1000) // let you see the spinner
+        }
     }
 
     fetchData() {
@@ -89,8 +89,7 @@ export default class NetworkGraph extends PureComponent {
                     module,
                     size: +size || 20,
                     level
-                }
-                //console.log(node)
+                };
 
                 nodes.push(node)
 
@@ -101,9 +100,7 @@ export default class NetworkGraph extends PureComponent {
                 }
             })
 
-            console.log("NODES", nodes)
-            console.log("LINKS", links)
-            //this.setState({parsedResponse: {nodes: nodes, links: links}})
+            this.setState({parsedResponse: {nodes: nodes, links: links}})
 
         })
 
