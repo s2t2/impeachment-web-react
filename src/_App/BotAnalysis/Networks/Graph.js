@@ -19,7 +19,7 @@ const ForceTree = ({ data }) => {
             "id": node["id"], // NODE ID
             "mean_opinion": node["opinion"],
             "status_count": node["Rate"],
-            "color": node["color"],
+            "color": node["color"], // NODE COLOR
             //"x": node["xcoord"],
             //"y": node["ycoord"],
         }
@@ -43,12 +43,11 @@ const ForceTree = ({ data }) => {
     //console.log("GRAPH DATA", data)
 
     return <ForceGraph2D ref={containerRef} width={900} height={500} backgroundColor="#101020"
-
         graphData={data}
+
         nodeId="id"
-        nodeVal={node => Math.sqrt(50)}
-        nodeLabel="Name"
-        nodeAutoColorBy="color"
+        nodeVal="status_count"
+        nodeLabel={(node) => `@${node["id"]}`}
         nodeRelSize={1}
 
         //dagMode="td"
