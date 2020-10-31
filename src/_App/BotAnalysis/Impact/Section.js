@@ -38,8 +38,9 @@ export default function BotImpact() {
 
 
                     <Card.Text>
-                        {" "} We observe the average daily bot-induced opinion shift is 1.4% towards left-leaning opinions.
-                        {" "} The highest daily shift towards right-leaning bot opinions was 2.8% on 12/28, and the highest daily shift towards left-leaning bot opinions was 6.3% on 1/8.
+                        {" "} We observe the average daily bot-induced opinion shift is 3.5% towards left-leaning opinions.
+                        {" "} The highest daily shift towards right-leaning bot opinions was 6.7% on 12/29,
+                        {" "} and the highest daily shift towards left-leaning bot opinions was 13.0% on 1/30.
                     </Card.Text>
 
                     {/*

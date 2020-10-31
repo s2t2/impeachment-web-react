@@ -134,6 +134,7 @@ npm install react-router-bootstrap react-router-dom --save
   + https://awsm-tools.com/code/coffee2js
   + https://jsonlint.com/
   + https://www.convertcsv.com/csv-to-json.htm
+  + https://jsonformatter.curiousconcept.com/#
 
 
 ## Plotly React
