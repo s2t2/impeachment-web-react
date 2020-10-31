@@ -14,7 +14,7 @@ import Spinner from '../../Spinner'
 
 function MyGraph(props){
     var height = props.height || 500
-    var width = props.width || 900
+    var width = props.width || window.innerWidth * 0.75 // todo:use container ref instead
     //var data = props.data
     return <span>
         <p>Height: {height} Width: {width}</p>
@@ -25,7 +25,7 @@ function MyGraph(props){
 export default class NetworkGraph extends PureComponent {
     constructor(props) {
         super(props)
-        this.state = {parsedResponse: null, windowSize:""}
+        this.state = {parsedResponse: null, width: null}
         this.containerRef = createRef()
         this.handleResize = this.handleResize.bind(this)
     }
@@ -38,7 +38,7 @@ export default class NetworkGraph extends PureComponent {
                         <Spinner/> :
 
                         <div ref={this.containerRef}>
-                            <MyGraph width={this.state.windowSize * 0.5}/>
+                            <MyGraph width={this.state.width}/>
                         </div>
                     }
                 </Card.Body>
@@ -58,9 +58,9 @@ export default class NetworkGraph extends PureComponent {
     }
 
     handleResize(event){
-        const windowSize = window.innerWidth // todo:use container ref instead
-        console.log("RESIZED THE WINDOW!!", windowSize)
-        this.setState({windowSize: windowSize})
+        const width = window.innerWidth * 0.75 // todo:use container ref instead
+        console.log("RESIZED THE WINDOW!!", width)
+        this.setState({width: width})
     }
 
     componentDidUpdate(){
