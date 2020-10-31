@@ -49,10 +49,9 @@ export default class NetworkGraph extends PureComponent {
     componentDidMount(){
         console.log("COMPONENT DID MOUNT")
         window.addEventListener("resize", this.handleResize)
-        //const width = this.containerRef.current.clientWidth
-        this.setState({parsedResponse:"abc123",
-            //width: width
-        })
+        //const width = this.containerRef.current.clientWidth // containerRef is null here
+        const width = window.innerWidth * 0.74
+        this.setState({parsedResponse:"abc123", width: width})
     }
 
     componentWillUnmount() {
