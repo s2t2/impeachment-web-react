@@ -6,7 +6,8 @@ import {scaleSequential, interpolateRdBu as RdBu} from 'd3'
 const opinionScale = scaleSequential(RdBu).domain([1, 0])
 
 // -7% is blue, +7% is red
-const opinionShiftScale = scaleSequential(RdBu).domain([0.065, -0.065])
+//const opinionShiftScale = scaleSequential(RdBu).domain([0.065, -0.065]) // v1 data (just bots in communities)
+const opinionShiftScale = scaleSequential(RdBu).domain([0.13, -0.13]) // v2 data (all bots)
 
 const legendBlue = "steelblue" // opinionScale(0.15) // "flag" blue: "#002868"
 const legendRed = "#D62021" // opinionScale(0.85) // "flag" red: "#bf0a30"

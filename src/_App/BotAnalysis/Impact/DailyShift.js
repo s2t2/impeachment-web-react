@@ -33,6 +33,7 @@ export default class DailyOpinionShift extends PureComponent {
 
             const chartTitle = `Daily Bot-Induced Opinion Shift`
             const chartSubtitle = `Opinion Model: BERT Transformer`
+            const yAxisDomain = [-0.15, 0.09]
 
             spinIntoChart = (
                 <span>
@@ -51,7 +52,7 @@ export default class DailyOpinionShift extends PureComponent {
                     <div style={{width: "100%", height: 500}}>
                         <ResponsiveContainer>
                             <BarChart data={data} layout="horizontal" margin={{top: 0, bottom: 20, left: 5, right: 30}} barCategoryGap={0}>
-                                <YAxis type="number" dataKey="mean_opinion_shift" domain={[-0.07, 0.04]}>
+                                <YAxis type="number" dataKey="mean_opinion_shift" domain={yAxisDomain}>
                                     <Label value="Mean Pro-Trump Opinion Shift" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
                                 <XAxis type="category" dataKey="date" tick={{fontSize: 14}}>
