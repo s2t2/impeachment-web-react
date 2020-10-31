@@ -7,8 +7,8 @@ import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
 //import TreeGraph from "./Graph1"
-import NetworkGraph from "./Graph2"
-//import NewGraph from "./Graph3"
+//import NetworkGraph from "./Graph2"
+import TestGraph from "./TestGraph"
 
 export default function BotNetworks() {
     return (
@@ -23,7 +23,18 @@ export default function BotNetworks() {
                     </Card.Text>
 
 
+                    <TestGraph/>
+
+                    {/*
                     <NetworkGraph/>
+
+                    */}
+
+
+
+
+
+
 
                     {/*
                     <Card.Text>
