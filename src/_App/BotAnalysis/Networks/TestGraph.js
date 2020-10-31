@@ -14,8 +14,8 @@ import Spinner from '../../Spinner'
 
 function MyGraph(props){
     var height = props.height || 500
-    var width = props.width || window.innerWidth * 0.75 // todo:use container ref instead
-    //var data = props.data
+    var width = props.width || 300 // todo: use container ref instead
+
     return <span>
         <p>Height: {height} Width: {width}</p>
         <svg height={height} width={width} style={{border:"1px solid black"}}></svg>
@@ -49,7 +49,10 @@ export default class NetworkGraph extends PureComponent {
     componentDidMount(){
         console.log("COMPONENT DID MOUNT")
         window.addEventListener("resize", this.handleResize)
-        this.setState({parsedResponse:"abc123"})
+        //const width = this.containerRef.current.clientWidth
+        this.setState({parsedResponse:"abc123",
+            //width: width
+        })
     }
 
     componentWillUnmount() {
@@ -58,7 +61,8 @@ export default class NetworkGraph extends PureComponent {
     }
 
     handleResize(event){
-        const width = window.innerWidth * 0.75 // todo:use container ref instead
+        const width = this.containerRef.current.clientWidth // window.innerWidth * 0.75
+        //const width = this.containerRef.current.width
         console.log("RESIZED THE WINDOW!!", width)
         this.setState({width: width})
     }
