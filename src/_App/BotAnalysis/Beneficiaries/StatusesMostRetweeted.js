@@ -35,7 +35,7 @@ export default class StatusesMostRetweeted extends React.Component {
                         <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
-                                    Statuses Most Retweeted by Left-leaning Bots
+                                    Statuses Most Retweeted by Pro-Impeachment Bots
                                 </Card.Text>
 
                                 {/* <StatusesBarChart data={community0} barFill="#002868"/> */}
@@ -49,7 +49,7 @@ export default class StatusesMostRetweeted extends React.Component {
                         <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
-                                    Statuses Most Retweeted by Right-leaning Bots
+                                    Statuses Most Retweeted by Pro-Trump Bots
                                 </Card.Text>
 
                                 {/* <StatusesBarChart data={community1} barFill="#bf0a30"/> */}

@@ -11,6 +11,10 @@ import {legendBlue, legendRed} from "../../Utils/Colors"
 
 var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
+function yAxisTickFormatter(screenName){
+    return `@${screenName}`
+}
+
 const UsersBarChart = function(props){
     const {data, barFill} = props
     console.log("DATA", data, "FILL", barFill)
@@ -23,7 +27,7 @@ const UsersBarChart = function(props){
             <ResponsiveContainer>
                 <BarChart data={data} layout="vertical" margin={chartMargins}>
                     <XAxis type="number" dataKey="retweet_count"/>
-                    <YAxis type="category" dataKey="retweeted_user_screen_name"/>
+                    <YAxis type="category" dataKey="retweeted_user_screen_name" tickFormatter={yAxisTickFormatter}/>
                     <CartesianGrid strokeDasharray="1 1"/>
                     <Tooltip/>
                     <Legend/>
@@ -58,7 +62,7 @@ export default class UsersMostRetweeted extends React.Component {
                         <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
-                                    Users Most Retweeted by Left-leaning Bots
+                                    Users Most Retweeted by Pro-Impeachment Bots
                                 </Card.Text>
                                 <UsersBarChart data={community0} barFill={legendBlue}/>
                             </Card.Body>
@@ -69,7 +73,7 @@ export default class UsersMostRetweeted extends React.Component {
                         <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
-                                    Users Most Retweeted by Right-leaning Bots
+                                    Users Most Retweeted by Pro-Trump Bots
                                 </Card.Text>
                                 <UsersBarChart data={community1} barFill={legendRed}/>
                             </Card.Body>
