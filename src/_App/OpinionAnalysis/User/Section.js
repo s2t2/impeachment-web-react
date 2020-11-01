@@ -32,9 +32,9 @@ export default class UserOpinionSection extends PureComponent {
 
     handleSubmit(event){
         event.preventDefault() // prevent page reload
-        var screenName = document.getElementById("inputScreenName").value
-
+      //  var screenName = document.getElementById("inputScreenName").value
         
+        var screenName = document.getElementsByClassName("react-autosuggest__input")[0].value
         console.log("YOU CLICKED ME!", screenName)
         
         this.setState({ screenName: screenName })

@@ -84,6 +84,7 @@ class TypeAheadSearchForm extends React.Component {
 
         return (
             <Autosuggest
+                id="testing-a-id"
                 suggestions={suggestions}
                 onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
                 onSuggestionsClearRequested={this.onSuggestionsClearRequested}
