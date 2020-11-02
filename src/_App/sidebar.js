@@ -13,6 +13,7 @@ import BotActivity from './BotAnalysis/Activity/Section'
 import BotBeneficiaries from './BotAnalysis/Beneficiaries/Section'
 import BotLanguage from './BotAnalysis/Language/Section'
 import BotImpact from './BotAnalysis/Impact/Section'
+import BotNetworks from './BotAnalysis/Networks/Section'
 
 import OpinionAnalysis from './OpinionAnalysis/Page' // SectionIndex
 import OpinionModels from './OpinionAnalysis/Models/Section'
@@ -26,6 +27,7 @@ var sidebar = [
         "component": BotAnalysis,
         "sections": [
             {"key": "bot-impact",           "title": "Bot Impact",          "component": BotImpact},
+            {"key": "bot-networks",         "title": "Bot Networks",        "component": BotNetworks},
             {"key": "bot-beneficiaries",    "title": "Bot Beneficiaries",   "component": BotBeneficiaries},
             {"key": "bot-language",         "title": "Bot Language",        "component": BotLanguage},
             {"key": "bot-activity",         "title": "Bot Activity",        "component": BotActivity},
