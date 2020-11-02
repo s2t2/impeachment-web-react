@@ -6,9 +6,10 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
+import NetworkGraph from "./Graph"
 //import TreeGraph from "./Graph1"
 //import NetworkGraph from "./Graph2"
-import TestGraph from "./TestGraph"
+//import TestGraph from "./TestGraph"
 
 export default function BotNetworks() {
     return (
@@ -22,19 +23,7 @@ export default function BotNetworks() {
                         {" "} Click any bot to view their Impeachment Opinions in a new window.
                     </Card.Text>
 
-
-                    <TestGraph/>
-
-                    {/*
                     <NetworkGraph/>
-
-                    */}
-
-
-
-
-
-
 
                     {/*
                     <Card.Text>
