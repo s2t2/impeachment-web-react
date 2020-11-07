@@ -92,11 +92,11 @@ const tags0 = [
    "bot_count": 59
  },
  {
-   "tag": "#NEVERAGAIN",
+   "tag": "#LGBTQ",
    "bot_count": 56
  },
  {
-   "tag": "#LGBTQ",
+   "tag": "#NEVERAGAIN",
    "bot_count": 56
  },
  {
@@ -124,10 +124,6 @@ const tags0 = [
    "bot_count": 45
  },
  {
-   "tag": "#CLIMATECHANGE",
-   "bot_count": 44
- },
- {
    "tag": "#DEMCAST",
    "bot_count": 44
  },
@@ -136,15 +132,19 @@ const tags0 = [
    "bot_count": 44
  },
  {
+   "tag": "#CLIMATECHANGE",
+   "bot_count": 44
+ },
+ {
    "tag": "#UNITEBLUE",
    "bot_count": 43
  },
  {
-   "tag": "#VOTEBLUENOMATTERWHO2020",
+   "tag": "#DUMPTRUMP",
    "bot_count": 42
  },
  {
-   "tag": "#DUMPTRUMP",
+   "tag": "#VOTEBLUENOMATTERWHO2020",
    "bot_count": 42
  },
  {
@@ -152,11 +152,11 @@ const tags0 = [
    "bot_count": 38
  },
  {
-   "tag": "#WTP2020",
+   "tag": "#FUCKTRUMP",
    "bot_count": 36
  },
  {
-   "tag": "#FUCKTRUMP",
+   "tag": "#WTP2020",
    "bot_count": 36
  },
  {
@@ -172,11 +172,11 @@ const tags0 = [
    "bot_count": 33
  },
  {
-   "tag": "#IMPEACH45",
+   "tag": "#DEMOCRAT",
    "bot_count": 32
  },
  {
-   "tag": "#DEMOCRAT",
+   "tag": "#IMPEACH45",
    "bot_count": 32
  },
  {
@@ -184,11 +184,11 @@ const tags0 = [
    "bot_count": 31
  },
  {
-   "tag": "#PRU",
+   "tag": "#TEAMJOE",
    "bot_count": 29
  },
  {
-   "tag": "#TEAMJOE",
+   "tag": "#PRU",
    "bot_count": 29
  },
  {
@@ -200,39 +200,23 @@ const tags0 = [
    "bot_count": 26
  },
  {
-   "tag": "#PROCHOICE",
-   "bot_count": 24
- },
- {
    "tag": "#IMSTILLWITHHER",
    "bot_count": 24
  },
  {
-   "tag": "#KHIVE",
-   "bot_count": 21
+   "tag": "#PROCHOICE",
+   "bot_count": 24
  },
  {
    "tag": "#ERA",
    "bot_count": 21
  },
  {
-   "tag": "#ITMFA",
-   "bot_count": 20
- },
- {
-   "tag": "#SCIENCE",
-   "bot_count": 20
+   "tag": "#KHIVE",
+   "bot_count": 21
  },
  {
    "tag": "#CLIMATECRISIS",
-   "bot_count": 20
- },
- {
-   "tag": "#IMWITHHER",
-   "bot_count": 20
- },
- {
-   "tag": "#COUNTRYOVERPARTY",
    "bot_count": 20
  },
  {
@@ -240,24 +224,24 @@ const tags0 = [
    "bot_count": 20
  },
  {
+   "tag": "#COUNTRYOVERPARTY",
+   "bot_count": 20
+ },
+ {
+   "tag": "#SCIENCE",
+   "bot_count": 20
+ },
+ {
    "tag": "#TRUMPRESIGN",
    "bot_count": 20
  },
  {
-   "tag": "#TRAITORTRUMP",
-   "bot_count": 19
+   "tag": "#IMWITHHER",
+   "bot_count": 20
  },
  {
-   "tag": "#CLOSETHECAMPS",
-   "bot_count": 19
- },
- {
-   "tag": "#LIBERAL",
-   "bot_count": 19
- },
- {
-   "tag": "#BIDENHARRIS2020",
-   "bot_count": 19
+   "tag": "#ITMFA",
+   "bot_count": 20
  },
  {
    "tag": "#POSTCARDSTOVOTERS",
@@ -268,6 +252,26 @@ const tags0 = [
    "bot_count": 19
  },
  {
+   "tag": "#LIBERAL",
+   "bot_count": 19
+ },
+ {
+   "tag": "#TRAITORTRUMP",
+   "bot_count": 19
+ },
+ {
+   "tag": "#BIDENHARRIS2020",
+   "bot_count": 19
+ },
+ {
+   "tag": "#CLOSETHECAMPS",
+   "bot_count": 19
+ },
+ {
+   "tag": "#EQUALITY",
+   "bot_count": 18
+ },
+ {
    "tag": "#GUNCONTROLNOW",
    "bot_count": 18
  },
@@ -276,15 +280,7 @@ const tags0 = [
    "bot_count": 18
  },
  {
-   "tag": "#EQUALITY",
-   "bot_count": 18
- },
- {
-   "tag": "#JOEBIDEN2020",
-   "bot_count": 17
- },
- {
-   "tag": "#CLIMATE",
+   "tag": "#PROGRESSIVE",
    "bot_count": 17
  },
  {
@@ -292,19 +288,11 @@ const tags0 = [
    "bot_count": 17
  },
  {
-   "tag": "#BLUEWAVE2018",
-   "bot_count": 17
- },
- {
-   "tag": "#PROGRESSIVE",
-   "bot_count": 17
- },
- {
-   "tag": "#MARCHFOROURLIVES",
-   "bot_count": 17
- },
- {
    "tag": "#IMPEACHBARR",
+   "bot_count": 17
+ },
+ {
+   "tag": "#BLUEWAVE2018",
    "bot_count": 17
  },
  {
@@ -312,15 +300,19 @@ const tags0 = [
    "bot_count": 17
  },
  {
-   "tag": "#WEARETHEPATRIOTS",
-   "bot_count": 16
+   "tag": "#CLIMATE",
+   "bot_count": 17
  },
  {
-   "tag": "#GOPCOVERUP",
-   "bot_count": 16
+   "tag": "#MARCHFOROURLIVES",
+   "bot_count": 17
  },
  {
-   "tag": "#TEAMPATRIOT",
+   "tag": "#JOEBIDEN2020",
+   "bot_count": 17
+ },
+ {
+   "tag": "#PERSIST",
    "bot_count": 16
  },
  {
@@ -328,35 +320,27 @@ const tags0 = [
    "bot_count": 16
  },
  {
+   "tag": "#GOPCOVERUP",
+   "bot_count": 16
+ },
+ {
    "tag": "#GUNSENSE",
    "bot_count": 16
  },
  {
-   "tag": "#PERSIST",
+   "tag": "#WEARETHEPATRIOTS",
    "bot_count": 16
  },
  {
-   "tag": "#BERNIE2020",
-   "bot_count": 15
+   "tag": "#TEAMPATRIOT",
+   "bot_count": 16
  },
  {
-   "tag": "#ATHEIST",
-   "bot_count": 15
- },
- {
-   "tag": "#BLUETSUNAMI",
-   "bot_count": 15
- },
- {
-   "tag": "#FREEREALITYWINNER",
+   "tag": "#CLIMATECHANGEISREAL",
    "bot_count": 15
  },
  {
    "tag": "#IMPEACHED45",
-   "bot_count": 15
- },
- {
-   "tag": "#CLIMATECHANGEISREAL",
    "bot_count": 15
  },
  {
@@ -368,19 +352,43 @@ const tags0 = [
    "bot_count": 15
  },
  {
+   "tag": "#ATHEIST",
+   "bot_count": 15
+ },
+ {
+   "tag": "#BERNIE2020",
+   "bot_count": 15
+ },
+ {
+   "tag": "#FREEREALITYWINNER",
+   "bot_count": 15
+ },
+ {
    "tag": "#IMPEACHEDFORLIFE",
    "bot_count": 15
  },
  {
-   "tag": "#BIDEN",
-   "bot_count": 14
+   "tag": "#BLUETSUNAMI",
+   "bot_count": 15
  },
  {
    "tag": "#IMPEACHED",
    "bot_count": 14
  },
  {
+   "tag": "#GUNREFORM",
+   "bot_count": 14
+ },
+ {
    "tag": "#WETHEPEOPLE",
+   "bot_count": 14
+ },
+ {
+   "tag": "#AMERICANSFORIMPEACHMENT",
+   "bot_count": 14
+ },
+ {
+   "tag": "#SHEWON",
    "bot_count": 14
  },
  {
@@ -389,14 +397,6 @@ const tags0 = [
  },
  {
    "tag": "#VETSRESISTSQUADRON",
-   "bot_count": 14
- },
- {
-   "tag": "#SHEWON",
-   "bot_count": 14
- },
- {
-   "tag": "#GUNREFORM",
    "bot_count": 14
  }
 ]
@@ -531,11 +531,11 @@ const tags1 = [
    "bot_count": 68
  },
  {
-   "tag": "#TRUMP2020LANDSLIDE",
+   "tag": "#GOD",
    "bot_count": 65
  },
  {
-   "tag": "#GOD",
+   "tag": "#TRUMP2020LANDSLIDE",
    "bot_count": 65
  },
  {
@@ -547,11 +547,11 @@ const tags1 = [
    "bot_count": 59
  },
  {
-   "tag": "#WETHEPEOPLE",
+   "tag": "#NATIONALIST",
    "bot_count": 53
  },
  {
-   "tag": "#NATIONALIST",
+   "tag": "#WETHEPEOPLE",
    "bot_count": 53
  },
  {
@@ -563,19 +563,19 @@ const tags1 = [
    "bot_count": 51
  },
  {
-   "tag": "#VOTERID",
-   "bot_count": 50
- },
- {
    "tag": "#QARMY",
    "bot_count": 50
  },
  {
-   "tag": "#MAGAVETERAN",
-   "bot_count": 47
+   "tag": "#VOTERID",
+   "bot_count": 50
  },
  {
    "tag": "#VETERANS",
+   "bot_count": 47
+ },
+ {
+   "tag": "#MAGAVETERAN",
    "bot_count": 47
  },
  {
@@ -591,11 +591,11 @@ const tags1 = [
    "bot_count": 44
  },
  {
-   "tag": "#TCOT",
+   "tag": "#GODBLESSAMERICA",
    "bot_count": 43
  },
  {
-   "tag": "#GODBLESSAMERICA",
+   "tag": "#TCOT",
    "bot_count": 43
  },
  {
@@ -635,15 +635,7 @@ const tags1 = [
    "bot_count": 35
  },
  {
-   "tag": "#PATRIOTS",
-   "bot_count": 33
- },
- {
    "tag": "#VOTERED",
-   "bot_count": 33
- },
- {
-   "tag": "#WINNING",
    "bot_count": 33
  },
  {
@@ -651,19 +643,27 @@ const tags1 = [
    "bot_count": 33
  },
  {
-   "tag": "#USMC",
-   "bot_count": 32
+   "tag": "#WINNING",
+   "bot_count": 33
+ },
+ {
+   "tag": "#PATRIOTS",
+   "bot_count": 33
  },
  {
    "tag": "#KAGA",
    "bot_count": 32
  },
  {
-   "tag": "#PROISRAEL",
-   "bot_count": 31
+   "tag": "#USMC",
+   "bot_count": 32
  },
  {
    "tag": "#FBTS",
+   "bot_count": 31
+ },
+ {
+   "tag": "#PROISRAEL",
    "bot_count": 31
  },
  {
@@ -679,6 +679,10 @@ const tags1 = [
    "bot_count": 28
  },
  {
+   "tag": "#TRUSTTHEPLAN",
+   "bot_count": 27
+ },
+ {
    "tag": "#TWGRP",
    "bot_count": 27
  },
@@ -691,15 +695,11 @@ const tags1 = [
    "bot_count": 27
  },
  {
-   "tag": "#TRUSTTHEPLAN",
-   "bot_count": 27
- },
- {
    "tag": "#ARMY",
    "bot_count": 26
  },
  {
-   "tag": "#NAVY",
+   "tag": "#PRO",
    "bot_count": 25
  },
  {
@@ -707,7 +707,7 @@ const tags1 = [
    "bot_count": 25
  },
  {
-   "tag": "#PRO",
+   "tag": "#NAVY",
    "bot_count": 25
  },
  {
@@ -719,11 +719,11 @@ const tags1 = [
    "bot_count": 24
  },
  {
-   "tag": "#TRUTH",
+   "tag": "#DEFUNDPP",
    "bot_count": 24
  },
  {
-   "tag": "#DEFUNDPP",
+   "tag": "#TRUTH",
    "bot_count": 24
  },
  {
@@ -731,35 +731,15 @@ const tags1 = [
    "bot_count": 23
  },
  {
-   "tag": "#ISTANDWITHISRAEL",
-   "bot_count": 22
- },
- {
    "tag": "#THEMIGHTY200",
    "bot_count": 22
  },
  {
-   "tag": "#BUILD",
-   "bot_count": 21
- },
- {
-   "tag": "#2ND",
-   "bot_count": 21
- },
- {
-   "tag": "#IFB",
-   "bot_count": 21
+   "tag": "#ISTANDWITHISRAEL",
+   "bot_count": 22
  },
  {
    "tag": "#THEBESTISYETTOCOME",
-   "bot_count": 21
- },
- {
-   "tag": "#SCOTTBAIOSARMY",
-   "bot_count": 21
- },
- {
-   "tag": "#BENGHAZI",
    "bot_count": 21
  },
  {
@@ -771,24 +751,24 @@ const tags1 = [
    "bot_count": 21
  },
  {
-   "tag": "#CATHOLIC",
-   "bot_count": 20
+   "tag": "#SCOTTBAIOSARMY",
+   "bot_count": 21
  },
  {
-   "tag": "#AMERICAN",
-   "bot_count": 20
+   "tag": "#BUILD",
+   "bot_count": 21
  },
  {
-   "tag": "#STOPTHECOUP",
-   "bot_count": 20
+   "tag": "#IFB",
+   "bot_count": 21
  },
  {
-   "tag": "#GOP",
-   "bot_count": 20
+   "tag": "#2ND",
+   "bot_count": 21
  },
  {
-   "tag": "#TRUMPSUPPORTER",
-   "bot_count": 20
+   "tag": "#BENGHAZI",
+   "bot_count": 21
  },
  {
    "tag": "#NODACA",
@@ -799,7 +779,27 @@ const tags1 = [
    "bot_count": 20
  },
  {
-   "tag": "#ISTANDWITHTRUMP",
+   "tag": "#STOPTHECOUP",
+   "bot_count": 20
+ },
+ {
+   "tag": "#AMERICAN",
+   "bot_count": 20
+ },
+ {
+   "tag": "#CATHOLIC",
+   "bot_count": 20
+ },
+ {
+   "tag": "#TRUMPSUPPORTER",
+   "bot_count": 20
+ },
+ {
+   "tag": "#GOP",
+   "bot_count": 20
+ },
+ {
+   "tag": "#FAKENEWS",
    "bot_count": 19
  }
 ]

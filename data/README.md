@@ -18,7 +18,7 @@ WHERE is_bot = true
   --and avg_score_bert > 0.5 -- 13,929
 GROUP BY 1
 ORDER BY 2 DESC
-LIMIT 25
+LIMIT 100
 ```
 
 Users Most Retweeted:
@@ -37,7 +37,7 @@ WHERE is_bot = true
   --and avg_score_bert > 0.5 -- 13,929
 GROUP BY 1,2
 ORDER BY 4 DESC
-LIMIT 1000
+LIMIT 100
 ```
 
 Top Profile Tags:
@@ -53,7 +53,7 @@ WHERE is_bot = true
   --and avg_score_bert > 0.5 -- 13,929
 GROUP BY 1
 ORDER BY 2 DESC
-LIMIT 1000
+LIMIT 100
 ```
 
 
@@ -72,5 +72,5 @@ WHERE is_bot = true
   --and avg_score_bert > 0.5 -- 13,929
 GROUP BY 1
 ORDER BY 3 DESC
-LIMIT 1000
+LIMIT 100
 ```
