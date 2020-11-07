@@ -4,12 +4,14 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts'
-import {orderBy} from 'lodash'
+//import {orderBy} from 'lodash'
 
 import Spinner from "../../Spinner"
 import {legendBlue, legendRed} from "../../Utils/Colors"
 
-var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
+import {topTags0, topTags1} from "../../../data/bot_opinion_communities/top_profile_tags"
+
+//var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
 
 const HashtagsBarChart = function(props){
     const {data, barFill} = props
@@ -44,10 +46,13 @@ export default class ProfileHashtags extends React.Component {
     render() {
         var spinIntoCharts = <Spinner/>
         if (this.state.parsedResponse) {
-            var tags = this.state.parsedResponse;
+            //var tags = this.state.parsedResponse;
 
-            var community0 = orderBy(tags.filter(function (t) {return t["community_id"] === 0}), "pct", "desc")
-            var community1 = orderBy(tags.filter(function (t) {return t["community_id"] === 1}), "pct", "desc")
+            //var community0 = orderBy(tags.filter(function (t) {return t["community_id"] === 0}), "pct", "desc")
+            //var community1 = orderBy(tags.filter(function (t) {return t["community_id"] === 1}), "pct", "desc")
+
+            var data0 = this.state.parsedResponse.data0
+            var data1 = this.state.parsedResponse.data1
 
             spinIntoCharts = <Container fluid>
                 {/*
@@ -61,7 +66,7 @@ export default class ProfileHashtags extends React.Component {
                                     Top Hashtags in Left-leaning Bot Profiles
                                 </Card.Text>
 
-                                 <HashtagsBarChart data={community0} barFill={legendBlue} />
+                                 <HashtagsBarChart data={data0} barFill={legendBlue} />
                             </Card.Body>
                         </Card>
                     </Col>
@@ -73,7 +78,7 @@ export default class ProfileHashtags extends React.Component {
                                     Top Hashtags in Right-leaning Bot Profiles
                                 </Card.Text>
 
-                                <HashtagsBarChart data={community1} barFill={legendRed} />
+                                <HashtagsBarChart data={data1} barFill={legendRed} />
                             </Card.Body>
                         </Card>
                     </Col>
@@ -94,20 +99,22 @@ export default class ProfileHashtags extends React.Component {
     }
 
     fetchData() {
-        var requestUrl = `${API_URL}/api/v0/top_profile_tags?limit=20`
-        console.log("REQUEST URL:", requestUrl)
-        fetch(requestUrl).then(function (response) {
-            // console.log("RAW RESPONSE", "STATUS", response.status, response.statusText,
-            // response.ok, "HEADERS", response.headers, response.url)
-            return response.json()
-        })
-        .then(function (json) {
-            console.log("FETCHED", json.length, "ITEMS")
-            this.setState({parsedResponse: json})
-        }.bind(this))
-        .catch(function (err) {
-            console.error("FETCH ERR", err)
-        })
+        //var requestUrl = `${API_URL}/api/v0/top_profile_tags?limit=20`
+        //console.log("REQUEST URL:", requestUrl)
+        //fetch(requestUrl).then(function (response) {
+        //    // console.log("RAW RESPONSE", "STATUS", response.status, response.statusText,
+        //    // response.ok, "HEADERS", response.headers, response.url)
+        //    return response.json()
+        //})
+        //.then(function (json) {
+        //    console.log("FETCHED", json.length, "ITEMS")
+        //    this.setState({parsedResponse: json})
+        //}.bind(this))
+        //.catch(function (err) {
+        //    console.error("FETCH ERR", err)
+        //})
+
+        this.setState({parsedResponse: {"data0": topTags0, "data1": topTags1}})
     }
 
 }
