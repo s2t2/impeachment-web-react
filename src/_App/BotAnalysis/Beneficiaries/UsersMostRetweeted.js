@@ -8,6 +8,7 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveC
 
 import Spinner from "../../Spinner"
 import {legendBlue, legendRed} from "../../Utils/Colors"
+import {bigNumberLabel} from "../../Utils/Decorators"
 import {topUsers0, topUsers1} from "../../../data/bot_opinion_communities/users_most_retweeted"
 
 //var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
@@ -23,7 +24,7 @@ const UsersBarChart = function(props){
         <div style={chartContainerStyle}>
             <ResponsiveContainer>
                 <BarChart data={data} layout="vertical" margin={chartMargins}>
-                    <XAxis type="number" dataKey="retweet_count"/>
+                    <XAxis type="number" dataKey="retweet_count" tickFormatter={bigNumberLabel}/>
                     <YAxis type="category" dataKey="retweeted_user_screen_name"/>
                     <CartesianGrid strokeDasharray="1 1"/>
                     <Tooltip/>
@@ -50,8 +51,16 @@ export default class UsersMostRetweeted extends React.Component {
             //var data0 = orderBy(users.filter(function (u) {return u["community_id"] === 0}), metric, "desc")
             //var data1 = orderBy(users.filter(function (u) {return u["community_id"] === 1}), metric, "desc")
 
-            var data0 = this.state.parsedResponse.data0
-            var data1 = this.state.parsedResponse.data1
+            var data0 = this.state.parsedResponse.data0.map(function(user){
+                user["retweet_count"] = parseFloat(user["retweet_count"])
+                user["retweeter_count"] = parseFloat(user["retweeter_count"])
+                return user
+            })
+            var data1 = this.state.parsedResponse.data1.map(function(user){
+                user["retweet_count"] = parseFloat(user["retweet_count"])
+                user["retweeter_count"] = parseFloat(user["retweeter_count"])
+                return user
+            })
 
             spinIntoCharts = <span>
                 {/* <h4 className="app-center">Users Most Retweeted by Bot Community</h4> */}
