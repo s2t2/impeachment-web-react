@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts'
-import {orderBy} from 'lodash'
+//import {orderBy} from 'lodash'
 
 import Spinner from "../../Spinner"
 import {legendBlue, legendRed} from "../../Utils/Colors"

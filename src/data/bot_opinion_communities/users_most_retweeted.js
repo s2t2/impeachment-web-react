@@ -1204,10 +1204,10 @@ const users1 = [
   }
 ]
 
-const topUsers0 = users0.slice(0,20)
-const topUsers1 = users1.slice(0,20)
+const topUsers0 = users0.slice(0,10)
+const topUsers1 = users1.slice(0,10)
 
-export default {
+export {
     users0, users1,
     topUsers0, topUsers1
 }
