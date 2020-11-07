@@ -3,6 +3,8 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
 
+import {formatNumber} from "../../Utils/Decorators"
+
 export default function StatusesTable(props) {
     var {data} = props
 
@@ -13,7 +15,7 @@ export default function StatusesTable(props) {
             <tr key={rank}>
                 <td>{rank}</td>
                 <td><i>{status["status_text"]}</i></td>
-                <td>{status["retweeter_count"]}</td>
+                <td>{formatNumber(status["bot_count"])}</td>
             </tr>
         )
     })
