@@ -18,11 +18,12 @@ export default function BotActivitySection() {
                     <Card.Title><h3>Bot Activity</h3></Card.Title>
 
                     <h4>Daily Bot Activity</h4>
+                    {/*
                     <Card.Text style={{marginBottom:0}}>
                         Left-leaning bots generate a greater volume of retweets than right-leaning bots.
                         {" "} This is perhaps because left-leaning bots <a href="/bot-communities">outnumber</a> right-leaning bots five to one.
                     </Card.Text>
-                    {/*
+
                     <img src={communityRetweetsOverTime} alt="a histogram depicting bot probabilities" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
                     */}
                     <DailyBotActivity/>
@@ -33,6 +34,7 @@ export default function BotActivitySection() {
                     </Card.Text>
                     */}
 
+                    {/*
                     <Card.Text>
                         NOTE: only after examining the <a href="/bot-beneficiaries">beneficiaries</a>
                         {" "} and <a href="/bot-language">language patterns</a>
@@ -40,6 +42,8 @@ export default function BotActivitySection() {
                         {" "} Community 0 represents left-leaning (Pro-Impeachment) bots, and
                         {" "} Community 1 represents right-leaning (Pro-Trump) bots.
                     </Card.Text>
+
+                    */}
 
                 </Card.Body>
             </Card>
