@@ -22,8 +22,8 @@ export default class StatusesMostRetweeted extends React.Component {
     render() {
         var spinIntoCharts = <Spinner/>
         if (this.state.parsedResponse) {
-            var users = this.state.parsedResponse;
-            var metric = this.state.metric
+            //var users = this.state.parsedResponse;
+            //var metric = this.state.metric
 
             //var data0 = orderBy(users.filter(function (u) {return u["community_id"] === 0}), metric, "desc")
             //var data1 = orderBy(users.filter(function (u) {return u["community_id"] === 1}), metric, "desc")
