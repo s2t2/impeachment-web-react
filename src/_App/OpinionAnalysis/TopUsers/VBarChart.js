@@ -45,7 +45,7 @@ const SORT_BY = {
     "follower_count": {"metric": "follower_count", "label": "Follower Count"},
     "status_count": {"metric": "status_count", "label": "Tweet Count"},
     "opinion_score": {"metric": "opinion_score", "label": "Mean Opinion Score (Pro-Trump)"},
-    "inverse_opinion_score": {"metric": "inverse_opinion_score", "label": "Mean Opinion Score (Pro-Impeachment)"},
+    "inverse_opinion_score": {"metric": "inverse_opinion_score", "label": "Mean Opinion Score (Anti-Trump)"},
 }
 const DEFAULT_METRIC = "opinion_score"
 
@@ -149,11 +149,11 @@ export default class MyBarChart extends Component {
         var domainPadding = { x: [10,0] } // spacing between bottom bar and bottom axis
 
         var legendData = [
-            {name: "Pro-Impeachment (0%)",      symbol: { fill: colorScale(0.15), type: "circle" } },
+            {name: "Anti-Trump (0%)",      symbol: { fill: colorScale(0.15), type: "circle" } },
             {name: "Pro-Trump (100%)",          symbol: { fill: colorScale(0.85), type: "circle"} },
         ]
         var opinionRangeMarks = {
-            0: "Pro-Impeachment",
+            0: "Anti-Trump",
             10: "", 20: "", 30: "", 40: "",
             50: "",
             60: "", 70: "", 80: "", 90: "",
@@ -163,14 +163,14 @@ export default class MyBarChart extends Component {
             //legendData.reverse() // mutating
             legendData = [
                 { name: "Pro-Trump (0%)",         symbol: { fill: colorScale(0.85), type: "circle"} },
-                { name: "Pro-Impeachment (100%)", symbol: { fill: colorScale(0.15), type: "circle" } },
+                { name: "Anti-Trump (100%)", symbol: { fill: colorScale(0.15), type: "circle" } },
             ]
             opinionRangeMarks = {
                 0: "Pro-Trump",
                 10: "", 20: "", 30: "", 40: "",
                 50: "",
                 60: "", 70: "", 80: "", 90: "",
-                100: "Pro-Impeachment"
+                100: "Anti-Trump"
             }
         }
 
@@ -267,7 +267,7 @@ export default class MyBarChart extends Component {
                                 <option value="follower_count">Follower Count</option>
                                 <option value="status_count">Tweet Count</option>
                                 <option value="opinion_score">Pro-Trump Score</option>
-                                <option value="inverse_opinion_score">Pro-Impeachment Score</option>
+                                <option value="inverse_opinion_score">Anti-Trump Score</option>
                             </Form.Control>
                         </Col>
                     </Form.Group>

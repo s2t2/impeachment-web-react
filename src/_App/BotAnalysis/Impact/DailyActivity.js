@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 
-import {formatPct, bigNumberLabel} from '../../Utils/Decorators'
+import {bigNumberLabel} from '../../Utils/Decorators'
 import {legendBlue, legendRed} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
 import cachedData from '../../../data/daily_activity.js' //'./data'
@@ -15,19 +15,19 @@ import cachedData from '../../../data/daily_activity.js' //'./data'
 const METRICS = {
     "humans": {
         "chartTitle": "Active Humans by Opinion Community",
-        "yAxisTitle": "User Count",
+        "yAxisTitle": "Human Count",
     },
     "bots": {
         "chartTitle": "Active Bots by Opinion Community",
-        "yAxisTitle": "User Count",
+        "yAxisTitle": "Bot Count",
     },
     "human_tweets": {
         "chartTitle": "Human Tweets by Opinion Community",
-        "yAxisTitle": "Tweet Count",
+        "yAxisTitle": "Human Tweet Count",
     },
     "bot_tweets": {
         "chartTitle": "Bot Tweets by Opinion Community",
-        "yAxisTitle": "Tweet Count",
+        "yAxisTitle": "Bot Tweet Count",
     },
 }
 const DEFAULT_METRIC = "bots"

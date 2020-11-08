@@ -8,8 +8,8 @@ import {legendRed, legendBlue} from '../../Utils/Colors'
 
 //import cachedData from './data'
 const cachedData = [
-    {"name": "Community 0", "bot_count": 571, "barFill": legendBlue},
-    {"name": "Community 1", "bot_count": 110, "barFill": legendRed}
+    {"name": "Anti-Trump Bots", "bot_count": 10_114, "barFill": legendBlue},
+    {"name": "Pro-Trump Bots", "bot_count": 13_929, "barFill": legendRed}
 ]
 
 export default class BotCommunitiesHistogram extends PureComponent {
@@ -19,7 +19,7 @@ export default class BotCommunitiesHistogram extends PureComponent {
     }
 
     render() {
-        const chartTitle = `Bot Communities (n communities = 2)`
+        const chartTitle = `Bots by Opinion Community`
 
         var spinIntoChart = <Spinner/>
 
@@ -42,11 +42,11 @@ export default class BotCommunitiesHistogram extends PureComponent {
                                 barCategoryGap={10}
                                 >
 
-                                <YAxis type="number" dataKey="bot_count" domain={[0, 700]}>
+                                <YAxis type="number" dataKey="bot_count" domain={[0, 16000]}>
                                     <Label value="Bot Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
                                 <XAxis type="category" dataKey="name" tick={{fontSize: 14}}>
-                                    <Label value="Community Label" position="insideBottom" offset={-15}/>
+                                    <Label value="Opinion Communities" position="insideBottom" offset={-15}/>
                                 </XAxis>
                                 <CartesianGrid strokeDasharray="1 1"/>
                                 <Tooltip
@@ -65,7 +65,11 @@ export default class BotCommunitiesHistogram extends PureComponent {
                                     //label={<BarLabel/>}
                                 />
                                 */}
-                                <Bar dataKey="bot_count" fill="#ccc" onClick={this.handleBarClick} label={{position: "top", offset:10}}>
+                                <Bar dataKey="bot_count" fill="#ccc" onClick={this.handleBarClick}
+                                    label={{position: "top", offset:10}}
+                                    //label={<Label dataKey="bot_count" formatter={formatNumber}/>}
+                                    //label={formatNumber}
+                                >
                                     {
                                         data.map((entry, index) => (
                                             <Cell key={entry["bot_count"]} fill={entry["barFill"]}/>

@@ -10,7 +10,7 @@ import Form from 'react-bootstrap/Form'
 import {formatPct, bigNumberLabel} from '../../Utils/Decorators'
 import {legendBlue, legendRed} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
-import cachedData from '../../../data/daily_activity.js' //'./data'
+import cachedData from '../../../data/bot_impact/assess_all_days.js' //'./data'
 
 const METRICS = {
     "humans": {
@@ -30,15 +30,12 @@ const METRICS = {
         "yAxisTitle": "Tweet Count",
     },
 }
-const DEFAULT_METRIC = "bots"
+const DEFAULT_METRIC = "humans"
 
 export default class DailyActivity extends PureComponent {
     constructor(props) {
         super(props)
-        this.state = {
-            metric: props["metric"] || DEFAULT_METRIC,
-            parsedResponse: null
-        }
+        this.state = {metric: DEFAULT_METRIC, parsedResponse: null}
         this.selectMetric = this.selectMetric.bind(this)
     }
 
@@ -50,24 +47,23 @@ export default class DailyActivity extends PureComponent {
             var data = this.state.parsedResponse
             //console.log("DAILY OPINION SHIFT DATA", data)
 
-            //data = data.map(function(daily){
-            //    return {
-            //        "date": daily["date"],
-//
-            //        "humans_0": daily["num_human_0"],
-            //        "humans_1": daily["num_human_1"],
-//
-            //        "human_tweets_0": daily["num_human_0_tweets"],
-            //        "human_tweets_1": daily["num_human_1_tweets"],
-//
-            //        "bots_0": daily["num_bot_0"],
-            //        "bots_1": daily["num_bot_1"],
-//
-            //        "bot_tweets_0": daily["num_bot_0_tweets"],
-            //        "bot_tweets_1": daily["num_bot_1_tweets"]
-            //    }
-            //})
             data = data.map(function(daily){
+                return {
+                    "date": daily["date"],
+
+                    "humans_0": daily["num_human_0"],
+                    "humans_1": daily["num_human_1"],
+
+                    "human_tweets_0": daily["num_human_0_tweets"],
+                    "human_tweets_1": daily["num_human_1_tweets"],
+
+                    "bots_0": daily["num_bot_0"],
+                    "bots_1": daily["num_bot_1"],
+
+                    "bot_tweets_0": daily["num_bot_0_tweets"],
+                    "bot_tweets_1": daily["num_bot_1_tweets"]
+                }
+            }).map(function(daily){
                 daily["Anti-Trump"] = daily[`${metric}_0`]
                 daily["Pro-Trump"] = daily[`${metric}_1`]
                 return daily

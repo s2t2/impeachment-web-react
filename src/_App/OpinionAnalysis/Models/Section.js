@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import CommunityTags from './CommunityTags'
+import NetworkTags from './CommunityTags'
 //import meanOpinionsLR from './mean-opinion-scores-for-top-users-lr.png'
 //import meanOpinionsNB from './mean-opinion-scores-for-top-users-nb.png'
 //import meanOpinionsBERT from './mean-opinion-scores-for-top-users-bert.png'
@@ -25,28 +25,30 @@ export default function SentimentAnalysis() {
 
                     <h4 id="labeling-users">Labeling Users</h4>
                     <Card.Text>
-                        For each community we chose a mutually exclusive list of the top <a href="/bot-language">bot profile hashtags</a>, excluding shared topics like <i>'#Impeachment'</i> and <i>'#FactsMatter'</i>, which were used by both communities.
-                        {" "} These community hashtags are listed below.
+                        We identified the top hashtags used by each <a href="/bot-networks">bot retweet network</a>,
+
+                        then removed shared topics like <i>'#Impeachment'</i> and <i>'#FactsMatter'</i>, which were used by both networks.
+                        {" "} The remaining sentiment hashtags are presented and described below.
                     </Card.Text>
-                    <CommunityTags/>
+                    <NetworkTags/>
 
                     <Card.Text>
-                        We then identified the users in our dataset who included any of these community hashtags in their profile description.
-                        {" "}Of the original 3.6 million users, 138 thousand (3.8%) had community hashtags.
-                        {" "}We removed 541 of these users whose profile description included tags from more than one community, and then assigned each of the remaining users a bot community label of <code>0</code> or <code>1</code>, depending on which community hashtags were present in their profile.
-                        {" "}This resulted in a mutually exclusive list of 60 thousand left-leaning and 78 thousand right-leaning users who represent each bot community.
+                        We then identified the users in our dataset who included any of these sentiment hashtags in their profile description.
+                        {" "}Of the original 3.6 million users, 138 thousand (3.8%) had sentiment hashtags.
+                        {" "}We removed 541 of these users whose profile description included hashtags from both lists, and then assigned each of the remaining users a sentiment label of <code>0</code> or <code>1</code>, depending on which sentiment hashtags were present in their profile.
+                        {" "}This resulted in a mutually exclusive list of 60 thousand anti-Trump and 78 thousand pro-Trump users who represent the sentiments of each bot network.
                     </Card.Text>
 
                     <h4 id="labeling-tweets">Labeling Tweets</h4>
                     <Card.Text>
-                        For each of these labeled users, we labeled all of their tweets with their respective community label (<code>0</code> or <code>1</code>).
-                        {" "} Of these 14 million labeled tweets, 5.6 million were left-leaning and 8.4 million were right-leaning.
+                        For each of these labeled users, we labeled all of their tweets with their respective sentiment label (<code>0</code> or <code>1</code>).
+                        {" "} Of these 14 million labeled tweets, 5.6 million were anti-Trump and 8.4 million were pro-Trump.
                     </Card.Text>
 
                     <Card.Text>
                         Since many of these labeled tweets were retweets that share the same tweet text as others, for training the binary classifier models we de-duplicated all tweet texts (to prevent over-fitting that can occur when a model scores a tweet that shares the same text as one it has been trained on).
-                        {" "}This resulted in a list of 2.8 million unique tweet texts with community labels to use for model training.
-                        {" "} Of these 2.8 million labeled tweet texts, 1.38 million were left-leaning and 1.35 million were right-leaning.
+                        {" "}This resulted in a list of 2.8 million unique tweet texts with sentiment labels to use for model training.
+                        {" "} Of these 2.8 million labeled tweet texts, 1.38 million were anti-Trump and 1.35 million were pro-Trump.
                     </Card.Text>
 
 
@@ -64,7 +66,7 @@ export default function SentimentAnalysis() {
                     { /* <h5>Data Splitting</h5> */ }
                     <Card.Text>
                         We used 80% of the labeled data to train the models, and the remaining 20% to evaluate them.
-                        For the binary classifier models, we split the training and testing data using stratified random sampling on the community label class.
+                        For the binary classifier models, we split the training and testing data using stratified random sampling on the sentiment label class.
                     </Card.Text>
 
                     {/* <h5>Tokenization and Vectorization</h5> */}
