@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card'
 import {formatPct} from '../../Utils/Decorators'
 import {opinionShiftScale as colorScale} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
-import cachedData from './data'
+import cachedData from '../../../data/bot_impact/assess_all_days.js' //'./data'
 
 export default class DailyOpinionShift extends PureComponent {
     constructor(props) {
