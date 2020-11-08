@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 
-import {formatPct, bigNumberLabel} from '../../Utils/Decorators'
+import {bigNumberLabel} from '../../Utils/Decorators'
 import {legendBlue, legendRed} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
 import cachedData from '../../../data/daily_activity.js' //'./data'
