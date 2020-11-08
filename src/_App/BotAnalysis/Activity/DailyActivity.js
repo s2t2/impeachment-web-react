@@ -104,7 +104,7 @@ export default class DailyActivity extends PureComponent {
                                 </XAxis>
 
                                 <Bar dataKey="Anti-Trump" stackId="a" fill={legendBlue} onClick={this.handleBarClick}/>
-                                <Bar dataKey="Pro-Trump" stackId="a" fill={legendRed}  onClick={this.handleBarClick}/>
+                                <Bar dataKey="Pro-Trump" stackId="b" fill={legendRed}  onClick={this.handleBarClick}/>
 
                                 <Tooltip
                                     cursor={{fill: 'transparent', stroke:'#000'}}
