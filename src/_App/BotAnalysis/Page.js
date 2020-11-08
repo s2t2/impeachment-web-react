@@ -2,7 +2,7 @@
 import React from 'react'
 
 import SectionIndex from './SectionIndex'
-import ActivitySection from './Activity/Section'
+//mport ActivitySection from './Activity/Section'
 import BeneficiariesSection from './Beneficiaries/Section'
 import LanguageSection from './Language/Section'
 import ImpactSection from './Impact/Section'
@@ -17,7 +17,6 @@ export default function BotAnalysisPage() {
             <ImpactSection/>
             <BeneficiariesSection/>
             <LanguageSection/>
-            <ActivitySection/>
             <NetworksSection/>
             <ClassificationSection/>
         </span>

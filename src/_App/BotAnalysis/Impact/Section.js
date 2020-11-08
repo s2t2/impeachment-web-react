@@ -9,6 +9,7 @@ import Card from 'react-bootstrap/Card'
 //import dailyEquilibrium from "./daily-opinion-equilibrium-tableau.png"
 //import dailyShift from "./daily-opinion-shift-tableau.png"
 import DailyShift from "./DailyShift"
+import DailyActivity from "./DailyActivity"
 
 export default function BotImpact() {
     return (
@@ -17,22 +18,15 @@ export default function BotImpact() {
                 <Card.Body>
                     <Card.Title><h3>Bot Impact</h3></Card.Title>
 
-                    <h4>Opinion Shift</h4>
-
-                    <DailyShift/>
-
+                    <h4 id="opinion-shift">Opinion Shift</h4>
                     {/*
-                    <Card.Text>
-                        For each day in our <a href="/collection-timeline">primary tweet collection period</a>,
-                        {" "} we used our <a href="/opinion-models">Impeachment opinion model</a>
-                        {" "} to calculate the average opinion scores for all users, with vs. without <a href="/bot-classification">bots</a>,
-                        {" "} to assess the impact the bots were having on the conversation.
-                    </Card.Text>
+                    <img src={dailyShift} alt="a bar graph of daily opinion shift by bot community" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
                     */}
+                    <DailyShift/>
 
                     <Card.Text>
                         The chart above shows the daily bot-induced shift in opinions about the Impeachment of President Donald Trump.
-                        {" "}The shift in mean opinion is affected by bot reach, <a href="/bot-activity">bot activity</a> levels, and <a href="/bot-beneficiaries">bot opinions</a>.
+                        {" "}The shift in mean opinion is affected by bot reach, bot activity levels, and <a href="/bot-beneficiaries">bot opinions</a>.
                         {" "}Baseline opinions are measured using our <a href="/opinion-models">Impeachment opinion model</a>, which is based on a BERT transformer sentiment classifier.
                     </Card.Text>
 
@@ -43,9 +37,12 @@ export default function BotImpact() {
                         {" "} and the highest daily shift towards left-leaning bot opinions was 13.0% on 1/30.
                     </Card.Text>
 
-                    {/*
-                    <img src={dailyShift} alt="a bar graph of daily opinion shift by bot community" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
-                    */}
+                    <Card.Text>
+                        {" "} Despite more pro-Trump bots active each day,
+                        {" "} certain daily shifts towards anti-Trump opinion seem to be explained by greater numbers of anti-Trump humans tweeting on a those days.
+                    </Card.Text>
+
+                    <DailyActivity metric="human_tweets"/>
 
                 </Card.Body>
             </Card>

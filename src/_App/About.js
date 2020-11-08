@@ -23,33 +23,15 @@ export default function About() {
 
                     {/* todo: make this from the sidebar sitemap */}
                     <ol type="I">
-                        <li>Tweet Collection
-                            <ol>
-                                <li><a href="/collection-timeline">Collection Timeline</a></li>
-                                <li><a href="/collection-topics">Collection Topics</a></li>
-                                <li><a href="/collection-results">Collection Results</a></li>
-                            </ol>
-                        </li>
-
-                        <li>Bot Analysis
-                            <ol>
-                                <li><a href="/bot-detection">Bot Detection</a></li>
-                                <li><a href="/bot-networks">Bot Networks</a></li>
-                                <li><a href="/bot-activity">Bot Activity</a></li>
-                                <li><a href="/bot-beneficiaries">Bot Beneficiaries</a></li>
-                                <li><a href="/bot-language">Bot Language</a></li>
-                                <li><a href="/bot-impact">Bot Impact</a></li>
-                            </ol>
-                        </li>
-
-
-                        <li>Opinion Analysis
-                            <ol>
-                                <li><a href="/opinion-models">Opinion Models</a></li>
-                                <li><a href="/user-opinions">User Opinions</a></li>
-                                <li><a href="/top-user-opinions">Top User Opinions</a></li>
-                            </ol>
-                        </li>
+                        <li><a href="/tweet-collection">Tweet Collection</a></li>
+                        <li><a href="/bot-detection">Bot Detection</a></li>
+                        <li><a href="/bot-networks">Bot Networks</a></li>
+                        <li><a href="/opinion-models">Opinion Models</a></li>
+                        <li><a href="/user-opinions">User Opinions</a></li>
+                        <li><a href="/top-user-opinions">Top User Opinions</a></li>
+                        <li><a href="/bot-beneficiaries">Bot Beneficiaries</a></li>
+                        <li><a href="/bot-language">Bot Language</a></li>
+                        <li><a href="/bot-impact">Bot Impact</a></li>
                     </ol>
                 </Card.Body>
             </Card>
