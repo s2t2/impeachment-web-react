@@ -19,9 +19,33 @@ const METRICS = {
         "yAxisLabel": "Mean Pro-Trump Opinion Shift",
         "yAxisDomain": [-0.15, 0.09],
         "colorDomain": [0.13, -0.13],
-    }
+    },
+    "humans_diff": {
+        "chartTitle": "Daily Differential in Active Humans",
+        "yAxisLabel": "Pro-Trump Humans Differential",
+        "yAxisDomain": [-100_000, 50_000],
+        "colorDomain": [100_000, -100_000],
+    },
+    "bots_diff": {
+        "chartTitle": "Daily Differential in Active Bots",
+        "yAxisLabel": "Pro-Trump Bots Differential",
+        "yAxisDomain": [-500, 5_000],
+        "colorDomain": [5_000, -5_000],
+    },
+    "human_tweets_diff": {
+        "chartTitle": "Daily Differential in Human Tweets",
+        "yAxisLabel": "Pro-Trump Human Tweets Differential",
+        "yAxisDomain": [-250_000, 250_000],
+        "colorDomain": [250_000, -250_000],
+    },
+    "bot_tweets_diff": {
+        "chartTitle": "Daily Differential in Bot Tweets",
+        "yAxisLabel": "Pro-Trump Bot Tweets Differential",
+        "yAxisDomain": [-50_000, 150_000],
+        "colorDomain": [150_000, -150_000],
+    },
 }
-const DEFAULT_METRIC = "mean_opinion_shift"
+const DEFAULT_METRIC = "human_tweets_diff"
 
 export default class DailyActivity extends PureComponent {
     constructor(props) {
@@ -32,6 +56,7 @@ export default class DailyActivity extends PureComponent {
             parsedResponse: null
         }
         this.barFill = this.barFill.bind(this)
+        this.selectMetric = this.selectMetric.bind(this)
         this.tooltipFormatter = this.tooltipFormatter.bind(this)
     }
 
@@ -46,14 +71,18 @@ export default class DailyActivity extends PureComponent {
             data = data.map(function(daily){
                 daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
 
-                //daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
-                //daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
+                daily["humans_diff"] = daily["num_human_1"] - daily["num_human_0"]
+                daily["bots_diff"] = daily["num_bot_1"] - daily["num_bot_0"]
+
+                daily["human_tweets_diff"] = daily["num_human_1_tweets"] - daily["num_human_0_tweets"]
+                daily["bot_tweets_diff"] = daily["num_bot_1_tweets"] - daily["num_bot_0_tweets"]
+
                 return daily
             })
             //console.log("DAILY OPINION SHIFT DATA 2", data)
 
             const chartTitle = METRICS[metric]["chartTitle"]
-            const chartSubtitle = `Opinion Model: BERT Transformer`
+            //const chartSubtitle = `Opinion Model: BERT Transformer`
             const yAxisDomain = METRICS[metric]["yAxisDomain"]
             const yAxisLabel = METRICS[metric]["yAxisLabel"]
 
@@ -62,9 +91,10 @@ export default class DailyActivity extends PureComponent {
                     <Card.Text className="app-center">
                         {chartTitle}
 
+                        {/*
                         <br/>
                         <small>{chartSubtitle}</small>
-                        {/*
+
                         */}
                     </Card.Text>
 
@@ -107,6 +137,10 @@ export default class DailyActivity extends PureComponent {
 
                                 <Form.Control as="select" size="lg" custom defaultValue={metric} onChange={this.selectMetric}>
                                     <option value="mean_opinion_shift">Mean Opinion Shift</option>
+                                    <option value="humans_diff">Active Humans Differential</option>
+                                    <option value="bots_diff">Active Bots Differential</option>
+                                    <option value="human_tweets_diff">Human Tweets Differential</option>
+                                    <option value="bot_tweets_diff">Bot Tweets Differential</option>
                                 </Form.Control>
                             </Col>
                             <Col xs="6">
