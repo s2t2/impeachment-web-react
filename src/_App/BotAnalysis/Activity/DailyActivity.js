@@ -1,63 +1,42 @@
 import React, { PureComponent } from 'react'
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip, Cell} from 'recharts'
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip, Legend} from 'recharts'
 //import {groupBy, orderBy} from "lodash"
 //import ReactGA from 'react-ga'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
-import {scaleSequential, interpolateRdBu as RdBu} from 'd3'
 
-import {formatPct} from '../../Utils/Decorators'
-//import {opinionShiftScale as colorScale} from '../../Utils/Colors'
+import {formatPct, bigNumberLabel} from '../../Utils/Decorators'
+import {legendBlue, legendRed} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
 import cachedData from '../../../data/bot_impact/assess_all_days.js' //'./data'
 
 const METRICS = {
-  "mean_opinion_shift": {
-        "chartTitle": "Daily Bot-Induced Opinion Shift",
-        "yAxisLabel": "Mean Pro-Trump Opinion Shift",
-        "yAxisDomain": [-0.15, 0.09],
-        "colorDomain": [0.13, -0.13],
+    "humans": {
+        "chartTitle": "Active Humans by Opinion Community",
+        "yAxisTitle": "User Count",
     },
-    "humans_diff": {
-        "chartTitle": "Daily Differential in Active Humans",
-        "yAxisLabel": "Pro-Trump Humans Differential",
-        "yAxisDomain": [-100_000, 50_000],
-        "colorDomain": [100_000, -100_000],
+    "bots": {
+        "chartTitle": "Active Bots by Opinion Community",
+        "yAxisTitle": "User Count",
     },
-    "bots_diff": {
-        "chartTitle": "Daily Differential in Active Bots",
-        "yAxisLabel": "Pro-Trump Bots Differential",
-        "yAxisDomain": [-500, 5_000],
-        "colorDomain": [5_000, -5_000],
+    "human_tweets": {
+        "chartTitle": "Human Tweets by Opinion Community",
+        "yAxisTitle": "Tweet Count",
     },
-    "human_tweets_diff": {
-        "chartTitle": "Daily Differential in Human Tweets",
-        "yAxisLabel": "Pro-Trump Human Tweets Differential",
-        "yAxisDomain": [-250_000, 250_000],
-        "colorDomain": [250_000, -250_000],
-    },
-    "bot_tweets_diff": {
-        "chartTitle": "Daily Differential in Bot Tweets",
-        "yAxisLabel": "Pro-Trump Bot Tweets Differential",
-        "yAxisDomain": [-50_000, 150_000],
-        "colorDomain": [150_000, -150_000],
+    "bot_tweets": {
+        "chartTitle": "Bot Tweets by Opinion Community",
+        "yAxisTitle": "Tweet Count",
     },
 }
-const DEFAULT_METRIC = "human_tweets_diff"
+const DEFAULT_METRIC = "humans"
 
 export default class DailyActivity extends PureComponent {
     constructor(props) {
         super(props)
-        this.state = {
-            metric: DEFAULT_METRIC,
-            colorScale: scaleSequential(RdBu).domain(METRICS[DEFAULT_METRIC]["colorDomain"]),
-            parsedResponse: null
-        }
-        this.barFill = this.barFill.bind(this)
+        this.state = {metric: DEFAULT_METRIC, parsedResponse: null}
         this.selectMetric = this.selectMetric.bind(this)
-        this.tooltipFormatter = this.tooltipFormatter.bind(this)
     }
 
     render() {
@@ -69,22 +48,31 @@ export default class DailyActivity extends PureComponent {
             //console.log("DAILY OPINION SHIFT DATA", data)
 
             data = data.map(function(daily){
-                daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
+                return {
+                    "date": daily["date"],
 
-                daily["humans_diff"] = daily["num_human_1"] - daily["num_human_0"]
-                daily["bots_diff"] = daily["num_bot_1"] - daily["num_bot_0"]
+                    "humans_0": daily["num_human_0"],
+                    "humans_1": daily["num_human_1"],
 
-                daily["human_tweets_diff"] = daily["num_human_1_tweets"] - daily["num_human_0_tweets"]
-                daily["bot_tweets_diff"] = daily["num_bot_1_tweets"] - daily["num_bot_0_tweets"]
+                    "human_tweets_0": daily["num_human_0_tweets"],
+                    "human_tweets_1": daily["num_human_1_tweets"],
 
+                    "bots_0": daily["num_bot_0"],
+                    "bots_1": daily["num_bot_1"],
+
+                    "bot_tweets_0": daily["num_bot_0_tweets"],
+                    "bot_tweets_1": daily["num_bot_1_tweets"]
+                }
+            }).map(function(daily){
+                daily["Anti-Trump"] = daily[`${metric}_0`]
+                daily["Pro-Trump"] = daily[`${metric}_1`]
                 return daily
             })
+
             //console.log("DAILY OPINION SHIFT DATA 2", data)
 
             const chartTitle = METRICS[metric]["chartTitle"]
-            //const chartSubtitle = `Opinion Model: BERT Transformer`
-            const yAxisDomain = METRICS[metric]["yAxisDomain"]
-            const yAxisLabel = METRICS[metric]["yAxisLabel"]
+            const yAxisTitle = METRICS[metric]["yAxisTitle"]
 
             spinIntoChart = (
                 <span>
@@ -103,29 +91,26 @@ export default class DailyActivity extends PureComponent {
 
                     <div style={{width: "100%", height: 500}}>
                         <ResponsiveContainer>
-                            <BarChart data={data} layout="horizontal" margin={{top: 0, bottom: 20, left: 5, right: 30}} barCategoryGap={0}>
-                                <YAxis type="number" dataKey={metric} domain={yAxisDomain}>
-                                    <Label value={yAxisLabel} position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
+                            <BarChart data={data} margin={{top: 5, right: 40, left: 5, bottom: 20}}>
+                                <CartesianGrid strokeDasharray="3 3" />
+
+                                <Legend verticalAlign="top" align="center" iconType="circle" wrapperStyle={{top:-10, left:32}}/>
+
+                                <YAxis tickFormatter={bigNumberLabel}>
+                                    <Label value={yAxisTitle} position="insideLeft" angle={-90} offset={0} style={{textAnchor: "middle"}}/>
                                 </YAxis>
                                 <XAxis type="category" dataKey="date" tick={{fontSize: 14}}>
                                     <Label value="Date" position="insideBottom" offset={-15}/>
                                 </XAxis>
-                                <CartesianGrid strokeDasharray="1 1"/>
+
+                                <Bar dataKey="Anti-Trump" stackId="a" fill={legendBlue} onClick={this.handleBarClick}/>
+                                <Bar dataKey="Pro-Trump" stackId="a" fill={legendRed}  onClick={this.handleBarClick}/>
+
                                 <Tooltip
-                                    //content={this.tooltipContent}
                                     cursor={{fill: 'transparent', stroke:'#000'}}
-                                    //cursor={false}
-                                    //position={{ y:-5 }}
                                     labelFormatter={this.tooltipLabelFormatter}
                                     formatter={this.tooltipFormatter}
                                 />
-                                <Bar dataKey={metric} fill="#ccc" onClick={this.handleBarClick}>
-                                    {
-                                        data.map((entry, index) => (
-                                            <Cell key={entry["date"]} fill={this.barFill(entry[metric])}/>
-                                        ))
-                                    }
-                                </Bar>
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
@@ -136,11 +121,10 @@ export default class DailyActivity extends PureComponent {
                                 <Form.Label>Metric:</Form.Label>
 
                                 <Form.Control as="select" size="lg" custom defaultValue={metric} onChange={this.selectMetric}>
-                                    <option value="mean_opinion_shift">Mean Opinion Shift</option>
-                                    <option value="humans_diff">Active Humans Differential</option>
-                                    <option value="bots_diff">Active Bots Differential</option>
-                                    <option value="human_tweets_diff">Human Tweets Differential</option>
-                                    <option value="bot_tweets_diff">Bot Tweets Differential</option>
+                                    <option value="humans">Active Humans</option>
+                                    <option value="bots">Active Bots</option>
+                                    <option value="human_tweets">Human Tweets</option>
+                                    <option value="bot_tweets">Bot Tweets</option>
                                 </Form.Control>
                             </Col>
                             <Col xs="6">
@@ -172,16 +156,7 @@ export default class DailyActivity extends PureComponent {
         var val = changeEvent.target.value
         console.log("SELECT METRIC:", val)
         //ReactGA.event({category: "Daily Activity Chart", action: "Select Metric", label: val})
-        this.setState({metric: val, colorScale: scaleSequential(RdBu).domain(METRICS[val]["colorDomain"])})
-    }
-
-    handleBarClick(bar){
-        console.log("BAR CLICK", bar)
-    }
-
-    barFill(val){
-        //return "steelblue"
-        return this.state.colorScale(parseFloat(val))
+        this.setState({metric: val})
     }
 
     tooltipLabelFormatter(value){
@@ -190,7 +165,10 @@ export default class DailyActivity extends PureComponent {
 
     tooltipFormatter(value, name, props){
         //console.log("FORMATTER", value, name, props)
-        return [formatPct(value), METRICS[this.state.metric]["yAxisLabel"]]
+        //return [numberLabel(value), name]
+        //return [value, name]
+        return [bigNumberLabel(value), name]
     }
+
 
 }
