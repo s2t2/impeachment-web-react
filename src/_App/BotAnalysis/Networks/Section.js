@@ -42,8 +42,8 @@ export default function BotNetworks() {
                         NOTE: only after examining the beneficiaries
                         {" "} and language patterns
                         {" "} of these bot networks do we observe
-                        {" "} Network 0 represents left-leaning (Pro-Impeachment) bots, and
-                        {" "} Network 1 represents right-leaning (Pro-Trump) bots.
+                        {" "} Network 0 represents left-leaning (anti-Trump) bots, and
+                        {" "} Network 1 represents right-leaning (pro-Trump) bots.
                     </Card.Text>
                 </Card.Body>
             </Card>

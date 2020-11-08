@@ -51,7 +51,7 @@ export default class DailyActivity extends PureComponent {
                 daily["non_rt_tweet_count_0"] = parseInt(daily["tweet_count_0"]) - parseInt(daily["retweet_count_0"])
                 daily["non_rt_tweet_count_1"] = parseInt(daily["tweet_count_1"]) - parseInt(daily["retweet_count_1"])
 
-                daily["Pro-Impeachment Bots"] = parseInt(daily[`${metric}_0`])
+                daily["Anti-Trump Bots"] = parseInt(daily[`${metric}_0`])
                 daily["Pro-Trump Bots"] = parseInt(daily[`${metric}_1`])
                 return daily
             })
@@ -80,7 +80,7 @@ export default class DailyActivity extends PureComponent {
                             </XAxis>
 
                             <Bar dataKey="Pro-Trump Bots" stackId="a" fill={legendRed}  onClick={this.handleBarClick}/>
-                            <Bar dataKey="Pro-Impeachment Bots" stackId="a" fill={legendBlue} onClick={this.handleBarClick}/>
+                            <Bar dataKey="Anti-Trump Bots" stackId="a" fill={legendBlue} onClick={this.handleBarClick}/>
 
                             <Tooltip
                                 cursor={{fill: 'transparent', stroke:'#000'}}
