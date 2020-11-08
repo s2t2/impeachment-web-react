@@ -34,7 +34,7 @@ export default function About() {
                         <li>Bot Analysis
                             <ol>
                                 <li><a href="/bot-detection">Bot Detection</a></li>
-                                <li><a href="/bot-communities">Bot Communities</a></li>
+                                <li><a href="/bot-networks">Bot Networks</a></li>
                                 <li><a href="/bot-activity">Bot Activity</a></li>
                                 <li><a href="/bot-beneficiaries">Bot Beneficiaries</a></li>
                                 <li><a href="/bot-language">Bot Language</a></li>

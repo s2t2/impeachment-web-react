@@ -8,8 +8,8 @@ import {legendRed, legendBlue} from '../../Utils/Colors'
 
 //import cachedData from './data'
 const cachedData = [
-    {"name": "Community 0", "bot_count": 571, "barFill": legendBlue},
-    {"name": "Community 1", "bot_count": 110, "barFill": legendRed}
+    {"name": "Network 0", "bot_count": 571, "barFill": legendBlue},
+    {"name": "Network 1", "bot_count": 110, "barFill": legendRed}
 ]
 
 export default class BotCommunitiesHistogram extends PureComponent {
@@ -19,7 +19,7 @@ export default class BotCommunitiesHistogram extends PureComponent {
     }
 
     render() {
-        const chartTitle = `Bot Communities (n communities = 2)`
+        const chartTitle = `Bot Retweet Networks (n communities = 2)`
 
         var spinIntoChart = <Spinner/>
 
@@ -46,7 +46,7 @@ export default class BotCommunitiesHistogram extends PureComponent {
                                     <Label value="Bot Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
                                 <XAxis type="category" dataKey="name" tick={{fontSize: 14}}>
-                                    <Label value="Community Label" position="insideBottom" offset={-15}/>
+                                    <Label value="Networks" position="insideBottom" offset={-15}/>
                                 </XAxis>
                                 <CartesianGrid strokeDasharray="1 1"/>
                                 <Tooltip

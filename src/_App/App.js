@@ -144,7 +144,8 @@ export default function App() {
                                 {sidebarRoutes}
 
                                 <Route exact path="/"><Redirect to="/bot-impact" /></Route>
-                                <Route exact path="/bot-clustering"><Redirect to="/bot-communities" /></Route>
+                                <Route exact path="/bot-clustering"><Redirect to="/bot-networks" /></Route>
+                                <Route exact path="/bot-communities"><Redirect to="/bot-networks" /></Route>
                                 <Route exact path="/bot-classification"><Redirect to="/bot-detection" /></Route>
 
                             </Switch>

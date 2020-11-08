@@ -8,7 +8,7 @@ import CollectionResults from './TweetCollection/Results/Section'
 
 import BotAnalysis from './BotAnalysis/Page' // SectionIndex
 import BotClassification from './BotAnalysis/Classification/Section'
-import BotCommunities from "./BotAnalysis/Communities/Section"
+import BotNetworks from "./BotAnalysis/Networks/Section"
 import BotActivity from './BotAnalysis/Activity/Section'
 import BotBeneficiaries from './BotAnalysis/Beneficiaries/Section'
 import BotLanguage from './BotAnalysis/Language/Section'
@@ -29,7 +29,7 @@ var sidebar = [
             {"key": "bot-beneficiaries",    "title": "Bot Beneficiaries",   "component": BotBeneficiaries},
             {"key": "bot-language",         "title": "Bot Language",        "component": BotLanguage},
             {"key": "bot-activity",         "title": "Bot Activity",        "component": BotActivity},
-            {"key": "bot-communities",      "title": "Bot Communities",    "component": BotCommunities},
+            {"key": "bot-networks",         "title": "Bot Networks",        "component": BotNetworks},
             {"key": "bot-detection",        "title": "Bot Detection",      "component": BotClassification}
         ]
     },
