@@ -7,7 +7,7 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveC
 import {orderBy} from 'lodash'
 
 import Spinner from "../../Spinner"
-import {formatNumber, bigNumberLabel} from "../../Utils/Decorators"
+import {bigNumberLabel} from "../../Utils/Decorators" // formatNumber
 import {legendBlue, legendRed} from "../../Utils/Colors"
 //import HashtagsBarChart from "./HashtagsBarChart"
 import {tags0, tags1} from "../../../data/bot_opinion_communities/top_status_tags"
