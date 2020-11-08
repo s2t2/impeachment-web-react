@@ -18,14 +18,16 @@ export default function CommunityTags() {
 
     return (
         <Container fluid>
-            <h5 className='app-center'>Bot Community Hashtags (for Data Labeling)</h5>
+            {/*
+            <h5 className='app-center'>Bot Retweet Network Hashtags (for Sentiment Labeling)</h5>
+            */}
 
             <Row>
                 <Col sm={12} md={12} lg={6}>
                     <Card>
                         <Card.Body>
                             <Card.Text className="app-center">
-                                Left-leaning Bot Community Hashtags
+                                Anti-Trump Sentiment Hashtags
                             </Card.Text>
 
                             <CommunityTagsTable data={community0}/>
@@ -37,7 +39,7 @@ export default function CommunityTags() {
                     <Card>
                         <Card.Body>
                             <Card.Text className="app-center">
-                                Right-leaning Bot Community Hashtags
+                                Pro-Trump Sentiment Hashtags
                             </Card.Text>
 
                             <CommunityTagsTable data={community1}/>

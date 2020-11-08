@@ -46,7 +46,7 @@ export default class BotNetworksHistogram extends PureComponent {
                                     <Label value="Bot Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
                                 <XAxis type="category" dataKey="name" tick={{fontSize: 14}}>
-                                    <Label value="Networks" position="insideBottom" offset={-15}/>
+                                    <Label value="Retweet Networks" position="insideBottom" offset={-15}/>
                                 </XAxis>
                                 <CartesianGrid strokeDasharray="1 1"/>
                                 <Tooltip
