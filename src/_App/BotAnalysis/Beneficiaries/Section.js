@@ -24,6 +24,10 @@ export default function BotBeneficiariesSection() {
                     </Card.Text>
                     */}
 
+                    <Card.Text>
+                        We analyzed the users and statuses most retweeted by members of each bot opinion community. The results are below.
+                    </Card.Text>
+
                     <h4>Users Most Retweeted by Bot Opinion Community</h4>
                     <UsersMostRetweeted/>
 
