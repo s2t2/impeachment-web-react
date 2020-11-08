@@ -3,25 +3,34 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, 
 //import {groupBy, orderBy} from "lodash"
 //import ReactGA from 'react-ga'
 import Card from 'react-bootstrap/Card'
-//import Row from 'react-bootstrap/Row'
-//import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
+import {scaleSequential, interpolateRdBu as RdBu} from 'd3'
 
 import {formatPct} from '../../Utils/Decorators'
-import {opinionShiftScale as colorScale} from '../../Utils/Colors'
+//import {opinionShiftScale as colorScale} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
 import cachedData from '../../../data/bot_impact/assess_all_days.js' //'./data'
 
 const METRICS = {
   "mean_opinion_shift": {
         "chartTitle": "Daily Bot-Induced Opinion Shift",
-        "yAxisLabel": "Mean Pro-Trump Opinion Shift", "yAxisDomain": [-0.15, 0.09]
+        "yAxisLabel": "Mean Pro-Trump Opinion Shift",
+        "yAxisDomain": [-0.15, 0.09],
+        "colorDomain": [0.13, -0.13],
     }
 }
+const DEFAULT_METRIC = "mean_opinion_shift"
 
 export default class DailyActivity extends PureComponent {
     constructor(props) {
         super(props)
-        this.state = {metric: "mean_opinion_shift",parsedResponse: null}
+        this.state = {
+            metric: DEFAULT_METRIC,
+            colorScale: scaleSequential(RdBu).domain(METRICS[DEFAULT_METRIC]["colorDomain"]),
+            parsedResponse: null
+        }
         this.barFill = this.barFill.bind(this)
         this.tooltipFormatter = this.tooltipFormatter.bind(this)
     }
@@ -36,6 +45,9 @@ export default class DailyActivity extends PureComponent {
 
             data = data.map(function(daily){
                 daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
+
+                //daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
+                //daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
                 return daily
             })
             //console.log("DAILY OPINION SHIFT DATA 2", data)
@@ -87,6 +99,20 @@ export default class DailyActivity extends PureComponent {
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
+
+                    <Form>
+                        <Form.Group as={Row}>
+                            <Col xs="6">
+                                <Form.Label>Metric:</Form.Label>
+
+                                <Form.Control as="select" size="lg" custom defaultValue={metric} onChange={this.selectMetric}>
+                                    <option value="mean_opinion_shift">Mean Opinion Shift</option>
+                                </Form.Control>
+                            </Col>
+                            <Col xs="6">
+                            </Col>
+                        </Form.Group>
+                    </Form>
                 </span>
             )
         }
@@ -105,7 +131,14 @@ export default class DailyActivity extends PureComponent {
         //this.fetchData()
         setTimeout(function(){
             this.setState({parsedResponse: cachedData})
-        }.bind(this), 1000) // let you see the spinner
+        }.bind(this), 800) // let you see the spinner
+    }
+
+    selectMetric(changeEvent){
+        var val = changeEvent.target.value
+        console.log("SELECT METRIC:", val)
+        //ReactGA.event({category: "Daily Activity Chart", action: "Select Metric", label: val})
+        this.setState({metric: val, colorScale: scaleSequential(RdBu).domain(METRICS[val]["colorDomain"])})
     }
 
     handleBarClick(bar){
@@ -114,7 +147,7 @@ export default class DailyActivity extends PureComponent {
 
     barFill(val){
         //return "steelblue"
-        return colorScale(parseFloat(val))
+        return this.state.colorScale(parseFloat(val))
     }
 
     tooltipLabelFormatter(value){
@@ -123,8 +156,7 @@ export default class DailyActivity extends PureComponent {
 
     tooltipFormatter(value, name, props){
         //console.log("FORMATTER", value, name, props)
-        const metric = this.state.metric
-        return [formatPct(value), METRICS[metric]["yAxisLabel"]]
+        return [formatPct(value), METRICS[this.state.metric]["yAxisLabel"]]
     }
 
 }
