@@ -23,7 +23,7 @@ function formatPct(num) {
     return (num * 100.0).toFixed(1) + "%"
 } // refactor me into shared utils file
 
-const helperMessage = "The user's average Pro-Trump opinion score, as calculated by the selected opinion model. 0% means Pro-Impachment, while 100% means Pro-Trump."
+const helperMessage = "The user's average Pro-Trump opinion score, as calculated by the selected opinion model. 0% means anti-Trump, while 100% means pro-Trump."
 
 //const opinionScoreTooltip = <Tooltip id="opinion-score-tooltip">
 //    {helperMessage}
