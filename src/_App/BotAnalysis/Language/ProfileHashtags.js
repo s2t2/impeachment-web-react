@@ -7,9 +7,9 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveC
 //import {orderBy} from 'lodash'
 
 import Spinner from "../../Spinner"
-import {formatNumber} from "../../Utils/Decorators"
+import {formatNumber, bigNumberLabel} from "../../Utils/Decorators"
 import {legendBlue, legendRed} from "../../Utils/Colors"
-
+//import HashtagsBarChart from "./HashtagsBarChart"
 import {topTags0, topTags1} from "../../../data/bot_opinion_communities/top_profile_tags"
 
 //var API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
@@ -48,7 +48,6 @@ export default class ProfileHashtags extends React.Component {
         var spinIntoCharts = <Spinner/>
         if (this.state.parsedResponse) {
             //var tags = this.state.parsedResponse;
-
             //var community0 = orderBy(tags.filter(function (t) {return t["community_id"] === 0}), "pct", "desc")
             //var community1 = orderBy(tags.filter(function (t) {return t["community_id"] === 1}), "pct", "desc")
 
@@ -67,7 +66,8 @@ export default class ProfileHashtags extends React.Component {
                                     Top Hashtags in Anti-Trump Bot Profiles
                                 </Card.Text>
 
-                                 <HashtagsBarChart data={data0} barFill={legendBlue} />
+                                 <HashtagsBarChart data={data0} barFill={legendBlue} metric="bot_count" //tickFormatter={bigNumberLabel}
+                                 />
                             </Card.Body>
                         </Card>
                     </Col>
@@ -79,7 +79,8 @@ export default class ProfileHashtags extends React.Component {
                                     Top Hashtags in Pro-Trump Bot Profiles
                                 </Card.Text>
 
-                                <HashtagsBarChart data={data1} barFill={legendRed} />
+                                <HashtagsBarChart data={data1} barFill={legendRed} metric="bot_count" //tickFormatter={bigNumberLabel}
+                                />
                             </Card.Body>
                         </Card>
                     </Col>

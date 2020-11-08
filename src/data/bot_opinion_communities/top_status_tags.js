@@ -1004,8 +1004,8 @@ const tags1 = [
  }
 ]
 
-const topTags0 = tags0.slice(0,20)
-const topTags1 = tags1.slice(0,20)
+const topTags0 = tags0.slice(0,10)
+const topTags1 = tags1.slice(0,10)
 
 export {
   tags0, tags1,
