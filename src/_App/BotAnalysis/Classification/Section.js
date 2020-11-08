@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 
 import BotProbabilitiesHistogram from './Bar'
+import DetectionChart from "./DetectionChart" // TODO
 import BotsMostActiveTable from './BotsMostActive'
 
 export default function BotClassificationSection() {
@@ -39,6 +40,17 @@ export default function BotClassificationSection() {
                     </Card.Text>
 
 
+
+
+                    <h4 id="most-active-bots">Bot Opinions</h4>
+                    <Card.Text>
+                        After applying our trained <a href="/opinion-models">Impeachment opinion model</a> to bot tweets, we observe ten thousand bots exhibit anti-Trump opinions and 14 thousand bots exhibit pro-Trump opinions.
+                    </Card.Text>
+                    <DetectionChart/>
+
+
+
+
                     <h4 id="most-active-bots">Most Active Bots</h4>
                     <Card.Text>
                         The table below presents the top fifteen most active bots in our dataset.
@@ -49,6 +61,7 @@ export default function BotClassificationSection() {
                     <Card.Text>
                         NOTE: some of these accounts have since been deleted or suspended by Twitter.
                     </Card.Text>
+
 
                 </Card.Body>
             </Card>
