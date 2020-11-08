@@ -45,7 +45,7 @@ export default class StatusesMostRetweeted extends React.Component {
                         <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
-                                    Statuses Most Retweeted by Left-leaning Bots
+                                    Statuses Most Retweeted by Anti-Trump Bots
                                 </Card.Text>
 
                                 {/* <StatusesBarChart data={data0} barFill="#002868"/> */}
@@ -59,7 +59,7 @@ export default class StatusesMostRetweeted extends React.Component {
                         <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
-                                    Statuses Most Retweeted by Right-leaning Bots
+                                    Statuses Most Retweeted by Pro-Trump Bots
                                 </Card.Text>
 
                                 {/* <StatusesBarChart data={data1} barFill="#bf0a30"/> */}
@@ -83,9 +83,9 @@ export default class StatusesMostRetweeted extends React.Component {
         this.fetchData()
     }
 
-    componentDidUpdate(prevProps) {
-        console.log("DASHBOARD DID UPDATE")
-    }
+    //componentDidUpdate(prevProps) {
+    //    console.log("DASHBOARD DID UPDATE")
+    //}
 
     fetchData() {
         //var requestUrl = `${API_URL}/api/v0/statuses_most_retweeted?limit=10&metric=${this.state.metric}`

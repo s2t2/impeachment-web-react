@@ -70,7 +70,7 @@ export default class UsersMostRetweeted extends React.Component {
                         <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
-                                    Users Most Retweeted by Left-leaning Bots
+                                    Users Most Retweeted by Anti-Trump Bots
                                 </Card.Text>
                                 <UsersBarChart data={data0} barFill={legendBlue}/>
                             </Card.Body>
@@ -81,7 +81,7 @@ export default class UsersMostRetweeted extends React.Component {
                         <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
-                                    Users Most Retweeted by Right-leaning Bots
+                                    Users Most Retweeted by Pro-Trump Bots
                                 </Card.Text>
                                 <UsersBarChart data={data1} barFill={legendRed}/>
                             </Card.Body>
@@ -103,9 +103,9 @@ export default class UsersMostRetweeted extends React.Component {
         this.fetchData()
     }
 
-    componentDidUpdate(prevProps) {
-        console.log("DASHBOARD DID UPDATE")
-    }
+    //componentDidUpdate(prevProps) {
+    //    console.log("DASHBOARD DID UPDATE")
+    //}
 
     fetchData() {
         //var requestUrl = `${API_URL}/api/v0/users_most_retweeted?limit=10&metric=${this.state.metric}`

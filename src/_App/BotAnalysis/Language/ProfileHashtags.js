@@ -7,6 +7,7 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveC
 //import {orderBy} from 'lodash'
 
 import Spinner from "../../Spinner"
+import {formatNumber} from "../../Utils/Decorators"
 import {legendBlue, legendRed} from "../../Utils/Colors"
 
 import {topTags0, topTags1} from "../../../data/bot_opinion_communities/top_profile_tags"
@@ -17,19 +18,19 @@ const HashtagsBarChart = function(props){
     const {data, barFill} = props
     console.log("DATA", data, "FILL", barFill)
 
-    var chartContainerStyle = { width: "100%", height: 650}
+    var chartContainerStyle = { width: "100%", height: 500}
     var chartMargins = {top: 5, right: 30, left: 150, bottom: 5}
 
     return (
         <div style={chartContainerStyle}>
             <ResponsiveContainer>
                 <BarChart data={data} layout="vertical" margin={chartMargins}>
-                    <XAxis type="number" dataKey="pct" />
-                    <YAxis type="category" dataKey="token" tick={{ fontSize: 14 }} />
+                    <XAxis type="number" dataKey="bot_count" tickFormatter={formatNumber}/>
+                    <YAxis type="category" dataKey="tag" />
                     <CartesianGrid strokeDasharray="1 1"/>
                     <Tooltip/>
                     <Legend/>
-                    <Bar dataKey="pct" fill={barFill}/>
+                    <Bar dataKey="bot_count" fill={barFill}/>
                 </BarChart>
             </ResponsiveContainer>
         </div>
@@ -54,7 +55,7 @@ export default class ProfileHashtags extends React.Component {
             var data0 = this.state.parsedResponse.data0
             var data1 = this.state.parsedResponse.data1
 
-            spinIntoCharts = <Container fluid>
+            spinIntoCharts = <span>
                 {/*
                 <h4 className='app-center'>Top Hashtags in Bot Profiles</h4>
                 */}
@@ -63,7 +64,7 @@ export default class ProfileHashtags extends React.Component {
                         <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
-                                    Top Hashtags in Left-leaning Bot Profiles
+                                    Top Hashtags in Anti-Trump Bot Profiles
                                 </Card.Text>
 
                                  <HashtagsBarChart data={data0} barFill={legendBlue} />
@@ -75,7 +76,7 @@ export default class ProfileHashtags extends React.Component {
                         <Card>
                             <Card.Body>
                                 <Card.Text className="app-center">
-                                    Top Hashtags in Right-leaning Bot Profiles
+                                    Top Hashtags in Pro-Trump Bot Profiles
                                 </Card.Text>
 
                                 <HashtagsBarChart data={data1} barFill={legendRed} />
@@ -83,7 +84,7 @@ export default class ProfileHashtags extends React.Component {
                         </Card>
                     </Col>
                 </Row>
-            </Container>
+            </span>
         }
 
         return (
