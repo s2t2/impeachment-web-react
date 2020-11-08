@@ -1,113 +1,84 @@
-
-
 import React, { PureComponent } from 'react'
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip, Legend} from 'recharts'
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Label, Tooltip, Cell} from 'recharts'
 //import {groupBy, orderBy} from "lodash"
 //import ReactGA from 'react-ga'
 import Card from 'react-bootstrap/Card'
-import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+//import Row from 'react-bootstrap/Row'
+//import Col from 'react-bootstrap/Col'
 
-//import {formatPct} from '../../Utils/Decorators'
-import {bigNumberLabel} from "../../Utils/Decorators"
-import {legendBlue, legendRed} from '../../Utils/Colors'
+import {formatPct} from '../../Utils/Decorators'
+import {opinionShiftScale as colorScale} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
-import cachedData from './data'
+import cachedData from '../../../data/bot_impact/assess_all_days.js' //'./data'
 
-const METRICS = {
-    "bot_count": {"title": "Daily Active Bots", "yAxisTitle": "Bot Count"},
-    "tweet_count": {"title": "Daily Bot Tweets", "yAxisTitle": "Tweet Count"},
-    "retweet_count": {"title": "Daily Bot Retweets", "yAxisTitle": "Retweet Count"},
-    "non_rt_tweet_count": {"title": "Daily Bot Tweets (Excluding Retweets)", "yAxisTitle": "Non-Retweet Tweet Count"}
-}
-//const barData = [
-//    {"date": '2020-01-01', "community_0": 40000, "community_1": 2400},
-//    {"date": '2020-01-02', "community_0": 30000, "community_1": 1398},
-//    {"date": '2020-01-03', "community_0": 20000, "community_1": 9800},
-//    {"date": '2020-01-04', "community_0": 27800, "community_1": 3908},
-//    {"date": '2020-01-05', "community_0": 18900, "community_1": 4800},
-//    {"date": '2020-01-06', "community_0": 23900, "community_1": 3800},
-//    {"date": '2020-01-07', "community_0": 34900, "community_1": 4300},
-//]
-
-export default class DailyActivity extends PureComponent {
+export default class DailyOpinionShift extends PureComponent {
     constructor(props) {
         super(props)
-        this.state = {metric: "retweet_count", parsedResponse: null}
-        this.selectMetric = this.selectMetric.bind(this)
+        this.state = {parsedResponse: null}
+        this.barFill = this.barFill.bind(this)
     }
 
     render() {
         var spinIntoChart = <Spinner/>
 
         if(this.state.parsedResponse){
-            var metric = this.state.metric
-
             var data = this.state.parsedResponse
-            //console.log("DAILY BOT ACTIVITY", metric, data)
+            //console.log("DAILY OPINION SHIFT DATA", data)
 
             data = data.map(function(daily){
-                daily["non_rt_tweet_count_0"] = parseInt(daily["tweet_count_0"]) - parseInt(daily["retweet_count_0"])
-                daily["non_rt_tweet_count_1"] = parseInt(daily["tweet_count_1"]) - parseInt(daily["retweet_count_1"])
-
-                daily["Anti-Trump Bots"] = parseInt(daily[`${metric}_0`])
-                daily["Pro-Trump Bots"] = parseInt(daily[`${metric}_1`])
+                daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
                 return daily
             })
-            //console.log("DAILY BOT ACTIVITY", metric, data)
+            //console.log("DAILY OPINION SHIFT DATA 2", data)
 
-            const chartTitle = METRICS[metric]["title"]
-            const yAxisTitle = METRICS[metric]["yAxisTitle"]
+            const chartTitle = `Daily Bot-Induced Opinion Shift`
+            const chartSubtitle = `Opinion Model: BERT Transformer`
+            const yAxisDomain = [-0.15, 0.09]
 
-            spinIntoChart = <span>
-                <Card.Text className="app-center" style={{marginBottom:0}}>
-                    {chartTitle}
-                </Card.Text>
+            spinIntoChart = (
+                <span>
+                    <Card.Text className="app-center">
+                        {chartTitle}
 
-                <div style={{width: "100%", height: 400}}>
-                    <ResponsiveContainer>
-                        <BarChart data={data} margin={{top: 5, right: 40, left: 5, bottom: 20}}>
-                            <CartesianGrid strokeDasharray="3 3" />
+                        <br/>
+                        <small>{chartSubtitle}</small>
+                        {/*
+                        */}
+                    </Card.Text>
 
-                            <Legend verticalAlign="top" align="center" iconType="circle" wrapperStyle={{top:-10, left:32}}/>
+                    {/*
+                    */}
 
-                            <YAxis tickFormatter={bigNumberLabel}>
-                                <Label value={yAxisTitle} position="insideLeft" angle={-90} offset={0} style={{textAnchor: "middle"}}/>
-                            </YAxis>
-                            <XAxis type="category" dataKey="date" tick={{fontSize: 14}}>
-                                <Label value="Date" position="insideBottom" offset={-15}/>
-                            </XAxis>
-
-                            <Bar dataKey="Pro-Trump Bots" stackId="a" fill={legendRed}  onClick={this.handleBarClick}/>
-                            <Bar dataKey="Anti-Trump Bots" stackId="a" fill={legendBlue} onClick={this.handleBarClick}/>
-
-                            <Tooltip
-                                cursor={{fill: 'transparent', stroke:'#000'}}
-                                labelFormatter={this.tooltipLabelFormatter}
-                                formatter={this.tooltipFormatter}
-                            />
-                        </BarChart>
-                    </ResponsiveContainer>
-                </div>
-
-                <Form>
-                    <Form.Group as={Row}>
-                        <Col xs="6">
-                            <Form.Label>Activity Metric:</Form.Label>
-
-                            <Form.Control as="select" size="lg" custom defaultValue={metric} onChange={this.selectMetric}>
-                                <option value="bot_count">Active Bots</option>
-                                <option value="tweet_count">Bot Tweets (All)</option>
-                                <option value="retweet_count">Bot Retweets</option>
-                                <option value="non_rt_tweet_count">Bot Tweets (Excluding Retweets)</option>
-                            </Form.Control>
-                        </Col>
-                        <Col xs="6">
-                        </Col>
-                    </Form.Group>
-                </Form>
-            </span>
+                    <div style={{width: "100%", height: 500}}>
+                        <ResponsiveContainer>
+                            <BarChart data={data} layout="horizontal" margin={{top: 0, bottom: 20, left: 5, right: 30}} barCategoryGap={0}>
+                                <YAxis type="number" dataKey="mean_opinion_shift" domain={yAxisDomain}>
+                                    <Label value="Mean Pro-Trump Opinion Shift" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
+                                </YAxis>
+                                <XAxis type="category" dataKey="date" tick={{fontSize: 14}}>
+                                    <Label value="Date" position="insideBottom" offset={-15}/>
+                                </XAxis>
+                                <CartesianGrid strokeDasharray="1 1"/>
+                                <Tooltip
+                                    //content={this.tooltipContent}
+                                    cursor={{fill: 'transparent', stroke:'#000'}}
+                                    //cursor={false}
+                                    //position={{ y:-5 }}
+                                    labelFormatter={this.tooltipLabelFormatter}
+                                    formatter={this.tooltipFormatter}
+                                />
+                                <Bar dataKey="mean_opinion_shift" fill="#ccc" onClick={this.handleBarClick}>
+                                    {
+                                        data.map((entry, index) => (
+                                            <Cell key={entry["date"]} fill={this.barFill(entry["mean_opinion_shift"])}/>
+                                        ))
+                                    }
+                                </Bar>
+                            </BarChart>
+                        </ResponsiveContainer>
+                    </div>
+                </span>
+            )
         }
 
         return (
@@ -127,15 +98,13 @@ export default class DailyActivity extends PureComponent {
         }.bind(this), 1000) // let you see the spinner
     }
 
-    selectMetric(changeEvent){
-        var val = changeEvent.target.value
-        console.log("SELECT METRIC:", val)
-        //ReactGA.event({category: "Daily Bot Activity Chart", action: "Select Metric", label: val})
-        this.setState({metric: val})
-    }
-
     handleBarClick(bar){
         console.log("BAR CLICK", bar)
+    }
+
+    barFill(val){
+        //return "steelblue"
+        return colorScale(parseFloat(val))
     }
 
     tooltipLabelFormatter(value){
@@ -144,11 +113,7 @@ export default class DailyActivity extends PureComponent {
 
     tooltipFormatter(value, name, props){
         //console.log("FORMATTER", value, name, props)
-        //return [numberLabel(value), name]
-        //return [value, name]
-        return [bigNumberLabel(value), name]
+        return [formatPct(value), "Mean Pro-Trump Opinion Shift"]
     }
-
-
 
 }
