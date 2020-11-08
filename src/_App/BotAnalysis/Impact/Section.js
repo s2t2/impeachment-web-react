@@ -39,7 +39,7 @@ export default function BotImpact() {
 
                     <Card.Text>
                         {" "} Despite more pro-Trump bots active each day,
-                        {" "} certain daily shifts towards anti-Trump opinion seem to be explained by greater numbers of anti-Trump humans tweeting on a those days.
+                        {" "} certain daily shifts towards anti-Trump opinion seem to be explained by greater numbers of anti-Trump humans tweeting on those days.
                     </Card.Text>
 
                     <DailyActivity metric="human_tweets"/>
