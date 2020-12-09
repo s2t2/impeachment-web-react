@@ -30,7 +30,7 @@ export default function BotNetworks() {
                         {" "} The first cluster (Network 0) yielded 571 bots, while the second cluster (Network 1) yielded 110 bots.
                     </Card.Text>
 
-                    <BotNetworksHistogram/>
+                    {/* <BotNetworksHistogram/> */}
 
                     <Card.Text>
                       Only after examining the retweet beneficiaries
