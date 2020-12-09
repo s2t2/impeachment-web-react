@@ -7,7 +7,7 @@ import BeneficiariesSection from './Beneficiaries/Section'
 import LanguageSection from './Language/Section'
 import ImpactSection from './Impact/Section'
 import NetworksSection from './Networks/Section'
-import ClassificationSection from './Classification/Section'
+import ClassificationSection from './Detection/Section'
 
 export default function BotAnalysisPage() {
     return (

@@ -9,7 +9,7 @@ import BotProbabilitiesHistogram from './Bar'
 import DetectionChart from "./DetectionChart" // TODO
 import BotsMostActiveTable from './BotsMostActive'
 
-export default function BotClassificationSection() {
+export default function BotDetectionSection() {
 
     return (
         <Container fluid>

@@ -7,7 +7,7 @@ import Table from 'react-bootstrap/Table'
 import {formatNumber, formatPct} from '../../Utils/Decorators'
 import cachedData from './data.js'
 
-export default function BotClassificationSection() {
+export default function BotsMostActive() {
 
     const bots = cachedData
 
