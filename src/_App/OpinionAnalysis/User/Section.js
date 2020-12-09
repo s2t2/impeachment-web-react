@@ -19,7 +19,7 @@ export default class UserOpinionSection extends PureComponent {
     constructor(props) {
         super(props)
         let params = queryString.parse(window.location.search)
-        var screenName = props["screen_name"] || params["sn"] || "POLITICO" // append ?sn=BERNIESANDERS to the URL to customize via URL params!!!
+        var screenName = props["screen_name"] || params["sn"] || "SENATEMAJLDR" // append ?sn=BERNIESANDERS to the URL to customize via URL params!!!
         this.state = {screenName: screenName}
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -65,7 +65,7 @@ export default class UserOpinionSection extends PureComponent {
 
                             <Form.Row className="align-items-center">
                                 <Col xs="auto">
-                                    <Form.Control id="inputScreenName" name="screenName" defaultValue={screenName} placeholder="POLITICO" className="mb-2" />
+                                    <Form.Control id="inputScreenName" name="screenName" defaultValue={screenName} placeholder="SENATEMAJLDR" className="mb-2" />
                                 </Col>
 
                                 <Col xs="auto">
