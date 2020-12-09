@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
 //import botCommunityAssignments from "./community-assignments.png" // TODO
-import BotNetworksHistogram from "./Chart" // TODO
+//import BotNetworksHistogram from "./Chart" // TODO
 
 export default function BotNetworks() {
     return (

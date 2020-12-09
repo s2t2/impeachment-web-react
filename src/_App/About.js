@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 
 import AboutCard from './About/Card'
-import MethodologyCard from './Methodology/Card'
+//import MethodologyCard from './Methodology/Card'
 
 export default function About() {
 

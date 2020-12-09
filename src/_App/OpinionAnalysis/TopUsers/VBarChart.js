@@ -3,7 +3,7 @@ import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend} from 'victory' // 
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+//import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import RangeSlider from 'react-bootstrap-range-slider'
 import Slider from 'rc-slider'
 import ReactGA from 'react-ga'
