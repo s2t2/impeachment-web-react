@@ -46,9 +46,13 @@ export default function BotDetectionSection() {
                     <Card.Text>
                         Despite only representing less than 1% of all users, these bots were responsible for 20.9 million tweets (31% of the total tweets) and 20.1 million retweets (36% of the total tweets) in our dataset.
                     </Card.Text>
-                    <DailyActivity metric="bot_tweets"/>
+                    <DailyActivity metric="bot_tweets" metricsAvailable={["bots", "bot_tweets"]} />
 
 
+
+
+
+                    <h4 id="bots-most-active">Bots Most Active</h4>
                     <Card.Text>
                         The table below presents the top fifteen most active bots in our dataset.
                     </Card.Text>
