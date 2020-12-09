@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card'
 import BotProbabilitiesHistogram from './Bar'
 import DetectionChart from "./DetectionChart" // TODO
 import BotsMostActiveTable from './BotsMostActive'
+import DailyActivity from "../Impact/DailyActivity"
 
 export default function BotDetectionSection() {
 
@@ -34,15 +35,6 @@ export default function BotDetectionSection() {
                     </Card.Text>
 
 
-
-                    <h4 id="bot-activity">Bot Activity</h4>
-                    <Card.Text>
-                        Despite only representing less than 1% of all users, these bots were responsible for 20.9 million tweets (31% of the total tweets) and 20.1 million retweets (36% of the total tweets) in our dataset.
-                    </Card.Text>
-
-
-
-
                     <h4 id="bot-opinions">Bot Opinions</h4>
                     <Card.Text>
                         After applying our trained <a href="/opinion-models">Impeachment opinion model</a> to bot tweets, we observe ten thousand bots exhibit anti-Trump opinions and 14 thousand bots exhibit pro-Trump opinions.
@@ -50,19 +42,20 @@ export default function BotDetectionSection() {
                     <DetectionChart/>
 
 
+                    <h4 id="bot-activity">Bot Activity</h4>
+                    <Card.Text>
+                        Despite only representing less than 1% of all users, these bots were responsible for 20.9 million tweets (31% of the total tweets) and 20.1 million retweets (36% of the total tweets) in our dataset.
+                    </Card.Text>
+                    <DailyActivity metric="bot_tweets"/>
 
 
-                    <h4 id="bots-most-active">Bots Most Active</h4>
                     <Card.Text>
                         The table below presents the top fifteen most active bots in our dataset.
                     </Card.Text>
-
-                     <BotsMostActiveTable/>
-
+                    <BotsMostActiveTable/>
                     <Card.Text>
                         NOTE: some of these accounts have since been deleted or suspended by Twitter.
                     </Card.Text>
-
 
                 </Card.Body>
             </Card>
