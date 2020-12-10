@@ -8,9 +8,12 @@ import CollectionResults from './TweetCollection/Results/Section'
 
 import BotAnalysis from './BotAnalysis/Page' // SectionIndex
 import BotDetection from './BotAnalysis/Detection/Section'
+import BotActivity from './BotAnalysis/Activity/Section'
 import BotNetworks from "./BotAnalysis/Networks/Section"
 import BotBeneficiaries from './BotAnalysis/Beneficiaries/Section'
 import BotLanguage from './BotAnalysis/Language/Section'
+import BotOpinions from './BotAnalysis/Opinions/Section'
+import BotFollowers from './BotAnalysis/Followers/Section'
 import BotImpact from './BotAnalysis/Impact/Section'
 
 import OpinionAnalysis from './OpinionAnalysis/Page' // SectionIndex
@@ -27,8 +30,10 @@ var sidebar = [
             {"key": "bot-impact",           "title": "Bot Impact",          "component": BotImpact},
             {"key": "bot-beneficiaries",    "title": "Bot Beneficiaries",   "component": BotBeneficiaries},
             {"key": "bot-language",         "title": "Bot Language",        "component": BotLanguage},
-            //{"key": "bot-activity",         "title": "Bot Activity",        "component": BotActivity},
-            {"key": "bot-networks",         "title": "Bot Networks",        "component": BotNetworks},
+            {"key": "bot-followers",        "title": "Bot Followers",       "component": BotFollowers},
+            {"key": "bot-opinions",         "title": "Bot Opinions",        "component": BotOpinions},
+            {"key": "bot-similarity",       "title": "Bot Similarity",        "component": BotNetworks},
+            {"key": "bot-activity",        "title": "Bot Activity",         "component": BotActivity},
             {"key": "bot-detection",        "title": "Bot Detection",      "component": BotDetection}
         ]
     },

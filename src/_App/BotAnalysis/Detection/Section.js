@@ -35,6 +35,7 @@ export default function BotDetectionSection() {
                     </Card.Text>
 
 
+                    {/*
                     <h4 id="bot-opinions">Bot Opinions</h4>
                     <Card.Text>
                         After applying our trained <a href="/opinion-models">Impeachment opinion model</a> to bot tweets, we observe ten thousand bots exhibit anti-Trump opinions and 14 thousand bots exhibit pro-Trump opinions.
@@ -60,6 +61,9 @@ export default function BotDetectionSection() {
                     <Card.Text>
                         NOTE: some of these accounts have since been deleted or suspended by Twitter.
                     </Card.Text>
+
+
+                    */}
 
                 </Card.Body>
             </Card>

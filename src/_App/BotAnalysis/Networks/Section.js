@@ -14,7 +14,7 @@ export default function BotNetworks() {
         <Container fluid>
             <Card>
                 <Card.Body>
-                    <Card.Title><h3>Bot Networks</h3></Card.Title>
+                    <Card.Title><h3>Bot Retweet Networks</h3></Card.Title>
 
                     <h4>Bot Similarity</h4>
                     <Card.Text>
