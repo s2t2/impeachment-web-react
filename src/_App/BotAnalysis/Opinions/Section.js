@@ -21,6 +21,13 @@ export default function BotOpinionsSection() {
                     </Card.Text>
                     <DetectionChart/>
 
+                    <Card.Text>
+                        For more information about each of these bot communities, see
+                        {" "} <a href="/bot-beneficiaries">who they were retweeting</a>,
+                        {" "} <a href="/bot-language">what they were talking about</a>.
+
+                    </Card.Text>
+
                 </Card.Body>
             </Card>
         </Container>
