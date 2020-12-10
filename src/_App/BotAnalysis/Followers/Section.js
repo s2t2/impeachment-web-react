@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, {useState} from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -10,7 +10,16 @@ import ExampleGraph from "./ExampleGraph"
 
 export default function BotFollowersSection() {
 
+    const [displayWidth, setDisplayWidth] = useState(window.innerWidth);
+    const [displayHeight, setDisplayHeight] = useState(window.innerHeight);
+
+    window.addEventListener('resize', () => {
+        setDisplayWidth(window.innerWidth);
+        setDisplayHeight(window.innerHeight);
+    })
+
     return (
+
         <Container fluid>
             <Card>
                 <Card.Body>
@@ -19,6 +28,8 @@ export default function BotFollowersSection() {
                     <Card.Text>
                         The graphs below present the network of users who follow bots in each <a href="/bot-opinions">bot opinion community</a>.
                     </Card.Text>
+
+                    <p>WIDTH: {displayWidth}</p>
 
                     <Row>
                         <Col sm={12} md={12} lg={6}>
