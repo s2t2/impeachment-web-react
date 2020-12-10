@@ -45,6 +45,10 @@ export default class ExampleGraph extends PureComponent {
                 //nodeVal="status_count"
                 //nodeVal={node => Math.sqrt(node["status_count"])}
                 nodeVal={5}
+
+                //nodeColor={this.props.nodeColor}
+                nodeColor={(node) => this.props.nodeColor }
+
                 //nodeLabel={(node) => `@${node["id"]}`}
                 nodeLabel={(node) => `@${node["__label"]}`}
                 nodeRelSize={1}
