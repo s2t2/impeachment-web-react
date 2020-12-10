@@ -1,18 +1,14 @@
-// adapted from source: https://github.com/vasturiano/react-force-graph/blob/master/example/tree/index.html
-// https://github.com/vasturiano/react-force-graph#data-input
+// adapted from source:
+// ... https://github.com/vasturiano/react-force-graph/blob/master/example/tree/index.html
+// ... https://github.com/vasturiano/react-force-graph#data-input
+//
+// see also:
+// ... https://github.com/ctrlplusb/react-sizeme
+// ... https://github.com/vasturiano/react-force-graph/issues/233
 
-import React, { PureComponent, createRef,  //useEffect, useRef
-} from 'react'
+import React, { PureComponent, createRef} from 'react'
 import { ForceGraph2D } from 'react-force-graph'
 import { withSize } from 'react-sizeme'
-//import * as d3 from 'd3'
-//import Card from 'react-bootstrap/Card'
-//import Row from 'react-bootstrap/Row'
-//import Col from 'react-bootstrap/Col'
-//import ReactGA from 'react-ga'
-
-//import Spinner from '../../Spinner'
-//import cachedData from './data'
 
 var exampleData = {
     nodes:[
@@ -35,17 +31,16 @@ class ExampleGraph extends PureComponent {
     }
 
     render() {
-
         var width = this.props.size.width
+        var data = this.props.data || exampleData
 
         return (
-
             <ForceGraph2D
                 ref={this.containerRef}
                 width={width}
                 height={400}
                 backgroundColor="#101020"
-                graphData={exampleData}
+                graphData={data}
 
                 nodeId="id"
                 //nodeVal="status_count"
@@ -67,34 +62,8 @@ class ExampleGraph extends PureComponent {
                 linkDirectionalParticleWidth={2}
                 d3VelocityDecay={0.6} // lower numbers push the nodes farther and faster from eachother (keep large to prevent red bots from flying off screen)
             />
-
         )
     }
-
-    componentDidMount(){
-        console.log("COMPONENT DID MOUNT")
-        //window.addEventListener("resize", this.handleResize)
-        ////const width = this.containerRef.current.clientWidth // containerRef is null here
-        //const width = window.innerWidth * 0.74
-        //this.setState({parsedResponse:cachedData, width: width})
-    }
-
-    componentWillUnmount() {
-        console.log("COMPONENT WILL UNMOUNT")
-        //window.removeEventListener("resize", this.handleResize);
-    }
-
-    //handleResize(event){
-    //    const width = this.containerRef.current.clientWidth // window.innerWidth * 0.75
-    //    //const width = this.containerRef.current.width
-    //    console.log("RESIZED THE WINDOW!!", width)
-    //    this.setState({width: width})
-    //}
-
-    //componentDidUpdate(){
-    //    //console.log("COMPONENT DID UPDATE")
-    //}
-
 }
 
 export default withSizeHOC(ExampleGraph)

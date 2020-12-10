@@ -9,6 +9,28 @@ import {legendBlue, legendRed} from "../../Utils/Colors"
 //import ExampleGraph from "./ExampleGraph"
 import ExampleGraph from "./ExampleSizemeGraph"
 
+var data0 = {
+    nodes:[
+        {"id":"node1", "__label":"User1"},
+        {"id":"node2", "__label":"User2"},
+    ],
+    links:[
+        {"id":"link1", "source":"node1", "target":"node2"}
+    ]
+}
+
+var data1 = {
+    nodes:[
+        {"id":"node1", "__label":"User1"},
+        {"id":"node3", "__label":"User3"},
+    ],
+    links:[
+        {"id":"link1", "source":"node1", "target":"node3"}
+    ]
+}
+
+
+
 export default function BotFollowersSection() {
 
     //const [displayWidth, setDisplayWidth] = useState(window.innerWidth);
@@ -38,7 +60,7 @@ export default function BotFollowersSection() {
                                 <Card.Body>
                                     <Card.Text className="app-center">Anti-Trump Bot Followers</Card.Text>
 
-                                    <ExampleGraph key="network-0" nodeColor={legendBlue}/>
+                                    <ExampleGraph key="network-0" data={data0} nodeColor={legendBlue}/>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -48,7 +70,7 @@ export default function BotFollowersSection() {
                                 <Card.Body>
                                     <Card.Text className="app-center">Pro-Trump Bot Followers</Card.Text>
 
-                                    <ExampleGraph key="network-1" nodeColor={legendRed}/>
+                                    <ExampleGraph key="network-1" data={data1} nodeColor={legendRed}/>
                                 </Card.Body>
                             </Card>
                         </Col>
