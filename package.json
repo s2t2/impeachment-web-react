@@ -25,6 +25,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-scrollable-anchor": "^0.6.1",
+    "react-sizeme": "^2.6.12",
     "react-spinners": "^0.9.0",
     "react-sticky": "^6.0.3",
     "react-wordcloud": "^1.2.7",
