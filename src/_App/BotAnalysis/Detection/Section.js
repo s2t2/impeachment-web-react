@@ -6,9 +6,9 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 
 import BotProbabilitiesHistogram from './Bar'
-import DetectionChart from "./DetectionChart" // TODO
-import BotsMostActiveTable from './BotsMostActive'
-import DailyActivity from "../Impact/DailyActivity"
+//import DetectionChart from "./DetectionChart" // TODO
+//import BotsMostActiveTable from './BotsMostActive'
+//import DailyActivity from "../Impact/DailyActivity"
 
 export default function BotDetectionSection() {
 

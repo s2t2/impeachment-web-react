@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container'
 //import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 
-//import DetectionChart from "../Detection/DetectionChart"
+import ExampleGraph from "./ExampleGraph"
 
 export default function BotFollowersSection() {
 
@@ -19,6 +19,7 @@ export default function BotFollowersSection() {
                         The graphs below present the network of users who follow bots in each <a href="/bot-opinions">bot opinion community</a>.
                     </Card.Text>
 
+                    <ExampleGraph/>
 
                 </Card.Body>
             </Card>
