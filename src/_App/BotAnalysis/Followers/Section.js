@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card'
 
 import {legendBlue, legendRed} from "../../Utils/Colors"
 
-import Graph from "./ExampleSizemeGraph"
+import Graph from "./Graph" // "./ExampleSizemeGraph"
 import {data0, data1} from "./ExampleData.js"
 
 export default function BotFollowersSection() {
