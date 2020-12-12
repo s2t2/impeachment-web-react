@@ -8,8 +8,8 @@ import {legendRed, legendBlue} from '../../Utils/Colors'
 
 //import cachedData from './data'
 const cachedData = [
-    {"name": "Network 0", "bot_count": 571, "barFill": legendBlue},
-    {"name": "Network 1", "bot_count": 110, "barFill": legendRed}
+    {"name": "Community 0", "bot_count": 571, "barFill": legendBlue},
+    {"name": "Community 1", "bot_count": 110, "barFill": legendRed}
 ]
 
 export default class BotNetworksHistogram extends PureComponent {
@@ -19,7 +19,7 @@ export default class BotNetworksHistogram extends PureComponent {
     }
 
     render() {
-        const chartTitle = `Bot Retweet Networks (n clusters = 2)`
+        const chartTitle = `Bot Retweet Communities (n clusters = 2)`
 
         var spinIntoChart = <Spinner/>
 

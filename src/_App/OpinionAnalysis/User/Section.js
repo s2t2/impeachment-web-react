@@ -45,15 +45,16 @@ export default class UserOpinionSection extends PureComponent {
                     <Card.Body>
                         <Card.Title><h3>User Opinions</h3></Card.Title>
                         <Card.Text>
-                            After <a href="/opinion-models">training opinion models</a> to detect which bot retweet network language patterns
-                            {" "} any given tweet most closely resembles, we used the models to predict Impeachment opinion scores for the remaining tweets in our dataset.
-                            {" "} A score of <code>0</code> means the tweet more closely resembles language used by Network 0 (anti-Trump bots),
-                            {" "} while a score of <code>1</code> means the tweet more closely resembles language used by Network 1 (pro-Trump bots).
+                            After training our <a href="/opinion-models">Impeachment opinion models</a>
+                            {" "} on the language patterns of the anti-Trump and pro-Trump bot retweet communities,
+                            {" "} we used the models to predict Impeachment opinion scores for the remaining tweets in our dataset.
+                            {" "} A score of <code>0</code> means the tweet more closely resembles language used by anti-Trump bots,
+                            {" "} while a score of <code>1</code> means it more closely resembles language used by pro-Trump bots.
                         </Card.Text>
 
                         <Card.Text>
                             We then calculated the mean Impeachment opinion score for all users in our dataset.
-                            {" "}The dashboard below shows how our models scored tweets by any given user (e.g. <i>REALDONALDTRUMP</i>, <i>SPEAKERPELOSI</i>, <i>SENATEMAJLDR</i>, <i>NYTIMES</i>, <i>WSJ</i>, <i>POLITICO</i>).
+                            {" "}The dashboard below shows how our models scored tweets by any given user (e.g. <i>REALDONALDTRUMP</i>, <i>SPEAKERPELOSI</i>, <i>SENATEMAJLDR</i>, <i>NYTIMES</i>, <i>WSJ</i>, etc.).
                             {" "} NOTE: tweets by <i>FOXNEWS</i> contain only URLs and are not scored.
                         </Card.Text>
 
