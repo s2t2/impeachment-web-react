@@ -10,6 +10,7 @@ import ReactGA from 'react-ga'
 //import {QuestionIcon} from '@primer/octicons-react'
 
 import {opinionScale as colorScale} from '../../Utils/Colors'
+import {numberLabel} from '../../Utils/Decorators'
 import './VBarChart.css'
 //import {tip1, tip2, tip3} from './VBarTips'
 
@@ -47,10 +48,10 @@ const SORT_BY = {
 }
 const DEFAULT_METRIC = "follower_count" // "opinion_score"
 
-function formatBigNumber(num) {
-    // h/t: https://stackoverflow.com/a/9461657
-    return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
-}
+//function formatBigNumber(num) {
+//    // h/t: https://stackoverflow.com/a/9461657
+//    return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
+//}
 
 function formatPct(num) {
     // formats 0.3444444 as "34.4%"
@@ -66,8 +67,8 @@ export default class MyBarChart extends Component {
             sortLabel: SORT_BY[DEFAULT_METRIC]["label"],
             opinionMetric: "avg_score_lr",
             opinionRange: [0, 100],
-            followerMin: 0, //412_000,
-            tweetMin: 3, //30,
+            followerMin: 200_000, //0, //412_000,
+            tweetMin: 5 //3, //30,
         }
 
         this.selectUserCategories = this.selectUserCategories.bind(this)
@@ -366,7 +367,7 @@ export default class MyBarChart extends Component {
         if (this.state.sortMetric.includes("opinion_score")){
             return formatPct(val)
         } else {
-            return formatBigNumber(val)
+            return numberLabel(val) //formatBigNumber(val)
         }
     }
 
@@ -375,7 +376,7 @@ export default class MyBarChart extends Component {
         if (sortMetric.includes("opinion_score")){
             return formatPct(datum[sortMetric])
         } else {
-            return formatBigNumber(datum[sortMetric])
+            return numberLabel(datum[sortMetric]) // formatBigNumber(datum[sortMetric])
         }
     }
 

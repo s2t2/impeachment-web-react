@@ -42,7 +42,7 @@ var sidebar = [
         "title": "Opinion Analysis",
         "component": OpinionAnalysis,
         "sections": [
-            {"key": "top-user-opinions",    "title": "Top User Opinions",   "component": TopUserOpinions},
+            {"key": "top-user-opinions",    "title": "Top Users",   "component": TopUserOpinions},
             {"key": "user-opinions",        "title": "User Opinions",       "component": UserOpinions},
             {"key": "opinion-models",       "title": "Opinion Models",      "component": OpinionModels},
         ]
