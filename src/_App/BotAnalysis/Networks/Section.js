@@ -14,7 +14,7 @@ export default function BotNetworks() {
         <Container fluid>
             <Card>
                 <Card.Body>
-                    <Card.Title><h3>Bot Retweet Networks</h3></Card.Title>
+                    <Card.Title><h3>Bot Retweet Communities</h3></Card.Title>
 
                     <h4>Bot Similarity</h4>
                     <Card.Text>
@@ -38,7 +38,7 @@ export default function BotNetworks() {
                         {" "} of each bot network would we observe
                         {" "} Network 0 represents anti-Trump bots, and
                         {" "} Network 1 represents pro-Trump bots.
-                        {" "} We would later train our <a href="/opinion-models">Impeachment opinion models</a> based on hashtags used by each of these bot retweet networks.
+                        {" "} We would later train our <a href="/opinion-models">Impeachment opinion models</a> based on hashtags used by each of these bot retweet communities.
                     </Card.Text>
                 </Card.Body>
             </Card>

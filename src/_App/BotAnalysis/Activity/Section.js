@@ -17,7 +17,10 @@ export default function BotDetectionSection() {
                     <Card.Title><h3>Bot Activity</h3></Card.Title>
 
                     <Card.Text>
-                        Despite only representing less than 1% of all users, the bots we <a href="/bot-detection">detected</a> were responsible for 20.9 million tweets (31% of the total tweets) and 20.1 million retweets (36% of the total tweets) in our dataset.
+                        Despite only representing less than 1% of users in our dataset,
+                        {" "} <a href="/bot-detection">bots</a> were responsible for
+                        {" "} 31% of all tweets (20.9 million), and 36% of all retweets (20.1 million).
+
                     </Card.Text>
                     <DailyActivity metric="bot_tweets" metricsAvailable={["bots", "bot_tweets"]} />
 

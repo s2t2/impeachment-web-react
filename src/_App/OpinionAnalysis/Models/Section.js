@@ -25,7 +25,7 @@ export default function SentimentAnalysis() {
 
                     <h4 id="labeling-users">Labeling Users</h4>
                     <Card.Text>
-                        We identified the top hashtags used by each <a href="/bot-networks">bot retweet network</a>,
+                        We identified the top hashtags used by each <a href="/bot-similarity">bot retweet community</a>,
 
                         then removed shared topics like <i>'#Impeachment'</i> and <i>'#FactsMatter'</i>, which were used by both networks.
                         {" "} The remaining sentiment hashtags are presented and described below.

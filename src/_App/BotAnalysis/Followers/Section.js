@@ -67,30 +67,33 @@ export default class BotFollowersSection extends PureComponent {
     componentDidMount(){
         console.log("COMPONENT DID MOUNT")
 
+        // SYNC
         //d3.csv(Bot0FollowerNodes, function(nodes0) {
         //    console.log("NODES-0:", nodes0.length, nodes0[0])
         //    this.setState({nodes0: nodes0})
         //}.bind(this))
 
+        // ASYNC
         //d3.csv(Bot0FollowerNodes).then(function(data) {
         //    console.log("NODES-0:", data.length, data[0])
         //    this.setState({nodes0: data})
         //}.bind(this))
 
+        // DOESN'T WORK AFTER EARLIER ASYNC
         //d3.csv(Bot0FollowerLinks).then(function(data) {
         //    console.log("LINKS-0:", data.length, data[0])
         //    this.setState({links0: data})
         //}.bind(this))
 
-
+        // DATA PIPELINE
         Promise.all([
             d3.csv(Bot0FollowerNodes),
             d3.csv(Bot0FollowerLinks),
         ]).then(function(files) {
             // files[0] will contain Bot0FollowerNodes
             // files[1] will contain Bot0FollowerLinks
-            console.log(files[0].length)
-            console.log(files[1].length)
+            console.log(files[0].length, files[0][0])
+            console.log(files[1].length, files[1][0])
         }).catch(function(err) {
             console.log("ERROR LOADING THE DATA :-(")
             console.log(err)

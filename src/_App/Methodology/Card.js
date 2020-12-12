@@ -21,7 +21,7 @@ export default function MethodologyCard(){
                 <ol type="I">
                     <li><a href="/tweet-collection">Tweet Collection</a></li>
                     <li><a href="/bot-detection">Bot Detection</a></li>
-                    <li><a href="/bot-networks">Bot Networks</a></li>
+                    <li><a href="/bot-similarity">Bot Similarity</a></li>
                     <li><a href="/opinion-models">Opinion Models</a></li>
                     <li><a href="/user-opinions">User Opinions</a></li>
                     <li><a href="/top-user-opinions">Top User Opinions</a></li>
