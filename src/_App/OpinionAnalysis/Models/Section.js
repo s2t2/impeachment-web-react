@@ -108,7 +108,7 @@ export default function SentimentAnalysis() {
                     <MeanOpinionScores metric="avg_score_lr"/>
 
                     <Card.Text>
-                        Explore the <a href="/user-opinions">User Opinions</a> dashboard and <a href="top-user-opinions">Top User Opinions</a> dashboard to see the mean Impeachment opinion scores for specific users.
+                        Explore the <a href="/user-opinions">User Opinions</a> and <a href="top-user-opinions">Top Users</a> dashboards to see the mean Impeachment opinion scores for specific users.
                     </Card.Text>
 
                 </Card.Body>
