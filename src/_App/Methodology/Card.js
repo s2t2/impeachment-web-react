@@ -17,7 +17,7 @@ export default function MethodologyCard(){
                     Read about our methodology in rough chronological order by following the outline below:
                 </Card.Text>
 
-                {/* todo: make this from the sidebar sitemap */}
+                {/* todo: make this from the sidebar sitemap. */}
                 <ol type="I">
                     <li><a href="/tweet-collection">Tweet Collection</a></li>
                     <li><a href="/bot-detection">Bot Detection</a></li>
