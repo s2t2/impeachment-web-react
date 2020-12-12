@@ -53,8 +53,7 @@ export default class UserOpinionSection extends PureComponent {
 
                         <Card.Text>
                             We then calculated the mean Impeachment opinion score for all users in our dataset.
-                            {" "}The dashboard below shows how our models scored tweets by any given user.
-                            {" "} HINT: try <i>REALDONALDTRUMP</i>, <i>SPEAKERPELOSI</i>, <i>SENATEMAJLDR</i>, <i>NYTIMES</i>, <i>WSJ</i>, or <i>POLITICO</i> to get started.
+                            {" "}The dashboard below shows how our models scored tweets by any given user (e.g. <i>REALDONALDTRUMP</i>, <i>SPEAKERPELOSI</i>, <i>SENATEMAJLDR</i>, <i>NYTIMES</i>, <i>WSJ</i>, <i>POLITICO</i>).
                             {" "} NOTE: tweets by <i>FOXNEWS</i> contain only URLs and are not scored.
                         </Card.Text>
 
@@ -71,6 +70,8 @@ export default class UserOpinionSection extends PureComponent {
                                 <Col xs="auto">
                                     <Button type="submit" className="mb-2" variant="secondary" onClick={this.handleSubmit}>Submit</Button>
                                 </Col>
+
+
                             </Form.Row>
                         </Form>
 
