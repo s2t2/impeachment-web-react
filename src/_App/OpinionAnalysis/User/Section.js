@@ -48,14 +48,12 @@ export default class UserOpinionSection extends PureComponent {
                             After training our <a href="/opinion-models">Impeachment opinion models</a>
                             {" "} on the language patterns of the anti-Trump and pro-Trump bot retweet communities,
                             {" "} we used the models to predict Impeachment opinion scores for the remaining tweets in our dataset.
-                            {" "} A score of <code>0</code> means the tweet more closely resembles language used by anti-Trump bots,
-                            {" "} while a score of <code>1</code> means it more closely resembles language used by pro-Trump bots.
+                            {" "}We then calculated the mean Impeachment opinion score for all users in our dataset.
                         </Card.Text>
 
                         <Card.Text>
-                            We then calculated the mean Impeachment opinion score for all users in our dataset.
-                            {" "}The dashboard below shows how our models scored tweets by any given user (e.g. <i>REALDONALDTRUMP</i>, <i>SPEAKERPELOSI</i>, <i>SENATEMAJLDR</i>, <i>NYTIMES</i>, <i>WSJ</i>, etc.).
-                            {" "} NOTE: tweets by <i>FOXNEWS</i> contain only URLs and are not scored.
+                            The dashboard below shows how our models scored the tweets of any given user (e.g. <i>REALDONALDTRUMP</i>, <i>SPEAKERPELOSI</i>, <i>SENATEMAJLDR</i>, <i>NYTIMES</i>, <i>WSJ</i>, etc.).
+                            {" "} NOTE: tweets by <i>FOXNEWS</i> contain only URLs, and are not scored.
                         </Card.Text>
 
                         <Form style={{marginBottom:10}}>
