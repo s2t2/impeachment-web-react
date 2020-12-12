@@ -18,7 +18,7 @@ export default function BotDetectionSection() {
 
                     <Card.Text>
                         Despite only representing less than 1% of users in our dataset,
-                        {" "} <a href="/bot-detection">bots</a> were responsible for
+                        {" "} the <a href="/bot-detection">bots</a> were responsible for
                         {" "} 31% of all tweets (20.9 million), and 36% of all retweets (20.1 million).
 
                     </Card.Text>
