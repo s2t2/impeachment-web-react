@@ -145,9 +145,8 @@ export default function App() {
 
                                 <Route exact path="/"><Redirect to="/bot-impact" /></Route>
                                 <Route exact path="/bot-classification"><Redirect to="/bot-detection" /></Route>
-                                <Route exact path="/bot-clustering"><Redirect to="/bot-similarity" /></Route>
-                                <Route exact path="/bot-communities"><Redirect to="/bot-similarity" /></Route>
-                                <Route exact path="/bot-networks"><Redirect to="/bot-similarity" /></Route>
+                                <Route exact path="/bot-communities"><Redirect to="/bot-clustering" /></Route>
+                                <Route exact path="/bot-networks"><Redirect to="/bot-clustering" /></Route>
 
                             </Switch>
                         </Col>

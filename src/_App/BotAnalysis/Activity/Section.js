@@ -5,7 +5,6 @@ import Container from 'react-bootstrap/Container'
 //import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 
-import BotsMostActiveTable from '../Detection/BotsMostActive'
 import DailyActivity from "../Impact/DailyActivity"
 
 export default function BotDetectionSection() {
@@ -23,16 +22,6 @@ export default function BotDetectionSection() {
 
                     </Card.Text>
                     <DailyActivity metric="bot_tweets" metricsAvailable={["bots", "bot_tweets"]} />
-
-
-                    <h4 id="bots-most-active">Bots Most Active</h4>
-                    <Card.Text>
-                        The table below presents the top fifteen most active bots in our dataset.
-                    </Card.Text>
-                    <BotsMostActiveTable/>
-                    <Card.Text>
-                        NOTE: some of these accounts have since been deleted or suspended by Twitter.
-                    </Card.Text>
 
                 </Card.Body>
             </Card>

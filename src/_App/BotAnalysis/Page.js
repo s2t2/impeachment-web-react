@@ -20,9 +20,9 @@ export default function BotAnalysisPage() {
             <BotImpact/>
             <BotBeneficiaries/>
             <BotLanguage/>
+            <BotActivity/>
             <BotOpinions/>
             <BotSimilarity/>
-            <BotActivity/>
             <BotDetection/>
         </span>
     )

@@ -18,22 +18,18 @@ export default function SentimentAnalysis() {
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Opinion Models</h3></Card.Title>
-                    <Card.Text>
-                        For training our Impeachment opinion models, we used an automated approach suggested by the <a href="/about">previous bot-detection research</a>.
-                        {" "}It starts with labeling users, then labeling their tweets, and using those labeled tweets for model training.
-                    </Card.Text>
 
-                    <h4 id="labeling-users">Labeling Users</h4>
-                    <Card.Text>
-                        After identifying the top hashtags used by the pro-Trump vs anti-Trump <a href="/bot-similarity">bot retweet communities</a>,
+                    <h4 id="data-labeling">Data Labeling</h4>
 
-                        {" "}we then identified the users in our dataset who included any of these sentiment hashtags in their profile description.
-                        {" "}Of the original 3.6 million users, 138 thousand (3.8%) had sentiment hashtags.
+                    <Card.Text>
+                        After identifying two lists of polarized <a href="/bot-similarity#sentiment-hashtags">sentiment hashtags</a> from the bot retweet communities,
+
+                        {" "}we identified all users in our dataset who included any of these sentiment hashtags in their profile description.
+                        {" "}Of the original 3.6 million users, 138 thousand (3.8%) had sentiment hashtags in their profile.
                         {" "}We removed 541 of these users whose profile description included hashtags from both lists, and then assigned each of the remaining users a sentiment label of <code>0</code> or <code>1</code>, depending on which sentiment hashtags were present in their profile.
                         {" "}This resulted in a mutually exclusive list of 60 thousand anti-Trump users and 78 thousand pro-Trump users who represent the sentiments of each respective bot retweet community.
                     </Card.Text>
 
-                    <h4 id="labeling-tweets">Labeling Tweets</h4>
                     <Card.Text>
                         For each of these labeled users, we labeled all of their tweets with their respective sentiment label (<code>0</code> or <code>1</code>).
                         {" "} Of these 14 million labeled tweets, 5.6 million were anti-Trump and 8.4 million were pro-Trump.

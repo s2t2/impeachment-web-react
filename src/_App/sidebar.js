@@ -28,12 +28,12 @@ var sidebar = [
         "component": BotAnalysis,
         "sections": [
             {"key": "bot-impact",           "title": "Bot Impact",          "component": BotImpact},
+            {"key": "bot-activity",        "title": "Bot Activity",         "component": BotActivity},
             {"key": "bot-beneficiaries",    "title": "Bot Beneficiaries",   "component": BotBeneficiaries},
             {"key": "bot-language",         "title": "Bot Language",        "component": BotLanguage},
             //{"key": "bot-followers",        "title": "Bot Followers",       "component": BotFollowers},
             {"key": "bot-opinions",         "title": "Bot Opinions",        "component": BotOpinions},
-            {"key": "bot-similarity",       "title": "Bot Similarity",        "component": BotSimilarity},
-            {"key": "bot-activity",        "title": "Bot Activity",         "component": BotActivity},
+            {"key": "bot-clustering",       "title": "Bot Clustering",      "component": BotSimilarity},
             {"key": "bot-detection",        "title": "Bot Detection",      "component": BotDetection}
         ]
     },
