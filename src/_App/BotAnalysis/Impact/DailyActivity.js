@@ -11,23 +11,28 @@ import {bigNumberLabel} from '../../Utils/Decorators'
 import {legendBlue, legendRed} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
 import cachedData from '../../../data/daily_activity.js' //'./data'
+import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse'
 
 const METRICS = {
     "humans": {
         "chartTitle": "Active Humans by Opinion Community",
         "yAxisTitle": "Human Count",
+        "formSelect": "Active Humans",
     },
     "bots": {
         "chartTitle": "Active Bots by Opinion Community",
         "yAxisTitle": "Bot Count",
+        "formSelect": "Active Bots",
     },
     "human_tweets": {
         "chartTitle": "Human Tweets by Opinion Community",
         "yAxisTitle": "Human Tweet Count",
+        "formSelect": "Human Tweets",
     },
     "bot_tweets": {
         "chartTitle": "Bot Tweets by Opinion Community",
         "yAxisTitle": "Bot Tweet Count",
+        "formSelect": "Bot Tweets",
     },
 }
 const DEFAULT_METRIC = "bots"
@@ -37,7 +42,7 @@ export default class DailyActivity extends PureComponent {
         super(props)
         this.state = {
             metric: props["metric"] || DEFAULT_METRIC,
-            //metricsAvailable: props["metricsAvailable"] || ["humans", "bots", "human_tweets", "bot_tweets"],
+            selectableMetrics: ["humans", "bots", "human_tweets", "bot_tweets"], //props["selectable"] || [], // Object.keys(METRICS) // ["humans", "bots", "human_tweets", "bot_tweets"]
             parsedResponse: null
         }
         this.selectMetric = this.selectMetric.bind(this)
@@ -51,23 +56,6 @@ export default class DailyActivity extends PureComponent {
             var data = this.state.parsedResponse
             //console.log("DAILY OPINION SHIFT DATA", data)
 
-            //data = data.map(function(daily){
-            //    return {
-            //        "date": daily["date"],
-//
-            //        "humans_0": daily["num_human_0"],
-            //        "humans_1": daily["num_human_1"],
-//
-            //        "human_tweets_0": daily["num_human_0_tweets"],
-            //        "human_tweets_1": daily["num_human_1_tweets"],
-//
-            //        "bots_0": daily["num_bot_0"],
-            //        "bots_1": daily["num_bot_1"],
-//
-            //        "bot_tweets_0": daily["num_bot_0_tweets"],
-            //        "bot_tweets_1": daily["num_bot_1_tweets"]
-            //    }
-            //})
             data = data.map(function(daily){
                 daily["Anti-Trump"] = daily[`${metric}_0`]
                 daily["Pro-Trump"] = daily[`${metric}_1`]
@@ -120,22 +108,27 @@ export default class DailyActivity extends PureComponent {
                         </ResponsiveContainer>
                     </div>
 
-                    <Form>
-                        <Form.Group as={Row}>
-                            <Col xs="6">
-                                <Form.Label>Metric:</Form.Label>
+                    { this.state.selectableMetrics.length > 0 &&
 
-                                <Form.Control as="select" size="lg" custom defaultValue={metric} onChange={this.selectMetric}>
-                                    <option value="humans">Active Humans</option>
-                                    <option value="bots">Active Bots</option>
-                                    <option value="human_tweets">Human Tweets</option>
-                                    <option value="bot_tweets">Bot Tweets</option>
-                                </Form.Control>
-                            </Col>
-                            <Col xs="6">
-                            </Col>
-                        </Form.Group>
-                    </Form>
+                        <Form>
+                            <Form.Group as={Row}>
+                                <Col xs="6">
+                                    <Form.Label>Metric:</Form.Label>
+
+                                    <Form.Control as="select" size="lg" custom defaultValue={metric} onChange={this.selectMetric}>
+                                    {
+                                        this.state.selectableMetrics.map(function(metricName){
+                                            return <option value={metricName}>{METRICS[metricName]["formSelect"]}</option>
+                                        })
+                                    }
+                                    </Form.Control>
+                                </Col>
+                                <Col xs="6">
+                                </Col>
+                            </Form.Group>
+                        </Form>
+
+                    }
                 </span>
             )
         }
