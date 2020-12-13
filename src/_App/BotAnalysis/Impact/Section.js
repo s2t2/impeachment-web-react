@@ -42,7 +42,7 @@ export default function BotImpact() {
                         {" "} certain daily shifts towards anti-Trump opinion seem to be explained by greater numbers of anti-Trump humans tweeting on those days.
                     </Card.Text>
 
-                    <DailyActivity metric="human_tweets"/>
+                    <DailyActivity metric="human_tweets" selectable={["humans", "human_tweets"]} />
 
                 </Card.Body>
             </Card>

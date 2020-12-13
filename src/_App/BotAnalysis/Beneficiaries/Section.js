@@ -25,7 +25,7 @@ export default function BotBeneficiariesSection() {
                     */}
 
                     <Card.Text>
-                        The charts below present the users and statuses retweeted most frequently by members of each <a href="/bot-opinions">bot opinion community</a>.
+                        The charts below show the users and statuses retweeted most frequently by members of each <a href="/bot-opinions">bot opinion community</a>.
                     </Card.Text>
 
                     <h4>Users Most Retweeted</h4>

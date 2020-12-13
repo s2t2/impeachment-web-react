@@ -42,7 +42,7 @@ export default class DailyActivity extends PureComponent {
         super(props)
         this.state = {
             metric: props["metric"] || DEFAULT_METRIC,
-            selectableMetrics: ["humans", "bots", "human_tweets", "bot_tweets"], //props["selectable"] || [], // Object.keys(METRICS) // ["humans", "bots", "human_tweets", "bot_tweets"]
+            selectableMetrics: props["selectable"] || Object.keys(METRICS), // [], // Object.keys(METRICS) // ["humans", "bots", "human_tweets", "bot_tweets"]
             parsedResponse: null
         }
         this.selectMetric = this.selectMetric.bind(this)

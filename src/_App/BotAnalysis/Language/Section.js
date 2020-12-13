@@ -19,8 +19,10 @@ export default function BotLanguageSection() {
                 <Card.Body>
                     <Card.Title><h3>Bot Language</h3></Card.Title>
 
+
+
                     <Card.Text>
-                        The charts below show the top hashtags used in bot tweets and user profiles, respectively.
+                        The charts below show the top hashtags used in tweets and profiles by members of each <a href="/bot-opinions">bot opinion community</a>.
 
                     {/*
                         We analyzed the language patterns exhibited by each bot opinion community,

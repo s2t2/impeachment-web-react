@@ -18,10 +18,20 @@ export default function BotDetectionSection() {
                     <Card.Text>
                         Despite only representing less than 1% of users in our dataset,
                         {" "} the <a href="/bot-detection">bots</a> were responsible for
-                        {" "} 31% of all tweets (20.9 million), and 36% of all retweets (20.1 million).
+                        {" "} 20.9 million tweets (31% of all tweets), and 20.1 million retweets (36% of all retweets).
 
                     </Card.Text>
-                    <DailyActivity metric="bot_tweets" metricsAvailable={["bots", "bot_tweets"]} />
+
+
+                    <DailyActivity metric="bot_tweets" selectable={["bots", "bot_tweets"]} />
+
+                    {/* <DailyActivity metric="bots" selectable={[]} /> */}
+
+                    <Card.Text>
+                        For each day in our primary collection period, we observe more pro-Trump bots active than anti-Trump bots.
+                    </Card.Text>
+
+                    {/* <DailyActivity metric="bots" selectable={[]} /> */}
 
                 </Card.Body>
             </Card>
