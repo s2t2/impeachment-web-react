@@ -25,7 +25,7 @@ class CustomizedLabel extends PureComponent{
                 textAnchor="middle"
                 >
                 {formatNumber(value)}
-                </text>
+            </text>
     }
 }
 

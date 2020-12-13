@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import NetworkTags from './CommunityTags'
+import CommunityTags from './CommunityTags'
 //import meanOpinionsLR from './mean-opinion-scores-for-top-users-lr.png'
 //import meanOpinionsNB from './mean-opinion-scores-for-top-users-nb.png'
 //import meanOpinionsBERT from './mean-opinion-scores-for-top-users-bert.png'
@@ -25,18 +25,12 @@ export default function SentimentAnalysis() {
 
                     <h4 id="labeling-users">Labeling Users</h4>
                     <Card.Text>
-                        We identified the top hashtags used by each <a href="/bot-similarity">bot retweet community</a>,
+                        After identifying the top hashtags used by the pro-Trump vs anti-Trump <a href="/bot-similarity">bot retweet communities</a>,
 
-                        then removed shared topics like <i>'#Impeachment'</i> and <i>'#FactsMatter'</i>, which were used by both networks.
-                        {" "} The remaining sentiment hashtags are presented and described below.
-                    </Card.Text>
-                    <NetworkTags/>
-
-                    <Card.Text>
-                        We then identified the users in our dataset who included any of these sentiment hashtags in their profile description.
+                        {" "}we then identified the users in our dataset who included any of these sentiment hashtags in their profile description.
                         {" "}Of the original 3.6 million users, 138 thousand (3.8%) had sentiment hashtags.
                         {" "}We removed 541 of these users whose profile description included hashtags from both lists, and then assigned each of the remaining users a sentiment label of <code>0</code> or <code>1</code>, depending on which sentiment hashtags were present in their profile.
-                        {" "}This resulted in a mutually exclusive list of 60 thousand anti-Trump and 78 thousand pro-Trump users who represent the sentiments of each bot network.
+                        {" "}This resulted in a mutually exclusive list of 60 thousand anti-Trump users and 78 thousand pro-Trump users who represent the sentiments of each respective bot retweet community.
                     </Card.Text>
 
                     <h4 id="labeling-tweets">Labeling Tweets</h4>
