@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react'
 import Container from 'react-bootstrap/Container'
 //import Row from 'react-bootstrap/Row'
-//import Col from 'react-bootstrap/Col'
+import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 import Form from 'react-bootstrap/Form'
@@ -95,8 +95,9 @@ export default class UserOpinionSection extends PureComponent {
                         </Form>
                         */}
 
+                        {/*
                         <Form.Group>
-                            <Form.Label>Change User (listed in order by follower count):</Form.Label>
+                            <Form.Label>Change User (listed by follower count):</Form.Label>
                             <Typeahead
                                 id="top-users-typeahead"
                                 onChange={this.handleSelection}
@@ -108,6 +109,31 @@ export default class UserOpinionSection extends PureComponent {
                                 //labelKey={(option) => `${option.screen_name} (${bigNumberLabel(option.follower_count)} active followers, ${option.status_count} tweets)`}
                             />
                         </Form.Group>
+
+
+                        */}
+                        <Form>
+                            <Form.Row>
+                                <Col xs="auto">
+                                    <Form.Label>Change User (listed by follower count):</Form.Label>
+
+                                    <Typeahead
+                                        id="top-users-typeahead"
+                                        onChange={this.handleSelection}
+                                        options={users}
+                                        placeholder="SENATEMAJLDR"
+                                        //selected={[this.state.screenName]}
+                                        labelKey="screen_name"
+                                        //labelKey={(option) => `${option.screen_name} (${bigNumberLabel(option.follower_count)} active followers)`}
+                                        //labelKey={(option) => `${option.screen_name} (${bigNumberLabel(option.follower_count)} active followers, ${option.status_count} tweets)`}
+                                    />
+                                </Col>
+
+
+
+                            </Form.Row>
+                        </Form>
+
 
                     </Card.Body>
                 </Card>
