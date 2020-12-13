@@ -42,7 +42,7 @@ export default class BotCommunitiesHistogram extends PureComponent {
                                 barCategoryGap={10}
                                 >
 
-                                <YAxis type="number" dataKey="bot_count" domain={[0, 16000]}>
+                                <YAxis type="number" dataKey="bot_count" domain={[0, 16000]} tickFormatter={formatNumber}>
                                     <Label value="Bot Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
                                 <XAxis type="category" dataKey="name" tick={{fontSize: 14}}>
