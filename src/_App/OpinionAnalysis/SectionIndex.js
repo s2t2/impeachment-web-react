@@ -24,6 +24,8 @@ export default function OpinionAnalysisPage() {
                 <Card.Body>
                     <Card.Title><h2><a href={`/${page["key"]}`}>{page["title"]}</a></h2></Card.Title>
 
+                    {/* <Card.Text>The sections below are presented in reverse-chronological order.</Card.Text> */}
+
                     <ul>
                         {listItems}
                     </ul>

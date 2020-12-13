@@ -32,12 +32,11 @@ export default function About() {
                 <Card.Body>
                     <Card.Title><h3>Source Code</h3></Card.Title>
 
-                    <Card.Text>A non-comprehensive list:</Card.Text>
                     <ul>
                         <li><a href="https://github.com/zaman-lab/tweet-analyzer-py/blob/master/start">Tweet Collection and Analysis Notebooks (Python)</a></li>
                         <li><a href="https://github.com/zaman-lab/tweet-analyzer-py">Tweet Collection and Analysis Scripts (Python)</a></li>
 
-                        <li><a href="https://github.com/zaman-lab/tweet-analyzer-py/blob/master/api">Impeachment Tweet Analysis API (Python / Flask)</a></li>
+                        <li><a href="https://github.com/zaman-lab/tweet-analyzer-py/blob/master/api">Impeachment Tweet Analysis API (Python / Flask)</a> -- powers parts of this website </li>
                         <li><a href="https://github.com/zaman-lab/impeachment-web-react">Impeachment Tweet Analysis Website (JavaScript / React.js)</a> -- this website!</li>
                     </ul>
 

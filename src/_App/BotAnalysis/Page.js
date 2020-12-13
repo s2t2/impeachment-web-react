@@ -18,9 +18,9 @@ export default function BotAnalysisPage() {
             <SectionIndex/>
 
             <BotImpact/>
+            <BotActivity/>
             <BotBeneficiaries/>
             <BotLanguage/>
-            <BotActivity/>
             <BotOpinions/>
             <BotSimilarity/>
             <BotDetection/>
