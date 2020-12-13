@@ -13,6 +13,7 @@ import { Typeahead } from 'react-bootstrap-typeahead'
 import queryString from 'query-string'
 import ReactGA from 'react-ga'
 
+//import {bigNumberLabel} from "../../Utils/Decorators"
 import UserOpinionDashboard from "./Dashboard"
 import users from "../TopUsers/data.js"
 
@@ -90,21 +91,21 @@ export default class UserOpinionSection extends PureComponent {
                                 <Col xs="auto">
                                     <Button type="submit" className="mb-2" variant="secondary" onClick={this.handleSubmit}>Submit</Button>
                                 </Col>
-
-
                             </Form.Row>
                         </Form>
                         */}
 
                         <Form.Group>
-                            <Form.Label>Change User:</Form.Label>
+                            <Form.Label>Change User (listed in order by follower count):</Form.Label>
                             <Typeahead
                                 id="top-users-typeahead"
-                                labelKey="screen_name"
                                 onChange={this.handleSelection}
                                 options={users}
                                 placeholder="SENATEMAJLDR"
                                 //selected={[this.state.screenName]}
+                                labelKey="screen_name"
+                                //labelKey={(option) => `${option.screen_name} (${bigNumberLabel(option.follower_count)} active followers)`}
+                                //labelKey={(option) => `${option.screen_name} (${bigNumberLabel(option.follower_count)} active followers, ${option.status_count} tweets)`}
                             />
                         </Form.Group>
 
@@ -114,14 +115,9 @@ export default class UserOpinionSection extends PureComponent {
                 <Card>
                     <Card.Body>
                         {/*
-
                         {screenName}
-
                         */}
-
                         <UserOpinionDashboard key={screenName} screenName={screenName}/>
-
-
                     </Card.Body>
                 </Card>
             </Container>
