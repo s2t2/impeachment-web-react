@@ -11,7 +11,6 @@ import {bigNumberLabel} from '../../Utils/Decorators'
 import {legendBlue, legendRed} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
 import cachedData from '../../../data/daily_activity.js' //'./data'
-import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse'
 
 const METRICS = {
     "humans": {

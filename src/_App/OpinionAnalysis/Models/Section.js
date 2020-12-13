@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import CommunityTags from './CommunityTags'
+//import CommunityTags from './CommunityTags'
 //import meanOpinionsLR from './mean-opinion-scores-for-top-users-lr.png'
 //import meanOpinionsNB from './mean-opinion-scores-for-top-users-nb.png'
 //import meanOpinionsBERT from './mean-opinion-scores-for-top-users-bert.png'
