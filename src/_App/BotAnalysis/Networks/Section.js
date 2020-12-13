@@ -20,7 +20,7 @@ export default function BotNetworks() {
                     <h4>Bot Similarity</h4>
                     <Card.Text>
                         After <a href="/bot-detection">identifying the bots</a>, we examined who they were retweeting, and how often.
-                        {" "}We then compared the beneficiaries of each bot with the beneficiaries of each other bot, to produce a <a href="https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_prediction.jaccard_coefficient.html">Jaccard coefficient</a> (similarity score) between each bot pair.
+                        {" "}We then compared the retweet beneficiaries of each bot with the retweet beneficiaries of each other bot, to produce a <a href="https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_prediction.jaccard_coefficient.html">Jaccard coefficient</a> (similarity score) between each bot pair.
                     </Card.Text>
 
                     <h4>Bot Clustering</h4>

@@ -22,7 +22,7 @@ export default function SentimentAnalysis() {
                     <h4 id="data-labeling">Data Labeling</h4>
 
                     <Card.Text>
-                        After identifying two lists of polarized <a href="/bot-similarity#sentiment-hashtags">sentiment hashtags</a> from the bot retweet communities,
+                        After identifying two lists of polarized <a href="/bot-clustering#sentiment-hashtags">sentiment hashtags</a> from the bot retweet communities,
 
                         {" "}we identified all users in our dataset who included any of these sentiment hashtags in their profile description.
                         {" "}Of the original 3.6 million users, 138 thousand (3.8%) had sentiment hashtags in their profile.
