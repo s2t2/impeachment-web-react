@@ -12,6 +12,7 @@ import Col from 'react-bootstrap/Col'
 //import Card from 'react-bootstrap/Card'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+//import 'react-bootstrap-typeahead/css/Typeahead.css';
 import './App.css'
 
 //import Home from './Home.js'
@@ -144,9 +145,9 @@ export default function App() {
                                 {sidebarRoutes}
 
                                 <Route exact path="/"><Redirect to="/bot-impact" /></Route>
-                                <Route exact path="/bot-clustering"><Redirect to="/bot-networks" /></Route>
-                                <Route exact path="/bot-communities"><Redirect to="/bot-networks" /></Route>
                                 <Route exact path="/bot-classification"><Redirect to="/bot-detection" /></Route>
+                                <Route exact path="/bot-communities"><Redirect to="/bot-clustering" /></Route>
+                                <Route exact path="/bot-networks"><Redirect to="/bot-clustering" /></Route>
 
                             </Switch>
                         </Col>

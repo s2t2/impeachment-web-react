@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 //import Table from 'react-bootstrap/Table'
 
-import NetworkTags from './CommunityTags'
+//import CommunityTags from './CommunityTags'
 //import meanOpinionsLR from './mean-opinion-scores-for-top-users-lr.png'
 //import meanOpinionsNB from './mean-opinion-scores-for-top-users-nb.png'
 //import meanOpinionsBERT from './mean-opinion-scores-for-top-users-bert.png'
@@ -18,28 +18,18 @@ export default function SentimentAnalysis() {
             <Card>
                 <Card.Body>
                     <Card.Title><h3>Opinion Models</h3></Card.Title>
-                    <Card.Text>
-                        For training our Impeachment opinion models, we used an automated approach suggested by the <a href="/about">previous bot-detection research</a>.
-                        {" "}It starts with labeling users, then labeling their tweets, and using those labeled tweets for model training.
-                    </Card.Text>
 
-                    <h4 id="labeling-users">Labeling Users</h4>
-                    <Card.Text>
-                        We identified the top hashtags used by each <a href="/bot-networks">bot retweet network</a>,
-
-                        then removed shared topics like <i>'#Impeachment'</i> and <i>'#FactsMatter'</i>, which were used by both networks.
-                        {" "} The remaining sentiment hashtags are presented and described below.
-                    </Card.Text>
-                    <NetworkTags/>
+                    <h4 id="data-labeling">Data Labeling</h4>
 
                     <Card.Text>
-                        We then identified the users in our dataset who included any of these sentiment hashtags in their profile description.
-                        {" "}Of the original 3.6 million users, 138 thousand (3.8%) had sentiment hashtags.
+                        After identifying two lists of polarized <a href="/bot-clustering#sentiment-hashtags">sentiment hashtags</a> from the bot retweet communities,
+
+                        {" "}we identified all users in our dataset who included any of these sentiment hashtags in their profile description.
+                        {" "}Of the original 3.6 million users, 138 thousand (3.8%) had sentiment hashtags in their profile.
                         {" "}We removed 541 of these users whose profile description included hashtags from both lists, and then assigned each of the remaining users a sentiment label of <code>0</code> or <code>1</code>, depending on which sentiment hashtags were present in their profile.
-                        {" "}This resulted in a mutually exclusive list of 60 thousand anti-Trump and 78 thousand pro-Trump users who represent the sentiments of each bot network.
+                        {" "}This resulted in a mutually exclusive list of 60 thousand anti-Trump users and 78 thousand pro-Trump users who represent the sentiments of each respective bot retweet community.
                     </Card.Text>
 
-                    <h4 id="labeling-tweets">Labeling Tweets</h4>
                     <Card.Text>
                         For each of these labeled users, we labeled all of their tweets with their respective sentiment label (<code>0</code> or <code>1</code>).
                         {" "} Of these 14 million labeled tweets, 5.6 million were anti-Trump and 8.4 million were pro-Trump.
@@ -108,7 +98,7 @@ export default function SentimentAnalysis() {
                     <MeanOpinionScores metric="avg_score_lr"/>
 
                     <Card.Text>
-                        Explore the <a href="/user-opinions">User Opinions</a> dashboard and <a href="top-user-opinions">Top User Opinions</a> dashboard to see the mean Impeachment opinion scores for specific users.
+                        Explore the <a href="/user-opinions">User Opinions</a> and <a href="top-user-opinions">Top Users</a> dashboards to see the mean Impeachment opinion scores for specific users.
                     </Card.Text>
 
                 </Card.Body>

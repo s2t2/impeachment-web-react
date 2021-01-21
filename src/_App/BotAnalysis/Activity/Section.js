@@ -4,12 +4,10 @@ import Container from 'react-bootstrap/Container'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
-//import Table from 'react-bootstrap/Table'
 
-//import communityRetweetsOverTime from "./daily-rts-by-community.png"
-import DailyBotActivity from './DailyActivity'
+import DailyActivity from "../Impact/DailyActivity"
 
-export default function BotActivitySection() {
+export default function BotDetectionSection() {
 
     return (
         <Container fluid>
@@ -17,37 +15,26 @@ export default function BotActivitySection() {
                 <Card.Body>
                     <Card.Title><h3>Bot Activity</h3></Card.Title>
 
-                    <h4>Daily Bot Activity</h4>
-                    {/*
-                    <Card.Text style={{marginBottom:0}}>
-                        Left-leaning bots generate a greater volume of retweets than right-leaning bots.
-                        {" "} This is perhaps because left-leaning bots <a href="/bot-communities">outnumber</a> right-leaning bots five to one.
-                    </Card.Text>
-
-                    <img src={communityRetweetsOverTime} alt="a histogram depicting bot probabilities" style={{marginTop:20, marginBottom:20}} className="img-fluid"/>
-                    */}
-                    <DailyBotActivity/>
-
-                    {/*
                     <Card.Text>
-                        NOTE: our tweet collector was down for maintenance on 12/18 and 12/19.
-                    </Card.Text>
-                    */}
+                        Despite only representing less than 1% of users in our dataset,
+                        {" "} the <a href="/bot-detection">bots</a> were responsible for
+                        {" "} 20.9 million tweets (31% of all tweets), and 20.1 million retweets (36% of all retweets).
 
-                    {/*
+                    </Card.Text>
+
+
+                    <DailyActivity metric="bot_tweets" selectable={["bots", "bot_tweets"]} />
+
+                    {/* <DailyActivity metric="bots" selectable={[]} /> */}
+
                     <Card.Text>
-                        NOTE: only after examining the <a href="/bot-beneficiaries">beneficiaries</a>
-                        {" "} and <a href="/bot-language">language patterns</a>
-                        {" "} of each <a href="/bot-communities">bot community</a>, do we observe
-                        {" "} Community 0 represents left-leaning (Pro-Impeachment) bots, and
-                        {" "} Community 1 represents right-leaning (Pro-Trump) bots.
+                        For each day in our primary collection period, we observe more pro-Trump bots active than anti-Trump bots.
                     </Card.Text>
 
-                    */}
+                    {/* <DailyActivity metric="bots" selectable={[]} /> */}
 
                 </Card.Body>
             </Card>
-
         </Container>
     )
 }

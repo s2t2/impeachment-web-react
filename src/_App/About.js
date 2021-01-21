@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 
 import AboutCard from './About/Card'
+//import MethodologyCard from './Methodology/Card'
 
 export default function About() {
 
@@ -13,28 +14,7 @@ export default function About() {
         <Container fluid>
             <AboutCard/>
 
-            <Card>
-                <Card.Body>
-                    <Card.Title><h3>Methodology</h3></Card.Title>
-
-                    <Card.Text>
-                        Read about our methodology in rough chronological order by following the outline below:
-                    </Card.Text>
-
-                    {/* todo: make this from the sidebar sitemap */}
-                    <ol type="I">
-                        <li><a href="/tweet-collection">Tweet Collection</a></li>
-                        <li><a href="/bot-detection">Bot Detection</a></li>
-                        <li><a href="/bot-networks">Bot Networks</a></li>
-                        <li><a href="/opinion-models">Opinion Models</a></li>
-                        <li><a href="/user-opinions">User Opinions</a></li>
-                        <li><a href="/top-user-opinions">Top User Opinions</a></li>
-                        <li><a href="/bot-beneficiaries">Bot Beneficiaries</a></li>
-                        <li><a href="/bot-language">Bot Language</a></li>
-                        <li><a href="/bot-impact">Bot Impact</a></li>
-                    </ol>
-                </Card.Body>
-            </Card>
+            {/* <MethodologyCard/> */}
 
             <Card>
                 <Card.Body>
@@ -42,8 +22,8 @@ export default function About() {
 
                     <ul>
                         <li><a href="https://www.zlisto.com/">Prof. Tauhid Zaman</a> (Yale University)</li>
-                        <li><a href="https://prof-rossetti.herokuapp.com/">Michael Rossetti</a> (Georgetown University, New York University)</li>
-                        <li>Special thanks to <a href="https://scholar.google.com/citations?hl=en&user=Xw7yaiUAAAAJ">Mohammad Samiul Islam</a> for front-end development and data visualization contributions!</li>
+                        <li><a href="https://prof-rossetti.herokuapp.com/">Michael J Rossetti</a> (Georgetown University, New York University)</li>
+                        <li>Special thanks to <a href="https://scholar.google.com/citations?hl=en&user=Xw7yaiUAAAAJ">Mohammad Samiul Islam</a> for website development support!</li>
                     </ul>
                 </Card.Body>
             </Card>
@@ -53,10 +33,11 @@ export default function About() {
                     <Card.Title><h3>Source Code</h3></Card.Title>
 
                     <ul>
-                        <li><a href="https://github.com/zaman-lab/tweet-analyzer-py/blob/master/start">Tweet Collection and Analysis (Colab Notebooks)</a></li>
-                        <li><a href="https://github.com/zaman-lab/tweet-analyzer-py">Tweet Collection and Analysis (Python Scripts)</a></li>
-                        <li><a href="https://github.com/zaman-lab/tweet-analyzer-py/blob/master/api">Tweet Analysis API (Flask)</a></li>
-                        <li><a href="https://github.com/zaman-lab/impeachment-web-react">Tweet Analysis Website (React)</a></li>
+                        <li><a href="https://github.com/zaman-lab/tweet-analyzer-py/blob/master/start">Tweet Collection and Analysis Notebooks (Python)</a></li>
+                        <li><a href="https://github.com/zaman-lab/tweet-analyzer-py">Tweet Collection and Analysis Scripts (Python)</a></li>
+
+                        <li><a href="https://github.com/zaman-lab/tweet-analyzer-py/blob/master/api">Impeachment Tweet Analysis API (Python / Flask)</a> -- powers parts of this website </li>
+                        <li><a href="https://github.com/zaman-lab/impeachment-web-react">Impeachment Tweet Analysis Website (JavaScript / React.js)</a> -- this website!</li>
                     </ul>
 
                 </Card.Body>

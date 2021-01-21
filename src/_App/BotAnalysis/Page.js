@@ -2,23 +2,28 @@
 import React from 'react'
 
 import SectionIndex from './SectionIndex'
-//mport ActivitySection from './Activity/Section'
-import BeneficiariesSection from './Beneficiaries/Section'
-import LanguageSection from './Language/Section'
-import ImpactSection from './Impact/Section'
-import NetworksSection from './Networks/Section'
-import ClassificationSection from './Classification/Section'
+
+import BotDetection from './Detection/Section'
+import BotActivity from './Activity/Section'
+import BotSimilarity from "./Networks/Section"
+import BotOpinions from './Opinions/Section'
+import BotLanguage from './Language/Section'
+import BotBeneficiaries from './Beneficiaries/Section'
+//import BotFollowers from './Followers/Section'
+import BotImpact from './Impact/Section'
 
 export default function BotAnalysisPage() {
     return (
         <span>
             <SectionIndex/>
 
-            <ImpactSection/>
-            <BeneficiariesSection/>
-            <LanguageSection/>
-            <NetworksSection/>
-            <ClassificationSection/>
+            <BotImpact/>
+            <BotActivity/>
+            <BotBeneficiaries/>
+            <BotLanguage/>
+            <BotOpinions/>
+            <BotSimilarity/>
+            <BotDetection/>
         </span>
     )
 }

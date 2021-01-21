@@ -26,7 +26,7 @@ export default function BotImpact() {
 
                     <Card.Text>
                         The chart above shows the daily bot-induced shift in opinions about the Impeachment of President Donald Trump.
-                        {" "}The shift in mean opinion is affected by bot reach, bot activity levels, and <a href="/bot-beneficiaries">bot opinions</a>.
+                        {" "}The shift in mean opinion is affected by bot reach, bot activity levels, and <a href="/bot-opinions">bot opinions</a>.
                         {" "}Baseline opinions are measured using our <a href="/opinion-models">Impeachment opinion model</a>, which is based on a BERT transformer sentiment classifier.
                     </Card.Text>
 
@@ -42,7 +42,7 @@ export default function BotImpact() {
                         {" "} certain daily shifts towards anti-Trump opinion seem to be explained by greater numbers of anti-Trump humans tweeting on those days.
                     </Card.Text>
 
-                    <DailyActivity metric="human_tweets"/>
+                    <DailyActivity metric="human_tweets" selectable={["humans", "human_tweets"]} />
 
                 </Card.Body>
             </Card>

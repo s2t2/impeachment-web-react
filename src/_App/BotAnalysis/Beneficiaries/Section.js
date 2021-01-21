@@ -25,13 +25,13 @@ export default function BotBeneficiariesSection() {
                     */}
 
                     <Card.Text>
-                        We analyzed the users and statuses most retweeted by members of each bot opinion community. The results are below.
+                        The charts below show the users and statuses retweeted most frequently by members of each <a href="/bot-opinions">bot opinion community</a>.
                     </Card.Text>
 
-                    <h4>Users Most Retweeted by Bot Opinion Community</h4>
+                    <h4>Users Most Retweeted</h4>
                     <UsersMostRetweeted/>
 
-                    <h4>Statuses Most Retweeted by Bot Opinion Community</h4>
+                    <h4>Statuses Most Retweeted</h4>
                     <StatusesMostRetweeted/>
 
                 </Card.Body>

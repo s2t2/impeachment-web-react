@@ -7,11 +7,13 @@ import CollectionTopics from './TweetCollection/Topics/Section'
 import CollectionResults from './TweetCollection/Results/Section'
 
 import BotAnalysis from './BotAnalysis/Page' // SectionIndex
-import BotClassification from './BotAnalysis/Classification/Section'
-import BotNetworks from "./BotAnalysis/Networks/Section"
-//import BotActivity from './BotAnalysis/Activity/Section'
+import BotDetection from './BotAnalysis/Detection/Section'
+import BotActivity from './BotAnalysis/Activity/Section'
+import BotSimilarity from "./BotAnalysis/Networks/Section"
 import BotBeneficiaries from './BotAnalysis/Beneficiaries/Section'
 import BotLanguage from './BotAnalysis/Language/Section'
+import BotOpinions from './BotAnalysis/Opinions/Section'
+//import BotFollowers from './BotAnalysis/Followers/Section'
 import BotImpact from './BotAnalysis/Impact/Section'
 
 import OpinionAnalysis from './OpinionAnalysis/Page' // SectionIndex
@@ -26,11 +28,13 @@ var sidebar = [
         "component": BotAnalysis,
         "sections": [
             {"key": "bot-impact",           "title": "Bot Impact",          "component": BotImpact},
+            {"key": "bot-activity",        "title": "Bot Activity",         "component": BotActivity},
             {"key": "bot-beneficiaries",    "title": "Bot Beneficiaries",   "component": BotBeneficiaries},
             {"key": "bot-language",         "title": "Bot Language",        "component": BotLanguage},
-            //{"key": "bot-activity",         "title": "Bot Activity",        "component": BotActivity},
-            {"key": "bot-networks",         "title": "Bot Networks",        "component": BotNetworks},
-            {"key": "bot-detection",        "title": "Bot Detection",      "component": BotClassification}
+            //{"key": "bot-followers",        "title": "Bot Followers",       "component": BotFollowers},
+            {"key": "bot-opinions",         "title": "Bot Opinions",        "component": BotOpinions},
+            {"key": "bot-clustering",       "title": "Bot Clustering",      "component": BotSimilarity},
+            {"key": "bot-detection",        "title": "Bot Detection",      "component": BotDetection}
         ]
     },
     {
@@ -38,7 +42,7 @@ var sidebar = [
         "title": "Opinion Analysis",
         "component": OpinionAnalysis,
         "sections": [
-            {"key": "top-user-opinions",    "title": "Top User Opinions",   "component": TopUserOpinions},
+            {"key": "top-user-opinions",    "title": "Top Users",   "component": TopUserOpinions},
             {"key": "user-opinions",        "title": "User Opinions",       "component": UserOpinions},
             {"key": "opinion-models",       "title": "Opinion Models",      "component": OpinionModels},
         ]

@@ -12,6 +12,23 @@ const cachedData = [
     {"name": "Pro-Trump Bots", "bot_count": 13_929, "barFill": legendRed}
 ]
 
+// h/t: https://codepen.io/smartyboots/pen/KmdYLr
+// we need this to see the bar label, when we color bars in recharts using cells, b/c the label is covered by the cell fill.
+class CustomizedLabel extends PureComponent{
+    render () {
+        const {x, y, fill, value} = this.props
+
+        return <text x={x} y={y} dy={-10} dx={74}
+                //fontSize='16'
+                //fontFamily='sans-serif'
+                fill={fill}
+                textAnchor="middle"
+                >
+                {formatNumber(value)}
+            </text>
+    }
+}
+
 export default class BotCommunitiesHistogram extends PureComponent {
     constructor(props) {
         super(props)
@@ -42,7 +59,7 @@ export default class BotCommunitiesHistogram extends PureComponent {
                                 barCategoryGap={10}
                                 >
 
-                                <YAxis type="number" dataKey="bot_count" domain={[0, 16000]}>
+                                <YAxis type="number" dataKey="bot_count" domain={[0, 16000]} tickFormatter={formatNumber}>
                                     <Label value="Bot Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
                                 <XAxis type="category" dataKey="name" tick={{fontSize: 14}}>
@@ -66,9 +83,10 @@ export default class BotCommunitiesHistogram extends PureComponent {
                                 />
                                 */}
                                 <Bar dataKey="bot_count" fill="#ccc" onClick={this.handleBarClick}
-                                    label={{position: "top", offset:10}}
+                                    //label={{position: "top", offset:10}}
                                     //label={<Label dataKey="bot_count" formatter={formatNumber}/>}
                                     //label={formatNumber}
+                                    label={<CustomizedLabel />}
                                 >
                                     {
                                         data.map((entry, index) => (

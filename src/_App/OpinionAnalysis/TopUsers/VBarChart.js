@@ -3,15 +3,16 @@ import {VictoryChart, VictoryBar, VictoryAxis, VictoryLegend} from 'victory' // 
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-import Tooltip from 'react-bootstrap/Tooltip'
+//import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import RangeSlider from 'react-bootstrap-range-slider'
 import Slider from 'rc-slider'
 import ReactGA from 'react-ga'
-import {QuestionIcon} from '@primer/octicons-react'
+//import {QuestionIcon} from '@primer/octicons-react'
 
-import './VBarChart.css'
 import {opinionScale as colorScale} from '../../Utils/Colors'
+import {numberLabel} from '../../Utils/Decorators'
+import './VBarChart.css'
+//import {tip1, tip2, tip3} from './VBarTips'
 
 const { createSliderWithTooltip } = Slider
 const Range = createSliderWithTooltip(Slider.Range)
@@ -37,8 +38,6 @@ const FILTER_CATEGORIES = {
     "politician": ["ELECTED-OFFICIAL", "PARTY", "GOVERNMENT"],
     "commentator": ["POLITICAL-COMMENTATOR", "LEGAL-SCHOLAR"],
     "celebrity": ["CELEBRITY"],
-
-
 }
 
 const SORT_BY = {
@@ -47,41 +46,17 @@ const SORT_BY = {
     "opinion_score": {"metric": "opinion_score", "label": "Mean Opinion Score (Pro-Trump)"},
     "inverse_opinion_score": {"metric": "inverse_opinion_score", "label": "Mean Opinion Score (Anti-Trump)"},
 }
-const DEFAULT_METRIC = "opinion_score"
+const DEFAULT_METRIC = "follower_count" // "opinion_score"
 
-function formatBigNumber(num) {
-    // h/t: https://stackoverflow.com/a/9461657
-    return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
-}
+//function formatBigNumber(num) {
+//    // h/t: https://stackoverflow.com/a/9461657
+//    return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
+//}
 
 function formatPct(num) {
     // formats 0.3444444 as "34.4%"
     return (num * 100.0).toFixed(1) + "%"
 }
-
-const categorySelectTooltip = <Tooltip id="category-select-tooltip">
-    Include users in the selected category. NOTE: categories are subjective.
-</Tooltip>
-
-const sortSelectTooltip = <Tooltip id="sort-select-tooltip">
-    Show at most the top ten users ranked in descending order by the selected metric.
-</Tooltip>
-
-const tweetSliderTooltip = <Tooltip id="tweet-slider-tooltip">
-    Include users who tweeted about Trump Impeachment at least this many times.
-</Tooltip>
-
-const followerSliderTooltip = <Tooltip id="follower-slider-tooltip">
-    Include users with at least this many followers who also tweeted about Trump Impeachment.
-</Tooltip>
-
-const opinionSliderTooltip = <Tooltip id="opinion-slider-tooltip">
-    Include users who have a mean opinion score within the selected range.
-</Tooltip>
-
-const modelSelectTooltip = <Tooltip id="model-select-tooltip">
-    See opinion scores from different Impeachment opinion models.
-</Tooltip>
 
 export default class MyBarChart extends Component {
     constructor(props) {
@@ -92,8 +67,8 @@ export default class MyBarChart extends Component {
             sortLabel: SORT_BY[DEFAULT_METRIC]["label"],
             opinionMetric: "avg_score_lr",
             opinionRange: [0, 100],
-            followerMin: 412_000,
-            tweetMin: 30,
+            followerMin: 200_000, //0, //412_000,
+            tweetMin: 5 //3, //30,
         }
 
         this.selectUserCategories = this.selectUserCategories.bind(this)
@@ -241,10 +216,13 @@ export default class MyBarChart extends Component {
                 <Form className="below-chart">
                     <Form.Group as={Row}>
                         <Col xs="6">
-                            <Form.Label>User Category: {" "}
+                            <Form.Label>User Category:
+                                { /*
+                                {" "}
                                 <OverlayTrigger placement="top" overlay={categorySelectTooltip}>
                                     <span><QuestionIcon verticalAlign="text-top"/></span>
                                 </OverlayTrigger>
+                                */}
                             </Form.Label>
 
                             <Form.Control as="select" size="lg" custom onChange={this.selectUserCategories}>
@@ -257,10 +235,13 @@ export default class MyBarChart extends Component {
                         </Col>
 
                         <Col xs="6">
-                            <Form.Label>Sort By: {" "}
+                            <Form.Label>Sort By:
+                                { /*
+                                {" "}
                                 <OverlayTrigger placement="top" overlay={sortSelectTooltip}>
                                     <span><QuestionIcon verticalAlign="text-top"/></span>
                                 </OverlayTrigger>
+                                */}
                             </Form.Label>
 
                             <Form.Control as="select" size="lg" custom value={sortMetric} onChange={this.selectSortMetric}>
@@ -274,10 +255,13 @@ export default class MyBarChart extends Component {
 
                     <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
-                            <Form.Label>Minimum Followers: {" "}
+                            <Form.Label>Minimum Followers:
+                                { /*
+                                {" "}
                                 <OverlayTrigger placement="top" overlay={followerSliderTooltip}>
                                     <span><QuestionIcon verticalAlign="text-top"/></span>
                                 </OverlayTrigger>
+                                */}
                             </Form.Label>
 
                             <RangeSlider min={10000} max={1000000} step={10000}
@@ -294,10 +278,13 @@ export default class MyBarChart extends Component {
                         </Col>
 
                         <Col xs="5">
-                            <Form.Label>Mean Opinion Score: {" "}
+                            <Form.Label>Mean Opinion Score:
+                                { /*
+                                {" "}
                                 <OverlayTrigger placement="top" overlay={opinionSliderTooltip}>
                                     <span><QuestionIcon verticalAlign="text-top"/></span>
                                 </OverlayTrigger>
+                                */}
                             </Form.Label>
 
                             <Range min={0} max={100} step={1}
@@ -320,10 +307,13 @@ export default class MyBarChart extends Component {
 
                     <Form.Group as={Row} style={{marginTop: 35}}>
                         <Col xs="5">
-                            <Form.Label>Minimum Tweets: {" "}
+                            <Form.Label>Minimum Tweets:
+                                { /*
+                                {" "}
                                 <OverlayTrigger placement="top" overlay={tweetSliderTooltip}>
                                     <span><QuestionIcon verticalAlign="text-top"/></span>
                                 </OverlayTrigger>
+                                */}
                             </Form.Label>
 
                             <RangeSlider min={3} max={200}
@@ -340,10 +330,13 @@ export default class MyBarChart extends Component {
                         </Col>
 
                         <Col xs="5">
-                            <Form.Label>Opinion Model: {" "}
+                            <Form.Label>Opinion Model:
+                                { /*
+                                {" "}
                                 <OverlayTrigger placement="top" overlay={modelSelectTooltip}>
                                     <span><QuestionIcon verticalAlign="text-top"/></span>
                                 </OverlayTrigger>
+                                */}
                             </Form.Label>
 
                             <div key="inline-radios" className="mb-3">
@@ -374,7 +367,7 @@ export default class MyBarChart extends Component {
         if (this.state.sortMetric.includes("opinion_score")){
             return formatPct(val)
         } else {
-            return formatBigNumber(val)
+            return numberLabel(val) //formatBigNumber(val)
         }
     }
 
@@ -383,7 +376,7 @@ export default class MyBarChart extends Component {
         if (sortMetric.includes("opinion_score")){
             return formatPct(datum[sortMetric])
         } else {
-            return formatBigNumber(datum[sortMetric])
+            return numberLabel(datum[sortMetric]) // formatBigNumber(datum[sortMetric])
         }
     }
 

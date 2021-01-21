@@ -34,7 +34,7 @@ export default class DailyBotProbabilities extends React.Component {
                     <div style={{width: "100%", height: 350}}>
                         <ResponsiveContainer>
                             <BarChart data={data} layout="horizontal" margin={{top: 0, right: 25, left: 5, bottom: 20}} barCategoryGap={1}>
-                                <YAxis type="number" dataKey="frequency" domain={[0,15000]} allowDataOverflow={true}>
+                                <YAxis type="number" dataKey="frequency" domain={[0,15000]} allowDataOverflow={true} tickFormatter={formatNumber}>
                                     <Label value="User Count" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
                                 <XAxis type="category" dataKey="category"
