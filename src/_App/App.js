@@ -12,6 +12,7 @@ import Col from 'react-bootstrap/Col'
 //import Card from 'react-bootstrap/Card'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+//import 'react-bootstrap-typeahead/css/Typeahead.css';
 import './App.css'
 
 //import Home from './Home.js'

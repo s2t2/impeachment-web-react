@@ -8,9 +8,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ReactGA from 'react-ga'
 
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-import Tooltip from 'react-bootstrap/Tooltip'
-import {QuestionIcon} from '@primer/octicons-react'
+//import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+//import Tooltip from 'react-bootstrap/Tooltip'
+//import {QuestionIcon} from '@primer/octicons-react'
 
 import Spinner from '../../Spinner'
 import UserStatusesTable from './UserStatusesTable.js'
@@ -29,9 +29,9 @@ const helperMessage = "The user's average Pro-Trump opinion score, as calculated
 //    {helperMessage}
 //</Tooltip>
 
-const modelSelectTooltip = <Tooltip id="model-select-tooltip">
-    See opinion scores from different Impeachment opinion models.
-</Tooltip>
+//const modelSelectTooltip = <Tooltip id="model-select-tooltip">
+//    See opinion scores from different Impeachment opinion models.
+//</Tooltip>
 
 export default class Dashboard extends PureComponent {
     constructor(props) {
@@ -99,10 +99,12 @@ export default class Dashboard extends PureComponent {
                         <Form style={{paddingTop:8}}>
                             <Form.Label>
                                 Opinion Model:
+                                {/*}
                                 {" "}
                                 <OverlayTrigger placement="top" overlay={modelSelectTooltip}>
                                     <span><QuestionIcon verticalAlign="text-top"/></span>
                                 </OverlayTrigger>
+                                */}
                             </Form.Label>
 
                             <div key="inline-radios" className="mb-3">
