@@ -294,9 +294,22 @@ npm install jquery @popperjs/core --save
 
 ## Icons
 
+### Octicons
+
 ```sh
 npm install @primer/octicons-react --save
 ```
 
   + https://primer.style/octicons/question-16
   + https://primer.style/octicons/packages/react
+
+### React-Icons
+
+Actually let's use all the icons
+
+
+```sh
+npm install react-icons --save
+```
+
+  + https://www.npmjs.com/package/react-icons

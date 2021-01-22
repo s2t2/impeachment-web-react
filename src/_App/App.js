@@ -15,7 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 //import 'react-bootstrap-typeahead/css/Typeahead.css';
 import './App.css'
 
-//import Home from './Home.js'
+import Home from './Home.js'
 import About from './About.js'
 import sidebar from './sidebar.js'
 
@@ -94,7 +94,7 @@ export default function App() {
 
                 <div className="d-none d-lg-block d-md-block d-xl-block">
                     <Navbar fixed="top" bg="light">
-                        <Navbar.Brand href="/" style={{fontSize:22}}>Impeachment Tweet Analysis</Navbar.Brand>
+                        <Navbar.Brand href="/" style={{fontSize:22}}>Impeachment Tweet Analysis (2020)</Navbar.Brand>
 
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
@@ -107,7 +107,7 @@ export default function App() {
 
                 <div className="sidebarMobile  d-sm-block d-md-none">
                     <Navbar bg="light" collapseOnSelect expand="lg">
-                        <Navbar.Brand href="/">Impeachment Tweet Analysis</Navbar.Brand>
+                        <Navbar.Brand href="/">Impeachment Tweet Analysis (2020)</Navbar.Brand>
 
                         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                         <Navbar.Collapse id="basic-navbar-nav">
@@ -140,11 +140,11 @@ export default function App() {
 
                         <Col md={10} className="page">
                             <Switch>
-                                {/* <Route path="/" exact component={Home} /> */}
+                                <Route path="/" exact component={Home} />
                                 <Route path="/about" component={About} />
                                 {sidebarRoutes}
 
-                                <Route exact path="/"><Redirect to="/bot-impact" /></Route>
+                                {/* <Route exact path="/"><Redirect to="/bot-impact" /></Route> */}
                                 <Route exact path="/bot-classification"><Redirect to="/bot-detection" /></Route>
                                 <Route exact path="/bot-communities"><Redirect to="/bot-clustering" /></Route>
                                 <Route exact path="/bot-networks"><Redirect to="/bot-clustering" /></Route>
