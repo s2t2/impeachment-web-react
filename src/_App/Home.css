@@ -18,23 +18,17 @@
 }
 */
 
-/* Large devices (desktops, 992px and up)
+/* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-
-    .my-button-group {
-        display:block;
-        margin:0 auto !important;
-    }
 
     .my-center-block-button {
         width: 205px;
         display: inline-block;
         margin: 0 10px !important;
-        align-content: center;
     }
 
 }
-*/
+
 
 /* Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
@@ -42,3 +36,27 @@
 }
 
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+    .my-center-block-button {
+        width: 205px;
+        display: inline-block;
+        margin: 0 10px !important;
+    }
+
+}

@@ -9,7 +9,7 @@ import { GoHubot as RobotIcon } from 'react-icons/go'
 import { AiOutlineDashboard as DashboardIcon} from 'react-icons/ai'
 import { VscTwitter as TwitterIcon } from 'react-icons/vsc'
 
-//import './Home1.css'
+import './Home.css'
 
 export default function Home() {
     const history = useHistory()
@@ -65,22 +65,22 @@ export default function Home() {
                     </Card.Text>
 
 
+                    <div className="my-btn-group text-center">
+                        <Button size="lg" variant="outline-primary" className="my-center-block-button" onClick={redirectTweetCollection} block>
+                            <span style={{marginRight:"8px"}}><TwitterIcon verticalAlign="middle"/></span>
+                            Tweet Collection
+                        </Button>
 
-                    <Button size="lg" variant="outline-primary" className="my-center-block-button" onClick={redirectTweetCollection} block>
-                        <span style={{marginRight:"8px"}}><TwitterIcon verticalAlign="middle"/></span>
-                        Tweet Collection
-                    </Button>
+                        <Button size="lg" variant="outline-primary" className="my-center-block-button" onClick={redirectOpinionAnalysis} block>
+                            <span style={{marginRight:"8px"}}><DashboardIcon /></span>
+                            Opinion Analysis
+                        </Button>
 
-                    <Button size="lg" variant="outline-primary" className="my-center-block-button" onClick={redirectOpinionAnalysis} block>
-                        <span style={{marginRight:"8px"}}><DashboardIcon /></span>
-                        Opinion Analysis
-                    </Button>
-
-                    <Button size="lg" variant="outline-primary" className="my-center-block-button" onClick={redirectBotAnalysis} block>
-                        <span style={{marginRight:"8px"}}><RobotIcon verticalAlign="middle"/></span>
-                        Bot Analysis
-                    </Button>
-
+                        <Button size="lg" variant="outline-primary" className="my-center-block-button" onClick={redirectBotAnalysis} block>
+                            <span style={{marginRight:"8px"}}><RobotIcon verticalAlign="middle"/></span>
+                            Bot Analysis
+                        </Button>
+                    </div>
 
 
 
