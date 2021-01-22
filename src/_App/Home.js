@@ -3,16 +3,13 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Container, Row, Col, Jumbotron, Card, Button } from 'react-bootstrap'
-import AboutCard from './About/Card'
+//import AboutCard from './About/Card'
 
-//import {HubotIcon} from '@primer/octicons-react'
-import { GoHubot as RobotIcon} from 'react-icons/go'
-
+import { GoHubot as RobotIcon } from 'react-icons/go'
 import { AiOutlineDashboard as DashboardIcon} from 'react-icons/ai'
-//import { FiTwitter as  TwitterIcon} from 'react-icons/fi'
-import {
-    VscTwitter as TwitterIcon //, VscHubot as RobotIcon
-} from 'react-icons/vsc'
+import { VscTwitter as TwitterIcon } from 'react-icons/vsc'
+
+//import './Home1.css'
 
 export default function Home() {
     const history = useHistory()
@@ -68,26 +65,28 @@ export default function Home() {
                     </Card.Text>
 
 
-                    <Row className={{textAlign:"center"}}>
-                        <Col>
-                            <Button size="lg" variant="outline-primary" style={{width:"205px"}} onClick={redirectTweetCollection}>
-                                <span style={{marginRight:"8px"}}><TwitterIcon verticalAlign="middle"/></span>
-                                Tweet Collection
-                            </Button>
-                        </Col>
-                        <Col>
-                            <Button size="lg" variant="outline-primary" style={{width:"205px"}} onClick={redirectOpinionAnalysis}>
-                                <span style={{marginRight:"8px"}}><DashboardIcon /></span>
-                                Opinion Analysis
-                            </Button>
-                        </Col>
-                        <Col>
-                            <Button size="lg" variant="outline-primary" style={{width:"205px"}} onClick={redirectBotAnalysis}>
-                                <span style={{marginRight:"8px"}}><RobotIcon verticalAlign="middle"/></span>
-                                Bot Analysis
-                            </Button>
-                        </Col>
-                    </Row>
+
+                    <Button size="lg" variant="outline-primary" className="my-center-block-button" onClick={redirectTweetCollection} block>
+                        <span style={{marginRight:"8px"}}><TwitterIcon verticalAlign="middle"/></span>
+                        Tweet Collection
+                    </Button>
+
+                    <Button size="lg" variant="outline-primary" className="my-center-block-button" onClick={redirectOpinionAnalysis} block>
+                        <span style={{marginRight:"8px"}}><DashboardIcon /></span>
+                        Opinion Analysis
+                    </Button>
+
+                    <Button size="lg" variant="outline-primary" className="my-center-block-button" onClick={redirectBotAnalysis} block>
+                        <span style={{marginRight:"8px"}}><RobotIcon verticalAlign="middle"/></span>
+                        Bot Analysis
+                    </Button>
+
+
+
+
+
+
+
 
                 </Card.Body>
             </Card>

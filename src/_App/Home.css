@@ -1,0 +1,44 @@
+
+
+
+/* https://getbootstrap.com/docs/4.0/layout/overview/ */
+
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+*/
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+*/
+
+/* Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+    .my-button-group {
+        display:block;
+        margin:0 auto !important;
+    }
+
+    .my-center-block-button {
+        width: 205px;
+        display: inline-block;
+        margin: 0 10px !important;
+        align-content: center;
+    }
+
+}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}
+
+*/
