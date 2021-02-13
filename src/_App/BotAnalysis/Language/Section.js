@@ -57,7 +57,7 @@ export default function BotLanguageSection() {
                     <Card.Text>
                         It is interesting to observe pro-Trump bots using hashtags like <i>'#QANON'</i>, <i>'#WWG1WGA'</i>, and <i>'#GREATAWAKENING'</i>,
                         {" "} which are <a href="https://wt.social/post/fighting-misinformation/nvrqyhu5325591624484">related</a>
-                        {" "} to the debunked <a href="https://www.cbsnews.com/news/what-is-the-qanon-conspiracy-theory/">"Q-Anon" conspiracy theory</a>.
+                        {" "} to the baseless <a href="https://www.cbsnews.com/news/what-is-the-qanon-conspiracy-theory/">"Q-Anon" conspiracy theory</a>.
                     </Card.Text>
 
                 </Card.Body>
