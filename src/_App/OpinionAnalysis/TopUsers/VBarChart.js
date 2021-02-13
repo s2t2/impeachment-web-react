@@ -68,7 +68,7 @@ export default class MyBarChart extends Component {
             opinionMetric: "avg_score_lr",
             opinionRange: [0, 100],
             followerMin: 200_000, //0, //412_000,
-            tweetMin: 5 //3, //30,
+            tweetMin: 20 //3, //30,
         }
 
         this.selectUserCategories = this.selectUserCategories.bind(this)
