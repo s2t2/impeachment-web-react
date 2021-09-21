@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { Container, Row, Col, Jumbotron, Card, Button } from 'react-bootstrap'
+import { Container, Card, Button } from 'react-bootstrap' // Row, Col, Jumbotron,
 //import AboutCard from './About/Card'
 
 import { GoHubot as RobotIcon } from 'react-icons/go'
@@ -34,36 +34,14 @@ export default function Home() {
 
             <Card>
                 <Card.Body>
-                    <Card.Title><h2>Bots and Disinformation in Social Networks: The Impeachment of Donald Trump</h2></Card.Title>
+                    <Card.Title><h2>Bots, Disinformation, and the (First) Trump Impeachment</h2></Card.Title>
 
                     <Card.Text class="lead">
-                        A research project by Michael J Rossetti and Tauhid Zaman.
+                        A research project by Michael Rossetti and Tauhid Zaman
                     </Card.Text>
-
                     <Card.Text>
-                        Disinformation is
-                        {/*
-                            <a href="https://www.merriam-webster.com/dictionary/disinformation">defined as</a>
-                        */}
-
-                        {" "}  "false information deliberately and often covertly spread (as by the planting of rumors) in order to influence public opinion or obscure the truth."
-
+                        We collect tweets about the (First) Trump Impeachment, identify automated accounts known as "bots", analyze their behavior, and assess their impact on the conversation.
                     </Card.Text>
-
-                    <Card.Text>
-                        Disinformation can lead to dangerous and violent events, most notably exemplified by the Trump Capitol Insurrection of 2021, in which armed supporters of Donald Trump stormed the US Capitol building with intentions of harming members of congress.
-                        {" "}But what precipitated these events?
-                    </Card.Text>
-
-                    <Card.Text>
-                        {" "}In our paper, we analyze the spread of disinformation on Twitter about the 2020 Impeachment of Donald Trump, and the role of automated accounts known as "bots" in amplifying this content across the social network.
-                    </Card.Text>
-
-
-                    <Card.Text>
-                        For more information, click the links below...
-                    </Card.Text>
-
 
                     <div className="my-btn-group text-center">
                         <Button size="lg" variant="outline-primary" className="my-center-block-button" onClick={redirectTweetCollection} block>
@@ -81,12 +59,6 @@ export default function Home() {
                             Bot Analysis
                         </Button>
                     </div>
-
-
-
-
-
-
 
                 </Card.Body>
             </Card>
