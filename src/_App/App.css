@@ -115,22 +115,22 @@ p.app-center.card-text {
 
 
 
-.mobile-dasbhoard-menu-title{
+.mobile-dashboard-menu-title{
    margin: 10px 0px;
 }
 
-.mobile-dasbhoard-menu a{
+.mobile-dashboard-menu a{
   display: block;
   color: rgba(0, 0, 0, .5);
   margin: 10px 0px;
   text-decoration: none !important;
 }
 
-.mobile-dasbhoard-menu a:hover{
+.mobile-dashboard-menu a:hover{
    color: rgba(0, 0, 0, .8);
 }
 
-.mobile-dasbhoard-menu a.active {
+.mobile-dashboard-menu a.active {
   font-weight: 500;
   color: #1a1a1a !important;
 }

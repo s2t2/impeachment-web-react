@@ -17,6 +17,7 @@ import './App.css'
 
 import Home from './Home.js'
 import About from './About.js'
+import Talks from './Talks.js'
 import sidebar from './sidebar.js'
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKER_ID, {debug: true})
@@ -56,9 +57,9 @@ export default function App() {
         })
         return (
             <span key={page["key"]}>
-                <h6 className="mobile-dasbhoard-menu-title">{page["title"]}</h6>
+                <h6 className="mobile-dashboard-menu-title">{page["title"]}</h6>
 
-                <div className="mobile-dasbhoard-menu">
+                <div className="mobile-dashboard-menu">
                     {sectionLinks}
                 </div>
             </span>
@@ -100,6 +101,7 @@ export default function App() {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
                                 <Nav.Link href="/about">About</Nav.Link>
+                                <Nav.Link href="/talks">Talks</Nav.Link>
                           </Nav>
                         </Navbar.Collapse>
                     </Navbar>
@@ -112,8 +114,9 @@ export default function App() {
                         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
-                                <div className="mobile-dasbhoard-menu">
+                                <div className="mobile-dashboard-menu">
                                     <NavLink to="/about" activeClassName="active">About</NavLink>
+                                    <NavLink to="/talks" activeClassName="active">Talks</NavLink>
                                 </div>
                             </Nav>
 
@@ -142,6 +145,7 @@ export default function App() {
                             <Switch>
                                 <Route path="/" exact component={Home} />
                                 <Route path="/about" component={About} />
+                                <Route path="/talks" component={Talks} />
                                 {sidebarRoutes}
 
                                 {/* <Route exact path="/"><Redirect to="/bot-impact" /></Route> */}

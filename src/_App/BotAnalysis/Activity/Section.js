@@ -23,7 +23,7 @@ export default function BotDetectionSection() {
                     </Card.Text>
 
 
-                    <DailyActivity metric="bot_tweets" selectable={["bots", "bot_tweets"]} />
+                    <DailyActivity metric="bot_tweets" selectable={["bots", "bot_tweets", "humans", "human_tweets"]} />
 
                     {/* <DailyActivity metric="bots" selectable={[]} /> */}
 

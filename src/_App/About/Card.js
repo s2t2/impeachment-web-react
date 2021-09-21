@@ -14,8 +14,7 @@ export default function AboutCard(){
                 </Card.Text>
 
                 <Card.Text>
-                    For this project, we analyzed tweets about the Trump Impeachment proceedings, with the aim of identifying automated Twitter accounts known as "bots," analyzing their behaviors, and assessing their impact on the conversation.
-                    {" "}We then use bot community language patterns to train opinion models to measure media bias on Twitter.
+                    We collect tweets about the (First) Trump Impeachment, identify automated accounts known as "bots", analyze their behavior, and assess their impact on the conversation.
                 </Card.Text>
             </Card.Body>
         </Card>
