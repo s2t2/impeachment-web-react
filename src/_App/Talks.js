@@ -26,7 +26,7 @@ export default function Talks() {
 
                     <div class="video-container" style={{marginTop:"20px"}}>
                         <iframe
-                            src="https://www.youtube.com/embed/DSpA1xWb4K8"
+                            src="https://www.youtube.com/embed/9oxmJr2xX1s"
                             title="Bots, Disinformation, and the (First) Trump Impeachment"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
