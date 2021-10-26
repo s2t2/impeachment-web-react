@@ -34,7 +34,7 @@ export default class DailyOpinionShift extends PureComponent {
 
             const chartTitle = `Daily Bot-Induced Opinion Shift`
             const chartSubtitle = `Opinion Model: BERT Transformer`
-            const yAxisDomain = [-0.005, 0.01]
+            const yAxisDomain = [-0.0025, 0.0075]
 
             spinIntoChart = (
                 <span>

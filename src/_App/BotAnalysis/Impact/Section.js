@@ -28,13 +28,15 @@ export default function BotImpact() {
                         The chart above shows the daily bot-induced shift in opinions about the Impeachment of President Donald Trump.
                         {" "}The shift in mean opinion is affected by bot reach, bot activity levels, and <a href="/bot-opinions">bot opinions</a>.
                         {" "}Baseline opinions are measured using our <a href="/opinion-models">Impeachment opinion model</a>, which is based on a BERT transformer sentiment classifier.
+                        {" "}Scores are calculated according to a network centrality algorithm called General Harmonic Influence Centrality (GHIC).
+                        {" "}Positive scores (red bars) indicate a shift toward Pro-Trump opinions, while negative scores (blue bars) indicate a shift toward Anti-Trump opinions.
                     </Card.Text>
 
 
                     <Card.Text>
-                        {" "} We observe the average daily bot-induced opinion shift is 3.5% towards left-leaning opinions.
-                        {" "} The highest daily shift towards right-leaning bot opinions was 6.7% on 12/29,
-                        {" "} and the highest daily shift towards left-leaning bot opinions was 13.0% on 1/30.
+                        {" "} We observe the average daily bot-induced opinion shift (GHIC score) is 0.0025 towards pro-Trump opinions.
+                        {" "} The highest daily shift towards pro-Trump opinions was 0.0066 on 1/13.
+                        {" "} and the highest daily shift towards anti-Trump opinions was 0.00088 on 12/23.
                     </Card.Text>
 
 
