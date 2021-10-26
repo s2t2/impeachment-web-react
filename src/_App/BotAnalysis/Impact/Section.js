@@ -29,7 +29,7 @@ export default function BotImpact() {
                         {" "}The shift in mean opinion is affected by bot reach, bot activity levels, and <a href="/bot-opinions">bot opinions</a>.
                         {" "}Baseline opinions are measured using our <a href="/opinion-models">Impeachment opinion model</a>, which is based on a BERT transformer sentiment classifier.
                         {" "}Scores are calculated according to a network centrality algorithm called General Harmonic Influence Centrality (GHIC).
-                        {" "}Positive scores (red bars) indicate a shift toward Pro-Trump opinions, while negative scores (blue bars) indicate a shift toward Anti-Trump opinions.
+                        {" "}Positive scores (red bars) indicate a shift toward pro-Trump opinions, while negative scores (blue bars) indicate a shift toward anti-Trump opinions.
                     </Card.Text>
 
 
