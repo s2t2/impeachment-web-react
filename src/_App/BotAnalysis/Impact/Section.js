@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card'
 //import dailyEquilibrium from "./daily-opinion-equilibrium-tableau.png"
 //import dailyShift from "./daily-opinion-shift-tableau.png"
 import DailyShift from "./DailyShift"
-import DailyActivity from "./DailyActivity"
+//import DailyActivity from "./DailyActivity"
 
 export default function BotImpact() {
     return (

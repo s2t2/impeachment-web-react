@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 
-import {formatPct} from '../../Utils/Decorators'
+//import {formatPct} from '../../Utils/Decorators'
 import {opinionShiftScale as colorScale} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
 import cachedData from '../../../data/bot_impact/assess_all_days.js' //'./data'
