@@ -37,12 +37,6 @@ export default function BotImpact() {
                         {" "} and the highest daily shift towards left-leaning bot opinions was 13.0% on 1/30.
                     </Card.Text>
 
-                    <Card.Text>
-                        {" "} Despite more pro-Trump bots active each day,
-                        {" "} certain daily shifts towards anti-Trump opinion seem to be explained by greater numbers of anti-Trump humans tweeting on those days.
-                    </Card.Text>
-
-                    <DailyActivity metric="human_tweets" selectable={["humans", "human_tweets"]} />
 
                 </Card.Body>
             </Card>
