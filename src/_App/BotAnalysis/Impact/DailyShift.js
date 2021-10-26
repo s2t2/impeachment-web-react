@@ -114,7 +114,8 @@ export default class DailyOpinionShift extends PureComponent {
 
     tooltipFormatter(value, name, props){
         //console.log("FORMATTER", value, name, props)
-        return [formatPct(value), "Mean Pro-Trump Opinion Shift"]
+        //return [formatPct(value), "Mean Pro-Trump Opinion Shift"]
+        return [value, "Mean Pro-Trump Opinion Shift"]
     }
 
 }
