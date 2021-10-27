@@ -28,7 +28,8 @@ export default function BotDetectionSection() {
                     {/* <DailyActivity metric="bots" selectable={[]} /> */}
 
                     <Card.Text>
-                        For each day in our primary collection period, we observe more pro-Trump bots active than anti-Trump bots.
+                        We observe pro-Trump bots tweet slightly more frequently than anti-Trump bots do.
+                        {" "} And there are more pro-Trump bots active each day.
                     </Card.Text>
 
                     {/* <DailyActivity metric="bots" selectable={[]} /> */}

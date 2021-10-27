@@ -10,13 +10,14 @@ import BotOpinions from './Opinions/Section'
 import BotLanguage from './Language/Section'
 import BotBeneficiaries from './Beneficiaries/Section'
 //import BotFollowers from './Followers/Section'
-//import BotImpact from './Impact/Section'
+import BotImpact from './Impact/Section'
 
 export default function BotAnalysisPage() {
     return (
         <span>
             <SectionIndex/>
 
+            <BotImpact/>
             <BotActivity/>
             <BotBeneficiaries/>
             <BotLanguage/>

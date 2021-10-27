@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 
-import {formatPct} from '../../Utils/Decorators'
+//import {formatPct} from '../../Utils/Decorators'
 import {opinionShiftScale as colorScale} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
 import cachedData from '../../../data/bot_impact/assess_all_days.js' //'./data'
@@ -26,14 +26,15 @@ export default class DailyOpinionShift extends PureComponent {
             //console.log("DAILY OPINION SHIFT DATA", data)
 
             data = data.map(function(daily){
-                daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
+                //daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
+                daily["mean_opinion_shift"] = parseFloat(daily["ghic"])
                 return daily
             })
             //console.log("DAILY OPINION SHIFT DATA 2", data)
 
             const chartTitle = `Daily Bot-Induced Opinion Shift`
             const chartSubtitle = `Opinion Model: BERT Transformer`
-            const yAxisDomain = [-0.15, 0.09]
+            const yAxisDomain = [-0.0025, 0.0075]
 
             spinIntoChart = (
                 <span>
@@ -53,7 +54,7 @@ export default class DailyOpinionShift extends PureComponent {
                         <ResponsiveContainer>
                             <BarChart data={data} layout="horizontal" margin={{top: 0, bottom: 20, left: 5, right: 30}} barCategoryGap={0}>
                                 <YAxis type="number" dataKey="mean_opinion_shift" domain={yAxisDomain}>
-                                    <Label value="Mean Pro-Trump Opinion Shift" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
+                                    <Label value="Mean Pro-Trump Opinion Shift (GHIC)" position="insideLeft" angle={-90} offset={0} style={{textAnchor: 'middle'}}/>
                                 </YAxis>
                                 <XAxis type="category" dataKey="date" tick={{fontSize: 14}}>
                                     <Label value="Date" position="insideBottom" offset={-15}/>
@@ -113,7 +114,8 @@ export default class DailyOpinionShift extends PureComponent {
 
     tooltipFormatter(value, name, props){
         //console.log("FORMATTER", value, name, props)
-        return [formatPct(value), "Mean Pro-Trump Opinion Shift"]
+        //return [formatPct(value), "Mean Pro-Trump Opinion Shift"]
+        return [value, "Mean Pro-Trump Opinion Shift"]
     }
 
 }
