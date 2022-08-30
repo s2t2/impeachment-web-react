@@ -1,11 +1,6 @@
 
 
 var dailyImpactScores = [
-    //{
-    //    "date": "2019-12-20",
-    //    "ghic": "0.0005736450739",
-    //    "nbot": 19287
-    //},
 
     {
         "index": 0,

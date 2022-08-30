@@ -36,7 +36,7 @@ export default function Home() {
                 <Card.Body>
                     <Card.Title><h2>Bots, Disinformation, and the (First) Trump Impeachment</h2></Card.Title>
 
-                    <Card.Text class="lead">
+                    <Card.Text className="lead">
                         A research project by Michael Rossetti and Tauhid Zaman
                     </Card.Text>
                     <Card.Text>
