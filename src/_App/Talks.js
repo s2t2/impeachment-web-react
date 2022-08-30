@@ -33,6 +33,10 @@ export default function Talks() {
                             allowfullscreen>
                         </iframe>
                     </div>
+
+                    <Card.Text>
+                        NOTE: we have since updated the bot impact scores (see the <a href="/bot-impact">Bot Impact</a> page for updated results).
+                    </Card.Text>
                 </Card.Body>
             </Card>
 
