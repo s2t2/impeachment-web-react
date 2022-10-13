@@ -33,11 +33,7 @@ export default function BotImpact() {
                     </Card.Text>
 
 
-                    <Card.Text>
-                        {" "} We observe the average daily bot-induced opinion shift (GHIC score) is 0.0025 towards pro-Trump opinions.
-                        {" "} The highest daily shift towards pro-Trump opinions was 0.0066 on 1/13.
-                        {" "} And the highest daily shift towards anti-Trump opinions was 0.00088 on 12/23.
-                    </Card.Text>
+
 
 
                 </Card.Body>

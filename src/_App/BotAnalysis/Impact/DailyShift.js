@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card'
 //import {formatPct} from '../../Utils/Decorators'
 import {opinionShiftScale as colorScale} from '../../Utils/Colors'
 import Spinner from '../../Spinner'
-import cachedData from '../../../data/bot_impact/assess_all_days.js' //'./data'
+import cachedData from '../../../data/bot_impact/assess_all_days_normalized.js'
 
 export default class DailyOpinionShift extends PureComponent {
     constructor(props) {
@@ -27,14 +27,15 @@ export default class DailyOpinionShift extends PureComponent {
 
             data = data.map(function(daily){
                 //daily["mean_opinion_shift"] = daily["mean_opinion_equilibrium_bot"] - daily["mean_opinion_equilibrium_nobot"]
-                daily["mean_opinion_shift"] = parseFloat(daily["ghic"])
+                //daily["mean_opinion_shift"] = parseFloat(daily["ghic"])
+                daily["mean_opinion_shift"] = parseFloat(daily["ghic_bots"])
                 return daily
             })
             //console.log("DAILY OPINION SHIFT DATA 2", data)
 
             const chartTitle = `Daily Bot-Induced Opinion Shift`
             const chartSubtitle = `Opinion Model: BERT Transformer`
-            const yAxisDomain = [-0.0025, 0.0075]
+            const yAxisDomain = [-0.2, 0.1] // [-0.0025, 0.0075]
 
             spinIntoChart = (
                 <span>
