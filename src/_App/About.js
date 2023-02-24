@@ -22,8 +22,8 @@ export default function About() {
 
                     <ul>
                         <li><a href="https://www.zlisto.com/">Tauhid Zaman</a> (Yale University)</li>
-                        <li><a href="https://prof-rossetti.herokuapp.com/">Michael Rossetti</a> (Georgetown University, New York University)</li>
-                        <li>Special thanks to <a href="https://scholar.google.com/citations?hl=en&user=Xw7yaiUAAAAJ">Mohammad Samiul Islam</a> for website development support!</li>
+                        <li><a href="https://prof-rossetti.org/">Michael Rossetti</a> (Georgetown University, New York University)</li>
+                        <li>Special thanks to <a href="https://scholar.google.com/citations?hl=en&user=Xw7yaiUAAAAJ">Mohammad Samiul Islam</a> for website development support (sidebar navigation layout)!</li>
                     </ul>
                 </Card.Body>
             </Card>
